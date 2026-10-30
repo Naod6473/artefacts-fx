@@ -20,7 +20,7 @@ const where = (u) => [44 * Math.cos(TAU * u), 28 * Math.sin(TAU * u)];
 export function draw(p, time, o) {
   const t = shift(time, D, o.seed), C = fit(o.palette, 7), Sp = hex(o.spots[0]), g = GRID.clear(), u = t / D;
   const [x, y] = where(u), h = heading(where, u), beat = Math.sin(TAU * u * BEATS), span = 30 * (1 - 0.22 * Math.abs(beat));
-  p.ellipse(x + 6, y + 8, span * 0.8, 10, C[0], 0.25);
+  p.ellipse(x + 3, y + 4, span * 0.7, 9, C[0], 0.25);
   // tail
   const tail = [];
   for (let j = 0; j <= 8; j++) {

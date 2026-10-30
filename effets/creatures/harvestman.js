@@ -25,7 +25,7 @@ export function draw(p, time, o) {
   const t = shift(time, D, o.seed), C = fit(o.palette, 7), g = GRID.clear(), u = t / D;
   const [x, y] = where(u), h = head(u), bob = 1.5 * Math.sin(TAU * u * 12) ** 2, z = HZ + bob;
   // the shadow of the body falls far below it
-  p.ellipse(x + 8, y + 10, 5, 4, C[0], 0.4);
+  p.ellipse(x + 3, y + 4, 6, 5, C[0], 0.35);
   const hold = (L) => (uu) => {
     const [bx, by] = where(uu), hh = head(uu);
     return [bx + Math.cos(hh + L.a) * 46 * L.len, by + Math.sin(hh + L.a) * 46 * L.len];

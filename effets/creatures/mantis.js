@@ -20,7 +20,7 @@ const STRIKES = [0.42, 0.82];
 export function draw(p, time, o) {
   const t = shift(time, D, o.seed), C = fit(o.palette, 7), F = o.flash.map(hex), g = GRID.clear(), u = t / D;
   const sway = Math.sin(TAU * u * 2) * 0.06, h = H + sway, x = Math.sin(TAU * u * 2) * 1.5, y = 0;
-  const strike = Math.max(...STRIKES.map((s) => pulse(u, s - 0.01, s + 0.07))), look = Math.sin(TAU * u * 3) * 0.35;
+  const strike = Math.max(...STRIKES.map((s) => pulse(u, s - 0.03, s + 0.16))), look = Math.sin(TAU * u * 3) * 0.35;
   p.ellipse(x + 3, y + 10, 8, 22, C[0], 0.3);
   // four walking legs, splayed, planted
   for (const [f, s, fx, fs] of [[-2, -1, -4, -22], [-2, 1, -4, 22], [-4, -1, -24, -20], [-4, 1, -24, 20]]) {
