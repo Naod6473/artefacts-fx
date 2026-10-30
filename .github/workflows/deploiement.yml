@@ -69,7 +69,20 @@ jobs:
           echo "api/donnees/test.sqlite -> $(curl -s -o /dev/null -w '%{http_code}' "${base}api/donnees/test.sqlite") (403 ou 404 attendu)"
           code=$(curl -s -o /dev/null -w '%{http_code}' "${base}api/donnees/config.php"); echo "api/donnees/config.php -> $code"
           [ "$code" = 403 ] || [ "$code" = 404 ] || exit 1
-          echo "api/compte/moi -> $(curl -s "${base}api/compte/moi")"
+          echo "::notice::api/compte/moi -> $(curl -s "${base}api/compte/moi")"
+          echo "::notice::api/compte/inscription (e-mail invalide, 400 attendu) -> $(curl -s -w ' %{http_code}' -X POST -H 'Content-Type: application/json' -H "Origin: ${base%/}" -d '{"email":"x","mdp":"12345678"}' "${base}api/compte/inscription")"
+      - name: Journal des erreurs de l'API
+        if: env.FTP_SERVER != ''
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          DOSSIER: ${{ steps.config.outputs.dossier }}
+          PORT: ${{ steps.config.outputs.port }}
+        run: |
+          # les 20 dernières erreurs PHP des comptes (api/donnees/erreurs.log), affichées en avertissements du déploiement
+          lftp -c "open -p $PORT -u $FTP_USERNAME --env-password sftp://$FTP_SERVER; cat ${DOSSIER}api/donnees/erreurs.log" 2> /dev/null \
+            | tail -20 | sed 's/^/::warning::/' || true
       - name: Secrets absents
         if: env.FTP_SERVER == ''
         env:

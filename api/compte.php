@@ -28,6 +28,23 @@ header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 header('X-Content-Type-Options: nosniff');
 
+// la réponse est toujours du JSON : un avertissement PHP affiché casserait la page ; les erreurs vont dans
+// api/donnees/erreurs.log (jamais servi) et le navigateur reçoit { erreur: "serveur" } avec la cause courte
+ini_set('display_errors', '0');
+set_error_handler(function (int $niveau, string $message, string $fichier, int $ligne): bool {
+    journal("$message ($ligne)");
+    return true;
+});
+set_exception_handler(function (Throwable $e): void {
+    journal(get_class($e) . ': ' . $e->getMessage() . ' (' . $e->getLine() . ')');
+    http_response_code(500);
+    echo json_encode(['ok' => false, 'erreur' => 'serveur', 'detail' => get_class($e) . ' ligne ' . $e->getLine()]);
+});
+function journal(string $texte): void
+{
+    @file_put_contents(__DIR__ . '/donnees/erreurs.log', date('c') . ' ' . ($_GET['a'] ?? '') . ' ' . $texte . "\n", FILE_APPEND);
+}
+
 $config = is_file(__DIR__ . '/donnees/config.php') ? (array) require __DIR__ . '/donnees/config.php' : [];
 $methode = $_SERVER['REQUEST_METHOD'];
 $action = (string) ($_GET['a'] ?? '');
@@ -437,7 +454,9 @@ function envoyer(string $a, string $modele, string $lien): void
         return;
     }
     $entetes = "From: Artefacts <" . EXPEDITEUR . ">\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Transfer-Encoding: 8bit";
-    mail($a, '=?UTF-8?B?' . base64_encode($sujet) . '?=', $corps, $entetes, '-f' . EXPEDITEUR);
+    $sujet = '=?UTF-8?B?' . base64_encode($sujet) . '?=';
+    // certains hébergements refusent l'option -f (adresse de retour) : on réessaie sans
+    if (!mail($a, $sujet, $corps, $entetes, '-f' . EXPEDITEUR) && !mail($a, $sujet, $corps, $entetes)) journal('mail() a échoué');
 }
 
 function http(string $url, ?array $post, ?string $acces = null): mixed

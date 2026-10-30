@@ -12,8 +12,8 @@ export function initCompte({ base, T, ERR, bulle, connecte, deconnecte }) {
   async function appel(action, donnees) {
     const options = donnees === undefined ? {} : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(donnees) };
     const r = await fetch(`${base}api/compte/${action}`, { credentials: "same-origin", ...options });
-    const d = await r.json().catch(() => ({ erreur: "defaut" }));
-    if (!r.ok || d.erreur) throw Object.assign(new Error(d.erreur ?? "defaut"), { code: d.erreur ?? "defaut" });
+    const d = await r.json().catch(() => ({ erreur: "defaut", detail: "HTTP " + r.status }));
+    if (!r.ok || d.erreur) throw Object.assign(new Error(d.erreur ?? "defaut"), { code: d.erreur ?? "defaut", detail: d.detail ?? (ERR[d.erreur] ? "" : d.erreur) });
     return d;
   }
 
@@ -64,7 +64,7 @@ export function initCompte({ base, T, ERR, bulle, connecte, deconnecte }) {
       await rafraichir();
       bulle(T.bienvenue);
     } catch (e) {
-      $("#cpt-erreur").textContent = message(e.code);
+      $("#cpt-erreur").textContent = message(e.code) + (e.detail ? ` (${e.detail})` : "");
     } finally {
       valider.disabled = false;
     }
