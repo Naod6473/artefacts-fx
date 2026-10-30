@@ -87,7 +87,7 @@ for (const f of ["LICENSE", "NOTICE.md"]) cpSync(f, join(DIST, "assets", "src", 
 writeFileSync(join(DIST, ".htaccess"), readFileSync("site/static/.htaccess", "utf8").replaceAll("{{base}}", BASE));
 
 await build({
-  entryPoints: Object.keys(PAGES).filter((p) => existsSync(`site/src/${p}.js`)).map((p) => `site/src/${p}.js`),
+  entryPoints: [...Object.keys(PAGES).filter((p) => existsSync(`site/src/${p}.js`)).map((p) => `site/src/${p}.js`), "site/src/fiche.js"],
   outdir: join(DIST, "assets"),
   bundle: true,
   plugins: [sourceTexte, catalogueVirtuel],
@@ -126,6 +126,60 @@ for (const langue of LANGUES) {
     writeFileSync(join(DIST, langue, fichier), html);
   }
 }
+// une page par effet et par langue (/fr/fx/42/), lisible sans JavaScript : titre, description et image d'aperçu
+// pour les cartes de Discord, X, Facebook… et pour les moteurs de recherche ; plus le plan du site (sitemap.xml)
+{
+  const SITE = "https://" + JSON.parse(readFileSync("config/ovh.json", "utf8")).domaine + BASE.replace(/\/$/, "");
+  const { TAGS_FR, CATEGORIES_FR } = await import("./site/src/tags.js");
+  const { apercu } = await import("./tools/apercus.mjs");
+  const rapide = process.argv.includes("--rapide"); // sans les images d'aperçu (≈ 1 min), pour travailler en local
+  mkdirSync(join(DIST, "apercus"), { recursive: true });
+  if (!rapide) {
+    for (const e of catalogue) {
+      try { writeFileSync(join(DIST, "apercus", e.n + ".png"), await apercu(e.id)); } catch (err) { console.warn(`aperçu ${e.id} : ${err.message}`); }
+    }
+  }
+  const modele = readFileSync("site/pages/_fiche.html", "utf8").replace(/\{\{> (\w+)\}\}/g, (_, f) => readFileSync(`site/pages/_${f}.html`, "utf8"));
+  const urls = [];
+  for (const langue of LANGUES) {
+    const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
+    const page = modele.replace(/\{\{(\w+)\}\}/g, (_, k) => {
+      if (!(k in t)) throw new Error(`${langue}.json : clé manquante « ${k} » (fiche)`);
+      return HTML_PERMIS.has(k) ? t[k] : echappe(t[k]);
+    });
+    const fr = langue === "fr";
+    catalogue.forEach((e, i) => {
+      const num = +e.n, cat = e.id.split("/")[0], url = (l) => `${SITE}/${l}/fx/${num}/`;
+      const lien = (x, fleche) => x ? `<a href="${BASE}${langue}/fx/${+x.n}/">${fleche === "←" ? "← " : ""}${echappe(x.name)} #${x.n}${fleche === "→" ? " →" : ""}</a>` : "<span></span>";
+      const tags = e.tags.map((g) => `<li><a href="${BASE}${langue}/bibliotheque/#tags=${encodeURIComponent(g)}">${echappe(fr ? TAGS_FR[g] ?? g : g)}</a></li>`).join("");
+      const valeurs = {
+        n: e.n, id: echappe(e.id), nom: echappe(e.name), desc: echappe(e.desc),
+        credit: e.author ? echappe(` (${t.mod_par} ${e.author})`) : "",
+        url: url(langue), url_fr: url("fr"), url_en: url("en"), url_autre: `${BASE}${t.langue_autre_code}/fx/${num}/`,
+        image: `${SITE}/apercus/${e.n}.png`, image_rel: `${BASE}apercus/${e.n}.png`,
+        categorie: echappe(fr ? CATEGORIES_FR[cat] ?? cat : cat), categorie_q: encodeURIComponent(fr ? CATEGORIES_FR[cat] ?? cat : cat),
+        format: e.size[0] >= 320 && Math.abs(e.size[0] / e.size[1] - 16 / 9) < 0.05 ? "16 / 9" : "4 / 3", // comme pleinEcran() du lecteur
+        duree: `${e.duration} s, ${e.loop ? t.fiche_boucle_oui : t.fiche_une_fois}`, taille: e.size.join(" × "), tags,
+        precedent: lien(catalogue[i - 1], "←"), suivant: lien(catalogue[i + 1], "→"),
+        jsonld: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareSourceCode", name: e.name, description: e.desc, url: url(langue),
+          image: `${SITE}/apercus/${e.n}.png`, programmingLanguage: "JavaScript", license: "https://opensource.org/licenses/MIT",
+          codeRepository: "https://github.com/Naod6473/artefacts-fx", inLanguage: langue, ...(e.author ? { author: { "@type": "Person", name: e.author } } : {}) }).replace(/</g, "\\u003c"),
+      };
+      const html = page.replace(/%%(\w+)%%/g, (_, k) => {
+        if (!(k in valeurs)) throw new Error(`fiche : valeur manquante « ${k} »`);
+        return valeurs[k];
+      });
+      mkdirSync(join(DIST, langue, "fx", String(num)), { recursive: true });
+      writeFileSync(join(DIST, langue, "fx", String(num), "index.html"), html);
+      urls.push(url(langue));
+    });
+  }
+  const pages = LANGUES.flatMap((l) => Object.values(PAGES).filter((f) => !f.startsWith("moderation")).map((f) => `${SITE}/${l}/${f.replace(/index\.html$/, "")}`));
+  writeFileSync(join(DIST, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...pages, ...urls].map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`);
+  writeFileSync(join(DIST, "robots.txt"), `User-agent: *\nDisallow: ${BASE}api/\nDisallow: ${BASE}fr/moderation/\nDisallow: ${BASE}en/moderation/\nSitemap: ${SITE}/sitemap.xml\n`);
+  console.log(`fiches : ${urls.length} pages${rapide ? " (sans images d'aperçu)" : ", images dans apercus/"}`);
+}
+
 // sans Apache (aperçu local), la racine choisit la langue en JavaScript
 writeFileSync(join(DIST, "index.html"), `<!doctype html><meta charset="utf-8"><title>Artefacts</title><script>location.replace(/^fr/i.test(navigator.language)?"${BASE}fr/":"${BASE}en/")</script><a href="${BASE}fr/">Français</a> · <a href="${BASE}en/">English</a>`);
 console.log(`dist/ : ${LANGUES.join(", ")}, ${catalogue.length} effets`);

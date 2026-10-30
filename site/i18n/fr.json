@@ -217,5 +217,17 @@
   "mod_fait_pr": "Pull request ouverte :",
   "mod_fait": "C'est noté.",
   "mod_jeton_absent": "Jeton GitHub absent (secret GH_REPO_TOKEN) : accepter ne marchera pas encore.",
-  "mod_par": "par"
+  "mod_par": "par",
+  "fiche_titre": "Artefacts, effets visuels de jeu en JavaScript",
+  "og_locale": "fr_FR",
+  "fiche_ouvrir": "Ouvrir dans la bibliothèque",
+  "fiche_code": "Voir le code",
+  "fiche_duree": "Durée",
+  "fiche_taille": "Taille",
+  "fiche_licence": "Licence",
+  "fiche_utiliser": "Dans votre jeu",
+  "fiche_boucle": "à chaque image de votre boucle de jeu :",
+  "fiche_voisins": "Effets voisins",
+  "fiche_boucle_oui": "en boucle",
+  "fiche_une_fois": "une fois"
 }

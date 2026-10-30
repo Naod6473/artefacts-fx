@@ -217,5 +217,17 @@
   "mod_fait_pr": "Pull request opened:",
   "mod_fait": "Done.",
   "mod_jeton_absent": "No GitHub token (secret GH_REPO_TOKEN): accepting won't work yet.",
-  "mod_par": "by"
+  "mod_par": "by",
+  "fiche_titre": "Artefacts, JavaScript game visual effects",
+  "og_locale": "en_US",
+  "fiche_ouvrir": "Open in the library",
+  "fiche_code": "See the code",
+  "fiche_duree": "Duration",
+  "fiche_taille": "Size",
+  "fiche_licence": "License",
+  "fiche_utiliser": "In your game",
+  "fiche_boucle": "every frame of your game loop:",
+  "fiche_voisins": "Nearby effects",
+  "fiche_boucle_oui": "looping",
+  "fiche_une_fois": "one-shot"
 }

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="{{langue}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>%%nom%% (#%%n%%) · {{fiche_titre}}</title>
+<meta name="description" content="%%desc%%">
+<link rel="canonical" href="%%url%%">
+<link rel="alternate" hreflang="fr" href="%%url_fr%%">
+<link rel="alternate" hreflang="en" href="%%url_en%%">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Artefacts">
+<meta property="og:title" content="%%nom%% · #%%n%%">
+<meta property="og:description" content="%%desc%%">
+<meta property="og:url" content="%%url%%">
+<meta property="og:image" content="%%image%%">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="%%nom%%">
+<meta property="og:locale" content="{{og_locale}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#5ce1e6">
+<script type="application/ld+json">%%jsonld%%</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
+<link rel="stylesheet" href="{{base}}assets/compte.css">
+<link rel="stylesheet" href="{{base}}assets/fiche.css">
+</head>
+<body data-base="{{base}}" data-n="%%n%%">
+<header>
+  <div class="barre">
+    <a class="logo" href="{{base}}{{langue}}/">ARTEFACTS<i>_</i></a>
+    <nav>
+      <a href="{{base}}{{langue}}/bibliotheque/">{{bib_nav_biblio}}</a>
+      <a href="{{base}}{{langue}}/proposer/">{{nav_proposer}}</a>
+      <a href="{{base}}{{langue}}/ia/">{{nav_ia}}</a>
+      <a href="https://github.com/Naod6473/artefacts-fx" class="github">★ GitHub</a>
+      <button type="button" id="btn-compte" class="btn-compte" aria-haspopup="dialog">{{cpt_se_connecter}}</button>
+      <a href="%%url_autre%%" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
+    </nav>
+  </div>
+</header>
+
+<main class="fiche">
+  <p class="fil dim"><a href="{{base}}{{langue}}/bibliotheque/">{{bib_nav_biblio}}</a> › <a href="{{base}}{{langue}}/bibliotheque/#q=%%categorie_q%%">%%categorie%%</a></p>
+  <h1>%%nom%% <span class="num">#%%n%%</span></h1>
+  <p class="desc">%%desc%%%%credit%%</p>
+
+  <div class="scene" style="aspect-ratio: %%format%%">
+    <img id="poster" src="%%image_rel%%" alt="%%nom%%" width="1200" height="630">
+    <canvas id="apercu" hidden></canvas>
+  </div>
+  <div id="rendus" class="rendus" role="group" aria-label="{{bib_rendu}}"></div>
+
+  <div class="actions">
+    <a class="bouton principal" href="{{base}}{{langue}}/bibliotheque/#fx=%%n%%">{{fiche_ouvrir}}</a>
+    <a class="bouton" href="{{base}}{{langue}}/bibliotheque/#fx=%%n%%&amp;code=source">{{fiche_code}}</a>
+  </div>
+
+  <dl class="infos">
+    <div><dt>{{fiche_duree}}</dt><dd>%%duree%%</dd></div>
+    <div><dt>{{fiche_taille}}</dt><dd>%%taille%% px</dd></div>
+    <div><dt>{{fiche_licence}}</dt><dd>MIT</dd></div>
+  </dl>
+  <ul class="tags">%%tags%%</ul>
+
+  <h2>{{fiche_utiliser}}</h2>
+  <pre class="code"><code>import { createFx } from "artefacts/core/index.js";
+import * as effet from "artefacts/effets/%%id%%.js";
+
+const fx = createFx(effet, { x: 120, y: 80 });
+// {{fiche_boucle}}
+fx.update(dt);
+fx.draw(frame);</code></pre>
+
+  <nav class="voisins" aria-label="{{fiche_voisins}}">
+    %%precedent%%
+    %%suivant%%
+  </nav>
+</main>
+
+<footer class="in"><p>{{pied_licence}} {{pied_credits}}</p></footer>
+{{> compte}}
+<script type="module" src="{{base}}assets/fiche.js"></script>
+</body>
+</html>

@@ -56,3 +56,4 @@ pre.code { max-height: 420px; }
 .liste-mod button { width: 100%; text-align: left; }
 .moderation .cote { flex: 3 1 480px; }
 @media (max-width: 700px) { #code { min-height: 360px; height: 50vh; } }
+footer { padding: 20px; color: var(--faible); font-size: 12px; text-align: center; }
