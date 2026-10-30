@@ -1,0 +1,37 @@
+<!-- fenêtre de compte, partagée par les pages (incluse par {{> compte}}) -->
+<dialog id="fen-compte" aria-labelledby="cpt-titre">
+  <form method="dialog" class="fermer"><button aria-label="{{cpt_fermer}}">×</button></form>
+  <div id="cpt-entree">
+    <h2 id="cpt-titre"></h2>
+    <p class="dim" id="cpt-intro">{{cpt_pourquoi}}</p>
+    <a class="bouton-github" id="cpt-github" href="{{base}}api/compte/github">{{cpt_github}}</a>
+    <p class="ou dim" id="cpt-ou">{{cpt_ou}}</p>
+    <form id="cpt-form" novalidate>
+      <label id="cpt-l-email">{{cpt_email}}<input name="email" type="email" autocomplete="email" required maxlength="254"></label>
+      <label id="cpt-l-mdp">{{cpt_mdp}}<input name="mdp" type="password" required minlength="8" maxlength="200"></label>
+      <p class="erreur" id="cpt-erreur" role="alert"></p>
+      <button class="principal" id="cpt-valider"></button>
+    </form>
+    <p class="liens dim">
+      <button type="button" class="lien" data-mode="connexion">{{cpt_deja}}</button>
+      <button type="button" class="lien" data-mode="inscription">{{cpt_creer}}</button>
+      <button type="button" class="lien" data-mode="oubli">{{cpt_oubli}}</button>
+    </p>
+  </div>
+  <div id="cpt-envoye" hidden>
+    <h2>{{cpt_envoye_titre}}</h2>
+    <p id="cpt-envoye-texte"></p>
+    <p class="dim">{{cpt_envoye_spam}}</p>
+  </div>
+  <div id="cpt-membre" hidden>
+    <h2>{{cpt_mon_compte}}</h2>
+    <p id="cpt-qui"></p>
+    <p class="dim">{{cpt_prive}}</p>
+    <div class="actions">
+      <button type="button" id="cpt-deconnexion">{{cpt_deconnexion}}</button>
+      <button type="button" id="cpt-supprimer" class="danger">{{cpt_supprimer}}</button>
+    </div>
+  </div>
+</dialog>
+<script id="textes-compte" type="application/json">{"se_connecter":"{{cpt_se_connecter}}","connexion_titre":"{{cpt_connexion_titre}}","creer_titre":"{{cpt_creer_titre}}","oubli_titre":"{{cpt_oubli_titre}}","nouveau_titre":"{{cpt_nouveau_titre}}","creer_bouton":"{{cpt_creer_bouton}}","oubli_bouton":"{{cpt_oubli_bouton}}","nouveau_bouton":"{{cpt_nouveau_bouton}}","nouveau_mdp":"{{cpt_nouveau_mdp}}","mdp":"{{cpt_mdp}}","envoye_confirmer":"{{cpt_envoye_confirmer}}","envoye_oubli":"{{cpt_envoye_oubli}}","bienvenue":"{{cpt_bienvenue}}","deconnecte":"{{cpt_deconnecte}}","supprimer_confirmer":"{{cpt_supprimer_confirmer}}","supprimer_mdp":"{{cpt_supprimer_mdp}}","supprime":"{{cpt_supprime}}","sync_ko":"{{cpt_sync_ko}}"}</script>
+<script id="erreurs-compte" type="application/json">{{cpt_erreurs_json}}</script>

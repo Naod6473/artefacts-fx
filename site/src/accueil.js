@@ -18,6 +18,7 @@ import * as waterfall from "../../effets/water/waterfall.js";
 import * as glitch from "../../effets/scifi/glitch.js";
 
 import registre from "../../effets/registre.json";
+import { initCompte } from "./compte.js";
 
 const LANGUE = document.documentElement.lang || "fr";
 // numéro d'un effet (#0042) à partir de son module, pour ouvrir sa fiche dans la bibliothèque
@@ -126,4 +127,18 @@ for (const m of [lightningStrike, levelUp, hologram, heal, blackHole, swordSlash
   f.append(a, c);
   mur.appendChild(f);
   anim.ajouter(cv, l, () => renduApercu);
+}
+
+// bouton « Se connecter » : même fenêtre que dans la bibliothèque ; favoris et projets se gèrent là-bas
+{
+  const T = JSON.parse(document.getElementById("textes-compte").textContent);
+  const bulle = (texte) => {
+    const d = document.createElement("div");
+    d.className = "bulle-compte";
+    d.setAttribute("role", "status");
+    d.textContent = texte;
+    document.body.appendChild(d);
+    setTimeout(() => d.remove(), 2600);
+  };
+  initCompte({ base: document.body.dataset.base, T, ERR: JSON.parse(document.getElementById("erreurs-compte").textContent), bulle, connecte: async () => {}, deconnecte: () => {} });
 }

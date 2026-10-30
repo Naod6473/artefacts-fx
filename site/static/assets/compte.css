@@ -1,0 +1,35 @@
+/* Compte : bouton de l'en-tête et fenêtre de connexion, communs à l'accueil et à la bibliothèque.
+   Couleurs propres (celles de la bibliothèque) pour être identiques sur les deux pages. */
+#fen-compte, .btn-compte, .bulle-compte {
+  --fond: #07090f; --carte: #090c14; --trait2: #2a3547; --encre: #d6e2f0; --dim: #8796ad; --accent: #5ce1e6; --ambre: #ffb347;
+}
+#fen-compte { font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, Consolas, monospace; font-size: 13px; line-height: 1.5; }
+#fen-compte button, .btn-compte { font: inherit; color: var(--encre); background: transparent; border: 1px solid var(--trait2); min-height: 32px; padding: 4px 10px; cursor: pointer; }
+#fen-compte button:hover:not(:disabled), .btn-compte:hover { border-color: var(--accent); }
+#fen-compte button:disabled { opacity: .45; cursor: default; }
+#fen-compte .dim { color: var(--dim); }
+#fen-compte a { color: var(--accent); }
+.bulle-compte { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--accent); color: var(--fond); padding: 10px 16px; font-weight: 500; z-index: 30; }
+.btn-compte { min-height: 40px; color: var(--encre); }
+.btn-compte[aria-pressed="true"] { background: transparent; color: var(--accent); border-color: var(--trait2); }
+#fen-compte { width: min(420px, calc(100vw - 32px)); background: var(--carte); color: var(--encre); border: 1px solid var(--trait2); padding: 24px; }
+#fen-compte::backdrop { background: rgba(3, 5, 9, .75); }
+#fen-compte h2 { font-family: inherit; font-weight: 700; font-size: 16px; margin: 0 0 8px; letter-spacing: .04em; }
+#fen-compte .fermer { position: absolute; top: 8px; right: 8px; }
+#fen-compte .fermer button { border: 0; font-size: 20px; min-width: 40px; min-height: 40px; }
+#fen-compte form:not(.fermer) { display: grid; gap: 12px; }
+#fen-compte label { display: grid; gap: 4px; color: var(--dim); }
+#fen-compte label[hidden], #fen-compte [hidden] { display: none; }
+#fen-compte input { font: inherit; color: var(--encre); background: var(--fond); border: 1px solid var(--trait2); min-height: 40px; padding: 6px 10px; }
+#fen-compte input:focus { border-color: var(--accent); outline: none; }
+#fen-compte .principal { background: var(--accent); border-color: var(--accent); color: var(--fond); font-weight: 700; min-height: 44px; }
+#fen-compte .erreur { color: var(--ambre); margin: 0; min-height: 1em; }
+#fen-compte .erreur:empty { display: none; }
+#fen-compte .bouton-github { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--trait2); color: var(--encre); text-decoration: none; font-weight: 500; }
+#fen-compte .bouton-github:hover { border-color: var(--accent); }
+#fen-compte .ou { text-align: center; margin: 14px 0; }
+#fen-compte .liens { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 14px 0 0; }
+#fen-compte .lien { border: 0; padding: 4px 0; min-height: 32px; color: var(--accent); text-decoration: underline; }
+#fen-compte .actions { display: flex; gap: 8px; margin-top: 16px; }
+#fen-compte .actions button { flex: 1; min-height: 44px; }
+#fen-compte .danger:hover:not(:disabled) { border-color: var(--ambre); color: var(--ambre); }

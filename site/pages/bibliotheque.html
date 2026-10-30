@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
 <link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
+<link rel="stylesheet" href="{{base}}assets/compte.css">
 </head>
 <body>
 <header>
@@ -97,42 +98,8 @@
     <p id="fx-infos" class="dim petit"></p>
   </aside>
 </div>
-<dialog id="fen-compte" aria-labelledby="cpt-titre">
-  <form method="dialog" class="fermer"><button aria-label="{{cpt_fermer}}">×</button></form>
-  <div id="cpt-entree">
-    <h2 id="cpt-titre"></h2>
-    <p class="dim" id="cpt-intro">{{cpt_pourquoi}}</p>
-    <a class="bouton-github" id="cpt-github" href="{{base}}api/compte/github">{{cpt_github}}</a>
-    <p class="ou dim" id="cpt-ou">{{cpt_ou}}</p>
-    <form id="cpt-form" novalidate>
-      <label id="cpt-l-email">{{cpt_email}}<input name="email" type="email" autocomplete="email" required maxlength="254"></label>
-      <label id="cpt-l-mdp">{{cpt_mdp}}<input name="mdp" type="password" required minlength="8" maxlength="200"></label>
-      <p class="erreur" id="cpt-erreur" role="alert"></p>
-      <button class="principal" id="cpt-valider"></button>
-    </form>
-    <p class="liens dim">
-      <button type="button" class="lien" data-mode="connexion">{{cpt_deja}}</button>
-      <button type="button" class="lien" data-mode="inscription">{{cpt_creer}}</button>
-      <button type="button" class="lien" data-mode="oubli">{{cpt_oubli}}</button>
-    </p>
-  </div>
-  <div id="cpt-envoye" hidden>
-    <h2>{{cpt_envoye_titre}}</h2>
-    <p id="cpt-envoye-texte"></p>
-    <p class="dim">{{cpt_envoye_spam}}</p>
-  </div>
-  <div id="cpt-membre" hidden>
-    <h2>{{cpt_mon_compte}}</h2>
-    <p id="cpt-qui"></p>
-    <p class="dim">{{cpt_prive}}</p>
-    <div class="actions">
-      <button type="button" id="cpt-deconnexion">{{cpt_deconnexion}}</button>
-      <button type="button" id="cpt-supprimer" class="danger">{{cpt_supprimer}}</button>
-    </div>
-  </div>
-</dialog>
+{{> compte}}
 <script id="textes" type="application/json">{"lire":"{{bib_lire}}","pause":"{{bib_pause}}","copie":"{{bib_copie}}","copie_ko":"{{bib_copie_ko}}","video_ko":"{{bib_video_ko}}","video_ok":"{{bib_video_ok}}","video_en_cours":"{{bib_video_en_cours}}","virgule":"{{bib_virgule}}","favori":"{{bib_favori}}","vide":"{{bib_vide}}","vide_favoris":"{{bib_vide_favoris}}","vide_projet":"{{bib_vide_projet}}","ajouter_projet":"{{bib_ajouter_projet}}","retirer_projet":"{{bib_retirer_projet}}","lien_copie":"{{bib_lien_copie}}","base":"{{base}}","se_connecter":"{{cpt_se_connecter}}","creer_titre":"{{cpt_creer_titre}}","connexion_titre":"{{cpt_connexion_titre}}","oubli_titre":"{{cpt_oubli_titre}}","nouveau_titre":"{{cpt_nouveau_titre}}","creer_bouton":"{{cpt_creer_bouton}}","oubli_bouton":"{{cpt_oubli_bouton}}","nouveau_bouton":"{{cpt_nouveau_bouton}}","nouveau_mdp":"{{cpt_nouveau_mdp}}","mdp":"{{cpt_mdp}}","envoye_confirmer":"{{cpt_envoye_confirmer}}","envoye_oubli":"{{cpt_envoye_oubli}}","bienvenue":"{{cpt_bienvenue}}","deconnecte":"{{cpt_deconnecte}}","supprimer_confirmer":"{{cpt_supprimer_confirmer}}","supprimer_mdp":"{{cpt_supprimer_mdp}}","supprime":"{{cpt_supprime}}","projet_nom":"{{cpt_projet_nom}}","projet_defaut":"{{cpt_projet_defaut}}","projet_brouillon":"{{cpt_projet_brouillon}}","projet_suppr_confirmer":"{{cpt_projet_suppr_confirmer}}","hors_ligne":"{{cpt_hors_ligne}}","sync_ko":"{{cpt_sync_ko}}"}</script>
-<script id="erreurs-compte" type="application/json">{{cpt_erreurs_json}}</script>
 <script type="module" src="{{base}}assets/bibliotheque.js"></script>
 </body>
 </html>

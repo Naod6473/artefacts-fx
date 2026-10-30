@@ -103,7 +103,8 @@ for (const langue of LANGUES) {
   const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
   mkdirSync(join(DIST, langue), { recursive: true });
   for (const [page, fichier] of Object.entries(PAGES)) {
-    const html = readFileSync(`site/pages/${page}.html`, "utf8").replace(/\{\{(\w+)\}\}/g, (_, k) => {
+    // {{> compte}} insère site/pages/_compte.html (morceau commun à plusieurs pages), puis les {{clé}} sont remplacées
+    const html = readFileSync(`site/pages/${page}.html`, "utf8").replace(/\{\{> (\w+)\}\}/g, (_, f) => readFileSync(`site/pages/_${f}.html`, "utf8")).replace(/\{\{(\w+)\}\}/g, (_, k) => {
       if (!(k in t)) throw new Error(`${langue}.json : clé manquante « ${k} » (page ${page})`);
       return HTML_PERMIS.has(k) ? t[k] : echappe(t[k]);
     });
