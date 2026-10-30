@@ -11,6 +11,7 @@ import { planche, dimensions, spriteFrames, scene, COTE_MAX } from "./planche.js
 import { zip, telecharger } from "./zip.js";
 import { gif } from "./gif.js";
 import { exporterProjet } from "./exportProjet.js";
+import { COLLECTIONS } from "./collections.js";
 
 const $ = (s) => document.querySelector(s);
 const LANGUE = document.documentElement.lang || "fr";
@@ -38,9 +39,13 @@ const LIB = catalogue.map((c) => {
   return { ...c, name: fr ? c.name_fr ?? c.name : c.name, desc: fr ? c.desc_fr ?? c.desc : c.desc, meta, cat, tags, slug, tagsNorm: tags.map(norm).concat(brut.filter(Boolean).map(norm)), texte: norm(mots.join(" ")), jetons: new Set(norm(mots.join(" ")).split(/[^a-z0-9]+/).filter((x) => x.length > 2)) };
 });
 const parNumero = new Map(LIB.map((e) => [e.n, e]));
+// les collections, avec leurs effets trouvés dans la bibliothèque, dans l'ordre choisi
+const parChemin = new Map(LIB.map((e) => [e.id, e]));
+const COLS = COLLECTIONS.map((c) => ({ ...c, nom: c.nom[LANGUE] ?? c.nom.fr, desc: c.desc[LANGUE] ?? c.desc.fr, liste: c.effets.map((id) => parChemin.get(id)).filter(Boolean) }));
 
 // ---------- état (l'URL garde recherche, tags, rendu, vue et effet ouvert : un lien se partage tel quel)
-const etat = { q: "", tags: new Set(), rendu: memo.lire("rendu", RENDU_PAR_DEFAUT), vue: "tout", tri: "numero", choisi: null };
+const etat = { q: "", tags: new Set(), rendu: memo.lire("rendu", RENDU_PAR_DEFAUT), vue: "tout", tri: "numero", choisi: null, col: COLS[0].id };
+const colActive = () => COLS.find((c) => c.id === etat.col) ?? COLS[0];
 if (!parId[etat.rendu]) etat.rendu = RENDU_PAR_DEFAUT;
 const favoris = new Set(memo.lire("favoris", []));
 let projet = memo.lire("projet", []); // effets du projet affiché : [{ n, rendu, note }]
@@ -64,7 +69,8 @@ function lireUrl() {
   if (p.has("q")) etat.q = p.get("q");
   if (p.has("tags")) etat.tags = new Set(p.get("tags").split(",").filter(Boolean));
   if (p.has("rendu") && parId[p.get("rendu")]) etat.rendu = p.get("rendu");
-  if (["favoris", "projet"].includes(p.get("vue"))) etat.vue = p.get("vue");
+  if (["favoris", "projet", "collections"].includes(p.get("vue"))) etat.vue = p.get("vue");
+  if (COLS.some((c) => c.id === p.get("col"))) etat.col = p.get("col");
   if (p.has("fx")) etat.choisi = parNumero.get(p.get("fx").padStart(4, "0")) ?? null;
   // arrivée depuis l'accueil (« voir le code ») : onglet code source ouvert et visible
   if (p.get("code") === "source") { onglet = "source"; allerAuCode = true; }
@@ -76,6 +82,7 @@ function ecrireUrl() {
   if (etat.q) p.set("q", etat.q);
   if (etat.tags.size) p.set("tags", [...etat.tags].join(","));
   if (etat.vue !== "tout") p.set("vue", etat.vue);
+  if (etat.vue === "collections") p.set("col", etat.col);
   p.set("rendu", etat.rendu);
   if (etat.choisi) p.set("fx", etat.choisi.n);
   if (etat.choisi && regModifie()) p.set("o", regTexte());
@@ -117,6 +124,7 @@ function score(e, a) {
   for (const t of etat.tags) if (!e.tags.includes(t)) return -1;
   if (etat.vue === "favoris" && !favoris.has(e.n)) return -1;
   if (etat.vue === "projet" && !dansProjet(e)) return -1;
+  if (etat.vue === "collections" && !colActive().liste.includes(e)) return -1;
   if (a.numero) return e.n === a.numero ? 1000 : -1;
   if (a.dur && !(a.dur[0] === "<" ? e.duration < a.dur[1] : e.duration > a.dur[1])) return -1;
   if (a.couleur && e.couleur !== (COULEURS_EN[a.couleur] ?? a.couleur)) return -1;
@@ -150,6 +158,8 @@ function choisirRendu(id) {
   memo.ecrire("rendu", id);
   document.querySelectorAll(".barre.rendus button, .zoom-rendus button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.rendu === id)));
   majComparaison();
+  majCollections();
+  majGrille();
   if (etat.choisi && dansProjet(etat.choisi)) { dansProjet(etat.choisi).rendu = id; sauverProjet(); }
   ecrireUrl();
 }
@@ -221,12 +231,13 @@ function majMur() {
   const n = ordre.length;
   $("#compte").innerHTML = n === LIB.length ? `<b>${n}</b> ${T.effets}` : `<b>${n}</b> ${n > 1 ? T.affiches : T.affiche} / ${LIB.length}`;
   $("#vide").hidden = ordre.length > 0;
-  $("#vide").textContent = etat.vue === "favoris" && !favoris.size ? T.vide_favoris : etat.vue === "projet" && !projet.length ? T.vide_projet : T.vide;
+  $("#vide").textContent = etat.vue === "favoris" && !favoris.size ? T.vide_favoris : etat.vue === "projet" && !projet.length ? T.vide_projet : etat.vue === "collections" ? T.col_vide : T.vide;
   document.querySelectorAll("[data-vue]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.vue === etat.vue)));
   $("#nb-favoris").textContent = favoris.size;
   $("#nb-projet").textContent = projet.length;
   $("#projets").hidden = !(projets && etat.vue === "projet");
   $("#projet-zip").hidden = !(etat.vue === "projet" && projet.length);
+  majCollections();
   majTags(ordre);
   // une recherche par numéro ouvre l'effet directement
   if (a.numero && ordre.length === 1 && etat.choisi !== ordre[0]) ouvrir(ordre[0]);
@@ -386,9 +397,11 @@ zoom.setAttribute("role", "dialog");
 zoom.setAttribute("aria-modal", "true");
 zoom.setAttribute("aria-labelledby", "zoom-nom");
 zoom.innerHTML = `<div class="zoom-boite"><div class="zoom-rendus" role="group" aria-label="${esc(T.zoom_rendu)}"></div><canvas id="zoom-cv"></canvas>
+  <div class="zoom-grille" hidden>${"<figure><canvas></canvas><figcaption></figcaption></figure>".repeat(4)}</div>
   <div class="zoom-bas"><div class="zoom-titre"><span id="zoom-num" class="num"></span> <span id="zoom-nom"></span></div>
     <div class="zoom-actions"><button type="button" class="plein" id="zoom-copier">${esc(T.zoom_copier)}</button>
       <button type="button" class="coeur" id="zoom-coeur" aria-label="${esc(T.favori)}">♥</button>
+      <button type="button" id="zoom-comparer" aria-pressed="false" title="${esc(T.zoom_comparer)} (C)">⊞ ${esc(T.zoom_comparer)}</button>
       <button type="button" id="zoom-details">${esc(T.zoom_details)}</button>
       <button type="button" id="zoom-fermer" aria-label="${esc(T.zoom_fermer)}">✕</button></div></div></div>
   <button type="button" class="zoom-fleche g" aria-label="${esc(T.zoom_prec)}">←</button>
@@ -404,19 +417,40 @@ for (const r of rendus) {
   b.onclick = () => choisirRendu(r.meta.id);
   zoom.querySelector(".zoom-rendus").appendChild(b);
 }
-const zoomCv = $("#zoom-cv");
+const zoomCv = $("#zoom-cv"), grille = zoom.querySelector(".zoom-grille");
 anim.ajouter(zoomCv, vue, () => etat.rendu);
+// comparer : le même effet dans quatre rendus côte à côte, le rendu choisi en premier ; un clic en choisit un
+let comparer = memo.lire("comparer", false);
+const quatre = () => [etat.rendu, ...autres().slice(0, 3)];
+grille.querySelectorAll("figure").forEach((f, i) => {
+  anim.ajouter(f.querySelector("canvas"), vue, () => quatre()[i]);
+  f.onclick = () => { choisirRendu(quatre()[i]); basculerComparer(false); };
+});
+function majGrille() {
+  grille.querySelectorAll("figcaption").forEach((c, i) => (c.textContent = nomRendu(parId[quatre()[i]])));
+}
+function basculerComparer(oui = !comparer) {
+  comparer = oui;
+  memo.ecrire("comparer", oui);
+  zoomCv.hidden = oui;
+  grille.hidden = !oui;
+  $("#zoom-comparer").setAttribute("aria-pressed", String(oui));
+  majGrille();
+}
+basculerComparer(comparer);
+$("#zoom-comparer").onclick = () => basculerComparer();
+const cibleZoom = () => (comparer ? grille : zoomCv);
 const zoomOuvert = () => !zoom.hidden;
 const calme = matchMedia("(prefers-reduced-motion: reduce)");
 function tailleZoom(e) {
   const k = e.size[0] / e.size[1];
-  zoomCv.style.width = Math.round(Math.min(960, innerWidth * 0.86, innerHeight * 0.62 * k)) + "px";
+  zoomCv.style.width = grille.style.width = Math.round(Math.min(960, innerWidth * 0.86, innerHeight * 0.62 * k)) + "px";
 }
 function envol(depuis, retour) {
-  const a = depuis.getBoundingClientRect(), b = zoomCv.getBoundingClientRect();
+  const cible = cibleZoom(), a = depuis.getBoundingClientRect(), b = cible.getBoundingClientRect();
   if (!a.width || !b.width) return null;
   const k = [{ transform: `translate(${a.left - b.left}px, ${a.top - b.top}px) scale(${a.width / b.width})` }, { transform: "none" }];
-  return zoomCv.animate(retour ? k.reverse() : k, { duration: calme.matches ? 0 : 340, easing: "cubic-bezier(.2,.8,.2,1)", fill: retour ? "forwards" : "none" });
+  return cible.animate(retour ? k.reverse() : k, { duration: calme.matches ? 0 : 340, easing: "cubic-bezier(.2,.8,.2,1)", fill: retour ? "forwards" : "none" });
 }
 function majZoom(e) {
   $("#zoom-num").textContent = "#" + e.n;
@@ -426,7 +460,7 @@ function majZoom(e) {
 }
 function ouvrirZoom(e) {
   majZoom(e);
-  zoomCv.getAnimations().forEach((a) => a.cancel());
+  cibleZoom().getAnimations().forEach((a) => a.cancel());
   zoom.hidden = false;
   anim.vignettes(false);
   document.body.classList.add("zoome");
@@ -442,7 +476,7 @@ function fermerZoom(versPanneau = false) {
     zoom.hidden = true;
     anim.vignettes(true);
     document.body.classList.remove("zoome");
-    zoomCv.getAnimations().forEach((a) => a.cancel());
+    cibleZoom().getAnimations().forEach((a) => a.cancel());
     if (versPanneau) $("#fx-nom").focus();
     else carte?.querySelector(".ouvrir")?.focus({ preventScroll: true });
   };
@@ -661,6 +695,73 @@ $("#projet-zip").onclick = async () => {
   } finally {
     b.disabled = false;
   }
+};
+
+// ---------- collections : une rangée de packs ; le mur montre celui choisi, à télécharger en code ou pour Godot 4
+for (const c of COLS) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.dataset.col = c.id;
+  b.innerHTML = `${esc(c.nom)} <span>${c.liste.length}</span>`;
+  b.onclick = () => { etat.col = c.id; majMur(); };
+  $("#col-liste").appendChild(b);
+}
+function majCollections() {
+  $("#collections").hidden = etat.vue !== "collections";
+  if (etat.vue !== "collections") return;
+  const c = colActive();
+  $("#col-liste").querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.col === c.id)));
+  $("#col-desc").textContent = `${c.desc} · ${nomRendu(parId[etat.rendu])}`;
+}
+const nomDossier = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^\w-]+/g, "-").replace(/^-+|-+$/g, "").toLowerCase();
+/** Lance fn(e, mod, i) pour chaque effet du pack, en montrant l'avancement sur le bouton ; rend la main au navigateur entre deux. */
+async function parPack(bouton, fn) {
+  const c = colActive(), texte = bouton.textContent;
+  document.querySelectorAll(".col-actions button").forEach((b) => (b.disabled = true));
+  try {
+    for (let i = 0; i < c.liste.length; i++) {
+      bouton.textContent = T.col_en_cours.replace("%i", i + 1).replace("%n", c.liste.length);
+      await new Promise((ok) => setTimeout(ok, 0));
+      await fn(c.liste[i], await charger[c.liste[i].n](), i);
+    }
+    return c;
+  } finally {
+    bouton.textContent = texte;
+    document.querySelectorAll(".col-actions button").forEach((b) => (b.disabled = false));
+  }
+}
+$("#col-zip").onclick = async () => {
+  try {
+    const effets = [];
+    const c = await parPack($("#col-zip"), (e, mod) => effets.push({ n: e.n, id: e.id, nom: e.slug, rendu: etat.rendu, note: "", options: optionsDe(mod.meta, REG_VIDE()) }));
+    await exporterProjet({ nom: c.nom, effets, base: T.base + "assets/src/", lisezmoi: T.px_lisezmoi.replaceAll("|", "\n") });
+  } catch (_) { bulle(T.col_ko); }
+};
+// Godot : une planche par effet dans le rendu choisi, à l'échelle et au rythme du panneau « planche », réduits si
+// la planche dépasse ce que les cartes graphiques acceptent
+$("#col-godot").onclick = async () => {
+  try {
+    const fichiers = [], rendu = etat.rendu, c = colActive(), pack = nomDossier(c.nom) + "-godot", dossier = `res://artefacts/${nomDossier(c.nom)}/`;
+    const lignes = [];
+    await parPack($("#col-godot"), async (e, mod) => {
+      const meta = { duration: 1, fps: 30, ...mod.meta };
+      let echelle = rendu === "pixel" ? 2 : 3, fps = [15, 12, 8].find((f) => f <= meta.fps) ?? 8;
+      const passe = () => { const d = dimensions(meta, { echelle, fps }); return d.largeur <= COTE_MAX && d.hauteur <= COTE_MAX; };
+      while (!passe() && echelle > 1) echelle--;
+      while (!passe() && fps > 4) fps -= 2;
+      if (!passe()) return;
+      const p = planche(mod, { rendu, echelle, fps, transparent: true, options: optionsDe(mod.meta, REG_VIDE()) });
+      const nom = `${e.n}-${e.slug}-${rendu}`, noeud = e.slug.split("_").map((m) => m[0].toUpperCase() + m.slice(1)).join("");
+      fichiers.push(
+        { nom: `${pack}/${nom}/${nom}.png`, contenu: await pngDe(p.atlas) },
+        { nom: `${pack}/${nom}/${nom}.tres`, contenu: spriteFrames(p, `${dossier}${nom}/${nom}.png`) },
+        { nom: `${pack}/${nom}/${nom}.tscn`, contenu: scene(p, `${dossier}${nom}/${nom}.tres`, noeud, echelle) },
+      );
+      lignes.push(`#${e.n} ${e.name} : ${nom}.tscn (${p.n} images, ${p.fw}×${p.fh} px, ${p.fps} images/s)`);
+    });
+    fichiers.push({ nom: `${pack}/LISEZMOI.txt`, contenu: T.col_lisezmoi.replaceAll("|", "\n").replaceAll("%c", c.nom).replaceAll("%d", dossier) + "\n\n" + lignes.join("\n") + "\n" });
+    telecharger(await zip(fichiers), `${pack}.zip`);
+  } catch (_) { bulle(T.col_ko); }
 };
 
 // ---------- planche de sprites (PNG) et fichiers Godot 4

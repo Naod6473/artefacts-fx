@@ -67,3 +67,17 @@ footer { border-top: 1px solid var(--trait); padding-block: 20px 32px; color: va
 .doc table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .doc th, .doc td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--trait); vertical-align: top; }
 .doc li { margin-bottom: 6px; color: #c9cfdc; }
+
+/* l'effet du jour */
+.jour-boite { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; align-items: center; }
+.jour-num { color: var(--cyan); font-size: 13px; }
+.jour-texte h3 { font-size: 20px; margin: 2px 0 8px; }
+.jour-texte p { margin: 0 0 10px; }
+.petit { font-size: 12px; }
+.jour-liens { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.bouton { display: inline-flex; align-items: center; min-height: 36px; padding: 6px 12px; border: 1px solid var(--trait); color: var(--encre); text-decoration: none; }
+.bouton:hover { border-color: var(--cyan); }
+.bouton.plein { background: var(--cyan); border-color: var(--cyan); color: var(--bg); }
+#jour-date::first-letter { text-transform: uppercase; }
+@media (max-width: 860px) { .jour-boite { grid-template-columns: 1fr; } }
+#jour-cv canvas { display: block; width: 100%; border: 1px solid var(--trait); background: var(--scene); }

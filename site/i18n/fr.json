@@ -276,5 +276,18 @@
   "zoom_fermer": "Fermer",
   "zoom_prec": "Effet précédent",
   "zoom_suiv": "Effet suivant",
-  "zoom_rendu": "Rendu"
+  "zoom_rendu": "Rendu",
+  "zoom_comparer": "Comparer",
+  "col_titre": "Collections",
+  "col_code": "Pack code (.zip)",
+  "col_godot": "Pack Godot 4 (.zip)",
+  "col_aide": "Les packs sont faits dans le rendu choisi en haut. Le pack code contient les effets, le moteur et une page de démo ; le pack Godot, une planche de sprites et une scène prête par effet.",
+  "col_en_cours": "Préparation %i/%n…",
+  "col_ko": "Le pack n'a pas pu être préparé, réessayez.",
+  "col_lisezmoi": "Collection « %c », exportée depuis Artefacts (https://naod.fr). Effets sous licence MIT ; moteur et effets d'origine : pixelfx (MIT, Patch, Hugo Duprez).||Godot 4 :|1. Décompressez ce dossier dans %d (créez-le dans votre projet).|2. Chaque effet a son dossier : ouvrez sa .tscn ou glissez-la dans une scène, l'animation démarre seule.|3. Le nœud est un AnimatedSprite2D ; l'origine de l'effet est en (0, 0).||Autres moteurs : chaque .png est une planche d'images de gauche à droite puis de haut en bas.||Effets du pack :",
+  "col_vide": "Aucun effet de cette collection ne correspond à la recherche.",
+  "jour_titre": "L'effet du jour",
+  "jour_texte": "Un effet de la bibliothèque, différent chaque jour.",
+  "jour_voir": "Voir l'effet",
+  "jour_biblio": "Ouvrir dans la bibliothèque"
 }

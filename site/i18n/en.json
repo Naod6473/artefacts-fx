@@ -276,5 +276,18 @@
   "zoom_fermer": "Close",
   "zoom_prec": "Previous effect",
   "zoom_suiv": "Next effect",
-  "zoom_rendu": "Style"
+  "zoom_rendu": "Style",
+  "zoom_comparer": "Compare",
+  "col_titre": "Collections",
+  "col_code": "Code pack (.zip)",
+  "col_godot": "Godot 4 pack (.zip)",
+  "col_aide": "Packs are made in the style picked at the top. The code pack holds the effects, the engine and a demo page; the Godot pack, a sprite sheet and a ready scene for each effect.",
+  "col_en_cours": "Preparing %i/%n…",
+  "col_ko": "The pack couldn't be prepared, try again.",
+  "col_lisezmoi": "Collection \"%c\", exported from Artefacts (https://naod.fr). Effects under the MIT license; original engine and effects: pixelfx (MIT, Patch, Hugo Duprez).||Godot 4:|1. Unzip this folder into %d (create it in your project).|2. Each effect has its own folder: open its .tscn or drag it into a scene, the animation starts by itself.|3. The node is an AnimatedSprite2D; the effect's origin is at (0, 0).||Other engines: each .png is a sheet of frames, left to right then top to bottom.||Effects in this pack:",
+  "col_vide": "No effect in this collection matches the search.",
+  "jour_titre": "Effect of the day",
+  "jour_texte": "One effect from the library, a different one every day.",
+  "jour_voir": "See the effect",
+  "jour_biblio": "Open in the library"
 }

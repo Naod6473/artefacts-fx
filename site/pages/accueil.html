@@ -31,6 +31,27 @@
     </div>
   </section>
 
+  <section class="in jour" aria-labelledby="jour-titre">
+    <div class="titre-ligne">
+      <h2 id="jour-titre">{{jour_titre}}</h2>
+      <span id="jour-date" class="dim"></span>
+    </div>
+    <p class="dim">{{jour_texte}}</p>
+    <div class="jour-boite">
+      <a id="jour-cv" class="vers-code" href="{{base}}{{langue}}/bibliotheque/"><canvas></canvas></a>
+      <div class="jour-texte">
+        <span id="jour-num" class="jour-num"></span>
+        <h3 id="jour-nom"></h3>
+        <p id="jour-desc" class="dim"></p>
+        <p id="jour-tags" class="dim petit"></p>
+        <div class="jour-liens">
+          <a id="jour-voir" class="bouton plein" href="{{base}}{{langue}}/bibliotheque/">{{jour_voir}} →</a>
+          <a id="jour-biblio" class="bouton" href="{{base}}{{langue}}/bibliotheque/">{{jour_biblio}}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="in">
     <h2>{{comparer_titre}}</h2>
     <p class="dim">{{comparer_texte}}</p>
