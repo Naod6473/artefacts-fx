@@ -69,11 +69,13 @@ h1::before { content: "> "; content: "> " / ""; color: var(--accent); }
 #lecture { min-width: 44px; min-height: 44px; }
 #curseur { flex: 1; min-width: 60px; accent-color: var(--accent); }
 #temps { font-size: 11px; white-space: nowrap; }
-#comparaison { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-#comparaison figure { margin: 0; cursor: pointer; }
+#comparaison { flex: none; display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 18px) / 4); gap: 6px; overflow-x: auto; scrollbar-width: thin; padding-bottom: 4px; overscroll-behavior-x: contain; }
+#comparaison button { display: block; min-height: 0; padding: 0; border: 0; background: none; text-align: left; color: var(--dim); }
 #comparaison canvas { display: block; width: 100%; border: 1px solid var(--trait); background: var(--scene); }
-#comparaison figure:hover canvas { border-color: var(--accent); }
-#comparaison figcaption { font-size: 12px; color: var(--dim); padding-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#comparaison button:hover canvas { border-color: var(--trait2); }
+#comparaison button[aria-pressed="true"] { background: none; color: var(--accent); }
+#comparaison button[aria-pressed="true"] canvas { border-color: var(--accent); }
+#comparaison span { display: block; font-size: 12px; padding-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .onglets { display: flex; gap: 2px; border-bottom: 1px solid var(--trait); }
 .onglets button { border: 0; border-bottom: 2px solid transparent; min-height: 40px; color: var(--dim); }
 .onglets button[aria-selected="true"] { color: var(--encre); border-bottom-color: var(--accent); }

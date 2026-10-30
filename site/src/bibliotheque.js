@@ -262,12 +262,20 @@ let grand = null;
 const vue = vuePartagee(() => grand);
 anim.ajouter($("#apercu"), vue, () => etat.rendu);
 const autres = () => rendus.map((r) => r.meta.id).filter((id) => id !== etat.rendu).slice(0, 4);
-document.querySelectorAll("#comparaison canvas").forEach((cv, i) => anim.ajouter(cv, vue, () => autres()[i]));
-function majComparaison() {
-  const a = autres();
-  document.querySelectorAll("#comparaison figcaption").forEach((c, i) => (c.textContent = nomRendu(parId[a[i]])));
+// tous les rendus en miniature, toujours dans le même ordre (une bande qui défile) ; celui choisi est encadré.
+// Un ordre fixe évite qu'une vignette change de rendu sous le doigt juste après un toucher.
+for (const r of rendus) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.dataset.rendu = r.meta.id;
+  b.innerHTML = `<canvas></canvas><span>${esc(nomRendu(r))}</span>`;
+  b.onclick = () => choisirRendu(r.meta.id);
+  $("#comparaison").appendChild(b);
+  anim.ajouter(b.querySelector("canvas"), vue, () => r.meta.id);
 }
-document.querySelectorAll("#comparaison figure").forEach((f, i) => (f.onclick = () => choisirRendu(autres()[i])));
+function majComparaison() {
+  $("#comparaison").querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.rendu === etat.rendu)));
+}
 
 const lecture = $("#lecture"), temps = $("#temps"), curseur = $("#curseur");
 lecture.onclick = () => { if (grand) { grand.enPause = !grand.enPause; majLecture(); } };

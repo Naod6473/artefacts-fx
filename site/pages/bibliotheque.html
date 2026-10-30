@@ -87,12 +87,7 @@
       <label class="sr" for="vitesse">{{bib_vitesse}}</label>
       <select id="vitesse"><option value="0.25">×¼</option><option value="0.5">×½</option><option value="1" selected>×1</option><option value="2">×2</option></select>
     </div>
-    <div id="comparaison">
-      <figure><canvas></canvas><figcaption></figcaption></figure>
-      <figure><canvas></canvas><figcaption></figcaption></figure>
-      <figure><canvas></canvas><figcaption></figcaption></figure>
-      <figure><canvas></canvas><figcaption></figcaption></figure>
-    </div>
+    <div id="comparaison" role="group" aria-label="{{bib_rendu}}"></div>
     <details id="reglages" class="reglages">
       <summary>{{rg_titre}} <span id="rg-modifie" class="dim" hidden>· {{rg_modifie}}</span></summary>
       <div id="rg-champs" class="rg-champs"></div>
