@@ -42,6 +42,17 @@ const favoris = new Set(memo.lire("favoris", []));
 let projet = memo.lire("projet", []); // effets du projet affiché : [{ n, rendu, note }]
 let projets = null, actif = null; // membre connecté : tous ses projets [{ id, nom, effets }] et celui affiché
 let retourCompte = null;
+// réglages de l'effet ouvert : options changées à la main, et teinte appliquée aux couleurs
+const REG_VIDE = () => ({ opts: {}, h: 0, s: 1, l: 0, tout: false });
+let reg = REG_VIDE();
+const regModifie = () => Object.keys(reg.opts).length > 0 || reg.h !== 0 || reg.s !== 1 || reg.l !== 0;
+const regTexte = () => (regModifie() ? JSON.stringify(reg) : "");
+function lireReg(texte) {
+  try {
+    const r = JSON.parse(texte);
+    return { ...REG_VIDE(), ...r, opts: r && typeof r.opts === "object" && r.opts ? r.opts : {} };
+  } catch (_) { return REG_VIDE(); }
+}
 const dansProjet = (e) => projet.find((p) => p.n === e.n);
 
 function lireUrl() {
@@ -54,6 +65,7 @@ function lireUrl() {
   // arrivée depuis l'accueil (« voir le code ») : onglet code source ouvert et visible
   if (p.get("code") === "source") { onglet = "source"; allerAuCode = true; }
   if (p.has("compte")) retourCompte = [p.get("compte"), p.get("j")];
+  if (p.has("o")) { reg = lireReg(p.get("o")); regDepuisUrl = true; }
 }
 function ecrireUrl() {
   const p = new URLSearchParams();
@@ -62,6 +74,7 @@ function ecrireUrl() {
   if (etat.vue !== "tout") p.set("vue", etat.vue);
   p.set("rendu", etat.rendu);
   if (etat.choisi) p.set("fx", etat.choisi.n);
+  if (etat.choisi && regModifie()) p.set("o", regTexte());
   history.replaceState(null, "", "#" + p.toString().replace(/%2C/g, ",").replace(/%3A/g, ":"));
 }
 
@@ -258,7 +271,7 @@ const usage = (e) => `import { createFx, createFrame, composite } from "artefact
 import * as fx from "artefacts-fx/effets/${e.id}.js"; // #${e.n}
 
 const frame = createFrame(${e.size[0]}, ${e.size[1]});
-const inst = createFx(fx, { x: ${e.origin[0]}, y: ${e.origin[1]}, seed: 1 });
+const inst = createFx(fx, { x: ${e.origin[0]}, y: ${e.origin[1]}, seed: 1${optionsCode(e)} });
 
 function tick(dt) {
   inst.update(dt);
@@ -277,7 +290,7 @@ async function majCode() {
   if (etat.choisi === e && onglet === "source") $("#code").textContent = texte;
 }
 $("#copier").onclick = () => copier($("#code").textContent, T.copie);
-$("#lien").onclick = () => copier(`${location.origin}${T.base}fx/${+etat.choisi.n}`, T.lien_copie);
+$("#lien").onclick = () => (regModifie() ? copier(location.href, T.rg_lien_copie) : copier(`${location.origin}${T.base}fx/${+etat.choisi.n}`, T.lien_copie));
 async function copier(texte, ok) {
   try { await navigator.clipboard.writeText(texte); bulle(ok); } catch (_) { bulle(T.copie_ko); }
 }
@@ -285,7 +298,7 @@ $("#fx-coeur").onclick = () => etat.choisi && basculerFavori(etat.choisi);
 $("#fx-projet").onclick = () => {
   const e = etat.choisi;
   if (!e) return;
-  projet = dansProjet(e) ? projet.filter((p) => p.n !== e.n) : [...projet, { n: e.n, rendu: etat.rendu, note: "" }];
+  projet = dansProjet(e) ? projet.filter((p) => p.n !== e.n) : [...projet, { n: e.n, rendu: etat.rendu, note: "", o: regTexte() }];
   sauverProjet();
   majProjet();
   if (etat.vue === "projet") majMur();
@@ -352,9 +365,18 @@ async function ouvrir(e) {
   ecrireUrl();
   const p = dansProjet(e);
   if (p && parId[p.rendu] && p.rendu !== etat.rendu) choisirRendu(p.rendu);
+  // réglages : ceux du lien à l'arrivée, sinon ceux gardés dans le projet, sinon aucun
+  if (regDepuisUrl) regDepuisUrl = false;
+  else reg = p?.o ? lireReg(p.o) : REG_VIDE();
   const mod = await charger[e.n]();
   if (etat.choisi !== e) return;
   grand = new Lecteur(mod);
+  modOuvert = mod;
+  grand.options = optionsDe(mod.meta);
+  grand.relancer();
+  majReglages();
+  majCode();
+  ecrireUrl();
   majLecture();
 }
 
@@ -374,6 +396,132 @@ addEventListener("keydown", (ev) => {
     if (e) { ouvrir(e); cartes.get(e).scrollIntoView({ block: "nearest" }); }
   }
 });
+
+// ---------- réglages en direct : couleurs (teinte, saturation, luminosité), lueur, options de l'effet
+let modOuvert = null, regDepuisUrl = false;
+const HEX = /^#[0-9a-f]{3}([0-9a-f]{3})?([0-9a-f]{2})?$/i;
+const estRampe = (v) => Array.isArray(v) && v.length > 0 && v.every((c) => typeof c === "string" && HEX.test(c));
+function versRgb(c) {
+  let h = c.slice(1);
+  if (h.length === 3) h = [...h].map((x) => x + x).join("");
+  const v = parseInt(h.slice(0, 6), 16);
+  return [(v >> 16) / 255, ((v >> 8) & 255) / 255, (v & 255) / 255];
+}
+/** Une couleur décalée en teinte (degrés), multipliée en saturation, décalée en luminosité. */
+function teinter(c, { h, s, l }) {
+  const [r, g, b] = versRgb(c), max = Math.max(r, g, b), min = Math.min(r, g, b);
+  let H = 0, S = 0, L = (max + min) / 2;
+  if (max !== min) {
+    const d = max - min;
+    S = L > 0.5 ? d / (2 - max - min) : d / (max + min);
+    H = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+    H /= 6;
+  }
+  H = (((H + h / 360) % 1) + 1) % 1;
+  S = Math.min(1, Math.max(0, S * s));
+  L = Math.min(1, Math.max(0, L + l));
+  const q = L < 0.5 ? L * (1 + S) : L + S - L * S, p = 2 * L - q;
+  const canal = (t) => {
+    t = ((t % 1) + 1) % 1;
+    return t < 1 / 6 ? p + (q - p) * 6 * t : t < 1 / 2 ? q : t < 2 / 3 ? p + (q - p) * (2 / 3 - t) * 6 : p;
+  };
+  return "#" + [canal(H + 1 / 3), canal(H), canal(H - 1 / 3)].map((x) => Math.round(x * 255).toString(16).padStart(2, "0")).join("");
+}
+/** Les options à passer à createFx : celles changées à la main, couleurs teintées. */
+function optionsDe(meta) {
+  const def = meta.options ?? {}, o = { ...reg.opts };
+  if (reg.h || reg.s !== 1 || reg.l) {
+    for (const [k, v] of Object.entries(def)) {
+      if (k !== "palette" && !reg.tout) continue;
+      const base = o[k] ?? v;
+      if (estRampe(base)) o[k] = base.map((c) => teinter(c, reg));
+      else if (typeof base === "string" && HEX.test(base)) o[k] = teinter(base, reg);
+    }
+  }
+  return o;
+}
+/** Les options changées, écrites comme dans le code de l'onglet Utiliser. */
+function optionsCode(e) {
+  if (!modOuvert || etat.choisi?.n !== e.n) return "";
+  return Object.entries(optionsDe(modOuvert.meta)).map(([k, v]) => `, ${/^[a-z_$][\w$]*$/i.test(k) ? k : JSON.stringify(k)}: ${JSON.stringify(v)}`).join("");
+}
+function appliquerReglages() {
+  if (!grand || !modOuvert) return;
+  const t = grand.temps;
+  grand.options = optionsDe(modOuvert.meta);
+  grand.aller(t);
+  $("#rg-modifie").hidden = !regModifie();
+  const p = etat.choisi && dansProjet(etat.choisi);
+  if (p) { p.o = regTexte(); sauverProjet(); }
+  if (onglet === "usage") majCode();
+  ecrireUrl();
+}
+function champ(nom, controle, sortie) {
+  const l = document.createElement("label");
+  l.className = "rg";
+  const s = document.createElement("span");
+  s.textContent = nom;
+  s.title = nom;
+  l.append(s, controle);
+  if (sortie) l.append(sortie);
+  return l;
+}
+function glissiere(nom, min, max, pas, valeur, change) {
+  const i = Object.assign(document.createElement("input"), { type: "range", min, max, step: pas, value: valeur });
+  const o = document.createElement("output");
+  const ecrire = () => (o.textContent = +(+i.value).toFixed(2));
+  ecrire();
+  i.oninput = () => { ecrire(); change(+i.value); };
+  return champ(nom, i, o);
+}
+function caseACocher(nom, valeur, change) {
+  const i = Object.assign(document.createElement("input"), { type: "checkbox", checked: valeur });
+  i.onchange = () => change(i.checked);
+  const l = champ(nom, i);
+  l.classList.add("case");
+  l.prepend(i);
+  return l;
+}
+function majReglages() {
+  const def = modOuvert?.meta.options ?? {}, champs = [];
+  const opt = (k) => reg.opts[k] ?? def[k];
+  const changer = (k, v) => {
+    if (v === def[k] || JSON.stringify(v) === JSON.stringify(def[k])) delete reg.opts[k];
+    else reg.opts[k] = v;
+    appliquerReglages();
+  };
+  champs.push(glissiere(T.rg_teinte, -180, 180, 5, reg.h, (v) => { reg.h = v; appliquerReglages(); }));
+  champs.push(glissiere(T.rg_saturation, 0, 2, 0.05, reg.s, (v) => { reg.s = v; appliquerReglages(); }));
+  champs.push(glissiere(T.rg_luminosite, -0.4, 0.4, 0.02, reg.l, (v) => { reg.l = v; appliquerReglages(); }));
+  const autresCouleurs = Object.entries(def).some(([k, v]) => k !== "palette" && (estRampe(v) || (typeof v === "string" && HEX.test(v))));
+  if (autresCouleurs) champs.push(caseACocher(T.rg_toutes, reg.tout, (v) => { reg.tout = v; appliquerReglages(); }));
+  champs.push(glissiere(T.rg_lueur, 0, 2, 0.05, reg.opts.light ?? 1, (v) => changer("light", v === 1 ? undefined : v)));
+  champs.push(caseACocher(T.rg_miroir, !!reg.opts.flip, (v) => changer("flip", v || undefined)));
+  const sep = document.createElement("div");
+  sep.className = "rg-sep";
+  champs.push(sep);
+  for (const [k, v] of Object.entries(def)) {
+    if (k === "seed" || k === "palette" || estRampe(v)) continue;
+    if (typeof v === "number" && v !== 0) {
+      const entier = Number.isInteger(v), a = v / 4, b = v * 3;
+      const min = entier ? Math.round(Math.min(a, b)) || (v > 0 ? 1 : -1) : Math.min(a, b), max = entier ? Math.round(Math.max(a, b)) : Math.max(a, b);
+      champs.push(glissiere(k, min, max, entier ? 1 : Math.abs(v) / 50, opt(k), (x) => changer(k, x)));
+    } else if (typeof v === "string" && HEX.test(v)) {
+      const i = Object.assign(document.createElement("input"), { type: "color", value: teinter(opt(k), { h: 0, s: 1, l: 0 }) });
+      i.oninput = () => changer(k, i.value);
+      champs.push(champ(k, i));
+    } else if (typeof v === "string") {
+      const i = Object.assign(document.createElement("input"), { type: "text", value: opt(k), maxLength: 40, spellcheck: false });
+      i.oninput = () => changer(k, i.value);
+      champs.push(champ(k, i));
+    }
+  }
+  $("#rg-champs").replaceChildren(...champs);
+  $("#rg-modifie").hidden = !regModifie();
+  if (regModifie()) $("#reglages").open = true;
+}
+$("#rg-graine").onclick = () => { reg.opts.seed = 1 + Math.floor(Math.random() * 9999); appliquerReglages(); };
+$("#rg-raz").onclick = () => { reg = REG_VIDE(); majReglages(); appliquerReglages(); };
 
 // ---------- planche de sprites (PNG) et fichiers Godot 4
 const fenPl = $("#fen-planche");
@@ -404,7 +552,7 @@ function majPlanche() {
   $("#pl-png").disabled = $("#pl-godot").disabled = true;
   if (tropGrand) return;
   plMinuteur = setTimeout(() => {
-    plRes = planche(plMod, r);
+    plRes = planche(plMod, { ...r, options: optionsDe(plMod.meta) });
     const cv = $("#pl-canvas");
     cv.width = plRes.atlas.width;
     cv.height = plRes.atlas.height;

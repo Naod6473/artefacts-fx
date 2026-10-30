@@ -147,5 +147,16 @@
   "pl_infos": "%n images · grille %g · %t px",
   "pl_trop_grand": "Planche trop grande : baissez la taille ou les images/s.",
   "pl_en_cours": "Préparation…",
-  "pl_lisezmoi": "Effet %e, Artefacts (https://naod.fr/fx/%n), licence MIT.|Moteur et effets d'origine : pixelfx (MIT, Patch, Hugo Duprez).||Godot 4 :|1. Décompressez ce dossier dans %d (le dossier choisi sur le site).|2. Ouvrez %f.tscn ou glissez-la dans une scène : l'animation démarre seule.|3. Le nœud est un AnimatedSprite2D ; l'origine de l'effet est en (0, 0).||Autres moteurs : %f.png est une planche de %n2 images de %c px, de gauche à droite puis de haut en bas, à %fps images/s."
+  "pl_lisezmoi": "Effet %e, Artefacts (https://naod.fr/fx/%n), licence MIT.|Moteur et effets d'origine : pixelfx (MIT, Patch, Hugo Duprez).||Godot 4 :|1. Décompressez ce dossier dans %d (le dossier choisi sur le site).|2. Ouvrez %f.tscn ou glissez-la dans une scène : l'animation démarre seule.|3. Le nœud est un AnimatedSprite2D ; l'origine de l'effet est en (0, 0).||Autres moteurs : %f.png est une planche de %n2 images de %c px, de gauche à droite puis de haut en bas, à %fps images/s.",
+  "rg_titre": "Réglages",
+  "rg_modifie": "modifié",
+  "rg_graine": "Autre variante",
+  "rg_raz": "Réinitialiser",
+  "rg_teinte": "teinte",
+  "rg_saturation": "saturation",
+  "rg_luminosite": "luminosité",
+  "rg_toutes": "toutes les couleurs",
+  "rg_lueur": "lueur",
+  "rg_miroir": "miroir",
+  "rg_lien_copie": "Lien avec vos réglages copié"
 }

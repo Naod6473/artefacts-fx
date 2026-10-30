@@ -147,5 +147,16 @@
   "pl_infos": "%n frames · %g grid · %t px",
   "pl_trop_grand": "Sheet too large: lower the scale or frames/s.",
   "pl_en_cours": "Preparing…",
-  "pl_lisezmoi": "Effect %e, Artefacts (https://naod.fr/fx/%n), MIT license.|Engine and original effects: pixelfx (MIT, Patch, Hugo Duprez).||Godot 4:|1. Unzip this folder into %d (the folder chosen on the site).|2. Open %f.tscn or drag it into a scene: the animation starts on its own.|3. The node is an AnimatedSprite2D; the effect's origin is at (0, 0).||Other engines: %f.png is a sheet of %n2 frames of %c px, left to right then top to bottom, at %fps frames/s."
+  "pl_lisezmoi": "Effect %e, Artefacts (https://naod.fr/fx/%n), MIT license.|Engine and original effects: pixelfx (MIT, Patch, Hugo Duprez).||Godot 4:|1. Unzip this folder into %d (the folder chosen on the site).|2. Open %f.tscn or drag it into a scene: the animation starts on its own.|3. The node is an AnimatedSprite2D; the effect's origin is at (0, 0).||Other engines: %f.png is a sheet of %n2 frames of %c px, left to right then top to bottom, at %fps frames/s.",
+  "rg_titre": "Settings",
+  "rg_modifie": "changed",
+  "rg_graine": "Another variant",
+  "rg_raz": "Reset",
+  "rg_teinte": "hue",
+  "rg_saturation": "saturation",
+  "rg_luminosite": "brightness",
+  "rg_toutes": "all colors",
+  "rg_lueur": "glow",
+  "rg_miroir": "mirror",
+  "rg_lien_copie": "Link with your settings copied"
 }

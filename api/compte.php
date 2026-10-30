@@ -271,7 +271,7 @@ function projet(): never
     foreach ($effets as $e) {
         $n = (string) ($e['n'] ?? '');
         if (!preg_match('/^\d{4}$/', $n)) erreur(400, 'effets');
-        $propres[] = ['n' => $n, 'rendu' => preg_replace('/[^a-z0-9-]/', '', (string) ($e['rendu'] ?? '')), 'note' => couper((string) ($e['note'] ?? ''), 0, 500)];
+        $propres[] = ['n' => $n, 'rendu' => preg_replace('/[^a-z0-9-]/', '', (string) ($e['rendu'] ?? '')), 'note' => couper((string) ($e['note'] ?? ''), 0, 500), 'o' => is_string($e['o'] ?? null) ? substr($e['o'], 0, 2000) : ''];
     }
     $id = isset($corps['id']) ? (int) $corps['id'] : null;
     if ($id) {

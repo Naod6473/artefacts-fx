@@ -130,3 +130,20 @@ h1::before { content: "> "; color: var(--accent); }
 #fen-planche .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 #fen-planche .actions button { flex: 1 1 200px; min-height: 44px; }
 #fen-planche .principal { background: var(--accent); border-color: var(--accent); color: var(--fond); font-weight: 700; }
+
+/* réglages en direct */
+.reglages { border: 1px solid var(--trait); margin-top: 12px; }
+.reglages summary { cursor: pointer; padding: 10px 12px; min-height: 40px; }
+.reglages[open] summary { border-bottom: 1px solid var(--trait); }
+.rg-champs { display: grid; gap: 8px; padding: 12px; }
+.rg { display: grid; grid-template-columns: minmax(84px, 9em) 1fr 4.5em; align-items: center; gap: 10px; min-width: 0; }
+.rg > span { color: var(--dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rg output { text-align: right; font-variant-numeric: tabular-nums; color: var(--dim); }
+.rg input[type="range"] { width: 100%; accent-color: var(--accent); }
+.rg input[type="color"] { width: 48px; height: 28px; padding: 0; border: 1px solid var(--trait2); background: none; }
+.rg input[type="text"] { font: inherit; color: var(--encre); background: var(--fond); border: 1px solid var(--trait2); padding: 4px 8px; min-width: 0; }
+.rg.case { grid-template-columns: auto 1fr; }
+.rg.case span { color: var(--encre); }
+.rg-sep { border-top: 1px dashed var(--trait2); margin: 4px 0; }
+.rg-actions { display: flex; gap: 8px; padding: 0 12px 12px; }
+.rg-actions button { flex: 1; }
