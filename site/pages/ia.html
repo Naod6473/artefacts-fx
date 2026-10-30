@@ -75,7 +75,7 @@
   </ul>
   <p class="dim">{{ia_note}}</p>
 </main>
-<footer class="in"><p>{{pied_licence}} {{pied_credits}}</p></footer>
+{{> pied}}
 <script>
 for (const b of document.querySelectorAll("[data-copier]")) b.onclick = async () => {
   try { await navigator.clipboard.writeText(document.getElementById(b.dataset.copier).textContent); b.textContent = "✓"; } catch (_) {}

@@ -10,7 +10,7 @@ import { pathToFileURL } from "node:url";
 
 const DIST = "dist";
 const LANGUES = readdirSync("site/i18n").filter((f) => f.endsWith(".json")).map((f) => f.slice(0, -5));
-const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html" };
+const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html", espace: "compte/index.html", mentions: "mentions/index.html" };
 // le site peut vivre dans un sous-dossier (naod.fr/artefacts/) : tous les liens partent de chemin_web
 const BASE = JSON.parse(readFileSync("config/ovh.json", "utf8")).chemin_web ?? "/";
 
@@ -112,7 +112,7 @@ await build({
 
 const echappe = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 // les clés qui finissent par une phrase avec des liens (pied_credits) gardent leur HTML ; les autres sont échappées
-const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json"]);
+const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps"]);
 for (const langue of LANGUES) {
   const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
   mkdirSync(join(DIST, langue), { recursive: true });
@@ -174,9 +174,9 @@ for (const langue of LANGUES) {
       urls.push(url(langue));
     });
   }
-  const pages = LANGUES.flatMap((l) => Object.values(PAGES).filter((f) => !f.startsWith("moderation")).map((f) => `${SITE}/${l}/${f.replace(/index\.html$/, "")}`));
+  const pages = LANGUES.flatMap((l) => Object.values(PAGES).filter((f) => !/^(moderation|compte)\//.test(f)).map((f) => `${SITE}/${l}/${f.replace(/index\.html$/, "")}`));
   writeFileSync(join(DIST, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...pages, ...urls].map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`);
-  writeFileSync(join(DIST, "robots.txt"), `User-agent: *\nDisallow: ${BASE}api/\nDisallow: ${BASE}fr/moderation/\nDisallow: ${BASE}en/moderation/\nSitemap: ${SITE}/sitemap.xml\n`);
+  writeFileSync(join(DIST, "robots.txt"), `User-agent: *\nDisallow: ${BASE}api/\nDisallow: ${BASE}fr/moderation/\nDisallow: ${BASE}en/moderation/\nDisallow: ${BASE}fr/compte/\nDisallow: ${BASE}en/compte/\nSitemap: ${SITE}/sitemap.xml\n`);
   console.log(`fiches : ${urls.length} pages${rapide ? " (sans images d'aperçu)" : ", images dans apercus/"}`);
 }
 

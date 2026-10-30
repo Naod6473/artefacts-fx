@@ -29,7 +29,7 @@
 
 .envoi { display: grid; gap: 8px; margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--trait2); }
 .envoi label, .moderation .cote > label { display: grid; gap: 4px; margin-top: 12px; }
-.envoi input:not([type]), .moderation textarea { font: inherit; color: var(--encre); background: var(--carte); border: 1px solid var(--trait2); padding: 8px 10px; }
+.envoi input:not([type]), .envoi input[type=password], .moderation textarea { font: inherit; color: var(--encre); background: var(--carte); border: 1px solid var(--trait2); padding: 8px 10px; }
 .envoi .case { display: flex; gap: 8px; align-items: flex-start; }
 .envoi .case input { margin-top: 4px; }
 .envoi p { margin: 0; }
@@ -57,3 +57,25 @@ pre.code { max-height: 420px; }
 .moderation .cote { flex: 3 1 480px; }
 @media (max-width: 700px) { #code { min-height: 360px; height: 50vh; } }
 footer { padding: 20px; color: var(--faible); font-size: 12px; text-align: center; }
+
+/* Mon espace */
+.carte-esp { border: 1px solid var(--trait); background: var(--carte); padding: 14px 16px; margin: 0 0 14px; }
+.carte-esp h2 { margin-top: 0; }
+.carte-esp .boutons { display: flex; flex-wrap: wrap; gap: 8px; }
+.grille-esp { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 0 0 14px; }
+.carte-esp.lien { display: flex; flex-direction: column; gap: 4px; color: var(--encre); text-decoration: none; margin: 0; }
+.carte-esp.lien:hover { border-color: var(--accent); }
+.carte-esp.lien[hidden] { display: none; }
+.chiffre { font-size: 28px; font-weight: 700; color: var(--accent); }
+.liste-esp { margin: 0; padding-left: 18px; }
+.espace .envoi { max-width: 420px; border: 0; padding: 0; margin: 0; }
+.espace .zone { border-color: #4a2a2a; }
+.espace .danger:hover { border-color: var(--ambre); color: var(--ambre); }
+.espace { max-width: 900px; }
+
+/* Mentions légales */
+.mentions { max-width: 80ch; }
+.mentions h2 { margin-top: 26px; }
+.mentions p, .mentions li { color: var(--dim); }
+.mentions strong { color: var(--encre); font-weight: 500; }
+.pied-biblio { margin-top: 32px; }

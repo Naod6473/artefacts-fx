@@ -70,19 +70,20 @@ export function initCompte({ base, T, ERR, bulle, connecte, deconnecte }) {
     }
   };
 
+  // connecté, le bouton de l'en-tête mène à « Mon espace » (favoris, projets, propositions, déconnexion)
   function majBouton() {
-    btn.textContent = membre ? "◉ " + (membre.github || membre.email?.split("@")[0] || "") : T.se_connecter;
+    btn.textContent = membre ? "◉ " + T.mon_espace : T.se_connecter;
+    btn.title = membre ? membre.github || membre.email || "" : "";
     btn.setAttribute("aria-pressed", String(!!membre));
+    btn.setAttribute("aria-haspopup", membre ? "false" : "dialog");
   }
   btn.onclick = () => {
-    if (membre) {
-      ecran("cpt-membre");
-      $("#cpt-qui").textContent = [membre.email, membre.github && "GitHub @" + membre.github].filter(Boolean).join(" · ");
-    } else {
-      choisirMode("connexion");
-    }
+    if (membre) { location.href = `${base}${langue}/compte/`; return; }
+    choisirMode("connexion");
     fen.showModal();
   };
+  /** Ouvre la fenêtre de connexion (pages qui demandent un compte). */
+  const ouvrir = () => { choisirMode("connexion"); fen.showModal(); };
 
   $("#cpt-deconnexion").onclick = async () => {
     await appel("deconnexion", {}).catch(() => {});
@@ -136,5 +137,12 @@ export function initCompte({ base, T, ERR, bulle, connecte, deconnecte }) {
   }
 
   const pret = rafraichir();
-  return { appel, differer, annuler, retour, pret, get membre() { return membre; } };
+  /** Déconnexion depuis la page (Mon espace) : même effet que le bouton de la fenêtre. */
+  async function deconnecter() {
+    await appel("deconnexion", {}).catch(() => {});
+    membre = null;
+    majBouton();
+    deconnecte(true);
+  }
+  return { appel, differer, annuler, retour, pret, ouvrir, deconnecter, rafraichir, get membre() { return membre; } };
 }

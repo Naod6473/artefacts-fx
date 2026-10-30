@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="{{langue}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{{esp_titre}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
+<link rel="stylesheet" href="{{base}}assets/compte.css">
+<link rel="stylesheet" href="{{base}}assets/proposer.css">
+</head>
+<body data-base="{{base}}">
+<header>
+  <div class="barre">
+    <a class="logo" href="{{base}}{{langue}}/">ARTEFACTS<i>_</i></a>
+    <nav>
+      <a href="{{base}}{{langue}}/bibliotheque/">{{bib_nav_biblio}}</a>
+      <a href="{{base}}{{langue}}/proposer/">{{nav_proposer}}</a>
+      <a href="{{base}}{{langue}}/ia/">{{nav_ia}}</a>
+      <a href="https://github.com/Naod6473/artefacts-fx" class="github">★ GitHub</a>
+      <button type="button" id="btn-compte" class="btn-compte" aria-haspopup="dialog">{{cpt_se_connecter}}</button>
+      <a href="{{base}}{{langue_autre_code}}/compte/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
+    </nav>
+  </div>
+</header>
+
+<main class="proposer espace">
+  <h1>{{esp_h1}}</h1>
+  <p id="hors-connexion" class="encart" hidden>{{esp_hors_connexion}} <button type="button" id="esp-connexion" class="principal">{{cpt_se_connecter}}</button></p>
+
+  <div id="contenu" hidden>
+    <section class="carte-esp">
+      <h2>{{esp_identite}}</h2>
+      <p id="esp-qui"></p>
+      <p class="dim petit">{{cpt_prive}}</p>
+      <div class="boutons">
+        <button type="button" id="esp-deconnexion" class="principal">{{cpt_deconnexion}}</button>
+      </div>
+    </section>
+
+    <div class="grille-esp">
+      <a class="carte-esp lien" href="{{base}}{{langue}}/bibliotheque/#vue=favoris">
+        <span class="chiffre" id="esp-favoris">0</span><span>♥ {{bib_favoris}}</span>
+      </a>
+      <a class="carte-esp lien" href="{{base}}{{langue}}/bibliotheque/#vue=projet">
+        <span class="chiffre" id="esp-projets">0</span><span>▤ {{esp_projets}}</span>
+      </a>
+      <a class="carte-esp lien" href="{{base}}{{langue}}/proposer/">
+        <span class="chiffre" id="esp-propositions">0</span><span>✎ {{prop_mes}}</span>
+      </a>
+      <a class="carte-esp lien" id="esp-moderation" href="{{base}}{{langue}}/moderation/" hidden>
+        <span class="chiffre" id="esp-attente">0</span><span>⚑ {{esp_a_relire}}</span>
+      </a>
+    </div>
+
+    <section class="carte-esp" id="esp-projets-liste-bloc" hidden>
+      <h2>{{esp_projets}}</h2>
+      <ul id="esp-projets-liste" class="liste-esp"></ul>
+    </section>
+
+    <section class="carte-esp" id="esp-mdp-bloc" hidden>
+      <h2>{{esp_mdp}}</h2>
+      <form id="esp-mdp" class="envoi">
+        <label>{{esp_mdp_actuel}}<input name="ancien" type="password" autocomplete="current-password" required></label>
+        <label>{{cpt_nouveau_mdp}}<input name="mdp" type="password" autocomplete="new-password" required minlength="8" maxlength="200"></label>
+        <button>{{cpt_nouveau_bouton}}</button>
+        <p id="esp-mdp-etat" class="dim" role="status"></p>
+      </form>
+    </section>
+
+    <section class="carte-esp zone">
+      <h2>{{esp_zone}}</h2>
+      <p class="dim petit">{{esp_zone_aide}}</p>
+      <button type="button" id="esp-supprimer" class="danger">{{cpt_supprimer}}</button>
+    </section>
+  </div>
+</main>
+
+{{> pied}}
+<script id="textes" type="application/json">{"mdp_ok":"{{esp_mdp_ok}}","effets":"{{esp_effets}}","effet":"{{esp_effet}}"}</script>
+{{> compte}}
+<script type="module" src="{{base}}assets/espace.js"></script>
+</body>
+</html>

@@ -13,6 +13,7 @@
 //   POST /api/compte/favoris      {favoris:[n]}          remplace la liste
 //   POST /api/compte/projet       {id?, nom, effets:[{n, rendu, note}]}   crée ou remplace un projet
 //   POST /api/compte/projet-supprimer {id}
+//   POST /api/compte/changer-mdp  {ancien, mdp}         nouveau mot de passe ; les autres sessions sont fermées
 //   POST /api/compte/supprimer-compte {mdp?}            efface le membre et toutes ses données
 //   … et les effets proposés : voir propositions.php
 //
@@ -80,6 +81,7 @@ match ("$methode $action") {
     'POST favoris' => favoris(),
     'POST projet' => projet(),
     'POST projet-supprimer' => projetSupprimer(),
+    'POST changer-mdp' => changerMdp(),
     'POST supprimer-compte' => supprimerCompte(),
     'POST proposer' => proposer(),
     'GET mes-propositions' => mesPropositions(),
@@ -303,6 +305,20 @@ function projetSupprimer(): never
     global $db, $corps;
     $m = membreOuErreur();
     $db->prepare('DELETE FROM projets WHERE id = ? AND membre = ?')->execute([(int) ($corps['id'] ?? 0), $m['id']]);
+    repondre(['ok' => true]);
+}
+
+function changerMdp(): never
+{
+    global $db, $corps;
+    $m = membreOuErreur();
+    limiter('changer-mdp:' . $m['id'], 10, 3600);
+    if ($m['mdp'] === null || !password_verify((string) ($corps['ancien'] ?? ''), $m['mdp'])) erreur(401, 'mdp_actuel');
+    $mdp = mdpValide($corps['mdp'] ?? '');
+    $db->prepare('UPDATE membres SET mdp = ? WHERE id = ?')->execute([password_hash($mdp, PASSWORD_DEFAULT), $m['id']]);
+    // les autres appareils devront se reconnecter ; celui-ci garde une session neuve
+    $db->prepare('DELETE FROM sessions WHERE membre = ?')->execute([$m['id']]);
+    ouvrirSession((int) $m['id']);
     repondre(['ok' => true]);
 }
 
