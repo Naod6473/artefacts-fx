@@ -153,7 +153,7 @@ h1::before { content: "> "; content: "> " / ""; color: var(--accent); }
 .rg-actions { display: flex; gap: 8px; padding: 0 12px 12px; }
 .rg-actions button { flex: 1; }
 @media (max-width: 1500px) { .barre.rendus .touche { display: none; } }
-@media (max-width: 700px) { #rendus { flex-wrap: nowrap; min-width: 0; flex: 1 1 auto; overflow-x: auto; scrollbar-width: none; } .entete .barre.rendus { flex-wrap: nowrap; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; } }
+@media (max-width: 700px) { #rendus { flex-wrap: nowrap; min-width: 0; flex: 1 1 auto; overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(to right, #000 80%, transparent); mask-image: linear-gradient(to right, #000 80%, transparent); padding-right: 40px; } .entete .barre.rendus { flex-wrap: nowrap; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; } }
 /* sur téléphone, les tags se replient derrière « Filtrer par tag » : les effets arrivent dès le premier écran */
 .filtrer { display: none; }
 @media (max-width: 700px) {

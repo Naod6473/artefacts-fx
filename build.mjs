@@ -32,12 +32,15 @@ const sourceTexte = {
 // « import { catalogue, charger, source } from "virtuel:catalogue" » : la liste des effets (numéro, nom, tags, durée…)
 // calculée ici, et pour chacun un import() séparé, donc le code d'un effet n'est téléchargé que s'il est affiché
 const registre = JSON.parse(readFileSync("effets/registre.json", "utf8"));
+// noms et descriptions en français (effets/traductions-fr.json) ; un effet sans traduction garde son texte d'origine
+const TRAD_FR = existsSync("effets/traductions-fr.json") ? JSON.parse(readFileSync("effets/traductions-fr.json", "utf8")) : {};
 const catalogue = [];
 for (const [n, id] of Object.entries(registre)) {
   let mod;
   try { mod = await import(pathToFileURL(resolve("effets", id + ".js")).href); } catch { continue; } // effet retiré
   const m = { fps: 30, bg: "dark", loop: false, duration: 1, tags: [], options: {}, ...mod.meta };
-  catalogue.push({ n, id, name: m.name, desc: m.desc ?? "", tags: m.tags, loop: m.loop, duration: m.duration, size: m.size, origin: m.origin, bg: m.bg, actor: !!m.actor, couleur: couleurDominante(m.options), ...(m.author ? { author: String(m.author) } : {}) });
+  const fr = TRAD_FR[id] ?? {};
+  catalogue.push({ n, id, name: m.name, desc: m.desc ?? "", ...(fr.name ? { name_fr: fr.name } : {}), ...(fr.desc ? { desc_fr: fr.desc } : {}), tags: m.tags, loop: m.loop, duration: m.duration, size: m.size, origin: m.origin, bg: m.bg, actor: !!m.actor, couleur: couleurDominante(m.options), ...(m.author ? { author: String(m.author) } : {}) });
 }
 const catalogueVirtuel = {
   name: "catalogue",
@@ -173,10 +176,10 @@ for (const langue of LANGUES) {
     const fr = langue === "fr";
     catalogue.forEach((e, i) => {
       const num = +e.n, cat = e.id.split("/")[0], url = (l) => `${SITE}/${l}/fx/${num}/`;
-      const lien = (x, fleche) => x ? `<a href="${BASE}${langue}/fx/${+x.n}/">${fleche === "←" ? "← " : ""}${echappe(x.name)} #${x.n}${fleche === "→" ? " →" : ""}</a>` : "<span></span>";
+      const lien = (x, fleche) => x ? `<a href="${BASE}${langue}/fx/${+x.n}/">${fleche === "←" ? "← " : ""}${echappe(fr ? x.name_fr ?? x.name : x.name)} #${x.n}${fleche === "→" ? " →" : ""}</a>` : "<span></span>";
       const tags = e.tags.map((g) => `<li><a href="${BASE}${langue}/bibliotheque/#tags=${encodeURIComponent(g)}">${echappe(fr ? TAGS_FR[g] ?? g : g)}</a></li>`).join("");
       const valeurs = {
-        n: e.n, num, id: echappe(e.id), nom: echappe(e.name), desc: echappe(e.desc), usage: echappe(usage(e)),
+        n: e.n, num, id: echappe(e.id), nom: echappe(fr ? e.name_fr ?? e.name : e.name), desc: echappe(fr ? e.desc_fr ?? e.desc : e.desc), usage: echappe(usage(e)),
         credit: e.author ? echappe(` (${t.mod_par} ${e.author})`) : "",
         url: url(langue), url_fr: url("fr"), url_en: url("en"), url_autre: `${BASE}${t.langue_autre_code}/fx/${num}/`,
         image: `${SITE}/apercus/${e.n}.png`, image_rel: `${BASE}apercus/${e.n}.png`,
@@ -184,7 +187,7 @@ for (const langue of LANGUES) {
         format: e.size[0] >= 320 && Math.abs(e.size[0] / e.size[1] - 16 / 9) < 0.05 ? "16 / 9" : "4 / 3", // comme pleinEcran() du lecteur
         duree: `${e.duration} s, ${e.loop ? t.fiche_boucle_oui : t.fiche_une_fois}`, taille: e.size.join(" × "), tags,
         precedent: lien(catalogue[i - 1], "←"), suivant: lien(catalogue[i + 1], "→"),
-        jsonld: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareSourceCode", name: e.name, description: e.desc, url: url(langue),
+        jsonld: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareSourceCode", name: fr ? e.name_fr ?? e.name : e.name, description: fr ? e.desc_fr ?? e.desc : e.desc, url: url(langue),
           image: `${SITE}/apercus/${e.n}.png`, programmingLanguage: "JavaScript", license: "https://opensource.org/licenses/MIT",
           codeRepository: "https://github.com/Naod6473/artefacts-fx", inLanguage: langue, ...(e.author ? { author: { "@type": "Person", name: e.author } } : {}) }).replace(/</g, "\\u003c"),
       };

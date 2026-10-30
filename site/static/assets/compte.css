@@ -3,7 +3,7 @@
 #fen-compte, .btn-compte, .bulle-compte {
   --fond: #07090f; --carte: #090c14; --trait2: #2a3547; --encre: #d6e2f0; --dim: #8796ad; --accent: #5ce1e6; --ambre: #ffb347;
 }
-#fen-compte { font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, Consolas, monospace; font-size: 13px; line-height: 1.5; }
+#fen-compte { font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; font-size: 13px; line-height: 1.5; }
 #fen-compte button, .btn-compte { font: inherit; color: var(--encre); background: transparent; border: 1px solid var(--trait2); min-height: 32px; padding: 4px 10px; cursor: pointer; }
 #fen-compte button:hover:not(:disabled), .btn-compte:hover { border-color: var(--accent); }
 #fen-compte button:disabled { opacity: .45; cursor: default; }

@@ -1,11 +1,12 @@
+/* Accueil et page IA, dans le même style « terminal » que la bibliothèque (mêmes couleurs, une seule police). */
 :root {
-  --bg: #0a0d16; --scene: #0e1220; --panneau: #131828; --panneau2: #1a2034; --trait: #252d45;
-  --encre: #e8ecf6; --dim: #8b93ab; --ambre: #ffb347; --cyan: #6fe3ff;
-  --titre: "Silkscreen", ui-monospace, monospace; --sans: "IBM Plex Sans", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --bg: #07090f; --scene: #0e1220; --panneau: #090c14; --panneau2: #0e1220; --trait: #1c2433;
+  --encre: #d6e2f0; --dim: #8796ad; --ambre: #ffb347; --cyan: #5ce1e6;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace; --titre: var(--mono); --sans: var(--mono);
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--encre); font-family: var(--sans); font-size: 15px; line-height: 1.55; }
+body { margin: 0; background: var(--bg); color: var(--encre); font-family: var(--mono); font-size: 14px; line-height: 1.6; }
 a { color: var(--cyan); }
 .in { max-width: 1200px; margin: 0 auto; padding-inline: 16px; }
 header { position: sticky; top: 0; z-index: 10; background: rgba(10, 13, 22, .94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--trait); }
@@ -14,23 +15,24 @@ header { position: sticky; top: 0; z-index: 10; background: rgba(10, 13, 22, .94
 .logo i { font-style: normal; color: var(--ambre); }
 nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 2px 6px; min-width: 0; }
 @media (max-width: 560px) { .barre { flex-wrap: wrap; } nav { justify-content: flex-start; margin-inline: -10px; } nav a { padding: 6px 10px; } }
-nav a { color: var(--dim); text-decoration: none; padding: 8px 10px; border-radius: 6px; }
+nav a { color: var(--dim); text-decoration: none; padding: 8px 10px; }
 nav a:hover { color: var(--encre); background: var(--panneau); }
 main section { padding-block: 28px; }
-h1 { font-family: var(--titre); font-weight: 400; font-size: clamp(22px, 4vw, 34px); line-height: 1.25; margin: 0 0 12px; }
-h2 { font-family: var(--titre); font-weight: 400; font-size: 20px; margin: 0 0 8px; }
+h1 { font-family: var(--titre); font-weight: 700; font-size: clamp(22px, 3.6vw, 32px); line-height: 1.25; margin: 0 0 12px; }
+h1::before { content: "> "; content: "> " / ""; color: var(--cyan); }
+h2 { font-family: var(--titre); font-weight: 700; font-size: 18px; margin: 0 0 8px; }
 h3 { font-size: 15px; margin: 0 0 4px; color: var(--ambre); }
 .dim { color: var(--dim); }
 .hero { display: grid; gap: 16px; grid-template-columns: 1fr 1.3fr; align-items: center; }
 .hero .texte p { color: var(--dim); max-width: 52ch; }
 .hero .choix { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 figure { margin: 0; }
-figure canvas { display: block; width: 100%; border-radius: 8px; border: 1px solid var(--trait); background: var(--scene); }
+figure canvas { display: block; width: 100%; border: 1px solid var(--trait); background: var(--scene); }
 figcaption { font-family: var(--mono); font-size: 12px; color: var(--dim); padding: 6px 2px 0; }
 .scene figcaption { color: var(--ambre); }
-button, select { font: inherit; font-size: 13px; color: var(--encre); background: var(--panneau2); border: 1px solid var(--trait); border-radius: 6px; min-height: 36px; padding: 6px 10px; cursor: pointer; }
+button, select { font: inherit; font-size: 13px; color: var(--encre); background: var(--panneau2); border: 1px solid var(--trait); min-height: 36px; padding: 6px 10px; cursor: pointer; }
 button:hover { border-color: #3a4566; }
-button[aria-pressed="true"] { border-color: var(--ambre); color: var(--ambre); }
+button[aria-pressed="true"] { background: var(--cyan); border-color: var(--cyan); color: var(--bg); }
 button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--ambre); outline-offset: 2px; }
 .seg { display: flex; flex-wrap: wrap; gap: 6px; margin-block: 8px 14px; }
 .grille { display: grid; gap: 14px; }
@@ -38,7 +40,7 @@ button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid
 .g4 { grid-template-columns: repeat(4, 1fr); }
 .titre-ligne { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .trois { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.trois > div { background: var(--panneau); border: 1px solid var(--trait); border-radius: 8px; padding: 14px 16px; }
+.trois > div { background: var(--panneau); border: 1px solid var(--trait); padding: 14px 16px; }
 .trois p { margin: 0; color: var(--dim); }
 footer { border-top: 1px solid var(--trait); padding-block: 20px 32px; color: var(--dim); font-size: 13px; }
 @media (max-width: 860px) {
@@ -48,10 +50,10 @@ footer { border-top: 1px solid var(--trait); padding-block: 20px 32px; color: va
 }
 
 /* chaque effet mène à son code dans la bibliothèque */
-.vers-code { display: block; position: relative; border-radius: 8px; }
+.vers-code { display: block; position: relative; }
 .vers-code canvas { transition: border-color .15s; }
 .vers-code:hover canvas, .vers-code:focus-visible canvas { border-color: var(--ambre); }
-.vers-code .badge { position: absolute; right: 10px; bottom: 10px; font-family: var(--mono); font-size: 12px; background: var(--ambre); color: #1c1204; padding: 4px 8px; border-radius: 4px; opacity: 0; transition: opacity .15s; }
+.vers-code .badge { position: absolute; right: 10px; bottom: 10px; font-family: var(--mono); font-size: 12px; background: var(--ambre); color: #1c1204; padding: 4px 8px; opacity: 0; transition: opacity .15s; }
 .vers-code:hover .badge, .vers-code:focus-visible .badge { opacity: 1; }
 @media (hover: none) { .vers-code .badge { opacity: 1; } }
 
@@ -59,7 +61,7 @@ footer { border-top: 1px solid var(--trait); padding-block: 20px 32px; color: va
 .doc { max-width: 820px; padding-block: 28px 48px; }
 .doc h2 { margin-top: 32px; }
 .doc p { color: #c9cfdc; }
-.doc pre { font-family: var(--mono); font-size: 13px; background: var(--panneau); border: 1px solid var(--trait); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 8px 0; }
+.doc pre { font-family: var(--mono); font-size: 13px; background: var(--panneau); border: 1px solid var(--trait); padding: 12px 14px; overflow-x: auto; margin: 8px 0; }
 .doc code { font-family: var(--mono); color: var(--ambre); }
 .doc .adresse { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 16px; }
 .doc table { width: 100%; border-collapse: collapse; font-size: 14px; }

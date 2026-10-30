@@ -32,8 +32,9 @@ const LIB = catalogue.map((c) => {
   const brut = [cat, c.loop ? "loop" : "one-shot", c.bg === "ground" ? "ground" : null, pleinEcran(meta) ? "screen" : null, c.actor ? "actor" : null, ...c.tags];
   const tags = [...new Set(brut.filter(Boolean).map((t) => (t === cat && fr ? CATEGORIES_FR[cat] ?? cat : tagLocal(t))))];
   const slug = c.id.split("/")[1].replace(/-/g, "_");
-  const mots = [c.n, String(+c.n), c.name, slug, c.desc, cat, CATEGORIES_FR[cat], c.couleur, ...brut, ...brut.map((t) => TAGS_FR[t])].filter(Boolean);
-  return { ...c, meta, cat, tags, slug, tagsNorm: tags.map(norm).concat(brut.filter(Boolean).map(norm)), texte: norm(mots.join(" ")), jetons: new Set(norm(mots.join(" ")).split(/[^a-z0-9]+/).filter((x) => x.length > 2)) };
+  const mots = [c.n, String(+c.n), c.name, c.name_fr, slug, c.desc, c.desc_fr, cat, CATEGORIES_FR[cat], c.couleur, ...brut, ...brut.map((t) => TAGS_FR[t])].filter(Boolean);
+  // nom et description affichés dans la langue de la page ; la recherche trouve les deux langues
+  return { ...c, name: fr ? c.name_fr ?? c.name : c.name, desc: fr ? c.desc_fr ?? c.desc : c.desc, meta, cat, tags, slug, tagsNorm: tags.map(norm).concat(brut.filter(Boolean).map(norm)), texte: norm(mots.join(" ")), jetons: new Set(norm(mots.join(" ")).split(/[^a-z0-9]+/).filter((x) => x.length > 2)) };
 });
 const parNumero = new Map(LIB.map((e) => [e.n, e]));
 
