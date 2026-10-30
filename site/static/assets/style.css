@@ -81,3 +81,14 @@ footer { border-top: 1px solid var(--trait); padding-block: 20px 32px; color: va
 #jour-date::first-letter { text-transform: uppercase; }
 @media (max-width: 860px) { .jour-boite { grid-template-columns: 1fr; } }
 #jour-cv canvas { display: block; width: 100%; border: 1px solid var(--trait); background: var(--scene); }
+
+/* téléphone : l'effet en vitrine arrive tout de suite sous le titre, le texte d'intro passe en dessous */
+@media (max-width: 560px) {
+  main section { padding-block: 18px; }
+  .hero { gap: 12px; }
+  .hero .texte { display: contents; }
+  .hero h1 { order: 1; font-size: 21px; margin-bottom: 0; }
+  .hero #vitrine { order: 2; }
+  .hero .choix { order: 3; }
+  .hero .texte p { order: 4; margin: 0; }
+}

@@ -206,3 +206,29 @@ body.zoome { overflow: hidden; }
 .col-pied p { margin: 0; }
 .col-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .collections > .petit { margin: 8px 0 0; }
+
+/* téléphone : tout ce qui est au-dessus du mur tient en peu de place, pour voir les effets dès l'arrivée */
+@media (max-width: 700px) {
+  header.entete .barre { padding: 8px 12px; gap: 8px; }
+  header.entete .barre.rendus { padding-top: 0; }
+  .recherche { min-height: 40px; }
+  #rendus button { min-height: 34px; padding: 2px 9px; }
+  main { padding: 10px 12px 40px; }
+  main > .entete { gap: 8px; margin-bottom: 8px; }
+  .entete .vues { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+  .entete .vues::-webkit-scrollbar { display: none; }
+  .entete .vues button { flex: none; white-space: nowrap; min-height: 34px; padding: 2px 9px; }
+  .entete .droite { width: 100%; justify-content: space-between; gap: 10px; }
+  .entete .droite select { min-height: 34px; }
+  .filtrer { min-height: 36px; margin-bottom: 8px; }
+  .collections { padding: 10px; }
+  .collections > .petit { display: none; }
+  .col-liste { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .col-liste button { flex: none; white-space: nowrap; min-height: 34px; }
+  .entete .vues, .col-liste { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); padding-right: 28px; }
+  /* deux effets par ligne : on en voit quatre dès l'arrivée */
+  #mur { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .carte .ligne { padding-left: 8px; }
+  .carte .ligne b { font-size: 12px; }
+  .carte .info { padding: 0 8px 6px; font-size: 11px; }
+}
