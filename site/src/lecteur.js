@@ -34,6 +34,21 @@ export class Lecteur {
     this.relancer();
   }
 
+  /** Saute au temps t (secondes) depuis le début de l'effet. */
+  aller(t) {
+    this.graine--;
+    this.relancer();
+    if (!this.inst) return;
+    try { this.inst.update(t); } catch (e) { this.erreur = String(e.message || e); }
+  }
+
+  /** Temps courant dans l'effet, entre 0 et sa durée. */
+  get temps() {
+    if (!this.inst) return 0;
+    const m = this.meta;
+    return m.loop ? this.inst.t % m.duration : Math.min(this.inst.t, m.duration);
+  }
+
   relancer() {
     try {
       this.inst = createFx(this.mod, { x: this.x, y: this.y, seed: this.graine++, ...this.options });
@@ -105,6 +120,18 @@ export class Lecteur {
 }
 
 /**
+ * Plusieurs canvas pour un même lecteur (un effet dans plusieurs rendus) : le temps n'avance qu'une fois par image.
+ * get() rend le lecteur courant, qui peut changer.
+ */
+export function vuePartagee(get) {
+  let dernier = -1;
+  return {
+    avancer(dt, now) { if (now !== dernier) { dernier = now; get()?.avancer(dt); } },
+    dessiner(cv, rendu, now) { get()?.dessiner(cv, rendu, now); },
+  };
+}
+
+/**
  * Une boucle d'animation pour plusieurs lecteurs : seuls ceux visibles à l'écran tournent.
  * ajouter(cv, lecteur, () => idRendu)
  */
@@ -120,7 +147,7 @@ export function boucle() {
   const image = (now) => {
     const dt = Math.min(0.05, (now - avant) / 1000);
     avant = now;
-    for (const v of vues) if (v.visible) { v.lecteur.avancer(dt); v.lecteur.dessiner(v.cv, v.rendu(), now); }
+    for (const v of vues) if (v.visible) { v.lecteur.avancer(dt, now); v.lecteur.dessiner(v.cv, v.rendu(), now); }
     requestAnimationFrame(image);
   };
   requestAnimationFrame(image);

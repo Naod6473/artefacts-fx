@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="{{langue}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{bib_titre}}</title>
+<meta name="description" content="{{description}}">
+<link rel="alternate" hreflang="fr" href="{{base}}fr/bibliotheque/">
+<link rel="alternate" hreflang="en" href="{{base}}en/bibliotheque/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
+</head>
+<body>
+<header>
+  <div class="barre">
+    <a class="logo" href="{{base}}{{langue}}/">ARTEFACTS<i>_</i></a>
+    <label class="recherche">
+      <span aria-hidden="true">❯</span>
+      <span class="sr">{{bib_chercher}}</span>
+      <input id="recherche" type="search" autocomplete="off" spellcheck="false" placeholder="{{bib_exemple}}">
+      <kbd>/</kbd>
+    </label>
+    <nav>
+      <a href="{{base}}{{langue}}/bibliotheque/" aria-current="page">{{bib_nav_biblio}}</a>
+      <a href="https://github.com/Naod6473/artefacts-fx">{{nav_code}}</a>
+      <a href="{{base}}{{langue_autre_code}}/bibliotheque/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
+    </nav>
+  </div>
+  <div class="barre rendus"><span class="dim">{{bib_rendu}}</span><div id="rendus" role="group" aria-label="{{bib_rendu}}"></div><span class="dim touche"><kbd>R</kbd></span></div>
+</header>
+
+<div class="corps">
+  <main>
+    <div class="entete">
+      <div id="tags" class="tags"></div>
+      <span id="compte" class="dim"></span>
+    </div>
+    <p id="vide" class="dim" hidden>{{bib_vide}}</p>
+    <div id="mur"></div>
+  </main>
+
+  <aside aria-label="{{bib_panneau}}">
+    <div class="titre"><h1 id="fx-nom"></h1><button type="button" class="coeur" aria-label="{{bib_aimer}}">♥</button></div>
+    <p id="fx-desc" class="dim"></p>
+    <canvas id="apercu"></canvas>
+    <div class="lecture">
+      <button type="button" id="lecture">❚❚</button>
+      <input id="curseur" type="range" min="0" max="1000" value="0" aria-label="{{bib_temps}}">
+      <span id="temps" class="dim"></span>
+      <label class="sr" for="vitesse">{{bib_vitesse}}</label>
+      <select id="vitesse"><option value="0.25">×¼</option><option value="0.5">×½</option><option value="1" selected>×1</option><option value="2">×2</option></select>
+    </div>
+    <div id="comparaison">
+      <figure><canvas></canvas><figcaption></figcaption></figure>
+      <figure><canvas></canvas><figcaption></figcaption></figure>
+      <figure><canvas></canvas><figcaption></figcaption></figure>
+      <figure><canvas></canvas><figcaption></figcaption></figure>
+    </div>
+    <div id="fx-tags" class="tags"></div>
+    <div role="tablist" class="onglets">
+      <button type="button" role="tab" data-onglet="usage">{{bib_utiliser}}</button>
+      <button type="button" role="tab" data-onglet="source">{{bib_source}}</button>
+    </div>
+    <pre id="code" tabindex="0"></pre>
+    <div class="actions">
+      <button type="button" id="copier" class="principal">{{bib_copier}}</button>
+      <button type="button" id="video">{{bib_video}}</button>
+      <button type="button" disabled title="{{bib_bientot}}">Godot</button>
+    </div>
+    <p id="fx-infos" class="dim petit"></p>
+  </aside>
+</div>
+<script id="textes" type="application/json">{"lire":"{{bib_lire}}","pause":"{{bib_pause}}","copie":"{{bib_copie}}","copie_ko":"{{bib_copie_ko}}","video_ko":"{{bib_video_ko}}","video_ok":"{{bib_video_ok}}","video_en_cours":"{{bib_video_en_cours}}","virgule":"{{bib_virgule}}"}</script>
+<script src="{{base}}assets/bibliotheque.js" defer></script>
+</body>
+</html>

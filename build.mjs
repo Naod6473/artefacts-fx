@@ -5,13 +5,22 @@
 import { build } from "esbuild";
 import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, readdirSync } from "node:fs";
 import { createServer } from "node:http";
-import { join, extname } from "node:path";
+import { join, extname, dirname } from "node:path";
 
 const DIST = "dist";
 const LANGUES = readdirSync("site/i18n").filter((f) => f.endsWith(".json")).map((f) => f.slice(0, -5));
-const PAGES = { accueil: "index.html" };
+const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html" };
 // le site peut vivre dans un sous-dossier (naod.fr/artefacts/) : tous les liens partent de chemin_web
 const BASE = JSON.parse(readFileSync("config/ovh.json", "utf8")).chemin_web ?? "/";
+
+// « import code from "../../effets/fire/torch.js?source" » donne le texte du fichier : la fiche affiche le code de l'effet
+const sourceTexte = {
+  name: "source",
+  setup(b) {
+    b.onResolve({ filter: /\?source$/ }, (a) => ({ path: join(a.resolveDir, a.path.replace(/\?source$/, "")), namespace: "source" }));
+    b.onLoad({ filter: /.*/, namespace: "source" }, (a) => ({ contents: readFileSync(a.path, "utf8"), loader: "text" }));
+  },
+};
 
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, "assets"), { recursive: true });
@@ -23,6 +32,7 @@ await build({
   entryPoints: Object.keys(PAGES).map((p) => `site/src/${p}.js`),
   outdir: join(DIST, "assets"),
   bundle: true,
+  plugins: [sourceTexte],
   format: "iife",
   minify: true,
   legalComments: "inline",
@@ -40,6 +50,7 @@ for (const langue of LANGUES) {
       if (!(k in t)) throw new Error(`${langue}.json : clé manquante « ${k} » (page ${page})`);
       return HTML_PERMIS.has(k) ? t[k] : echappe(t[k]);
     });
+    mkdirSync(dirname(join(DIST, langue, fichier)), { recursive: true });
     writeFileSync(join(DIST, langue, fichier), html);
   }
 }
