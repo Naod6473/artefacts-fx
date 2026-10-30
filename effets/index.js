@@ -232,6 +232,24 @@ import * as critters_jellyfish from "./critters/jellyfish.js";
 import * as critters_slime from "./critters/slime.js";
 import * as critters_snake from "./critters/snake.js";
 import * as critters_wisp from "./critters/wisp.js";
+import * as creatures_ant_queen from "./creatures/ant-queen.js";
+import * as creatures_crab from "./creatures/crab.js";
+import * as creatures_giant_centipede from "./creatures/giant-centipede.js";
+import * as creatures_giant_spider from "./creatures/giant-spider.js";
+import * as creatures_harvestman from "./creatures/harvestman.js";
+import * as creatures_hydra from "./creatures/hydra.js";
+import * as creatures_jellyfish_bloom from "./creatures/jellyfish-bloom.js";
+import * as creatures_koi from "./creatures/koi.js";
+import * as creatures_koi_pond from "./creatures/koi-pond.js";
+import * as creatures_manta_ray from "./creatures/manta-ray.js";
+import * as creatures_mantis from "./creatures/mantis.js";
+import * as creatures_octopus from "./creatures/octopus.js";
+import * as creatures_scorpion from "./creatures/scorpion.js";
+import * as creatures_sea_turtle from "./creatures/sea-turtle.js";
+import * as creatures_shark from "./creatures/shark.js";
+import * as creatures_swelling_tick from "./creatures/swelling-tick.js";
+import * as creatures_wolf_spider from "./creatures/wolf-spider.js";
+import * as creatures_woodlouse from "./creatures/woodlouse.js";
 
 export { categories } from "./categories.js";
 
@@ -468,4 +486,22 @@ export const effects = {
   "critters/slime": critters_slime,
   "critters/snake": critters_snake,
   "critters/wisp": critters_wisp,
+  "creatures/ant-queen": creatures_ant_queen,
+  "creatures/crab": creatures_crab,
+  "creatures/giant-centipede": creatures_giant_centipede,
+  "creatures/giant-spider": creatures_giant_spider,
+  "creatures/harvestman": creatures_harvestman,
+  "creatures/hydra": creatures_hydra,
+  "creatures/jellyfish-bloom": creatures_jellyfish_bloom,
+  "creatures/koi": creatures_koi,
+  "creatures/koi-pond": creatures_koi_pond,
+  "creatures/manta-ray": creatures_manta_ray,
+  "creatures/mantis": creatures_mantis,
+  "creatures/octopus": creatures_octopus,
+  "creatures/scorpion": creatures_scorpion,
+  "creatures/sea-turtle": creatures_sea_turtle,
+  "creatures/shark": creatures_shark,
+  "creatures/swelling-tick": creatures_swelling_tick,
+  "creatures/wolf-spider": creatures_wolf_spider,
+  "creatures/woodlouse": creatures_woodlouse,
 };

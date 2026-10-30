@@ -21,5 +21,6 @@ export const categories = [
   { id: "pickups", name: "pickups", blurb: "coins, gems, chests, potions" },
   { id: "transitions", name: "transitions", blurb: "wipes, irises, dissolves" },
   { id: "critters", name: "critters", blurb: "slimes, bats, ghosts, frogs" },
+  { id: "creatures", name: "creatures", blurb: "koi, giant spiders, centipedes, crabs, seen from above" },
   { id: "communaute", name: "community", blurb: "effects sent in by members of naod.fr" },
 ];

@@ -1,7 +1,7 @@
 // Les tags dans la langue du visiteur. Les effets portent des tags en anglais ; on traduit les plus courants,
 // les autres restent en anglais. La recherche trouve un effet par le tag dans les deux langues.
 
-export const CATEGORIES_FR = { fire: "feu", explosions: "explosion", water: "eau", ice: "glace", lightning: "foudre", scifi: "sci-fi", melee: "mêlée", impacts: "impact", projectiles: "projectile", spawn: "apparition", arcane: "arcane", holy: "sacré", shadow: "ombre", status: "état", nature: "nature", weather: "météo", ui: "interface", pickups: "ramassage", transitions: "transition", critters: "bestiole", communaute: "communauté" };
+export const CATEGORIES_FR = { fire: "feu", explosions: "explosion", water: "eau", ice: "glace", lightning: "foudre", scifi: "sci-fi", melee: "mêlée", impacts: "impact", projectiles: "projectile", spawn: "apparition", arcane: "arcane", holy: "sacré", shadow: "ombre", status: "état", nature: "nature", weather: "météo", ui: "interface", pickups: "ramassage", transitions: "transition", critters: "bestiole", creatures: "créature", communaute: "communauté" };
 
 export const TAGS_FR = {
   "one-shot": "une-fois", loop: "boucle", ground: "au-sol", directional: "directionnel", magic: "magie", fire: "feu", ambient: "ambiance",
@@ -16,7 +16,8 @@ export const TAGS_FR = {
   damage: "dégâts", glow: "lueur", poison: "poison", flying: "volant", nova: "nova", vortex: "vortex", spirit: "esprit", comic: "cartoon",
   earth: "terre", sparkle: "scintillement", rocket: "roquette", cloud: "nuage", drop: "goutte", float: "flottant", snow: "neige",
   freeze: "gel", shockwave: "onde-de-choc", glitch: "glitch", hud: "hud", sword: "épée", missile: "missile", gold: "or", circle: "cercle",
-  rune: "rune", heal: "soin", plant: "plante",
+  rune: "rune", heal: "soin", plant: "plante", creature: "créature", boss: "boss", walk: "marche", swim: "nage", "top-down": "vue-de-dessus",
+  spider: "araignée", koi: "koï", pond: "bassin", sea: "mer", insect: "insecte", bug: "insecte",
 };
 
 // mots français courants vers l'anglais, pour chercher dans les noms et descriptions (en anglais)
@@ -29,5 +30,7 @@ export const SYNONYMES = {
   bulle: "bubble", cascade: "waterfall", vague: "wave", tornade: "tornado", seisme: "quake", racine: "root", epine: "thorn", feuille: "leaf",
   brouillard: "fog", nuage: "cloud", aurore: "aurora", luciole: "firefly", soleil: "sun", lune: "moon", rune: "rune", sort: "spell",
   malediction: "curse", ame: "soul", poison: "poison", acide: "acid", gel: "freeze", vitesse: "haste", sommeil: "sleep", confus: "confused",
-  saignement: "bleed", rage: "rage", or: "gold", gemme: "gem", potion: "potion", cle: "key", tir: "shot", coup: "hit", choc: "shock",
+  saignement: "bleed", rage: "rage", araignee: "spider", koi: "koi", carpe: "koi", requin: "shark", raie: "manta", tortue: "turtle",
+  pieuvre: "octopus", poulpe: "octopus", crabe: "crab", scorpion: "scorpion", mante: "mantis", fourmi: "ant", tique: "tick", cloporte: "woodlouse",
+  scolopendre: "centipede", "mille-pattes": "centipede", hydre: "hydra", meduse: "jellyfish", opilion: "harvestman", creature: "creature", or: "gold", gemme: "gem", potion: "potion", cle: "key", tir: "shot", coup: "hit", choc: "shock",
 };

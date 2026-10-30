@@ -1,6 +1,6 @@
 # artefacts-fx
 
-232 game visual effects written in plain JavaScript, with no images: fire, explosions, lightning, magic, impacts,
+250 game visual effects written in plain JavaScript, with no images: fire, explosions, lightning, magic, impacts,
 pickups, weather, UI bursts… Each effect draws into a small pixel buffer, and the same effect can be shown in ten
 styles: pixel art, code glyphs, ASCII, braille, blocks, CRT phosphor, Game Boy, LED matrix, VHS and Minitel.
 
@@ -68,5 +68,5 @@ For Godot 4, the site exports any effect as a sprite sheet with a ready `SpriteF
 
 ---
 
-*En français : 232 effets visuels de jeu en JavaScript, sans image, sous licence MIT. Le site https://naod.fr permet
+*En français : 250 effets visuels de jeu en JavaScript, sans image, sous licence MIT. Le site https://naod.fr permet
 de les parcourir, de choisir un rendu et d'exporter planche de sprites, GIF, vidéo ou fichiers Godot 4.*

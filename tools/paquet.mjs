@@ -20,7 +20,7 @@ writeFileSync("paquet/lecteur/index.js", readFileSync("site/src/lecteur.js", "ut
 writeFileSync("paquet/package.json", JSON.stringify({
   name: "artefacts-fx",
   version: racine.version,
-  description: "232 game visual effects written in plain JavaScript (no images), drawn into a pixel buffer and shown in the style you pick: pixel art, code glyphs, ASCII, braille, CRT, Game Boy…",
+  description: "250 game visual effects written in plain JavaScript (no images), drawn into a pixel buffer and shown in the style you pick: pixel art, code glyphs, ASCII, braille, CRT, Game Boy…",
   license: "MIT",
   type: "module",
   homepage: "https://naod.fr",

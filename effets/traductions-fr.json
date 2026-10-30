@@ -926,5 +926,77 @@
   "critters/wisp": {
     "name": "Feu follet",
     "desc": "Un feu follet décrit un huit au-dessus du sol : une petite flamme-âme à visage, sa queue de flamme léchant et flottant derrière, semant bouffées et étincelles."
+  },
+  "creatures/ant-queen": {
+    "name": "Reine fourmi",
+    "desc": "Une reine fourmi ailée, vue de dessus, arpente le centre pendant qu'une colonne d'ouvrières tourne autour d'elle sur une piste de phéromones, pattes en trépied."
+  },
+  "creatures/crab": {
+    "name": "Crabe de côté",
+    "desc": "Un crabe vu de dessus file de côté, aller et retour, sur huit pattes, les yeux dressés sur leurs pédoncules, et claque ses grosses pinces avec une étincelle."
+  },
+  "creatures/giant-centipede": {
+    "name": "Scolopendre géante",
+    "desc": "Une scolopendre géante vue de dessus serpente sur une boucle, une vague de quarante pattes courant le long de ses plaques, antennes en avant, crochets qui frémissent."
+  },
+  "creatures/giant-spider": {
+    "name": "Araignée géante",
+    "desc": "Une araignée géante vue de dessus marche en huit sur huit pattes articulées, quatre posées pendant que quatre avancent, ses yeux rouges brillant devant un abdomen à motifs."
+  },
+  "creatures/harvestman": {
+    "name": "Opilion",
+    "desc": "Un opilion vu de dessus avance en cercle lent sur huit immenses pattes-échasses, son petit corps rond porté très haut au-dessus de son ombre."
+  },
+  "creatures/hydra": {
+    "name": "Hydre",
+    "desc": "Une hydre à plusieurs têtes, vue de dessus, balance ses cous au-dessus d'un corps massif ; le cou du milieu se divise en deux et les têtes mordent l'une après l'autre."
+  },
+  "creatures/koi": {
+    "name": "Koï",
+    "desc": "Un koï kohaku vu de dessus décrit une lente boucle, queue et nageoires battantes, selles rouges sur robe blanche, des ronds s'ouvrant sur l'eau dans ses virages."
+  },
+  "creatures/koi-pond": {
+    "name": "Bassin de koïs",
+    "desc": "Un bassin vu de dessus où sept koïs de robes différentes (kohaku, sanke, showa, tancho, ogon, karasu, higoi) tournent entre les nénuphars, la lumière miroitant sur l'eau."
+  },
+  "creatures/manta-ray": {
+    "name": "Raie manta",
+    "desc": "Une raie manta vue de dessus plane en grand cercle à lents battements d'ailes, la lumière ondulant sur son dos, sa fine queue traînant derrière."
+  },
+  "creatures/mantis": {
+    "name": "Mante religieuse",
+    "desc": "Une mante religieuse vue de dessus se balance à l'affût, tourne la tête, puis ses pattes ravisseuses jaillissent en un éclair et se replient."
+  },
+  "creatures/octopus": {
+    "name": "Pieuvre",
+    "desc": "Une pieuvre vue de dessus avance par poussées, ses huit bras s'ouvrant à chaque jet puis traînant derrière elle en glissant, ventouses pâles le long des bras."
+  },
+  "creatures/scorpion": {
+    "name": "Scorpion",
+    "desc": "Un scorpion vu de dessus fait sa ronde, pinces tendues, la queue annelée recourbée au-dessus du dos, puis le dard frappe en avant avec une goutte de venin."
+  },
+  "creatures/sea-turtle": {
+    "name": "Tortue de mer",
+    "desc": "Une tortue de mer vue de dessus pagaie en lente boucle, ses grandes nageoires avant balayant en longs mouvements, carapace à écailles, petites bulles derrière."
+  },
+  "creatures/shark": {
+    "name": "Requin",
+    "desc": "Un requin vu de dessus tourne lentement, son long corps ondulant, nageoires pectorales écartées, l'aileron accrochant la lumière, son ombre glissant dessous."
+  },
+  "creatures/jellyfish-bloom": {
+    "name": "Méduse pulsante",
+    "desc": "Une méduse lune vue de dessus dérive en rond, son ombrelle de verre pulsant, quatre anneaux pâles en son cœur et de fins tentacules traînant à chaque battement."
+  },
+  "creatures/swelling-tick": {
+    "name": "Tique qui gonfle",
+    "desc": "Une tique vue de dessus trottine, s'accroche et gonfle, son corps enflant gris-violet et palpitant, jusqu'à éclater en gerbe rouge, puis tout recommence."
+  },
+  "creatures/wolf-spider": {
+    "name": "Araignée-loup",
+    "desc": "Une araignée-loup velue, vue de dessus, rôde en boucle avec sa couvée sur le dos ; des petits tombent sans cesse et filent se disperser."
+  },
+  "creatures/woodlouse": {
+    "name": "Cloporte roulant",
+    "desc": "Un cloporte vu de dessus trottine sur ses petites pattes, se roule en boule cuirassée, roule vite, puis se déroule et repart."
   }
 }

@@ -8,8 +8,9 @@
 
 Chaque effet est un petit fichier JavaScript, sans image, sous licence MIT. Le même effet s'affiche en pixel art, en
 glyphes de code, en ASCII, en braille, en blocs, sur un écran à phosphore, en Game Boy, en matrice LED, en VHS ou en
-Minitel. <!-- count -->232<!-- /count --> effets au départ, repris de [pixelfx](https://github.com/patch-gg/pixelfx),
-plus ceux que proposent les membres.
+Minitel. <!-- count -->250<!-- /count --> effets : 232 repris de [pixelfx](https://github.com/patch-gg/pixelfx), 18 créatures
+vues de dessus tirées des jeux de Simon (les boss rampants d'Antivirus TD, les koïs de Koïs), plus ceux que proposent
+les membres.
 
 - **Bibliothèque** : recherche (`#42`, `feu`, `tag:boucle -fumée dur:<1`), réglages en direct, liens partageables, une page par effet.
 - **Exports** : planche de sprites PNG, GIF animé, vidéo WebM, fichiers Godot 4 (SpriteFrames + scène), projet zip.
