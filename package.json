@@ -1,6 +1,6 @@
 {
   "name": "artefacts-fx",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Effets visuels de jeu écrits en code, à voir dans le rendu de son choix.",
   "type": "module",
   "license": "MIT",
