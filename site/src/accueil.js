@@ -1,4 +1,4 @@
-// Page de présentation : un effet en grand qui passe d'un rendu à l'autre, le même effet dans les six rendus,
+// Page de présentation : un effet en grand qui passe d'un rendu à l'autre, le même effet dans tous les rendus,
 // et un aperçu de la bibliothèque.
 import { Lecteur, boucle } from "./lecteur.js";
 import { rendus, RENDU_PAR_DEFAUT } from "../../rendus/index.js";

@@ -5,7 +5,7 @@ Des effets visuels de jeu écrits en code, à voir dans le rendu de son choix. S
 *Game visual effects written in code, shown in the style you pick.*
 
 Chaque effet est un petit fichier JavaScript, sans image, sous licence MIT. Le même effet s'affiche en pixel art, en
-glyphes de code, en ASCII, en braille, en blocs ou sur un écran à phosphore. <!-- count -->232<!-- /count --> effets au
+glyphes de code, en ASCII, en braille, en blocs, sur un écran à phosphore, en Game Boy, en matrice LED, en VHS ou en Minitel. <!-- count -->232<!-- /count --> effets au
 départ, repris de [pixelfx](https://github.com/patch-gg/pixelfx).
 
 ## Arborescence

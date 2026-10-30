@@ -5,7 +5,7 @@
   "accroche": "Game visual effects written in code, shown in the style you pick.",
   "intro": "Fire, lightning, explosions, portals, UI… Every effect is a small JavaScript file, with no images, under the MIT license. The style is an option: the same effect shows as pixel art, code glyphs, ASCII, braille or on an old CRT screen.",
   "vitrine_auto": "Auto cycle",
-  "comparer_titre": "One effect, six styles",
+  "comparer_titre": "One effect, ten styles",
   "comparer_texte": "Every effect draws into the same pixel buffer. A style is just a filter on top of it: each new style works right away on the whole library, older effects included.",
   "apercu_titre": "A look at the library",
   "apercu_texte": "All 232 effects, organised by tags instead of categories, each with its own number, with bilingual search and favorites.",

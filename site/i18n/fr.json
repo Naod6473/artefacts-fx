@@ -5,7 +5,7 @@
   "accroche": "Des effets visuels de jeu écrits en code, à voir dans le style de votre choix.",
   "intro": "Feu, foudre, explosions, portails, interfaces… Chaque effet est un petit fichier JavaScript, sans image, sous licence MIT. Le rendu est une option : le même effet s'affiche en pixel art, en glyphes de code, en ASCII, en braille ou sur un vieil écran cathodique.",
   "vitrine_auto": "Défilement auto",
-  "comparer_titre": "Un effet, six rendus",
+  "comparer_titre": "Un effet, dix rendus",
   "comparer_texte": "Les effets dessinent tous dans le même tampon de pixels. Un rendu n'est qu'un filtre posé dessus : chaque nouveau rendu marche aussitôt sur toute la bibliothèque, anciens effets compris.",
   "apercu_titre": "Un aperçu de la bibliothèque",
   "apercu_texte": "Les 232 effets, rangés par tags plutôt que par catégories, chacun avec son numéro, avec recherche bilingue et favoris.",
