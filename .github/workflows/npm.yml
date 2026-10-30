@@ -1,0 +1,33 @@
+# Publie le paquet npm « artefacts-fx » (moteur, effets, rendus, lecteur) quand on pousse une étiquette npm-v<version>,
+# par exemple : git tag npm-v0.1.0 && git push origin npm-v0.1.0. La version vient de package.json.
+# Jeton npm dans le secret NPM_TOKEN (npmjs.com › Access Tokens › Granular, droit « Read and write »).
+name: Paquet npm
+
+on:
+  push:
+    tags: ["npm-v*"]
+  workflow_dispatch:
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+          cache: npm
+      - run: npm ci
+      - name: Préparer le paquet
+        run: node tools/paquet.mjs
+      - name: Vérifier qu'il s'importe
+        run: node -e 'import("./paquet/core/index.js").then(m => { if (!m.createFx) process.exit(1) })'
+      - name: Publier
+        working-directory: paquet
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -12,7 +12,8 @@
     "build": "node build.mjs",
     "dev": "node build.mjs --serve",
     "check": "node tools/check.mjs",
-    "index": "node tools/index.mjs"
+    "index": "node tools/index.mjs",
+    "paquet": "node tools/paquet.mjs"
   },
   "devDependencies": {
     "acorn": "^8.19.0",

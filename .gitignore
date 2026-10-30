@@ -3,3 +3,4 @@ dist/
 api/donnees/*
 !api/donnees/.htaccess
 .DS_Store
+paquet/

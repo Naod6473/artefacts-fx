@@ -1,4 +1,5 @@
 {
+  "pl_gif": "Download GIF",
   "cpt_github_aide": "GitHub only shares your username and e-mail with us. Nothing is posted on your profile.",
   "nf_accueil": "Back to home",
   "nf_biblio": "See all effects",
@@ -151,7 +152,7 @@
   "cpt_hors_ligne": "Accounts are unavailable right now.",
   "cpt_sync_ko": "Could not save, will retry later.",
   "cpt_erreurs_json": "{\"identifiants\": \"Wrong email or password.\", \"non_confirme\": \"Email not confirmed yet: open the link we sent you (or sign up again to get a new one).\", \"email_invalide\": \"This email address is not valid.\", \"mdp_court\": \"The password must be at least 8 characters.\", \"trop_d_essais\": \"Too many attempts. Try again in a few minutes.\", \"lien_expire\": \"This link has expired or was already used. Ask for a new one.\", \"github_refuse\": \"GitHub sign-in did not complete.\", \"github_indisponible\": \"GitHub sign-in is not available yet.\", \"defaut\": \"Something went wrong. Please try again.\", \"mdp_actuel\": \"Current password is wrong.\", \"confirmation\": \"Wrong GitHub username: the account was not deleted.\"}",
-  "pl_bouton": "Sprite sheet",
+  "pl_bouton": "Sprite sheet · GIF",
   "pl_titre": "Sprite sheet",
   "pl_rendu": "Style",
   "pl_taille": "Scale",

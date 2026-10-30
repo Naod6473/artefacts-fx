@@ -1,4 +1,5 @@
 {
+  "pl_gif": "Télécharger le GIF",
   "cpt_github_aide": "GitHub nous transmet seulement votre identifiant et votre e-mail. Rien n'est publié sur votre profil.",
   "nf_accueil": "Retour à l'accueil",
   "nf_biblio": "Voir tous les effets",
@@ -151,7 +152,7 @@
   "cpt_hors_ligne": "Comptes indisponibles pour le moment.",
   "cpt_sync_ko": "Enregistrement impossible, nouvel essai plus tard.",
   "cpt_erreurs_json": "{\"identifiants\": \"E-mail ou mot de passe incorrect.\", \"non_confirme\": \"Adresse pas encore confirmée : ouvrez le lien reçu par e-mail (ou recréez le compte pour le recevoir à nouveau).\", \"email_invalide\": \"Cette adresse e-mail n'est pas valide.\", \"mdp_court\": \"Le mot de passe doit faire au moins 8 caractères.\", \"trop_d_essais\": \"Trop d'essais. Réessayez dans quelques minutes.\", \"lien_expire\": \"Ce lien a expiré ou a déjà servi. Demandez-en un nouveau.\", \"github_refuse\": \"La connexion GitHub n'a pas abouti.\", \"github_indisponible\": \"La connexion GitHub n'est pas encore disponible.\", \"defaut\": \"Une erreur est survenue. Réessayez.\", \"mdp_actuel\": \"Mot de passe actuel incorrect.\", \"confirmation\": \"Identifiant GitHub incorrect : le compte n'a pas été supprimé.\"}",
-  "pl_bouton": "Planche",
+  "pl_bouton": "Planche · GIF",
   "pl_titre": "Planche de sprites",
   "pl_rendu": "Rendu",
   "pl_taille": "Taille",

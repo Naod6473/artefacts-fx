@@ -9,6 +9,7 @@ import { CATEGORIES_FR, TAGS_FR, SYNONYMES } from "./tags.js";
 import { initCompte } from "./compte.js";
 import { planche, dimensions, spriteFrames, scene, COTE_MAX } from "./planche.js";
 import { zip, telecharger } from "./zip.js";
+import { gif } from "./gif.js";
 import { exporterProjet } from "./exportProjet.js";
 
 const $ = (s) => document.querySelector(s);
@@ -597,7 +598,7 @@ function majPlanche() {
   const r = reglagesPl(), d = dimensions({ duration: 1, ...plMod.meta }, r);
   const tropGrand = d.largeur > COTE_MAX || d.hauteur > COTE_MAX;
   $("#pl-infos").textContent = T.pl_infos.replace("%n", d.n).replace("%g", `${d.cols}×${d.lignes}`).replace("%t", `${d.largeur}×${d.hauteur}`) + (tropGrand ? " · " + T.pl_trop_grand : "");
-  $("#pl-png").disabled = $("#pl-godot").disabled = true;
+  $("#pl-png").disabled = $("#pl-gif").disabled = $("#pl-godot").disabled = true;
   if (tropGrand) return;
   plMinuteur = setTimeout(() => {
     plRes = planche(plMod, { ...r, options: optionsDe(plMod.meta) });
@@ -605,10 +606,18 @@ function majPlanche() {
     cv.width = plRes.atlas.width;
     cv.height = plRes.atlas.height;
     cv.getContext("2d").drawImage(plRes.atlas, 0, 0);
-    $("#pl-png").disabled = $("#pl-godot").disabled = false;
+    $("#pl-png").disabled = $("#pl-gif").disabled = $("#pl-godot").disabled = false;
   }, 150);
 }
 $("#pl-png").onclick = async () => plRes && telecharger(await pngDe(plRes.atlas), nomPl() + ".png");
+// GIF animé : les cases de la planche, dans l'ordre, au rythme choisi
+$("#pl-gif").onclick = () => {
+  if (!plRes) return;
+  const actx = plRes.atlas.getContext("2d"), images = [];
+  for (let i = 0; i < plRes.n; i++) images.push(actx.getImageData((i % plRes.cols) * plRes.fw, Math.floor(i / plRes.cols) * plRes.fh, plRes.fw, plRes.fh));
+  const octets = gif(images, plRes.fw, plRes.fh, Math.round(100 / plRes.fps), $("#pl-transparent").checked);
+  telecharger(new Blob([octets], { type: "image/gif" }), nomPl() + ".gif");
+};
 $("#pl-godot").onclick = async () => {
   if (!plRes) return;
   let dossier = $("#pl-dossier").value.trim().replace(/^res:\/\//, "").replace(/^\/+|\/+$/g, "");
