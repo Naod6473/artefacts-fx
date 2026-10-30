@@ -23,6 +23,14 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Réglages secrets de l'API (connexion GitHub)
+        env:
+          GH_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
+          GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
+        run: |
+          # écrits dans api/donnees/, que le serveur ne sert jamais ; absents du repo
+          if [ -z "$GH_CLIENT_ID" ]; then echo "::warning::Secret GH_CLIENT_ID absent : connexion GitHub désactivée."; exit 0; fi
+          php -r 'file_put_contents("dist/api/donnees/config.php", "<?php return " . var_export(["github_id" => getenv("GH_CLIENT_ID"), "github_secret" => getenv("GH_CLIENT_SECRET")], true) . ";\n");'
       - name: Lire config/ovh.json
         id: config
         run: |
@@ -45,7 +53,7 @@ jobs:
           # et les données de la communauté (api/donnees/*.sqlite, *.json) ne sont jamais écrasées
           lftp -c "set net:max-retries 2; set net:timeout 30;
             open -p $PORT -u $FTP_USERNAME --env-password sftp://$FTP_SERVER;
-            mirror -R --verbose --parallel=4 -x '^api/donnees/.*\.(sqlite|json)$' dist/ $DOSSIER"
+            mirror -R --verbose --parallel=4 -x '^api/donnees/.*\.(sqlite|sqlite-journal|json)$' dist/ $DOSSIER"
       - name: Vérifier le site en ligne
         if: env.FTP_SERVER != ''
         env:
@@ -59,6 +67,9 @@ jobs:
           echo "racine (fr) -> $(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' -H 'Accept-Language: fr' "$base")"
           echo "api/ -> $(curl -s "${base}api/")"
           echo "api/donnees/test.sqlite -> $(curl -s -o /dev/null -w '%{http_code}' "${base}api/donnees/test.sqlite") (403 ou 404 attendu)"
+          code=$(curl -s -o /dev/null -w '%{http_code}' "${base}api/donnees/config.php"); echo "api/donnees/config.php -> $code"
+          [ "$code" = 403 ] || [ "$code" = 404 ] || exit 1
+          echo "api/compte/moi -> $(curl -s "${base}api/compte/moi")"
       - name: Secrets absents
         if: env.FTP_SERVER == ''
         env:

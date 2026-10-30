@@ -1,10 +1,11 @@
 // La bibliothèque : tous les effets dans un mur filtré par la recherche et les tags, et un panneau qui montre
-// l'effet choisi (lecture, curseur de temps, comparaison des rendus, code). Favoris et projet brouillon sont
-// gardés dans le navigateur, en attendant les comptes.
+// l'effet choisi (lecture, curseur de temps, comparaison des rendus, code). Sans compte, favoris et projet brouillon
+// sont gardés dans le navigateur ; avec un compte, ils sont sur le serveur et le membre a plusieurs projets.
 import { Lecteur, boucle, vuePartagee, pleinEcran } from "./lecteur.js";
 import { rendus, parId, RENDU_PAR_DEFAUT } from "../../rendus/index.js";
 import { catalogue, charger, source } from "virtuel:catalogue";
 import { CATEGORIES_FR, TAGS_FR, SYNONYMES } from "./tags.js";
+import { initCompte } from "./compte.js";
 
 const $ = (s) => document.querySelector(s);
 const LANGUE = document.documentElement.lang || "fr";
@@ -36,7 +37,9 @@ const parNumero = new Map(LIB.map((e) => [e.n, e]));
 const etat = { q: "", tags: new Set(), rendu: memo.lire("rendu", RENDU_PAR_DEFAUT), vue: "tout", tri: "numero", choisi: null };
 if (!parId[etat.rendu]) etat.rendu = RENDU_PAR_DEFAUT;
 const favoris = new Set(memo.lire("favoris", []));
-let projet = memo.lire("projet", []); // [{ n, rendu, note }]
+let projet = memo.lire("projet", []); // effets du projet affiché : [{ n, rendu, note }]
+let projets = null, actif = null; // membre connecté : tous ses projets [{ id, nom, effets }] et celui affiché
+let retourCompte = null;
 const dansProjet = (e) => projet.find((p) => p.n === e.n);
 
 function lireUrl() {
@@ -48,6 +51,7 @@ function lireUrl() {
   if (p.has("fx")) etat.choisi = parNumero.get(p.get("fx").padStart(4, "0")) ?? null;
   // arrivée depuis l'accueil (« voir le code ») : onglet code source ouvert et visible
   if (p.get("code") === "source") { onglet = "source"; allerAuCode = true; }
+  if (p.has("compte")) retourCompte = [p.get("compte"), p.get("j")];
 }
 function ecrireUrl() {
   const p = new URLSearchParams();
@@ -127,7 +131,7 @@ function choisirRendu(id) {
   memo.ecrire("rendu", id);
   rangee.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.rendu === id)));
   majComparaison();
-  if (etat.choisi && dansProjet(etat.choisi)) { dansProjet(etat.choisi).rendu = id; memo.ecrire("projet", projet); }
+  if (etat.choisi && dansProjet(etat.choisi)) { dansProjet(etat.choisi).rendu = id; sauverProjet(); }
   ecrireUrl();
 }
 const recherche = $("#recherche");
@@ -195,6 +199,7 @@ function majMur() {
   document.querySelectorAll("[data-vue]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.vue === etat.vue)));
   $("#nb-favoris").textContent = favoris.size;
   $("#nb-projet").textContent = projet.length;
+  $("#projets").hidden = !(projets && etat.vue === "projet");
   majTags(ordre);
   // une recherche par numéro ouvre l'effet directement
   if (a.numero && ordre.length === 1 && etat.choisi !== ordre[0]) ouvrir(ordre[0]);
@@ -203,7 +208,7 @@ function majMur() {
 
 function basculerFavori(e) {
   favoris.has(e.n) ? favoris.delete(e.n) : favoris.add(e.n);
-  memo.ecrire("favoris", [...favoris]);
+  sauverFavoris();
   majCoeurs();
   if (etat.vue === "favoris") majMur();
   else $("#nb-favoris").textContent = favoris.size;
@@ -279,14 +284,14 @@ $("#fx-projet").onclick = () => {
   const e = etat.choisi;
   if (!e) return;
   projet = dansProjet(e) ? projet.filter((p) => p.n !== e.n) : [...projet, { n: e.n, rendu: etat.rendu, note: "" }];
-  memo.ecrire("projet", projet);
+  sauverProjet();
   majProjet();
   if (etat.vue === "projet") majMur();
   else $("#nb-projet").textContent = projet.length;
 };
 $("#fx-note").oninput = (ev) => {
   const p = etat.choisi && dansProjet(etat.choisi);
-  if (p) { p.note = ev.target.value; memo.ecrire("projet", projet); }
+  if (p) { p.note = ev.target.value; sauverProjet(); }
 };
 function majProjet() {
   const p = etat.choisi && dansProjet(etat.choisi);
@@ -368,6 +373,90 @@ addEventListener("keydown", (ev) => {
   }
 });
 
+// ---------- compte : favoris et projets suivent le membre sur tous ses appareils ; rien n'est visible des autres
+const compte = initCompte({ base: T.base, T, ERR: JSON.parse($("#erreurs-compte").textContent), bulle, connecte, deconnecte });
+
+async function connecte(m) {
+  // ce qui a été fait avant de se connecter (favoris, brouillon) rejoint le compte, puis quitte le navigateur
+  const avant = [...favoris];
+  favoris.clear();
+  for (const n of [...m.favoris, ...avant]) favoris.add(n);
+  if (avant.some((n) => !m.favoris.includes(n))) envoyerFavoris(0);
+  memo.ecrire("favoris", []);
+  projets = m.projets;
+  const brouillon = memo.lire("projet", []);
+  if (brouillon.length || !projets.length) {
+    const nom = projets.length ? T.projet_brouillon : T.projet_defaut;
+    const { id } = await compte.appel("projet", { nom, effets: brouillon });
+    projets.unshift({ id, nom, effets: brouillon });
+    memo.ecrire("projet", []);
+  }
+  const voulu = memo.lire("projet-actif", null);
+  choisirProjet((projets.find((p) => p.id === voulu) ?? projets[0]).id);
+}
+function deconnecte() {
+  projets = actif = null;
+  favoris.clear();
+  projet = memo.lire("projet", []);
+  rafraichirVues();
+}
+function choisirProjet(id) {
+  actif = projets.find((p) => p.id === id);
+  projet = actif.effets;
+  memo.ecrire("projet-actif", id);
+  majListeProjets();
+  rafraichirVues();
+}
+function majListeProjets() {
+  $("#projet-actif").replaceChildren(...projets.map((p) => new Option(`${p.nom} (${p.effets.length})`, p.id, false, p === actif)));
+  $("#projet-supprimer").disabled = projets.length < 2;
+}
+function rafraichirVues() {
+  majMur();
+  majCoeurs();
+  if (etat.choisi) majProjet();
+}
+function sauverProjet() {
+  if (!projets) return memo.ecrire("projet", projet);
+  const p = actif;
+  p.effets = projet;
+  compte.differer("projet" + p.id, () => compte.appel("projet", { id: p.id, nom: p.nom, effets: p.effets }).catch(() => bulle(T.sync_ko)));
+  majListeProjets();
+}
+function sauverFavoris() {
+  if (projets) envoyerFavoris(800);
+  else memo.ecrire("favoris", [...favoris]);
+}
+function envoyerFavoris(delai) {
+  compte.differer("favoris", () => compte.appel("favoris", { favoris: [...favoris] }).catch(() => bulle(T.sync_ko)), delai);
+}
+$("#projet-actif").onchange = (ev) => choisirProjet(+ev.target.value);
+$("#projet-nouveau").onclick = async () => {
+  const nom = prompt(T.projet_nom, T.projet_defaut)?.trim().slice(0, 80);
+  if (!nom) return;
+  try {
+    const { id } = await compte.appel("projet", { nom, effets: [] });
+    projets.unshift({ id, nom, effets: [] });
+    choisirProjet(id);
+  } catch (_) { bulle(T.sync_ko); }
+};
+$("#projet-renommer").onclick = () => {
+  const nom = prompt(T.projet_nom, actif.nom)?.trim().slice(0, 80);
+  if (!nom) return;
+  actif.nom = nom;
+  sauverProjet();
+};
+$("#projet-supprimer").onclick = async () => {
+  if (projets.length < 2 || !confirm(T.projet_suppr_confirmer.replace("%s", actif.nom))) return;
+  const id = actif.id;
+  compte.annuler("projet" + id);
+  try {
+    await compte.appel("projet-supprimer", { id });
+    projets = projets.filter((p) => p.id !== id);
+    choisirProjet(projets[0].id);
+  } catch (_) { bulle(T.sync_ko); }
+};
+
 // ---------- étoiles du repo GitHub (si l'API répond ; sinon le lien reste sans compteur)
 fetch("https://api.github.com/repos/Naod6473/artefacts-fx").then((r) => (r.ok ? r.json() : null)).then((d) => {
   if (d && typeof d.stargazers_count === "number") $("#etoiles").textContent = d.stargazers_count;
@@ -379,6 +468,7 @@ $("#tri").value = etat.tri;
 choisirRendu(etat.rendu);
 majMur();
 ouvrir(etat.choisi ?? ordre[0] ?? LIB[0]);
+if (retourCompte) compte.pret.then(() => compte.retour(...retourCompte));
 if (allerAuCode) {
   cartes.get(etat.choisi)?.scrollIntoView({ block: "center" });
   $("#code").scrollIntoView({ block: "nearest" });

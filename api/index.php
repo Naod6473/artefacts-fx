@@ -1,7 +1,7 @@
 <?php
 // Point d'entrée de l'API (partie communauté, à venir). Pour l'instant : un test de santé de l'hébergement.
 //   GET /api/  ->  { ok, php, sqlite, ecriture }
-// sqlite : la base des comptes, cœurs et commentaires sera un fichier SQLite dans api/donnees/ (pas de MySQL chez OVH).
+// sqlite : la base des comptes est un fichier SQLite dans api/donnees/ (pas de MySQL chez OVH).
 declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');

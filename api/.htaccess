@@ -1,5 +1,6 @@
-# /api/mcp : le serveur MCP (mcp.php)
+# /api/mcp : le serveur MCP (mcp.php) ; /api/compte/<action> : les comptes membres (compte.php)
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule ^mcp/?$ mcp.php [L]
+  RewriteRule ^compte/([\w-]+)/?$ compte.php?a=$1 [L,QSA]
 </IfModule>

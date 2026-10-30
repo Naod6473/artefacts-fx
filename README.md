@@ -40,6 +40,15 @@ est dans `config/ovh.json` ; les identifiants FTP sont dans les secrets du repo 
 
 `https://naod.fr/api/mcp` (transport Streamable HTTP, sans compte) : outils `search_effects`, `get_effect`, `list_styles`, `list_tags`. Code : `api/mcp.php`, qui lit `dist/api/catalogue/` écrit par le build. Doc pour les utilisateurs : https://naod.fr/fr/ia/.
 
+## Comptes membres
+
+`api/compte.php` (routes `/api/compte/<action>`, liste en tête du fichier) : inscription par e-mail (lien de confirmation)
+ou GitHub, favoris et projets privés. Base SQLite `api/donnees/comptes.sqlite`, jamais envoyée ni écrasée par le
+déploiement. Connexion GitHub : app OAuth (callback `https://naod.fr/api/compte/github`) et secrets du repo
+`GH_CLIENT_ID` / `GH_CLIENT_SECRET`, écrits au déploiement dans `api/donnees/config.php`. Les e-mails partent par
+`mail()` d'OVH depuis `noreply@naod.fr`. Essai en local : `ARTEFACTS_MAILS=mails.log php -S localhost:8090 -t dist routeur.php`
+(les e-mails sont écrits dans le fichier).
+
 ## Ajouter une langue
 
 Copier `site/i18n/fr.json` vers `site/i18n/<code>.json` et traduire les valeurs ; le build crée `/<code>/`.

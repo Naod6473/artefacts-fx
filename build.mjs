@@ -98,7 +98,7 @@ await build({
 
 const echappe = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 // les clés qui finissent par une phrase avec des liens (pied_credits) gardent leur HTML ; les autres sont échappées
-const HTML_PERMIS = new Set(["pied_credits"]);
+const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json"]);
 for (const langue of LANGUES) {
   const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
   mkdirSync(join(DIST, langue), { recursive: true });
