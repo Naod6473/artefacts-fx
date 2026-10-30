@@ -76,6 +76,9 @@ function couleurDominante(options) {
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, "assets"), { recursive: true });
 cpSync("site/static", DIST, { recursive: true });
+// le texte de la licence MIT (Artefacts, Patch, Hugo Duprez) servi avec le code, comme la licence le demande
+cpSync("LICENSE", join(DIST, "LICENSE.txt"));
+cpSync("NOTICE.md", join(DIST, "NOTICE.txt"));
 cpSync("api", join(DIST, "api"), { recursive: true });
 // sources du moteur, des rendus et des effets, servies telles quelles : l'export zip d'un projet les rassemble
 for (const d of ["core", "rendus", "effets"]) cpSync(d, join(DIST, "assets", "src", d), { recursive: true });
@@ -105,7 +108,7 @@ await build({
   chunkNames: "fx/[name]-[hash]",
   minify: true,
   legalComments: "inline",
-  banner: { js: "/* Artefacts, MIT. Moteur et effets d'origine : pixelfx, MIT, Copyright (c) 2026 Patch, Copyright (c) 2026 Hugo Duprez */" },
+  banner: { js: "/* Artefacts, MIT. Moteur et effets d'origine : pixelfx, MIT, Copyright (c) 2026 Patch, Copyright (c) 2026 Hugo Duprez. Licence complète : /LICENSE.txt */" },
 });
 
 // le moteur du bac à sable (pages Proposer et Modération) : un seul fichier, passé en texte à l'iframe isolée
