@@ -1,0 +1,930 @@
+{
+  "fire/brazier": {
+    "name": "Brasero",
+    "desc": "Une vasque en fer sur trépied remplie de braises ardentes et d'un grand feu rugissant, étincelles et braises qui s'envolent, lumière sur le fer et le sol."
+  },
+  "fire/campfire": {
+    "name": "Feu de camp",
+    "desc": "Des bûches croisées sur un lit de braises et un feu vif : langues qui lèchent et bondissent, étincelles qui claquent, braises qui montent, fumée, halo chaud."
+  },
+  "fire/candle": {
+    "name": "Bougie",
+    "desc": "Une bougie de cire dans une coupelle en laiton : flamme calme à base bleue qui ondule et s'étire, halo de lumière, poussières en suspension, goutte de cire qui coule."
+  },
+  "fire/fire-breath": {
+    "name": "Souffle de feu",
+    "desc": "Un cône de feu rugissant jaillit de la bouche vers la droite : blanc incandescent aux lèvres, il gonfle et refroidit en rouge et en fumée, étincelles projetées devant."
+  },
+  "fire/fire-ring": {
+    "name": "Anneau de feu",
+    "desc": "Un flash blanc aux pieds, puis les flammes filent au sol en anneau, s'embrasent au passage du front et s'éteignent derrière sur une brûlure fumante."
+  },
+  "fire/fire-tornado": {
+    "name": "Tornade de feu",
+    "desc": "Un entonnoir de feu qui tourne : bandes en spirale, langues arrachées sur ses flancs, anneau de flammes tourbillonnant au pied, braises en orbite devant et derrière."
+  },
+  "fire/fireball": {
+    "name": "Boule de feu",
+    "desc": "Une boule de feu filant vers la droite : tête blanche bouillonnante à couronne de flammes, longue traîne déchirée de bouffées qui refroidissent en fumée, braises semées."
+  },
+  "fire/flame-pillar": {
+    "name": "Pilier de flammes",
+    "desc": "Le sol se fissure et rougeoie, une colonne de feu jaillit blanche et rugit, crache des braises et perd des flammes, puis s'effondre en fumée roulante."
+  },
+  "fire/flamethrower": {
+    "name": "Lance-flammes",
+    "desc": "Un jet sous pression vers la droite : veilleuse bleue à la buse, flux serré parcouru de poussées, un crachotement, gouttes enflammées qui tombent, pointe qui s'enroule en fumée."
+  },
+  "fire/meteor": {
+    "name": "Météore",
+    "desc": "Un rocher en feu fonce depuis le haut gauche en comète et s'écrase au sol : flash blanc, boule de feu, roches et brandons projetés, cratère rougeoyant qui refroidit."
+  },
+  "fire/spirit-flame": {
+    "name": "Flamme spectrale",
+    "desc": "Un feu fantôme bleu-sarcelle flotte dans l'air : bord vif autour d'un cœur sombre et creux, vague montant sa queue vaporeuse, volutes détachées, étincelles froides."
+  },
+  "fire/torch": {
+    "name": "Torche",
+    "desc": "Une torche murale sur support en fer : flamme bondissant d'un chiffon imbibé de poix, langues et bouffées arrachées, fumée, braises, lumière vacillante sur le mur."
+  },
+  "explosions/barrel-explosion": {
+    "name": "Explosion de baril",
+    "desc": "Un baril explosif tremble, son couvercle gonfle et crache des flammes, puis il éclate : colonne de feu, douves et couvercle projetés, carburant en feu éclaboussé au sol."
+  },
+  "explosions/big-explosion": {
+    "name": "Grosse explosion",
+    "desc": "Une énorme déflagration au sol en trois temps : dôme blanc, boule de feu roulante qui monte en champignon de fumée, lourds rochers, et des feux qui continuent de brûler."
+  },
+  "explosions/cartoon-pow": {
+    "name": "POW cartoon",
+    "desc": "Un coup façon BD : une étoile dentelée bicolore s'abat en tremblant, bords bouillonnants, POW! tombe lettre par lettre, des traits d'action volent, puis tout disparaît d'un coup."
+  },
+  "explosions/dirt-explosion": {
+    "name": "Explosion de terre",
+    "desc": "Une charge enterrée explose : flash sous le sol, V de mottes et de gravier projeté haut, panache de poussière brune qui gonfle et retombe, et un cratère."
+  },
+  "explosions/firework-burst": {
+    "name": "Feu d'artifice",
+    "desc": "Une fusée monte, ralentit et éclate en sphère d'étoiles colorées à traînées autour d'un cœur doré ; elles retombent, crépitent en éclats blancs et laissent des paillettes."
+  },
+  "explosions/firework-rocket": {
+    "name": "Fusée d'artifice",
+    "desc": "Une fusée siffle depuis le sol sur une traînée dorée scintillante, plane, puis éclate en palmier : lourdes frondes d'or qui retombent en traînées et crépitent aux pointes."
+  },
+  "explosions/grenade": {
+    "name": "Grenade",
+    "desc": "Une grenade lancée rebondit, roule et s'arrête mèche grésillante, tremble, puis explose : flash blanc, éclats filants, étincelles, petite boule de feu et brûlure au sol."
+  },
+  "explosions/implosion": {
+    "name": "Implosion",
+    "desc": "Tout est aspiré : traits et gravier se ruent vers le centre, des anneaux se contractent et une sphère sombre s'écrase en un point blanc ; un temps de silence, puis un pop sec."
+  },
+  "explosions/nuke": {
+    "name": "Bombe nucléaire",
+    "desc": "Un cadre blanc aveuglant, puis une boule de feu s'élève sur une fine tige en large champignon roulant lumineux ; une jupe blanche éclate et un souffle de poussière balaie le sol."
+  },
+  "explosions/plasma-explosion": {
+    "name": "Explosion de plasma",
+    "desc": "Une déflagration d'énergie bleu-violet sans fumée : flash blanc, boule de plasma gonflant en coquille qui s'amincit, anneaux de choc en profondeur, arcs d'éclairs crépitants."
+  },
+  "explosions/small-explosion": {
+    "name": "Explosion",
+    "desc": "Une déflagration au sol : flash blanc et anneaux de choc, feu refroidissant en colonne de fumée, étincelles, brandons qui retombent et brûlent, rochers, brûlure rougeoyante."
+  },
+  "explosions/smoke-bomb": {
+    "name": "Fumigène",
+    "desc": "Une boîte ronde tinte au sol, mèche crépitante, et éclate : une fumée épaisse gris-violet jaillit, roule au sol, gonfle en nuage qui masque tout, puis s'effiloche."
+  },
+  "water/bubbles": {
+    "name": "Bulles",
+    "desc": "Des bulles montent d'un évent de galets, oscillent et grossissent en remontant, s'illuminent en traversant les rais de lumière de la surface, puis bombent et éclatent."
+  },
+  "water/drip": {
+    "name": "Goutte",
+    "desc": "Une perle gonfle sous une pierre humide et capte la lumière, se détache, tombe étirée par sa vitesse et plonge dans une flaque : couronne, anneau et petit rebond."
+  },
+  "water/fountain": {
+    "name": "Fontaine",
+    "desc": "Un bassin de pierre ; un jet s'élève de la bouche et s'épanouit en arcs vitreux qui se brisent en perles, retombent et plongent dans l'eau en anneaux."
+  },
+  "water/geyser": {
+    "name": "Geyser",
+    "desc": "Un bassin se soulève et bouillonne de plus en plus vite, puis projette une colonne d'eau blanche à tête d'écume ; elle retombe en gouttes et vapeur, s'affaisse et s'éteint."
+  },
+  "water/rain-splash": {
+    "name": "Pluie sur flaque",
+    "desc": "Gros plan bas sur une flaque sous la pluie : de grosses gouttes forment des couronnes, perles et jet de rebond, les anneaux se croisent, le reflet d'un lampadaire ondule."
+  },
+  "water/ripples": {
+    "name": "Ondulations",
+    "desc": "Une goutte tombe sur une eau sombre et calme ; des anneaux s'étendent en vue rasante : chaque crête capte la lumière, scintille, puis se fond dans le calme."
+  },
+  "water/splash": {
+    "name": "Éclaboussure",
+    "desc": "Une pierre tombe dans l'eau calme : impact blanc, couronne qui se déchire en gouttelettes retombant en anneaux, jet qui rebondit, écume et brume dérivante."
+  },
+  "water/water-jet": {
+    "name": "Jet d'eau",
+    "desc": "Un jet sous pression vers la droite : tige vitreuse serrée parcourue de poussées, qui gonfle, se hérisse, ploie sous son poids et se brise en paquets, embruns et brume."
+  },
+  "water/water-orb": {
+    "name": "Orbe d'eau",
+    "desc": "Une sphère d'eau flotte et oscille : un courant tourne dedans, le sol s'y reflète inversé, elle brille, la lumière se concentre au sol dessous, des gouttes tombent."
+  },
+  "water/waterfall": {
+    "name": "Cascade",
+    "desc": "Une rivière se déverse d'une brèche dans la roche : boucle blanche, nappe profonde qui se divise en filets, écume bouillonnante, embruns, brume et anneaux sur un bassin sombre."
+  },
+  "water/wave-crash": {
+    "name": "Vague déferlante",
+    "desc": "Une houle arrive et se cambre, sa lèvre se projette en avant et s'enroule sur un tube sombre, puis s'écrase en gerbe d'écume blanche qui déferle et s'efface en dentelle."
+  },
+  "water/whirlpool": {
+    "name": "Tourbillon",
+    "desc": "Vue de dessus, une eau sombre s'enroule en vortex : des bras d'écume spiralent et s'assombrissent en plongeant vers un œil profond au bord éclairé, des flocons suivent."
+  },
+  "ice/blizzard-vortex": {
+    "name": "Vortex de blizzard",
+    "desc": "Une tornade de neige : des bandes de vent dressent un entonnoir penché, flocons et cristaux orbitent devant et derrière, la neige bout au pied, lumière froide dans la gorge."
+  },
+  "ice/freeze": {
+    "name": "Gel",
+    "desc": "Le givre fonce et grimpe sur le personnage, le changeant en glace ; un bloc à facettes cristallise pan par pan, scintille, se fissure et éclate, et le personnage se libère."
+  },
+  "ice/frost-breath": {
+    "name": "Souffle de givre",
+    "desc": "Un cône de vent glacé soufflant vers la droite : des bouffées de givre gonflent et retombent, des traits de vent filent, des cristaux culbutent et scintillent."
+  },
+  "ice/frost-nova": {
+    "name": "Nova de givre",
+    "desc": "Le givre spirale en flocon tournant, puis une vague déploie trois anneaux de cristaux autour du lanceur ; la neige dérive, le givre rampe, la glace fond dans le sol."
+  },
+  "ice/ice-crystal": {
+    "name": "Cristal de glace",
+    "desc": "Un cristal de glace flotte et tourne lentement dans sa lumière froide : ses facettes s'éclairent et s'assombrissent, des reflets flashent, des poussières de givre l'entourent."
+  },
+  "ice/ice-lance": {
+    "name": "Lance de glace",
+    "desc": "Une lance de glace à facettes filant à droite : une pulsation traverse son cœur, des anneaux d'air froid se détachent de la pointe, le givre pèle en sillage, cristaux semés."
+  },
+  "ice/ice-shatter": {
+    "name": "Glace brisée",
+    "desc": "Un bloc de glace reçoit un coup de la gauche : il tressaute, des fissures courent sur ses faces, il flashe blanc et éclate en morceaux qui culbutent dans la poussière de glace."
+  },
+  "ice/ice-spikes": {
+    "name": "Pics de glace",
+    "desc": "Une ligne de givre file au sol et des grappes de lames de glace jaillissent derrière en vague montante, scintillent, flashent blanc ensemble et éclatent en éclats."
+  },
+  "ice/icicle-fall": {
+    "name": "Chute de stalactite",
+    "desc": "Une stalactite goutte et tremble, se détache de sa racine givrée, tombe, se plante dans le sol et éclate en éclats glissants, échardes et givre roulant."
+  },
+  "ice/snowflake-burst": {
+    "name": "Éclat de flocons",
+    "desc": "Un pop glacé : le givre s'amasse et flashe blanc en anneau, puis des flocons nets à six branches tournent, ralentissent, scintillent et descendent fondre au sol."
+  },
+  "lightning/ball-lightning": {
+    "name": "Foudre en boule",
+    "desc": "Une boule de plasma crépitante dérive en boucle errante, crache des arcs de sa surface, laisse un sillage de particules et zappe le sol quand elle descend."
+  },
+  "lightning/chain-lightning": {
+    "name": "Éclair en chaîne",
+    "desc": "Un éclair saute de la main du lanceur à travers trois cibles ; chacune flashe, étincelle et se décharge au sol tandis que les arcs vacillent, puis la chaîne se rompt."
+  },
+  "lightning/charge-up": {
+    "name": "Charge électrique",
+    "desc": "Étincelles et arcs convergent vers un noyau crépitant dans la main du lanceur qui gonfle et pulse de plus en plus vite, puis flashe et éclate : éclairs, anneau, gerbe."
+  },
+  "lightning/electrified": {
+    "name": "Électrisé",
+    "desc": "Le courant traverse un personnage : des arcs rampent et sautent sur le corps, des étincelles crachent, silhouette électrique à chaque secousse, les pieds se déchargent au sol."
+  },
+  "lightning/lightning-strike": {
+    "name": "Coup de foudre",
+    "desc": "Une frappe ciblée : un sceau se charge au sol, la scène s'assombrit, un éclair épais s'abat, des arcs filent le long des fissures, le canal s'effrite en brûlure."
+  },
+  "lightning/plasma-ball": {
+    "name": "Boule à plasma",
+    "desc": "Un globe de verre sur piédestal sombre : des filaments de plasma errent du cœur vers le verre et s'étalent en pieds lumineux au contact, éclairant le socle et le sol."
+  },
+  "lightning/spark-arc": {
+    "name": "Arc électrique",
+    "desc": "Un arc grimpant entre deux tiges : il frappe blanc à leur base étroite, monte avec la chaleur en s'étirant et se courbant, crachote et claque au sommet, puis repart."
+  },
+  "lightning/storm-cloud": {
+    "name": "Nuage d'orage",
+    "desc": "Un nuage d'orage bouillonne au-dessus, éclairé de l'intérieur par des décharges, lambeaux sous sa base sombre ; la pluie tombe en biais et un éclair frappe le sol par boucle."
+  },
+  "lightning/tesla-coil": {
+    "name": "Bobine Tesla",
+    "desc": "Une bobine de cuivre sous un tore d'acier lance des arcs ramifiés par salves et frappe parfois le sol en gerbe d'étincelles, éclairant le métal et la terre."
+  },
+  "lightning/thunderclap": {
+    "name": "Coup de tonnerre",
+    "desc": "Un coup de tonnerre autour du lanceur : flash blanc, éclairs fourchus qui poignardent le sol, lourd anneau de choc soulevant poussière et gravier, étincelles filantes."
+  },
+  "lightning/zap-hit": {
+    "name": "Décharge",
+    "desc": "Un zap de contact : un arc claque depuis la gauche, le point d'impact sature en nœud de zigzags, une fougère de brûlures rougeoie, les étincelles fuient, l'ozone fume."
+  },
+  "scifi/emp-blast": {
+    "name": "Impulsion EMP",
+    "desc": "Une charge en disque tictaque, pop blanc, et une bulle de scanlines roulantes gonfle, des arcs rampant sur sa peau ; elle stroboscope, se déchire et grille en pixels morts."
+  },
+  "scifi/energy-core": {
+    "name": "Cœur d'énergie",
+    "desc": "Un cœur de plasma bat dans une cage d'acier : il gonfle et lance un anneau de choc à chaque battement, deux anneaux inclinés orbitent, des arcs sautent sur les barreaux."
+  },
+  "scifi/force-field": {
+    "name": "Champ de force",
+    "desc": "Un dôme vitreux de plaques hexagonales sur le héros : les plaques scintillent, des traceurs venus de droite s'y écrasent, une ondulation et des fissures de lumière courent."
+  },
+  "scifi/glitch": {
+    "name": "Glitch",
+    "desc": "Le signal du héros se décompose par rafales : séparation RGB, tranches décalées, lignes étirées, blocs parasites et pixels morts, puis retour net d'un coup."
+  },
+  "scifi/hologram": {
+    "name": "Hologramme",
+    "desc": "Un projecteur au sol émet un cône de lumière contenant un modèle filaire en rotation : scanlines, anneau de données en orbite, et il vacille, se déchire et tremble."
+  },
+  "scifi/jetpack": {
+    "name": "Jetpack",
+    "desc": "Deux propulseurs tirent vers le bas : cœurs blancs incandescents à diamants de choc dans des flammes déchiquetées, bouffées qui refroidissent en fumée éclairée par le feu."
+  },
+  "scifi/laser-grid": {
+    "name": "Grille laser",
+    "desc": "Lasers de sécurité entre deux poteaux d'acier : les faisceaux rouges glissent et se croisent, la poussière s'éclaire sur leur passage, les balayeurs au sol brûlent et crépitent."
+  },
+  "scifi/scanner": {
+    "name": "Scanner",
+    "desc": "Des crochets se fixent sur le héros, une ligne de scan balaie de la tête aux pieds en laissant un contour, et un affichage compte jusqu'à OK avant de tout relâcher."
+  },
+  "scifi/teleporter-pad": {
+    "name": "Téléporteur",
+    "desc": "Une plateforme d'acier s'illumine au sol, ses anneaux ondulant vers l'extérieur ; une colonne de lumière s'élève, des anneaux montent, des étincelles dérivent."
+  },
+  "scifi/tractor-beam": {
+    "name": "Rayon tracteur",
+    "desc": "Un module en vol projette un cône de lumière au sol ; des rochers s'arrachent dans la poussière et spiralent en tournant vers la lentille tandis que des anneaux montent."
+  },
+  "scifi/warp-in": {
+    "name": "Arrivée en warp",
+    "desc": "Un faisceau s'abat, des anneaux le descendent et une scanline dessine le héros de haut en bas, pixels blancs refroidissant à leurs couleurs ; le faisceau se referme en étincelles."
+  },
+  "scifi/warp-out": {
+    "name": "Départ en warp",
+    "desc": "Le contour du héros vacille, il flashe blanc et se dissout en lumière depuis la tête, aspiré dans un faisceau qui décolle du sol et se referme."
+  },
+  "melee/claw-swipe": {
+    "name": "Coup de griffes",
+    "desc": "Trois griffures s'abattent l'une après l'autre, blanches, refroidissant d'orange à rouge, puis se referment par les deux bouts en cicatrice pointillée, avec éclats et gouttes."
+  },
+  "melee/dagger-flurry": {
+    "name": "Rafale de dagues",
+    "desc": "Une rafale de petits croissants rapides à tous les angles devant le combattant, chacun avec un jet d'étincelles, conclue par une grande entaille qui scintille et éclate."
+  },
+  "melee/double-slash": {
+    "name": "Double entaille",
+    "desc": "Une coupe vers le bas, puis une vers le haut qui la croise : quand le X se ferme les deux flashent blanc, le croisement éclate en lumière et étincelles, un X pointillé reste."
+  },
+  "melee/hammer-smash": {
+    "name": "Coup de marteau",
+    "desc": "Un marteau s'abat devant dans un coin de mouvement : impact blanc à rayons, dôme de force, cratère fissuré, rochers projetés qui rebondissent et retombent, poussière."
+  },
+  "melee/heavy-cleave": {
+    "name": "Fendoir lourd",
+    "desc": "Un reflet au-dessus de la tête, puis un épais arc de braise accélère par-dessus jusqu'au sol : impact blanc, fissures rougeoyantes, poussière, gravier et braises montantes."
+  },
+  "melee/scythe-reap": {
+    "name": "Fauchage",
+    "desc": "Un immense croissant sombre fauche lentement devant avec un fil pâle et spectral ; il reste suspendu, puis se déchire par la queue en volutes et vapeur froide."
+  },
+  "melee/spear-sweep": {
+    "name": "Balayage de lance",
+    "desc": "Un large balayage bas à hauteur de tibia : un long croissant plat part de derrière les jambes vers l'avant, et son souffle soulève un sillage de poussière et de gravier."
+  },
+  "melee/spin-slash": {
+    "name": "Entaille tournoyante",
+    "desc": "La lame fait un tour autour de la taille sur un plan incliné, derrière le corps puis devant ; l'anneau fermé flashe blanc, se dissout en trace pointillée et crache des étincelles."
+  },
+  "melee/sword-slash": {
+    "name": "Coup d'épée",
+    "desc": "Un croissant incliné fouette en deux frames, passe du blanc au bleu profond en s'estompant, scintille à la pointe et projette des étincelles."
+  },
+  "melee/thrust": {
+    "name": "Estoc",
+    "desc": "Un coup perçant : un faisceau de traits jaillit de la main vers un point, une longue étoile à quatre branches flambe à la pointe avec un anneau, étincelles et lignes de vitesse."
+  },
+  "melee/uppercut": {
+    "name": "Uppercut",
+    "desc": "Un croissant monte du sol devant le visage, et au sommet une étoile d'impact BD éclate : contour épais, cœur brûlant, traits d'éclat, scintillements et étincelles."
+  },
+  "melee/whip-crack": {
+    "name": "Claquement de fouet",
+    "desc": "Un fouet se déroule vers la droite, une boucle parcourt sa longueur de plus en plus vite, jusqu'à ce que la pointe claque : pop blanc, anneau d'air, étincelles, bouffée de fumée."
+  },
+  "impacts/blunt-hit": {
+    "name": "Coup contondant",
+    "desc": "Un choc lourd : une tache grumeleuse blanche refroidit en crème, des coins encrés jaillissent et rentrent, un anneau de poussière aplati gonfle et dérive, des mottes tombent."
+  },
+  "impacts/bullet-impact": {
+    "name": "Impact de balle",
+    "desc": "Une balle frappe un mur à droite : demi-étoile brûlante, étincelles projetées en cône, bouffée de gravats, éclats qui tombent et rebondissent, trace qui refroidit en suie."
+  },
+  "impacts/crit-hit": {
+    "name": "Coup critique",
+    "desc": "Un coup critique : une étoile dentelée s'abat en blanc et dépasse, un anneau se brise en arcs volants, des étincelles filent, des éclats tombent au sol sous une grande lueur."
+  },
+  "impacts/ground-slam": {
+    "name": "Frappe au sol",
+    "desc": "Quelque chose atterrit lourdement : le sol flashe et se fissure, deux ondes de choc en croissant filent, une vague et un haut nuage de poussière montent, des rochers jaillissent."
+  },
+  "impacts/heavy-landing": {
+    "name": "Atterrissage lourd",
+    "desc": "Un personnage atterrit lourdement : le sol s'enfonce et se fissure sous ses pieds, deux anneaux de poussière roulent l'un après l'autre, des cailloux sautent."
+  },
+  "impacts/hit-flash": {
+    "name": "Flash de dégâts",
+    "desc": "Le personnage subit des dégâts : un frame blanc, puis ses couleurs virent au rouge et clignotent blanc en refroidissant, tandis que des traits d'impact BD le piquent."
+  },
+  "impacts/hit-spark": {
+    "name": "Étincelle d'impact",
+    "desc": "Le coup ordinaire : une croix lumineuse nette et asymétrique, un long rayon dans l'axe du coup autour d'un losange blanc, puis un cône d'étincelles et d'éclats qui rebondissent."
+  },
+  "impacts/impact-frame": {
+    "name": "Frame d'impact",
+    "desc": "Un impact façon anime : deux frames blancs à traits noirs convergeant vers le coup, deux frames inversés, puis les traits se retirent hors du cadre et disparaissent."
+  },
+  "impacts/parry": {
+    "name": "Parade",
+    "desc": "Deux lames s'entrechoquent : leurs fils flashent en X, une étoile blanche à quatre branches résonne, un anneau se brise en arcs et une gerbe d'étincelles dorées retombe."
+  },
+  "impacts/ricochet": {
+    "name": "Ricochet",
+    "desc": "Un traceur fonce vers le sol, dévie en étoile blanche et repart en biais, laissant une traînée rougeoyante tandis que des étincelles ricochent au sol."
+  },
+  "impacts/shield-block": {
+    "name": "Blocage au bouclier",
+    "desc": "Un coup bute sur un demi-dôme d'énergie devant le personnage : son treillis de losanges flashe, une onde le parcourt, des étincelles dévient, puis il s'éteint cellule par cellule."
+  },
+  "projectiles/arrow": {
+    "name": "Flèche",
+    "desc": "Une flèche en vol : pointe d'acier captant la lumière, fût en bois, empennage frémissant au vent, filets d'air se détachant de la pointe et tourbillonnant sur les plumes."
+  },
+  "projectiles/bullet-tracer": {
+    "name": "Balle traçante",
+    "desc": "Un projectile blanc incandescent file, son traceur brûlant derrière en longue traînée qui crachote et passe du blanc à l'or puis au rouge, semant étincelles et fil de fumée."
+  },
+  "projectiles/cannonball": {
+    "name": "Tir de canon",
+    "desc": "Un canon tire depuis une bouche à `height` px au-dessus du sol (l'origine) : flash blanc, langue de feu, boulet en arc traînant sa fumée, gros nuage de poudre qui roule."
+  },
+  "projectiles/energy-disc": {
+    "name": "Disque d'énergie",
+    "desc": "Une lame de scie d'énergie crépitante tournant à plat en vol : dents crochues vives sur leur bord d'attaque, moyeu blanc, bras en spirale, étincelles projetées des dents."
+  },
+  "projectiles/flare": {
+    "name": "Fusée de détresse",
+    "desc": "Une fusée file du sol en traînant étincelles et fumée, éclate, et reste suspendue en étoile rouge pulsante qui goutte des étincelles sous sa fumée rougie, puis s'éteint."
+  },
+  "projectiles/homing-missile": {
+    "name": "Missile à tête chercheuse",
+    "desc": "Un missile décolle, monte en arc, bascule et plonge sur sa cible (l'origine), sa traînée de fumée restant en l'air, et frappe en déflagration de flammes, étincelles et rochers."
+  },
+  "projectiles/laser-bolt": {
+    "name": "Tir laser",
+    "desc": "Un tir laser rouge : cœur blanc incandescent dans une tête arrondie, bandes rouges s'effilant, pulsations qui le parcourent, queue qui se défait en tirets ondulants."
+  },
+  "projectiles/magic-missile": {
+    "name": "Projectile magique",
+    "desc": "Des particules forment un orbe arcanique dans une main à `height` px au-dessus du sol (l'origine) ; il ondule vers sa cible en traînant un ruban tordu et éclate en étoile."
+  },
+  "projectiles/muzzle-pistol": {
+    "name": "Tir de pistolet",
+    "desc": "Un tir de pistolet depuis une bouche à `height` px au-dessus du sol (l'origine) : flash hérissé à cœur blanc, étincelles, volute de fumée, douille qui rebondit et s'immobilise."
+  },
+  "projectiles/muzzle-shotgun": {
+    "name": "Tir de fusil à pompe",
+    "desc": "Un tir de fusil à pompe depuis une bouche à `height` px au-dessus du sol (l'origine) : large éventail de flammes, traits de plombs, lourd nuage de fumée, cartouche rouge éjectée."
+  },
+  "projectiles/muzzle-smg": {
+    "name": "Rafale de SMG",
+    "desc": "Tir soutenu à douze coups par seconde : chaque tir un flash hérissé différent à cœur blanc, étincelles, volutes de fumée qui s'accumulent, douilles rebondissant au sol."
+  },
+  "projectiles/plasma-shot": {
+    "name": "Tir de plasma",
+    "desc": "Une goutte de plasma lumineuse : nœuds brûlants dans son cœur, couronne crépitant sur sa peau, queue qui s'étrangle en gouttelettes arrachées, refroidissant et s'éteignant."
+  },
+  "projectiles/rocket": {
+    "name": "Roquette",
+    "desc": "Une roquette d'acier rugit : jet vacillant à diamants de choc et tuyère blanche incandescente, épaisse traînée de fumée éclairée par la flamme, étincelles semées."
+  },
+  "spawn/coin-drop": {
+    "name": "Pièces lâchées",
+    "desc": "Un ennemi disparaît dans un pouf doux et des pièces d'or en jaillissent, rebondissent avec un reflet à chaque choc, s'immobilisent, scintillent et s'éteignent une à une."
+  },
+  "spawn/disintegrate": {
+    "name": "Désintégration",
+    "desc": "Le personnage crépite de lumière, flashe blanc, puis se défait depuis la tête : chaque pixel s'embrase et s'envole au vent en particule de lumière qui refroidit."
+  },
+  "spawn/dissolve-burn": {
+    "name": "Combustion",
+    "desc": "Une ligne de braise s'allume aux pieds et monte le long du corps : au-dessus le corps se calcine et fume, des flammes lèchent la ligne, dessous ne restent que cendres et braises."
+  },
+  "spawn/egg-hatch": {
+    "name": "Éclosion",
+    "desc": "Un œuf tacheté bascule trois fois, se fissurant un peu plus à chaque fois avec une lumière chaude qui fuit, puis éclate : la lumière jaillit et les coquilles culbutent."
+  },
+  "spawn/poof": {
+    "name": "Pouf",
+    "desc": "Une mort cartoon en pouf : pop blanc, anneau de boules de fumée rondes jaillissant entre des lignes de vitesse, petites étoiles tournantes, nuage qui monte et se dissipe."
+  },
+  "spawn/respawn-beam": {
+    "name": "Rayon de réapparition",
+    "desc": "Une ligne guide descend, un pilier de lumière s'abat, et une barre de scan monte des pieds en redessinant le personnage ligne par ligne, du blanc à ses couleurs."
+  },
+  "spawn/shatter-death": {
+    "name": "Mort en éclats",
+    "desc": "Le givre grimpe sur le corps et le scelle dans la glace à facettes, un reflet le balaie, des fissures partent de la poitrine, puis il éclate en facettes qui culbutent et fondent."
+  },
+  "spawn/soul-rise": {
+    "name": "Envol de l'âme",
+    "desc": "Le contour du corps s'embrase et s'éteint, puis une copie pâle et lumineuse s'en élève, s'étirant tandis que ses jambes fondent en volute ondulante jusqu'à se dissoudre."
+  },
+  "spawn/spawn-portal": {
+    "name": "Portail d'apparition",
+    "desc": "Une faille s'ouvre au sol et tourbillonne, vomit fumée violette et étincelles, crache une fontaine de volutes, puis se referme en vrille avec un pop."
+  },
+  "spawn/summon-rise": {
+    "name": "Invocation",
+    "desc": "Un cercle runique se grave au sol, la terre éclate, et une brute cornue s'en extirpe à travers poussière et gravats, éclairée par en dessous, jusqu'à ce que ses yeux s'embrasent."
+  },
+  "arcane/arcane-beam": {
+    "name": "Rayon arcanique",
+    "desc": "Un rayon part de la main vers la droite : cœur blanc, filaments tordus autour, pulsations qui le parcourent, source flamboyante et extrémité qui crache des étincelles."
+  },
+  "arcane/arcane-missiles": {
+    "name": "Projectiles arcaniques",
+    "desc": "Une volée de traits violets s'ouvre en éventail depuis la main, s'enroule sur des rubans tordus et éclate sur la cible l'un après l'autre."
+  },
+  "arcane/arcane-orb": {
+    "name": "Orbe arcanique",
+    "desc": "Un orbe flottant de verre violet fumé avec une spirale tournant autour d'un cœur blanc incandescent, deux anneaux de lumière inclinés en orbite devant et derrière."
+  },
+  "arcane/blink-in": {
+    "name": "Apparition éclair",
+    "desc": "Des éclats scintillants spiralent vers un point de lumière qui s'ouvre en ligne, puis en silhouette blanche qui refroidit pour devenir le lanceur."
+  },
+  "arcane/blink-out": {
+    "name": "Disparition éclair",
+    "desc": "Le lanceur crépite de lumière accumulée, flashe blanc, se comprime en une ligne lumineuse qui s'effondre et disparaît en étincelles."
+  },
+  "arcane/magic-circle-cast": {
+    "name": "Cercle magique",
+    "desc": "Un cercle se dessine au sol, les runes s'allument une à une, il flashe, et une colonne de lumière jaillit avant de se briser en éclats."
+  },
+  "arcane/mana-burst": {
+    "name": "Explosion de mana",
+    "desc": "L'énergie converge en un point et explose en flash blanc et anneaux, projetant des runes lumineuses qui flambent et éclatent en étincelles l'une après l'autre."
+  },
+  "arcane/portal": {
+    "name": "Portail",
+    "desc": "Une faille verticale : des bras fibreux spiralent vers l'obscurité, un bord lumineux ondule, particules et traits sont aspirés, le sol rougeoie."
+  },
+  "arcane/rune-circle": {
+    "name": "Cercle runique",
+    "desc": "Un cercle runique tourne au sol en perspective : un carrousel de runes éclairé par une lumière qui court, un carré tournant, des graduations, des particules qui s'élèvent."
+  },
+  "arcane/spell-charge": {
+    "name": "Charge de sort",
+    "desc": "L'énergie s'accumule dans la main du lanceur : traits et particules spiralent, des anneaux se resserrent en un orbe gonflant crépitant d'arcs, prêt à tirer."
+  },
+  "arcane/star-fall": {
+    "name": "Pluie d'étoiles",
+    "desc": "Des étoiles tombent sur une zone en longues traînées, chacune atterrissant avec un flash blanc, un anneau au sol et une gerbe d'étincelles."
+  },
+  "arcane/time-stop": {
+    "name": "Arrêt du temps",
+    "desc": "Un cadran d'horloge s'ouvre, tictaque de plus en plus lentement, se fige vidé de couleur, se fissure, puis se brise en éclats qui tombent."
+  },
+  "holy/blessing": {
+    "name": "Bénédiction",
+    "desc": "Un doux cône de lumière descend sur le personnage ; des étincelles y dérivent en scintillant et s'éteignent en se posant sur la tête et les épaules."
+  },
+  "holy/divine-shield": {
+    "name": "Bouclier divin",
+    "desc": "Une bulle de lumière dorée autour du personnage : bord vif et fin voile d'or, méridiens tournant comme un globe lent, un reflet qui balaie et des étincelles qui clignotent."
+  },
+  "holy/feather-burst": {
+    "name": "Éclat de plumes",
+    "desc": "Une bouffée blanche éclate et projette des plumes qui freinent net, puis oscillent de droite à gauche en descendant et s'estompent, suivies de duvet."
+  },
+  "holy/halo": {
+    "name": "Auréole",
+    "desc": "Un anneau de lumière dorée flotte au-dessus de la tête, un reflet parcourant son tour ; une fine poussière en tombe et les cheveux captent sa lumière."
+  },
+  "holy/heal": {
+    "name": "Soin",
+    "desc": "Des pétales de lumière fleurissent sous les pieds, un cercle lumineux monte le long du corps en lui rendant sa couleur, et des particules spiralent en petits cœurs."
+  },
+  "holy/heal-aoe": {
+    "name": "Cercle de soin",
+    "desc": "Une graine de lumière verte s'enfonce dans le sol et un doux anneau s'en déploie ; le sol s'illumine à son passage et des signes plus poussent et s'envolent."
+  },
+  "holy/holy-pillar": {
+    "name": "Pilier sacré",
+    "desc": "La lumière perce d'en haut : un soleil s'ouvre au sommet et un éventail de rais converge sur la marque en pulsant, un sceau brûle au sol ; puis l'éventail se replie."
+  },
+  "holy/resurrection": {
+    "name": "Résurrection",
+    "desc": "La lumière se déverse sur le corps tombé et la vie remonte ; des ailes de lumière se déploient, une auréole se forme, un grand battement, puis les ailes se dispersent en plumes."
+  },
+  "holy/smite": {
+    "name": "Châtiment",
+    "desc": "Un reflet marque le point, puis un trait de lumière s'abat comme un marteau : flash blanc, onde de choc au sol, éclats de pierre et fissures qui rougeoient et refroidissent."
+  },
+  "holy/sunburst": {
+    "name": "Rayons solaires",
+    "desc": "Un cœur blanc incandescent dans une couronne d'or ; de longs et courts rayons tournent lentement en respirant, des reflets filent le long d'eux et clignotent aux pointes."
+  },
+  "shadow/black-hole": {
+    "name": "Trou noir",
+    "desc": "Un disque incliné d'anneaux striés tourne autour d'un trou noir, sa face arrière courbée par-dessus et par-dessous ; des débris spiralent, s'étirent et sont avalés."
+  },
+  "shadow/curse": {
+    "name": "Malédiction",
+    "desc": "Des volutes s'amassent sur la tête, un crâne s'y plaque avec un flash, ses yeux brûlent tandis que la malédiction inonde le corps de violet, puis il se fissure et s'effrite."
+  },
+  "shadow/dark-explosion": {
+    "name": "Explosion ténébreuse",
+    "desc": "Des particules tourbillonnent en cœur pulsant, une étoile noire traverse un flash violet-blanc, et une sphère noire brûle au bord, lance éclats et fumée, puis s'effondre."
+  },
+  "shadow/eclipse": {
+    "name": "Éclipse",
+    "desc": "Une lune noire devant le soleil : une couronne nacrée qui respire avec de longs filaments, un fin liseré blanc, et un diamant éblouissant sur son bord."
+  },
+  "shadow/grasping-hands": {
+    "name": "Mains spectrales",
+    "desc": "Des bras d'ombre jaillissent d'une mare sombre en éclaboussant, serrent les mains en griffes, se tendent, puis sont tirés sous l'eau, les doigts griffant l'air."
+  },
+  "shadow/hex-sigil": {
+    "name": "Sceau maudit",
+    "desc": "Une plume brûlante trace un sceau maudit dans l'air, ses glyphes apparaissent un à un, puis il flashe blanc et s'effrite en braises qui tombent."
+  },
+  "shadow/life-steal": {
+    "name": "Vol de vie",
+    "desc": "Une cible à droite est frappée et perd des orbes rouges ; ils flottent un instant, puis filent en comètes vers le lanceur et l'inondent de pourpre."
+  },
+  "shadow/necro-skulls": {
+    "name": "Crânes nécro",
+    "desc": "Des crânes spectraux tournent autour d'une flamme verte froide sur une orbite inclinée, passant derrière et devant, yeux allumés, traînant des volutes fantômes."
+  },
+  "shadow/shadow-flames": {
+    "name": "Flammes d'ombre",
+    "desc": "Un feu inversé au sol : cœur noir enveloppé de flammes violettes à peau et pointes pâles, semant braises et fumée sombre."
+  },
+  "shadow/shadow-tendrils": {
+    "name": "Tentacules d'ombre",
+    "desc": "Une mare sombre s'ouvre au sol ; des tentacules à bord lumineux et pointe crochue en jaillissent en éclaboussant, se tordent, et replongent quand elle se referme."
+  },
+  "shadow/soul-drain": {
+    "name": "Drain d'âme",
+    "desc": "Des âmes pâles sont arrachées à droite et aspirées dans un entonnoir de traits vers un réceptacle de cristal noir, qui flambe violet à chaque arrivée."
+  },
+  "shadow/void-orb": {
+    "name": "Orbe du vide",
+    "desc": "Un orbe noir flotte dans l'air, un bord pâle rampant autour ; un vortex sombre s'y enroule, particules et traits sont aspirés, et la lumière se courbe sur son bord."
+  },
+  "status/bleeding": {
+    "name": "Saignement",
+    "desc": "Hémorragie : des gouttes gonflent à trois blessures, coulent, se détachent et éclaboussent une mare brillante qui ondule ; chaque battement gicle un peu et rougit le corps."
+  },
+  "status/burning": {
+    "name": "Brûlure",
+    "desc": "Brûlure continue : de petites flammes lèchent quatre points chauds, traînant étincelles et fumée ; toutes les 0.6 s elles flambent, le corps flashe blanc puis orange."
+  },
+  "status/charmed": {
+    "name": "Charmé",
+    "desc": "Sous le charme : un grand cœur bat au-dessus de la tête, lançant un anneau et une lueur à chaque battement, de petits cœurs montent, les yeux rosissent, les joues rougissent."
+  },
+  "status/confused": {
+    "name": "Confus",
+    "desc": "La tête qui tourne : une spirale lumineuse tourbillonne au-dessus de la tête, des points d'interrogation surgissent et dansent, les yeux vont de gauche à droite."
+  },
+  "status/cursed": {
+    "name": "Maudit",
+    "desc": "Envoûté : une fumée violette monte du corps en traînées sinueuses, une tache sombre grimpe des pieds avec un bord lumineux, les yeux brûlent, un crâne glitche au-dessus."
+  },
+  "status/frozen": {
+    "name": "Gelé",
+    "desc": "Transi : des fougères de givre rampent sur le corps, des stalactites pendent du menton, des mains et des cheveux, le souffle fume, un frisson par seconde, le givre s'étend."
+  },
+  "status/haste": {
+    "name": "Hâte",
+    "desc": "Accéléré : des images rémanentes rayées s'étirent derrière, des lignes de vitesse filent, la poussière jaillit des talons et le bord avant prend le vent. Regarde à droite."
+  },
+  "status/petrified": {
+    "name": "Pétrifié",
+    "desc": "Changé en pierre : le gris monte des pieds derrière un bord crépitant qui crache du gravier, la statue tient, se fissure, puis éclate en morceaux et en poussière."
+  },
+  "status/poisoned": {
+    "name": "Empoisonné",
+    "desc": "Malade : le vert monte par vagues, des veines sombres partent d'une plaie, une sueur toxique goutte et siffle ; toutes les 0.8 s il vacille, des cloques éclatent, un anneau pulse."
+  },
+  "status/rage": {
+    "name": "Rage",
+    "desc": "Furieux : le corps tressaute à chaque battement, une veine palpite à la tempe, les yeux brûlent, la vapeur fuse de la tête, des traits de stress flashent, le sol se fissure."
+  },
+  "status/sleep": {
+    "name": "Sommeil",
+    "desc": "Profondément endormi : yeux fermés, des Z doux montent de la tête l'un après l'autre, oscillant et grossissant, des particules de rêve dérivent, une lueur respire lentement."
+  },
+  "status/slowed": {
+    "name": "Ralenti",
+    "desc": "Englué dans le temps : un cadran vitreux derrière la tête avance par lourds à-coups, flashant à chacun, tandis que des gouttes tombent au ralenti en anneaux lents."
+  },
+  "status/stunned": {
+    "name": "Étourdi",
+    "desc": "Des étoiles plein les yeux : trois étoiles tournantes et deux petits oiseaux tournent autour de la tête sur un anneau incliné, passant derrière et devant, traînant des paillettes."
+  },
+  "nature/acid-splash": {
+    "name": "Éclaboussure d'acide",
+    "desc": "Un paquet d'acide éclate en couronne et gicle ; il ronge un trou fumant et lumineux dans le sol et y bouillonne, crachant des perles vives, une vapeur pâle s'en échappe."
+  },
+  "nature/boulder": {
+    "name": "Rocher",
+    "desc": "Un rocher tournoyant décrit un arc vers la droite en perdant poussière et cailloux, s'écrase au sol dans un flash blanc et éclate en morceaux, gravier et poussière roulante."
+  },
+  "nature/earth-spike": {
+    "name": "Pic de terre",
+    "desc": "Le sol se fissure de lumière et se soulève, un pic de pierre à facettes jaillit avec deux éclats latéraux dans une gerbe de débris et de poussière ; puis il se fend et s'effrite."
+  },
+  "nature/healing-bloom": {
+    "name": "Fleur de soin",
+    "desc": "Une pousse émerge et se déploie, un bouton gonfle et s'ouvre autour d'un cœur doré dans une lueur de soin ; ses pétales s'envolent un à un en particules."
+  },
+  "nature/leaf-storm": {
+    "name": "Tempête de feuilles",
+    "desc": "Des feuilles montent en spirale autour du personnage, passant derrière et devant, tournant et se retournant, enveloppées de bandes de vent ; des débris tourbillonnent aux pieds."
+  },
+  "nature/poison-cloud": {
+    "name": "Nuage toxique",
+    "desc": "Un miasme collé au sol : des nappes de gaz éclairées en jaune-vert, virant au violet, rampent en langues qui s'enroulent aux pointes ; des panaches montent en rubans."
+  },
+  "nature/quake": {
+    "name": "Séisme",
+    "desc": "Le sol tremble trois fois : une faille s'ouvre en rougeoyant au fond, des dalles se soulèvent et retombent de travers, des cailloux sautent et la poussière jaillit de la fente."
+  },
+  "nature/root-snare": {
+    "name": "Piège de racines",
+    "desc": "Le sol se fissure et des racines jaillissent autour du personnage, spiralant sur ses jambes ; elles se resserrent d'un coup, tiennent, puis craquent et s'effritent en écorce."
+  },
+  "nature/spore-burst": {
+    "name": "Nuage de spores",
+    "desc": "Un champignon pousse, gonfle et tremble tandis que ses lamelles luisent, puis s'écrase et souffle un nuage grumeleux de spores lumineuses qui monte et retombe en scintillant."
+  },
+  "nature/thorns": {
+    "name": "Épines",
+    "desc": "Une fente file au sol et des épines crochues en jaillissent une à une, chacune plus grande, dans des gerbes de terre et de lumière verte ; elles tiennent, puis s'enfoncent."
+  },
+  "nature/tornado": {
+    "name": "Tornade",
+    "desc": "Un entonnoir sinueux de bandes de vent sous un sommet évasé qui bouillonne et clignote d'éclairs ; feuilles et débris tournent devant et derrière, la poussière bout au pied."
+  },
+  "nature/toxic-puddle": {
+    "name": "Flaque toxique",
+    "desc": "Du goudron noir éclairé de veines chartreuse et d'un bord lumineux, un reflet huileux dérivant ; des bulles brillantes bombent, s'étirent et éclatent, la vapeur monte en rubans."
+  },
+  "nature/vine-whip": {
+    "name": "Fouet de liane",
+    "desc": "Une liane épineuse jaillit du sol, se cabre enroulée, puis fouette vers la droite en claquant, projetant de la sève et arrachant des feuilles, avant de replonger dans la terre."
+  },
+  "weather/aurora": {
+    "name": "Aurore boréale",
+    "desc": "Des rideaux ondulants de lumière vert-violet sur un ciel étoilé : les plis brûlent vifs, des rayons scintillent vers le violet, et tout le ciel respire lentement."
+  },
+  "weather/blizzard": {
+    "name": "Blizzard",
+    "desc": "Une neige couchée par la tempête : des traits à trois profondeurs filent, des rafales jettent des nappes de neige translucides et la poudre s'envole des congères."
+  },
+  "weather/cherry-blossoms": {
+    "name": "Fleurs de cerisier",
+    "desc": "Des pétales roses voltigent dans une brise de printemps, tournoyant en petites spirales et scintillant à la lumière, avec quelques fleurs entières qui tournent parmi eux."
+  },
+  "weather/clouds": {
+    "name": "Nuages",
+    "desc": "Des couches de nuages défilent devant une lune brillante : sommets argentés, ventres sombres, bords qui s'embrasent en croisant la lune, se formant et se dissipant."
+  },
+  "weather/falling-leaves": {
+    "name": "Feuilles qui tombent",
+    "desc": "Des feuilles d'automne descendent en se balançant, basculant et se retournant pour montrer leur dos pâle, prennent une rafale, atterrissent à plat et s'estompent."
+  },
+  "weather/fireflies": {
+    "name": "Lucioles",
+    "desc": "Des lucioles errent sur une prairie la nuit, chacune s'allumant et s'éteignant à son rythme, traînant leur lueur et éclairant les brins d'herbe en dessous."
+  },
+  "weather/fog": {
+    "name": "Brouillard",
+    "desc": "De lents bancs de brouillard au clair de lune à trois profondeurs se croisent, les crêtes captant la lumière, tandis que de fins filets de brume glissent devant."
+  },
+  "weather/god-rays": {
+    "name": "Rayons divins",
+    "desc": "Des rais de lumière descendent en biais depuis le haut gauche, respirant et oscillant, se posant au sol, et les poussières s'illuminent en traversant un faisceau."
+  },
+  "weather/rain": {
+    "name": "Pluie",
+    "desc": "Une pluie oblique à quatre profondeurs : les gouttes lointaines se fondent dans le noir, les proches brillent et éclaboussent, les flaques s'annèlent et une brume basse dérive."
+  },
+  "weather/shooting-stars": {
+    "name": "Étoiles filantes",
+    "desc": "Des météores traversent un ciel étoilé, têtes blanches traînant or et rose ; les gros flambent et se brisent, et chacun laisse une traînée lumineuse qui se tord et s'efface."
+  },
+  "weather/snow": {
+    "name": "Neige",
+    "desc": "De la neige à trois profondeurs dans une brise en rafales : points lointains, flocons dérivants, gros cristaux proches qui tournent et luisent ; ils se posent et fondent."
+  },
+  "weather/storm": {
+    "name": "Orage",
+    "desc": "Une pluie battante à deux profondeurs sous un plafond de nuages ; un éclair fourchu frappe en double flash qui éclaire ciel et pluie, puis la foudre luit dans les nuages."
+  },
+  "ui/achievement": {
+    "name": "Succès",
+    "desc": "Un toast glisse sur des lignes de vitesse et se cale ; une médaille d'or y surgit dans une gerbe d'étincelles, un reflet balaie tout le toast, puis il repart."
+  },
+  "ui/coin-collect": {
+    "name": "Collecte de pièces",
+    "desc": "Une pièce éclate en fontaine de pièces tournantes qui flottent, puis filent une à une vers un compteur HUD qui rebondit et s'incrémente, scintille et se replie."
+  },
+  "ui/combo-counter": {
+    "name": "Compteur de combo",
+    "desc": "x5 COMBO fonce sur des lignes de vitesse en s'étirant et s'arrête net : flash blanc, anneau, étincelles ; il pulse tandis qu'une barre se vide, puis file hors champ."
+  },
+  "ui/confetti": {
+    "name": "Confettis",
+    "desc": "Deux canons à confettis claquent l'un après l'autre : des bouts de papier et des serpentins jaillissent, s'arrêtent, puis culbutent et voltigent jusqu'au sol."
+  },
+  "ui/countdown": {
+    "name": "Décompte",
+    "desc": "3, 2, 1 s'abattent dans un anneau chrono qui se consume comme une mèche en lançant des étincelles ; puis GO! éclate tandis que l'anneau explose en onde de choc à rayons."
+  },
+  "ui/crit-number": {
+    "name": "Nombre critique",
+    "desc": "CRIT 128! s'abat énorme et blanc sur une étoile dentelée avec une forte secousse et des lignes de vitesse, refroidit en feu, tient avec un reflet, puis éclate en étincelles."
+  },
+  "ui/damage-number": {
+    "name": "Nombre de dégâts",
+    "desc": "Un -27 rouge jaillit d'une étincelle d'impact, blanc un frame, monte en arc, atterrit en s'écrasant avec un petit saut, puis s'efface en s'élevant."
+  },
+  "ui/exclamation": {
+    "name": "Exclamation",
+    "desc": "Un ! épais bondit de la tête du héros, s'étirant en montant et s'écrasant en retombant ; des traits de surprise jaillissent, il oscille, puis disparaît."
+  },
+  "ui/health-bar-hit": {
+    "name": "Barre de vie touchée",
+    "desc": "Une barre de vie segmentée prend un coup : elle tressaute et plonge, la portion perdue flashe blanc et perd des éclats, tient, puis se vide derrière un bord crépitant."
+  },
+  "ui/heart-lost": {
+    "name": "Cœur perdu",
+    "desc": "Un cœur du HUD est touché : il flashe blanc et tressaute, une fissure le traverse, il se fend en deux moitiés qui culbutent, laissant un emplacement vide qui s'efface."
+  },
+  "ui/level-up": {
+    "name": "Niveau supérieur",
+    "desc": "De l'or s'amasse aux pieds et jaillit en pilier de lumière autour du héros ; des anneaux le gravissent, LEVEL UP! tombe lettre par lettre, un reflet balaie, ça scintille."
+  },
+  "ui/quest-complete": {
+    "name": "Quête terminée",
+    "desc": "Un ruban cousu se déroule depuis le milieu, QUEST COMPLETE s'écrit lettre par lettre, un sceau d'or se plaque et vibre, des étoiles éclatent ; puis tout s'enroule."
+  },
+  "pickups/chest-open": {
+    "name": "Coffre ouvert",
+    "desc": "Un coffre cerclé tremble, une lumière dorée fuit de sa fente, le couvercle s'ouvre d'un coup, des rayons montent, et pièces et gemmes jaillissent, rebondissent et sont collectées."
+  },
+  "pickups/coin-spin": {
+    "name": "Pièce tournante",
+    "desc": "Une épaisse pièce d'or tourne sur sa tranche : face étoilée en relief, bord strié visible de profil, reflet balayant la face, flottant au-dessus de son ombre."
+  },
+  "pickups/collect-burst": {
+    "name": "Éclat de collecte",
+    "desc": "L'instant du ramassage : flash blanc et croix de lumière, un anneau fin devant un plus doux, des scintillements projetés en courbes qui freinent, flottent et s'éteignent."
+  },
+  "pickups/crystal-shard": {
+    "name": "Éclat de cristal",
+    "desc": "Un éclat d'ambre brisé flotte et oscille : faces ébréchées, sommet tranché, lumière pulsant dans des fissures lumineuses et jaillissant de la cassure ; des échardes orbitent."
+  },
+  "pickups/gem-spin": {
+    "name": "Gemme tournante",
+    "desc": "Un rubis taillé tourne sur son axe : ses facettes captent la lumière tour à tour, des flashs roulent sur la couronne, la lumière réfractée glisse au sol, des scintillements autour."
+  },
+  "pickups/heart-pickup": {
+    "name": "Cœur bonus",
+    "desc": "Un cœur dodu et brillant flotte au-dessus de son ombre et bat : grand squash and stretch, écho plus petit, lumière et anneau fin qui pulsent, petits cœurs qui s'envolent."
+  },
+  "pickups/key-glint": {
+    "name": "Clé scintillante",
+    "desc": "Une clé d'argent ouvragée flotte et oscille ; un reflet court de l'anneau à la tige jusqu'aux dents et jaillit de la pointe en étincelles qui tombent."
+  },
+  "pickups/loot-beam": {
+    "name": "Rayon de butin",
+    "desc": "Une épée au sol dans un haut pilier de lumière de rareté : cœur blanc s'amincissant vers le ciel, anneaux pulsant au sol, particules montantes, reflet filant sur la lame."
+  },
+  "pickups/potion": {
+    "name": "Potion",
+    "desc": "Une fiole ronde de potion lumineuse oscille dans l'air : le liquide clapote, des bulles montent et éclatent, la lumière traverse le verre, des volutes sortent du bouchon."
+  },
+  "pickups/power-star": {
+    "name": "Étoile de pouvoir",
+    "desc": "Une grosse étoile biseautée oscille et gonfle à chaque battement, des rayons de lumière tournant lentement derrière, des étincelles s'échappant de ses pointes."
+  },
+  "pickups/xp-orb": {
+    "name": "Orbe d'XP",
+    "desc": "Un petit orbe lumineux file en huit, une queue de comète s'effilant derrière lui, des éclats détachés qui s'éteignent, sa lumière le suivant sur le sol."
+  },
+  "transitions/blinds": {
+    "name": "Stores",
+    "desc": "Des lamelles captent la lumière de profil, puis se ferment de haut en bas, bords lumineux, lumière chaude et poussière filtrant par les fentes ; puis elles s'ouvrent et s'effacent."
+  },
+  "transitions/burn-away": {
+    "name": "Combustion d'écran",
+    "desc": "L'écran brûle depuis ses bords derrière une ligne de braise déchiquetée de flammes, braises et fumée ; puis le noir couve et se consume en s'ouvrant par le milieu."
+  },
+  "transitions/crt-off": {
+    "name": "Extinction CRT",
+    "desc": "L'image se comprime en une ligne blanche incandescente, la ligne en un point qui persiste en rémanence ; puis ça se rallume, point, ligne, image, avec une lueur de chauffe."
+  },
+  "transitions/diamond-wipe": {
+    "name": "Volet diamants",
+    "desc": "Une vague de diamants à facettes gonfle sur l'écran, bords vifs et arêtes lumineuses, virant au noir en se figeant ; puis ils redeviennent gemmes et rapetissent en scintillant."
+  },
+  "transitions/glitch-wipe": {
+    "name": "Volet glitch",
+    "desc": "Des bandes noires déchirées bégaient sur l'écran, se figent et reculent, leurs bords divisés en fantômes magenta et cyan crachant des bribes de données ; puis elles traversent."
+  },
+  "transitions/iris": {
+    "name": "Iris",
+    "desc": "Un iris lumineux se ferme sur un projecteur chaud où dérive la poussière, tient en scintillant, se clôt en reflet, puis s'ouvre d'un flash avec un bord incandescent qui étincelle."
+  },
+  "transitions/pixel-dissolve": {
+    "name": "Dissolution pixel",
+    "desc": "Des amas de blocs apparaissent, chacun tracé en contour blanc qui se remplit de noir et refroidit, avec des reflets ; puis ils disparaissent, les derniers petits en scintillant."
+  },
+  "transitions/shatter-wipe": {
+    "name": "Volet brisé",
+    "desc": "Une vitre sombre tombe sur l'écran et rebondit ; des fissures partent d'un impact avec un flash, puis elle éclate en éclats de verre culbutants à bords lumineux qui tombent."
+  },
+  "transitions/slash-wipe": {
+    "name": "Volet entaille",
+    "desc": "Un fil de lame incandescent tranche l'écran, lumière devant et étincelles projetées en arrière ; une seconde coupe flashe et le voile se fend en deux."
+  },
+  "transitions/star-iris": {
+    "name": "Iris étoile",
+    "desc": "Un iris en étoile à cinq branches se ferme en tournant au centre, bord doré et pointes scintillantes semant des particules ; il se clôt en reflet et se rouvre d'un flash."
+  },
+  "critters/bat": {
+    "name": "Chauve-souris",
+    "desc": "Une chauve-souris bat des ailes en quatre frames secs le long d'un huit, le corps se soulevant à chaque battement, clair de lune sur les os des ailes, yeux rouges luisants."
+  },
+  "critters/bird": {
+    "name": "Oiseau",
+    "desc": "Un passereau vole sur place : des salves de battements qui soulèvent le corps à chaque coup, un plané ailes ouvertes, la queue en éventail, une plume qui s'envole."
+  },
+  "critters/butterfly": {
+    "name": "Papillon",
+    "desc": "Un papillon irisé erre en boucle par salves de battements et de planés ailes ouvertes, ses ailes veinées et tachetées semant une traînée de poussière lumineuse."
+  },
+  "critters/eyeball": {
+    "name": "Globe oculaire",
+    "desc": "Un œil injecté de sang flotte dans ses paupières charnues : son iris lumineux saute d'un regard à l'autre, il cligne, et son nerf oscille derrière lui."
+  },
+  "critters/fish-school": {
+    "name": "Banc de poissons",
+    "desc": "Un banc de poissons tient sa position sur deux rangs : les corps ondulent en queues battantes, l'un s'élance parfois, des bulles montent et la lumière caustique ondule sur eux."
+  },
+  "critters/flying-skull": {
+    "name": "Crâne volant",
+    "desc": "Un crâne fissuré flotte dans l'air, mâchoire claquante, yeux brûlants, un feu rugissant sur son sommet qui perd bouffées, braises et fumée et jette une lumière chaude."
+  },
+  "critters/frog": {
+    "name": "Grenouille",
+    "desc": "Une grenouille gonfle sa gorge, cligne, s'accroupit et bondit pour gober une mouche en vol, puis atterrit en s'aplatissant dans un nuage de poussière, avale et se cale."
+  },
+  "critters/ghost": {
+    "name": "Fantôme",
+    "desc": "Un fantôme en drap flotte au-dessus du sol : son ourlet festonné ondule et suit sa dérive, ses petits bras s'agitent, il regarde autour et cligne, des particules tombent."
+  },
+  "critters/jellyfish": {
+    "name": "Méduse",
+    "desc": "Une méduse translucide pulse : son ombrelle se contracte pour la pousser et se relâche en descendant, bras frangés et longs tentacules, lueur intérieure, bulles qui passent."
+  },
+  "critters/slime": {
+    "name": "Slime",
+    "desc": "Un slime brillant saute sur place : il s'écrase pour s'armer, s'étire dans le saut, s'arrondit en l'air, s'écrase en projetant des gouttes qui reviennent, puis vacille et cligne."
+  },
+  "critters/snake": {
+    "name": "Serpent",
+    "desc": "Un serpent rampe au sol, tête dressée : des bosses montent et roulent le long de son corps à motifs jusqu'à la queue, la poussière fuse au contact, sa langue fourchue darde."
+  },
+  "critters/wisp": {
+    "name": "Feu follet",
+    "desc": "Un feu follet décrit un huit au-dessus du sol : une petite flamme-âme à visage, sa queue de flamme léchant et flottant derrière, semant bouffées et étincelles."
+  }
+}

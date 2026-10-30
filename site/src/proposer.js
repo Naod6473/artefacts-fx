@@ -238,13 +238,11 @@ const compte = initCompte({
   connecte: async (m) => {
     membre = m;
     $("#hors-connexion").hidden = true;
-    $("#nav-moderation").hidden = !m.admin;
     await chargerMes();
   },
   deconnecte: () => {
     membre = null;
     $("#hors-connexion").hidden = false;
-    $("#nav-moderation").hidden = true;
     $("#mes").hidden = true;
     majEtat();
   },

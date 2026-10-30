@@ -137,7 +137,7 @@ export function vuePartagee(get) {
  */
 // calme : une vignette parmi d'autres (cartes de la bibliothèque, aperçus de l'accueil). Si le visiteur demande
 // moins d'animations (prefers-reduced-motion), elle reste sur une seule image, redessinée quand le rendu change.
-const reduit = matchMedia("(prefers-reduced-motion: reduce)");
+const reduit = globalThis.matchMedia?.("(prefers-reduced-motion: reduce)"); // absent dans le Worker du bac à sable
 export function boucle() {
   const vues = [];
   const io = new IntersectionObserver((es) => {
@@ -152,7 +152,7 @@ export function boucle() {
     avant = now;
     for (const v of vues) {
       if (!v.visible) continue;
-      if (v.calme && reduit.matches) {
+      if (v.calme && reduit?.matches) {
         const r = v.rendu();
         if (v.fige === r) continue;
         if (v.fige === undefined) for (let i = 0; i < 3; i++) v.lecteur.avancer(0.2, now); // une image où l'effet est déjà là
