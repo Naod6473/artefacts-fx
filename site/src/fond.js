@@ -1,7 +1,8 @@
-// Fond animé de toutes les pages : une grille de points très discrète, comme un tampon de pixels au repos, traversée
-// par une lente vague de lumière cyan. Petit (un point tous les 22 px), lent (15 images/s), arrêté quand l'onglet est
-// caché ; une seule image fixe si le visiteur demande moins d'animations.
-const PAS = 22, IPS = 15;
+// Fond animé de toutes les pages : une grille de points très discrète, comme un tampon de pixels au repos. Toutes les
+// 4 secondes une onde part du coin haut gauche et traverse l'écran en diagonale : les points grossissent et
+// s'allument à son passage, puis retombent. 30 images/s, arrêté quand l'onglet est caché ; une seule image fixe si le
+// visiteur demande moins d'animations.
+const PAS = 22, IPS = 30, PERIODE = 4, VITESSE = 300; // px par seconde
 const cv = document.createElement("canvas");
 cv.className = "fond-anime";
 cv.setAttribute("aria-hidden", "true");
@@ -21,14 +22,18 @@ function taille() {
 function dessiner(t) {
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.clearRect(0, 0, w, h);
-  const s = t / 1000;
+  const s = t / 1000, phase = s % PERIODE;
+  // les ondes encore à l'écran : la dernière partie et celles d'avant qui n'ont pas fini de traverser
+  const portee = Math.hypot(w, h) + 200, rayons = [];
+  for (let r = phase * VITESSE; r < portee; r += PERIODE * VITESSE) rayons.push(r);
   for (let y = PAS / 2; y < h; y += PAS) {
     for (let x = PAS / 2; x < w; x += PAS) {
-      // deux vagues lentes qui se croisent : la lumière passe en diagonale, jamais au même endroit
-      const v = Math.sin(x * 0.008 + y * 0.004 - s * 0.6) + Math.sin(x * 0.003 - y * 0.007 + s * 0.35);
-      const a = 0.05 + Math.max(0, v - 0.6) * 0.14;
-      ctx.fillStyle = a > 0.08 ? `rgba(92, 225, 230, ${a.toFixed(3)})` : `rgba(135, 150, 173, ${a.toFixed(3)})`;
-      ctx.fillRect(Math.round(x), Math.round(y), 1.5, 1.5);
+      const d = Math.hypot(x, y);
+      let e = 0;
+      for (const r of rayons) { const ecart = d - r; e = Math.max(e, Math.exp(-(ecart * ecart) / 2000)); }
+      const a = 0.05 + e * 0.3, taille = 1.5 + e * 2;
+      ctx.fillStyle = e > 0.15 ? `rgba(92, 225, 230, ${a.toFixed(3)})` : `rgba(135, 150, 173, ${a.toFixed(3)})`;
+      ctx.fillRect(Math.round(x - taille / 2), Math.round(y - taille / 2), taille, taille);
     }
   }
 }
