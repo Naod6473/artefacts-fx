@@ -3,14 +3,14 @@
 //   npm run build        construit dist/
 //   npm run dev          construit puis sert dist/ sur http://localhost:8080 (sans PHP)
 import { build } from "esbuild";
-import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, readdirSync, existsSync } from "node:fs";
 import { createServer } from "node:http";
 import { join, extname, dirname, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const DIST = "dist";
 const LANGUES = readdirSync("site/i18n").filter((f) => f.endsWith(".json")).map((f) => f.slice(0, -5));
-const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html" };
+const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html" };
 // le site peut vivre dans un sous-dossier (naod.fr/artefacts/) : tous les liens partent de chemin_web
 const BASE = JSON.parse(readFileSync("config/ovh.json", "utf8")).chemin_web ?? "/";
 
@@ -68,10 +68,23 @@ rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, "assets"), { recursive: true });
 cpSync("site/static", DIST, { recursive: true });
 cpSync("api", join(DIST, "api"), { recursive: true });
+// données du serveur MCP (api/mcp.php) : le catalogue et le code de chaque effet, lus par PHP
+{
+  const { TAGS_FR, CATEGORIES_FR, SYNONYMES } = await import("./site/src/tags.js");
+  const dossier = join(DIST, "api", "catalogue");
+  mkdirSync(join(dossier, "sources"), { recursive: true });
+  const fiches = catalogue.map((e) => {
+    const cat = e.id.split("/")[0];
+    writeFileSync(join(dossier, "sources", e.n + ".js"), readFileSync(join("effets", e.id + ".js")));
+    return { ...e, categorie: cat, tags_fr: [CATEGORIES_FR[cat], ...e.tags.map((t) => TAGS_FR[t])].filter(Boolean) };
+  });
+  const { rendus } = await import("./rendus/index.js").catch(() => ({ rendus: [] }));
+  writeFileSync(join(dossier, "catalogue.json"), JSON.stringify({ effets: fiches, synonymes: SYNONYMES, rendus: rendus.map((r) => r.meta) }));
+}
 writeFileSync(join(DIST, ".htaccess"), readFileSync("site/static/.htaccess", "utf8").replaceAll("{{base}}", BASE));
 
 await build({
-  entryPoints: Object.keys(PAGES).map((p) => `site/src/${p}.js`),
+  entryPoints: Object.keys(PAGES).filter((p) => existsSync(`site/src/${p}.js`)).map((p) => `site/src/${p}.js`),
   outdir: join(DIST, "assets"),
   bundle: true,
   plugins: [sourceTexte, catalogueVirtuel],
@@ -106,7 +119,7 @@ console.log(`dist/ : ${LANGUES.join(", ")}, ${catalogue.length} effets`);
 if (process.argv.includes("--autonome")) {
   const out = join(DIST, "autonome");
   mkdirSync(out, { recursive: true });
-  for (const page of Object.keys(PAGES)) {
+  for (const page of Object.keys(PAGES).filter((p) => existsSync(`site/src/${p}.js`))) {
     const r = await build({ entryPoints: [`site/src/${page}.js`], bundle: true, write: false, plugins: [sourceTexte, catalogueVirtuel], format: "iife", minify: true });
     const js = r.outputFiles[0].text.replace(/<\/script/g, "<\\/script");
     for (const langue of LANGUES) {

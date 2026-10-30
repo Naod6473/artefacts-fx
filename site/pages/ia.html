@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="{{langue}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ia_titre}}</title>
+<meta name="description" content="{{ia_intro}}">
+<link rel="alternate" hreflang="fr" href="{{base}}fr/ia/">
+<link rel="alternate" hreflang="en" href="{{base}}en/ia/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="{{base}}assets/style.css">
+</head>
+<body>
+<header>
+  <div class="in barre">
+    <a class="logo" href="{{base}}{{langue}}/">Artefacts<i>_</i></a>
+    <nav>
+      <a href="{{base}}{{langue}}/bibliotheque/">{{nav_biblio}}</a>
+      <a href="https://github.com/Naod6473/artefacts-fx">★ GitHub</a>
+      <a href="{{base}}{{langue_autre_code}}/ia/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
+    </nav>
+  </div>
+</header>
+<main class="in doc">
+  <h1>{{ia_h1}}</h1>
+  <p>{{ia_intro}}</p>
+  <p class="adresse"><span class="dim">{{ia_adresse}}</span> <code id="url">https://naod.fr/api/mcp</code> <button type="button" data-copier="url">{{ia_copier}}</button></p>
+
+  <h2>Claude Code</h2>
+  <pre id="c1">claude mcp add --transport http artefacts https://naod.fr/api/mcp</pre>
+  <button type="button" data-copier="c1">{{ia_copier}}</button>
+
+  <h2>Claude (claude.ai, {{ia_appli}})</h2>
+  <p>{{ia_claude}}</p>
+
+  <h2>Cursor</h2>
+  <p>{{ia_cursor}}</p>
+  <pre id="c2">{
+  "mcpServers": {
+    "artefacts": { "url": "https://naod.fr/api/mcp" }
+  }
+}</pre>
+  <button type="button" data-copier="c2">{{ia_copier}}</button>
+
+  <h2>VS Code</h2>
+  <p>{{ia_vscode}}</p>
+  <pre id="c3">{
+  "servers": {
+    "artefacts": { "type": "http", "url": "https://naod.fr/api/mcp" }
+  }
+}</pre>
+  <button type="button" data-copier="c3">{{ia_copier}}</button>
+
+  <h2>{{ia_autres_t}}</h2>
+  <p>{{ia_autres}}</p>
+
+  <h2>{{ia_outils_t}}</h2>
+  <table>
+    <thead><tr><th>{{ia_outil}}</th><th>{{ia_role}}</th></tr></thead>
+    <tbody>
+      <tr><td><code>search_effects</code></td><td>{{ia_o1}}</td></tr>
+      <tr><td><code>get_effect</code></td><td>{{ia_o2}}</td></tr>
+      <tr><td><code>list_styles</code></td><td>{{ia_o3}}</td></tr>
+      <tr><td><code>list_tags</code></td><td>{{ia_o4}}</td></tr>
+    </tbody>
+  </table>
+
+  <h2>{{ia_exemples_t}}</h2>
+  <ul>
+    <li>{{ia_ex1}}</li>
+    <li>{{ia_ex2}}</li>
+    <li>{{ia_ex3}}</li>
+  </ul>
+  <p class="dim">{{ia_note}}</p>
+</main>
+<footer class="in"><p>{{pied_licence}} {{pied_credits}}</p></footer>
+<script>
+for (const b of document.querySelectorAll("[data-copier]")) b.onclick = async () => {
+  try { await navigator.clipboard.writeText(document.getElementById(b.dataset.copier).textContent); b.textContent = "✓"; } catch (_) {}
+};
+</script>
+</body>
+</html>

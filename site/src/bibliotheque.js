@@ -46,6 +46,8 @@ function lireUrl() {
   if (p.has("rendu") && parId[p.get("rendu")]) etat.rendu = p.get("rendu");
   if (["favoris", "projet"].includes(p.get("vue"))) etat.vue = p.get("vue");
   if (p.has("fx")) etat.choisi = parNumero.get(p.get("fx").padStart(4, "0")) ?? null;
+  // arrivée depuis l'accueil (« voir le code ») : onglet code source ouvert et visible
+  if (p.get("code") === "source") { onglet = "source"; allerAuCode = true; }
 }
 function ecrireUrl() {
   const p = new URLSearchParams();
@@ -256,7 +258,7 @@ function tick(dt) {
   inst.draw(frame);
   composite(frame, imageData.data);
 }`;
-let onglet = "usage";
+let onglet = "usage", allerAuCode = false;
 document.querySelectorAll("[role=tab]").forEach((b) => (b.onclick = () => { onglet = b.dataset.onglet; majCode(); }));
 async function majCode() {
   document.querySelectorAll("[role=tab]").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.onglet === onglet)));
@@ -377,3 +379,7 @@ $("#tri").value = etat.tri;
 choisirRendu(etat.rendu);
 majMur();
 ouvrir(etat.choisi ?? ordre[0] ?? LIB[0]);
+if (allerAuCode) {
+  cartes.get(etat.choisi)?.scrollIntoView({ block: "center" });
+  $("#code").scrollIntoView({ block: "nearest" });
+}

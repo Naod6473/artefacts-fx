@@ -1,0 +1,5 @@
+# /api/mcp : le serveur MCP (mcp.php)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^mcp/?$ mcp.php [L]
+</IfModule>

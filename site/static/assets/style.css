@@ -12,7 +12,8 @@ header { position: sticky; top: 0; z-index: 10; background: rgba(10, 13, 22, .94
 .barre { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
 .logo { font-family: var(--titre); font-size: 22px; color: var(--encre); text-decoration: none; }
 .logo i { font-style: normal; color: var(--ambre); }
-nav { display: flex; gap: 6px; }
+nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 2px 6px; min-width: 0; }
+@media (max-width: 560px) { .barre { flex-wrap: wrap; } nav { justify-content: flex-start; margin-inline: -10px; } nav a { padding: 6px 10px; } }
 nav a { color: var(--dim); text-decoration: none; padding: 8px 10px; border-radius: 6px; }
 nav a:hover { color: var(--encre); background: var(--panneau); }
 main section { padding-block: 28px; }
@@ -45,3 +46,22 @@ footer { border-top: 1px solid var(--trait); padding-block: 20px 32px; color: va
   .g3, .g4 { grid-template-columns: repeat(2, 1fr); }
   .trois { grid-template-columns: 1fr; }
 }
+
+/* chaque effet mène à son code dans la bibliothèque */
+.vers-code { display: block; position: relative; border-radius: 8px; }
+.vers-code canvas { transition: border-color .15s; }
+.vers-code:hover canvas, .vers-code:focus-visible canvas { border-color: var(--ambre); }
+.vers-code .badge { position: absolute; right: 10px; bottom: 10px; font-family: var(--mono); font-size: 12px; background: var(--ambre); color: #1c1204; padding: 4px 8px; border-radius: 4px; opacity: 0; transition: opacity .15s; }
+.vers-code:hover .badge, .vers-code:focus-visible .badge { opacity: 1; }
+@media (hover: none) { .vers-code .badge { opacity: 1; } }
+
+/* page « Utiliser avec une IA » */
+.doc { max-width: 820px; padding-block: 28px 48px; }
+.doc h2 { margin-top: 32px; }
+.doc p { color: #c9cfdc; }
+.doc pre { font-family: var(--mono); font-size: 13px; background: var(--panneau); border: 1px solid var(--trait); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 8px 0; }
+.doc code { font-family: var(--mono); color: var(--ambre); }
+.doc .adresse { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 16px; }
+.doc table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.doc th, .doc td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--trait); vertical-align: top; }
+.doc li { margin-bottom: 6px; color: #c9cfdc; }

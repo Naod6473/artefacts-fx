@@ -11,12 +11,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="{{base}}assets/style.css">
 </head>
-<body>
+<body data-voir-code="{{voir_code}}">
 <header>
   <div class="in barre">
     <a class="logo" href="{{base}}{{langue}}/">Artefacts<i>_</i></a>
     <nav>
       <a href="{{base}}{{langue}}/bibliotheque/">{{nav_biblio}}</a>
+      <a href="{{base}}{{langue}}/ia/">{{nav_ia}}</a>
       <a href="https://github.com/Naod6473/artefacts-fx">★ GitHub</a>
       <a href="{{base}}{{langue_autre_code}}/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
     </nav>
@@ -29,7 +30,7 @@
       <p>{{intro}}</p>
     </div>
     <figure id="vitrine" class="scene">
-      <canvas></canvas>
+      <a class="vers-code" href="{{base}}{{langue}}/bibliotheque/" aria-label="{{voir_code}}"><canvas></canvas><span class="badge" aria-hidden="true">{{voir_code}} →</span></a>
       <figcaption id="vitrine-rendu" aria-live="polite"></figcaption>
     </figure>
     <div class="choix">
