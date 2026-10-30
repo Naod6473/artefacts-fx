@@ -12,6 +12,10 @@ AddDefaultCharset utf-8
   RewriteCond %{HTTP:Accept-Language} ^fr [NC]
   RewriteRule ^$ {{base}}fr/ [L,R=302]
   RewriteRule ^$ {{base}}en/ [L,R=302]
+  # adresse courte d'un effet : /fx/42 ou /fx/0042 ouvre sa fiche dans la bibliothèque
+  RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+  RewriteRule ^fx/0*(\d+)/?$ {{base}}fr/bibliotheque/#fx=$1 [NE,L,R=302]
+  RewriteRule ^fx/0*(\d+)/?$ {{base}}en/bibliotheque/#fx=$1 [NE,L,R=302]
 </IfModule>
 
 # fichiers cachés (.git, .env…) et données de l'API jamais servis

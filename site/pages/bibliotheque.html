@@ -23,25 +23,39 @@
     </label>
     <nav>
       <a href="{{base}}{{langue}}/bibliotheque/" aria-current="page">{{bib_nav_biblio}}</a>
-      <a href="https://github.com/Naod6473/artefacts-fx">{{nav_code}}</a>
+      <a href="https://github.com/Naod6473/artefacts-fx" class="github" aria-label="{{bib_etoile}}">★ GitHub <span id="etoiles"></span></a>
       <a href="{{base}}{{langue_autre_code}}/bibliotheque/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
     </nav>
   </div>
-  <div class="barre rendus"><span class="dim">{{bib_rendu}}</span><div id="rendus" role="group" aria-label="{{bib_rendu}}"></div><span class="dim touche"><kbd>R</kbd></span></div>
+  <div class="barre rendus"><span class="dim">{{bib_rendu}}</span><div id="rendus" role="group" aria-label="{{bib_rendu}}"></div><span class="dim touche"><kbd>/</kbd> {{bib_aide_chercher}} <kbd>R</kbd> {{bib_aide_rendu}} <kbd>←</kbd><kbd>→</kbd> {{bib_aide_effet}} <kbd>F</kbd> {{bib_aide_favori}}</span></div>
 </header>
 
 <div class="corps">
   <main>
     <div class="entete">
-      <div id="tags" class="tags"></div>
-      <span id="compte" class="dim"></span>
+      <div class="vues" role="group" aria-label="{{bib_vue}}">
+        <button type="button" data-vue="tout">{{bib_tout}}</button>
+        <button type="button" data-vue="favoris">♥ {{bib_favoris}} <span id="nb-favoris"></span></button>
+        <button type="button" data-vue="projet">▤ {{bib_projet}} <span id="nb-projet"></span></button>
+      </div>
+      <div class="droite">
+        <span id="compte" class="dim"></span>
+        <label class="dim">{{bib_tri}} <select id="tri"><option value="numero">{{bib_tri_numero}}</option><option value="recent">{{bib_tri_recent}}</option><option value="nom">{{bib_tri_nom}}</option><option value="duree">{{bib_tri_duree}}</option></select></label>
+      </div>
     </div>
+    <div id="tags" class="tags"></div>
     <p id="vide" class="dim" hidden>{{bib_vide}}</p>
     <div id="mur"></div>
   </main>
 
   <aside aria-label="{{bib_panneau}}">
-    <div class="titre"><h1 id="fx-nom"></h1><button type="button" class="coeur" aria-label="{{bib_aimer}}">♥</button></div>
+    <div class="titre">
+      <div><span id="fx-num" class="num"></span><h1 id="fx-nom"></h1></div>
+      <div class="boutons">
+        <button type="button" id="lien" aria-label="{{bib_lien}}" title="{{bib_lien}}">⧉</button>
+        <button type="button" id="fx-coeur" class="coeur" aria-label="{{bib_favori}}" title="{{bib_favori}} (F)">♥</button>
+      </div>
+    </div>
     <p id="fx-desc" class="dim"></p>
     <canvas id="apercu"></canvas>
     <div class="lecture">
@@ -57,6 +71,10 @@
       <figure><canvas></canvas><figcaption></figcaption></figure>
       <figure><canvas></canvas><figcaption></figcaption></figure>
     </div>
+    <div class="projet">
+      <button type="button" id="fx-projet"></button>
+      <label id="note" hidden><span class="sr">{{bib_note}}</span><input id="fx-note" type="text" maxlength="200" placeholder="{{bib_note}}"></label>
+    </div>
     <div id="fx-tags" class="tags"></div>
     <div role="tablist" class="onglets">
       <button type="button" role="tab" data-onglet="usage">{{bib_utiliser}}</button>
@@ -71,7 +89,7 @@
     <p id="fx-infos" class="dim petit"></p>
   </aside>
 </div>
-<script id="textes" type="application/json">{"lire":"{{bib_lire}}","pause":"{{bib_pause}}","copie":"{{bib_copie}}","copie_ko":"{{bib_copie_ko}}","video_ko":"{{bib_video_ko}}","video_ok":"{{bib_video_ok}}","video_en_cours":"{{bib_video_en_cours}}","virgule":"{{bib_virgule}}"}</script>
-<script src="{{base}}assets/bibliotheque.js" defer></script>
+<script id="textes" type="application/json">{"lire":"{{bib_lire}}","pause":"{{bib_pause}}","copie":"{{bib_copie}}","copie_ko":"{{bib_copie_ko}}","video_ko":"{{bib_video_ko}}","video_ok":"{{bib_video_ok}}","video_en_cours":"{{bib_video_en_cours}}","virgule":"{{bib_virgule}}","favori":"{{bib_favori}}","vide":"{{bib_vide}}","vide_favoris":"{{bib_vide_favoris}}","vide_projet":"{{bib_vide_projet}}","ajouter_projet":"{{bib_ajouter_projet}}","retirer_projet":"{{bib_retirer_projet}}","lien_copie":"{{bib_lien_copie}}","base":"{{base}}"}</script>
+<script type="module" src="{{base}}assets/bibliotheque.js"></script>
 </body>
 </html>

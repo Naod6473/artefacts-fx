@@ -5,7 +5,8 @@
 import { build } from "esbuild";
 import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, readdirSync } from "node:fs";
 import { createServer } from "node:http";
-import { join, extname, dirname } from "node:path";
+import { join, extname, dirname, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 
 const DIST = "dist";
 const LANGUES = readdirSync("site/i18n").filter((f) => f.endsWith(".json")).map((f) => f.slice(0, -5));
@@ -17,10 +18,51 @@ const BASE = JSON.parse(readFileSync("config/ovh.json", "utf8")).chemin_web ?? "
 const sourceTexte = {
   name: "source",
   setup(b) {
-    b.onResolve({ filter: /\?source$/ }, (a) => ({ path: join(a.resolveDir, a.path.replace(/\?source$/, "")), namespace: "source" }));
+    b.onResolve({ filter: /\?source$/ }, (a) => ({ path: resolve(a.resolveDir, a.path.replace(/\?source$/, "")), namespace: "source" }));
     b.onLoad({ filter: /.*/, namespace: "source" }, (a) => ({ contents: readFileSync(a.path, "utf8"), loader: "text" }));
   },
 };
+
+// « import { catalogue, charger, source } from "virtuel:catalogue" » : la liste des effets (numéro, nom, tags, durée…)
+// calculée ici, et pour chacun un import() séparé, donc le code d'un effet n'est téléchargé que s'il est affiché
+const registre = JSON.parse(readFileSync("effets/registre.json", "utf8"));
+const catalogue = [];
+for (const [n, id] of Object.entries(registre)) {
+  let mod;
+  try { mod = await import(pathToFileURL(resolve("effets", id + ".js")).href); } catch { continue; } // effet retiré
+  const m = { fps: 30, bg: "dark", loop: false, duration: 1, tags: [], options: {}, ...mod.meta };
+  catalogue.push({ n, id, name: m.name, desc: m.desc ?? "", tags: m.tags, loop: m.loop, duration: m.duration, size: m.size, origin: m.origin, bg: m.bg, actor: !!m.actor, couleur: couleurDominante(m.options) });
+}
+const catalogueVirtuel = {
+  name: "catalogue",
+  setup(b) {
+    b.onResolve({ filter: /^virtuel:catalogue$/ }, () => ({ path: "catalogue", namespace: "virtuel" }));
+    b.onLoad({ filter: /.*/, namespace: "virtuel" }, () => {
+      const fichier = (id) => JSON.stringify(resolve("effets", id + ".js"));
+      const lignes = (suffixe) => catalogue.map((e) => `  "${e.n}": () => import(${fichier(e.id).slice(0, -1)}${suffixe}"),`).join("\n");
+      return {
+        resolveDir: resolve("."),
+        contents: `export const catalogue = ${JSON.stringify(catalogue)};\nexport const charger = {\n${lignes("")}\n};\nexport const source = {\n${lignes("?source")}\n};\n`,
+      };
+    });
+  },
+};
+
+/** Nom de la couleur la plus vive de la palette de l'effet : sert au filtre couleur:… */
+function couleurDominante(options) {
+  const ramp = (options.palette ?? []).filter((c) => typeof c === "string");
+  let best = null, score = -1;
+  for (const c of ramp) {
+    const v = parseInt(c.slice(1, 7), 16), r = (v >> 16) / 255, g = ((v >> 8) & 255) / 255, b = (v & 255) / 255;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b), sat = max ? (max - min) / max : 0;
+    if (sat * max > score) { score = sat * max; best = { r, g, b, max, min, sat }; }
+  }
+  if (!best || best.sat < 0.25) return best && best.max > 0.7 ? "blanc" : "gris";
+  const { r, g, b, max, min } = best, d = max - min;
+  let h = max === r ? ((g - b) / d) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+  h = (h * 60 + 360) % 360;
+  return h < 15 ? "rouge" : h < 45 ? "orange" : h < 70 ? "jaune" : h < 160 ? "vert" : h < 200 ? "cyan" : h < 255 ? "bleu" : h < 290 ? "violet" : h < 335 ? "rose" : "rouge";
+}
 
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, "assets"), { recursive: true });
@@ -32,8 +74,10 @@ await build({
   entryPoints: Object.keys(PAGES).map((p) => `site/src/${p}.js`),
   outdir: join(DIST, "assets"),
   bundle: true,
-  plugins: [sourceTexte],
-  format: "iife",
+  plugins: [sourceTexte, catalogueVirtuel],
+  format: "esm",
+  splitting: true,
+  chunkNames: "fx/[name]-[hash]",
   minify: true,
   legalComments: "inline",
   banner: { js: "/* Artefacts, MIT. Moteur et effets d'origine : pixelfx, MIT, Copyright (c) 2026 Patch, Copyright (c) 2026 Hugo Duprez */" },
@@ -56,7 +100,24 @@ for (const langue of LANGUES) {
 }
 // sans Apache (aperçu local), la racine choisit la langue en JavaScript
 writeFileSync(join(DIST, "index.html"), `<!doctype html><meta charset="utf-8"><title>Artefacts</title><script>location.replace(/^fr/i.test(navigator.language)?"${BASE}fr/":"${BASE}en/")</script><a href="${BASE}fr/">Français</a> · <a href="${BASE}en/">English</a>`);
-console.log(`dist/ : ${LANGUES.join(", ")}`);
+console.log(`dist/ : ${LANGUES.join(", ")}, ${catalogue.length} effets`);
+
+// --autonome : chaque page en un seul fichier HTML (scripts et styles dedans), pour un aperçu hors du site
+if (process.argv.includes("--autonome")) {
+  const out = join(DIST, "autonome");
+  mkdirSync(out, { recursive: true });
+  for (const page of Object.keys(PAGES)) {
+    const r = await build({ entryPoints: [`site/src/${page}.js`], bundle: true, write: false, plugins: [sourceTexte, catalogueVirtuel], format: "iife", minify: true });
+    const js = r.outputFiles[0].text.replace(/<\/script/g, "<\\/script");
+    for (const langue of LANGUES) {
+      let html = readFileSync(join(DIST, langue, PAGES[page]), "utf8");
+      html = html.replace(/<link rel="stylesheet" href="[^"]*assets\/([\w.-]+\.css)">/, (_, f) => `<style>${readFileSync(join(DIST, "assets", f), "utf8")}</style>`);
+      html = html.replace(/<script type="module" src="[^"]*"><\/script>/, () => `<script>${js}</script>`);
+      writeFileSync(join(out, `${langue}-${page}.html`), html);
+    }
+  }
+  console.log("dist/autonome/ : pages en un seul fichier");
+}
 
 if (process.argv.includes("--serve")) {
   const TYPES = { ".html": "text/html; charset=utf-8", ".js": "application/javascript", ".css": "text/css", ".json": "application/json" };

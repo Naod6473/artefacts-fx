@@ -16,7 +16,8 @@
   <div class="in barre">
     <a class="logo" href="{{base}}{{langue}}/">Artefacts<i>_</i></a>
     <nav>
-      <a href="https://github.com/Naod6473/artefacts-fx">{{nav_code}}</a>
+      <a href="{{base}}{{langue}}/bibliotheque/">{{nav_biblio}}</a>
+      <a href="https://github.com/Naod6473/artefacts-fx">★ GitHub</a>
       <a href="{{base}}{{langue_autre_code}}/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
     </nav>
   </div>
@@ -49,7 +50,7 @@
       <h2>{{apercu_titre}}</h2>
       <label class="dim">{{apercu_rendu}} <select id="apercu-rendu"></select></label>
     </div>
-    <p class="dim">{{apercu_texte}}</p>
+    <p class="dim">{{apercu_texte}} <a href="{{base}}{{langue}}/bibliotheque/">{{apercu_lien}}</a></p>
     <div id="apercu" class="grille g4"></div>
   </section>
 
@@ -65,6 +66,6 @@
 <footer class="in">
   <p>{{pied_licence}} {{pied_credits}}</p>
 </footer>
-<script src="{{base}}assets/accueil.js" defer></script>
+<script type="module" src="{{base}}assets/accueil.js"></script>
 </body>
 </html>
