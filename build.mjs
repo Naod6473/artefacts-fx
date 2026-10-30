@@ -10,11 +10,14 @@ import { join, extname } from "node:path";
 const DIST = "dist";
 const LANGUES = readdirSync("site/i18n").filter((f) => f.endsWith(".json")).map((f) => f.slice(0, -5));
 const PAGES = { accueil: "index.html" };
+// le site peut vivre dans un sous-dossier (naod.fr/artefacts/) : tous les liens partent de chemin_web
+const BASE = JSON.parse(readFileSync("config/ovh.json", "utf8")).chemin_web ?? "/";
 
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, "assets"), { recursive: true });
 cpSync("site/static", DIST, { recursive: true });
 cpSync("api", join(DIST, "api"), { recursive: true });
+writeFileSync(join(DIST, ".htaccess"), readFileSync("site/static/.htaccess", "utf8").replaceAll("{{base}}", BASE));
 
 await build({
   entryPoints: Object.keys(PAGES).map((p) => `site/src/${p}.js`),
@@ -30,7 +33,7 @@ const echappe = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").re
 // les clés qui finissent par une phrase avec des liens (pied_credits) gardent leur HTML ; les autres sont échappées
 const HTML_PERMIS = new Set(["pied_credits"]);
 for (const langue of LANGUES) {
-  const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue };
+  const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
   mkdirSync(join(DIST, langue), { recursive: true });
   for (const [page, fichier] of Object.entries(PAGES)) {
     const html = readFileSync(`site/pages/${page}.html`, "utf8").replace(/\{\{(\w+)\}\}/g, (_, k) => {
@@ -41,13 +44,15 @@ for (const langue of LANGUES) {
   }
 }
 // sans Apache (aperçu local), la racine choisit la langue en JavaScript
-writeFileSync(join(DIST, "index.html"), `<!doctype html><meta charset="utf-8"><title>Artefacts</title><script>location.replace(/^fr/i.test(navigator.language)?"/fr/":"/en/")</script><a href="/fr/">Français</a> · <a href="/en/">English</a>`);
+writeFileSync(join(DIST, "index.html"), `<!doctype html><meta charset="utf-8"><title>Artefacts</title><script>location.replace(/^fr/i.test(navigator.language)?"${BASE}fr/":"${BASE}en/")</script><a href="${BASE}fr/">Français</a> · <a href="${BASE}en/">English</a>`);
 console.log(`dist/ : ${LANGUES.join(", ")}`);
 
 if (process.argv.includes("--serve")) {
   const TYPES = { ".html": "text/html; charset=utf-8", ".js": "application/javascript", ".css": "text/css", ".json": "application/json" };
   createServer((req, res) => {
     let p = decodeURIComponent(req.url.split("?")[0]);
+    if (!p.startsWith(BASE)) { res.writeHead(302, { location: BASE }).end(); return; }
+    p = "/" + p.slice(BASE.length);
     if (p.endsWith("/")) p += "index.html";
     try {
       const data = readFileSync(join(DIST, p));
@@ -55,5 +60,5 @@ if (process.argv.includes("--serve")) {
     } catch {
       res.writeHead(404).end("introuvable");
     }
-  }).listen(8080, () => console.log("http://localhost:8080"));
+  }).listen(8080, () => console.log(`http://localhost:8080${BASE}`));
 }

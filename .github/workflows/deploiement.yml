@@ -45,6 +45,7 @@ jobs:
             **/.git*
             **/.git*/**
             api/donnees/*.sqlite
+            api/donnees/*.json
       - name: Secrets absents
         if: env.FTP_SERVER == ''
         env:

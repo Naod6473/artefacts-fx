@@ -1,4 +1,4 @@
-# Hébergement OVH (Apache). Envoyé tel quel à la racine du site.
+# Hébergement OVH (Apache). {{base}} est remplacé au build par chemin_web de config/ovh.json.
 
 Options -Indexes
 AddDefaultCharset utf-8
@@ -10,13 +10,13 @@ AddDefaultCharset utf-8
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   # la racine envoie vers la langue du navigateur (anglais sauf si le français est demandé)
   RewriteCond %{HTTP:Accept-Language} ^fr [NC]
-  RewriteRule ^$ /fr/ [L,R=302]
-  RewriteRule ^$ /en/ [L,R=302]
+  RewriteRule ^$ {{base}}fr/ [L,R=302]
+  RewriteRule ^$ {{base}}en/ [L,R=302]
 </IfModule>
 
 # fichiers cachés (.git, .env…) et données de l'API jamais servis
 RedirectMatch 404 /\.(?!htaccess$)
-RedirectMatch 404 ^/api/donnees/
+RedirectMatch 404 ^{{base}}api/donnees/
 
 <IfModule mod_expires.c>
   ExpiresActive On

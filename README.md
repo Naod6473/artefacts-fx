@@ -1,6 +1,6 @@
 # Artefacts
 
-Des effets visuels de jeu écrits en code, à voir dans le rendu de son choix. Site : https://artefacts-fx.naod.fr
+Des effets visuels de jeu écrits en code, à voir dans le rendu de son choix. Site : https://naod.fr
 
 *Game visual effects written in code, shown in the style you pick.*
 
@@ -17,7 +17,7 @@ départ, repris de [pixelfx](https://github.com/patch-gg/pixelfx).
 | `core/` | le moteur : tampon, pinceau, particules, couleurs (pixelfx) |
 | `site/` | le site : pages (`pages/`), textes par langue (`i18n/`), scripts (`src/`), fichiers statiques (`static/`) |
 | `api/` | la partie communauté en PHP + SQLite (à venir), avec un test de santé sur `/api/` |
-| `config/ovh.json` | réglages de la mise en ligne (domaine, dossier sur le serveur) |
+| `config/ovh.json` | réglages de la mise en ligne (dossier sur le FTP, adresse du site) |
 | `tools/` | `check.mjs` vérifie les effets, `index.mjs` régénère `effets/index.js` |
 | `docs/` | l'architecture et les choix |
 

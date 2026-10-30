@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{titre}}</title>
 <meta name="description" content="{{description}}">
-<link rel="alternate" hreflang="fr" href="/fr/">
-<link rel="alternate" hreflang="en" href="/en/">
+<link rel="alternate" hreflang="fr" href="{{base}}fr/">
+<link rel="alternate" hreflang="en" href="{{base}}en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="{{base}}assets/style.css">
 </head>
 <body>
 <header>
   <div class="in barre">
-    <a class="logo" href="/{{langue}}/">Artefacts<i>_</i></a>
+    <a class="logo" href="{{base}}{{langue}}/">Artefacts<i>_</i></a>
     <nav>
       <a href="https://github.com/Naod6473/artefacts-fx">{{nav_code}}</a>
-      <a href="/{{langue_autre_code}}/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
+      <a href="{{base}}{{langue_autre_code}}/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
     </nav>
   </div>
 </header>
@@ -65,6 +65,6 @@
 <footer class="in">
   <p>{{pied_licence}} {{pied_credits}}</p>
 </footer>
-<script src="/assets/accueil.js" defer></script>
+<script src="{{base}}assets/accueil.js" defer></script>
 </body>
 </html>
