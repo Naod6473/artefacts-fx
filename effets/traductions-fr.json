@@ -998,5 +998,21 @@
   "creatures/woodlouse": {
     "name": "Cloporte roulant",
     "desc": "Un cloporte vu de dessus trottine sur ses petites pattes, se roule en boule cuirassée, roule vite, puis se déroule et repart."
+  },
+  "creatures/giant-python": {
+    "name": "Python géant",
+    "desc": "Un python géant vu de dessus serpente en huit, des vagues parcourant son corps tacheté, la tête qui oscille et la langue fourchue qui frétille."
+  },
+  "creatures/vampire-bat": {
+    "name": "Chauve-souris vampire",
+    "desc": "Une chauve-souris vampire vue de dessus vole en boucle, ses ailes palmées se replient et s'étendent, yeux rouges, ondes d'écholocation devant elle."
+  },
+  "creatures/crow-flock": {
+    "name": "Nuée de corbeaux",
+    "desc": "Une nuée de corbeaux vue de dessus tournoie, chaque oiseau battant des ailes ou planant à son rythme, leurs ombres balayant le sol."
+  },
+  "creatures/locust-swarm": {
+    "name": "Essaim de criquets",
+    "desc": "Un essaim de criquets vu de dessus avance en tourbillonnant, une centaine d'insectes autour de son cœur, ailes scintillantes, nuage d'ombre en dessous."
   }
 }

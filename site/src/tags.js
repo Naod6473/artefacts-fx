@@ -18,6 +18,7 @@ export const TAGS_FR = {
   freeze: "gel", shockwave: "onde-de-choc", glitch: "glitch", hud: "hud", sword: "épée", missile: "missile", gold: "or", circle: "cercle",
   rune: "rune", heal: "soin", plant: "plante", creature: "créature", boss: "boss", walk: "marche", swim: "nage", "top-down": "vue-de-dessus",
   spider: "araignée", koi: "koï", pond: "bassin", sea: "mer", insect: "insecte", bug: "insecte",
+  snake: "serpent", reptile: "reptile", slither: "reptation", bat: "chauve-souris", bird: "oiseau", crow: "corbeau", flock: "nuée", swarm: "essaim",
 };
 
 // mots français courants vers l'anglais, pour chercher dans les noms et descriptions (en anglais)
@@ -32,5 +33,5 @@ export const SYNONYMES = {
   malediction: "curse", ame: "soul", poison: "poison", acide: "acid", gel: "freeze", vitesse: "haste", sommeil: "sleep", confus: "confused",
   saignement: "bleed", rage: "rage", araignee: "spider", koi: "koi", carpe: "koi", requin: "shark", raie: "manta", tortue: "turtle",
   pieuvre: "octopus", poulpe: "octopus", crabe: "crab", scorpion: "scorpion", mante: "mantis", fourmi: "ant", tique: "tick", cloporte: "woodlouse",
-  scolopendre: "centipede", "mille-pattes": "centipede", hydre: "hydra", meduse: "jellyfish", opilion: "harvestman", creature: "creature", or: "gold", gemme: "gem", potion: "potion", cle: "key", tir: "shot", coup: "hit", choc: "shock",
+  scolopendre: "centipede", corbeau: "crow", corneille: "crow", criquet: "locust", sauterelle: "locust", essaim: "swarm", nuee: "flock", vampire: "vampire", "mille-pattes": "centipede", hydre: "hydra", meduse: "jellyfish", opilion: "harvestman", creature: "creature", or: "gold", gemme: "gem", potion: "potion", cle: "key", tir: "shot", coup: "hit", choc: "shock",
 };

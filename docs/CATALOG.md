@@ -1,6 +1,6 @@
 # Catalog
 
-250 effects in 21 categories. Every one is a file in
+254 effects in 21 categories. Every one is a file in
 `effets/<category>/<name>.js`; check any of them with `node tools/check.mjs <id>`.
 
 ## fire
@@ -383,13 +383,16 @@ koi, giant spiders, centipedes, crabs, seen from above.
 |---|---|---|---|---|
 | Ant Queen | `creatures/ant-queen` | loop 6s | 176×128 | A winged ant queen seen from above paces in the middle while a column of worker ants marches round her along a scent trail, legs ticking in tripods. |
 | Sidestep Crab | `creatures/crab` | loop 4s | 160×104 | A crab seen from above scuttles sideways back and forth on eight legs, eyes up on stalks, snapping its big claws with a spark at each pinch. |
+| Crow Flock | `creatures/crow-flock` | loop 8s | 176×132 | A flock of crows seen from above circles overhead, each bird beating and gliding at its own pace, their shadows sweeping the ground below. |
 | Giant Centipede | `creatures/giant-centipede` | loop 6s | 176×128 | A giant centipede seen from above weaves along a looping track, a wave of forty legs rippling down its plated body, antennae feeling ahead, fangs twitching. |
+| Giant Python | `creatures/giant-python` | loop 8s | 176×132 | A giant python seen from above slithers a figure-eight, waves running down its blotched body, its head swaying and its forked tongue flicking. |
 | Giant Spider | `creatures/giant-spider` | loop 6s | 176×132 | A giant spider seen from above walks a figure-eight on eight jointed legs, four planted while four swing, its red eyes glowing ahead of a patterned abdomen. |
 | Harvestman | `creatures/harvestman` | loop 8s | 192×144 | A harvestman seen from above stalks in a slow circle on eight huge stilt legs, its little round body riding high over its own shadow. |
 | Hydra | `creatures/hydra` | loop 5s | 160×128 | A many-headed hydra seen from above sways its necks over a heavy body; the middle neck forks in two, and one head after another lunges to bite. |
 | Pulsing Jellyfish | `creatures/jellyfish-bloom` | loop 6s | 144×112 | A moon jellyfish seen from above drifts round, its glassy bell pulsing, four pale rings at its heart and fine tentacles trailing behind each beat. |
 | Koi | `creatures/koi` | loop 8s | 144×96 | A kohaku koi seen from above glides a slow loop, its tail and fins beating, red saddles on a white robe, rings opening on the water where it turns. |
 | Koi Pond | `creatures/koi-pond` | loop 10s | 208×144 | A pond seen from above where seven koi of different robes (kohaku, sanke, showa, tancho, ogon, karasu, higoi) circle between lily pads, light shimmering on the water. |
+| Locust Swarm | `creatures/locust-swarm` | loop 8s | 176×132 | A swarm of locusts seen from above churns along a winding path, a hundred insects whirling round its heart, wings flickering, a dark cloud of shadow beneath. |
 | Manta Ray | `creatures/manta-ray` | loop 8s | 176×128 | A manta ray seen from above glides a wide circle with slow beats of its great wings, light rippling across its back, its thin tail trailing. |
 | Praying Mantis | `creatures/mantis` | loop 4s | 128×144 | A praying mantis seen from above sways in wait, head turning, then its folded forelegs shoot out in a lightning strike and snap back. |
 | Octopus | `creatures/octopus` | loop 6s | 160×128 | An octopus seen from above jets round in pulses, eight curling arms flaring out on each push and trailing behind as it glides, suckers pale along them. |
@@ -397,5 +400,6 @@ koi, giant spiders, centipedes, crabs, seen from above.
 | Sea Turtle | `creatures/sea-turtle` | loop 8s | 160×112 | A sea turtle seen from above paddles a slow loop, big front flippers sweeping in long strokes, a patterned shell, little bubbles trailing. |
 | Shark | `creatures/shark` | loop 8s | 192×128 | A shark seen from above circles slow and steady, its long body swaying, pectoral fins spread, the dorsal fin catching the light, its shadow gliding beneath. |
 | Swelling Tick | `creatures/swelling-tick` | loop 6s | 144×112 | A tick seen from above scuttles round, latches on and swells, its body ballooning grey-violet and throbbing, until it bursts in a spray of red and starts again. |
+| Vampire Bat | `creatures/vampire-bat` | loop 6s | 176×132 | A vampire bat seen from above flaps a looping flight, its webbed wings folding and spreading, red eyes glowing, sonar rings pulsing ahead of it. |
 | Wolf Spider | `creatures/wolf-spider` | loop 6s | 176×128 | A hairy wolf spider seen from above prowls a loop with her brood riding on her back; spiderlings keep dropping off and scattering away. |
 | Rolling Woodlouse | `creatures/woodlouse` | loop 6s | 160×112 | A woodlouse seen from above trundles along on its little legs, curls up into an armoured ball, rolls away fast, then uncurls and walks on. |
