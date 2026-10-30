@@ -23,6 +23,26 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// au plus 120 requêtes par minute et par IP : de quoi pour un assistant, pas pour vider l'hébergement
+try {
+    $lim = new PDO('sqlite:' . __DIR__ . '/donnees/mcp.sqlite', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $lim->exec('CREATE TABLE IF NOT EXISTS appels (cle TEXT NOT NULL, t INTEGER NOT NULL); CREATE INDEX IF NOT EXISTS appels_cle ON appels (cle, t)');
+    $cle = hash('sha256', (string) ($_SERVER['REMOTE_ADDR'] ?? ''));
+    if (random_int(1, 50) === 1) $lim->prepare('DELETE FROM appels WHERE t < ?')->execute([time() - 60]);
+    $n = $lim->prepare('SELECT COUNT(*) FROM appels WHERE cle = ? AND t > ?');
+    $n->execute([$cle, time() - 60]);
+    if ($n->fetchColumn() >= 120) {
+        http_response_code(429);
+        header('Retry-After: 60');
+        header('Content-Type: application/json');
+        echo json_encode(['erreur' => 'Trop de requêtes, réessayer dans une minute.']);
+        exit;
+    }
+    $lim->prepare('INSERT INTO appels (cle, t) VALUES (?, ?)')->execute([$cle, time()]);
+} catch (Throwable) {
+    // sans SQLite, on sert quand même
+}
+
 $requete = json_decode((string) file_get_contents('php://input'), true);
 if (!is_array($requete) || ($requete['jsonrpc'] ?? null) !== '2.0' || !isset($requete['method'])) {
     repondre(null, null, ['code' => -32700, 'message' => 'Requête JSON-RPC invalide']);

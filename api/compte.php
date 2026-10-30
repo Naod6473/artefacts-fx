@@ -40,7 +40,7 @@ set_error_handler(function (int $niveau, string $message, string $fichier, int $
 set_exception_handler(function (Throwable $e): void {
     journal(get_class($e) . ': ' . $e->getMessage() . ' (' . $e->getLine() . ')');
     http_response_code(500);
-    echo json_encode(['ok' => false, 'erreur' => 'serveur', 'detail' => get_class($e) . ' ligne ' . $e->getLine()]);
+    echo json_encode(['ok' => false, 'erreur' => 'serveur']); // le détail reste dans le journal
 });
 function journal(string $texte): void
 {
@@ -155,8 +155,11 @@ function connexion(): never
 {
     global $db, $corps;
     $email = emailValide($corps['email'] ?? '');
+    // par IP et par couple IP + adresse : un tiers ne peut pas bloquer la connexion d'un membre depuis chez lui ;
+    // le plafond par adresse seule, large, freine seulement un essai massif réparti sur beaucoup d'IP
     limiter('connexion:' . ip(), 20, 900);
-    limiter('connexion:' . $email, 8, 900);
+    limiter('connexion:' . ip() . ':' . $email, 8, 900);
+    limiter('connexion:' . $email, 100, 3600);
     $m = $db->prepare('SELECT * FROM membres WHERE email = ?');
     $m->execute([$email]);
     $m = $m->fetch();
@@ -326,8 +329,13 @@ function supprimerCompte(): never
 {
     global $db, $corps;
     $m = membreOuErreur();
-    // compte avec mot de passe : on le redemande ; compte GitHub seul : la session suffit
-    if ($m['mdp'] !== null && !password_verify((string) ($corps['mdp'] ?? ''), $m['mdp'])) erreur(401, 'identifiants');
+    limiter('supprimer:' . $m['id'], 10, 3600);
+    // compte avec mot de passe : on le redemande ; compte GitHub seul : l'identifiant GitHub tapé à la main
+    if ($m['mdp'] !== null) {
+        if (!password_verify((string) ($corps['mdp'] ?? ''), $m['mdp'])) erreur(401, 'identifiants');
+    } elseif (strcasecmp(trim((string) ($corps['confirmation'] ?? '')), (string) $m['github_login']) !== 0 || (string) $m['github_login'] === '') {
+        erreur(401, 'confirmation');
+    }
     tablePropositions();
     foreach (['favoris', 'projets', 'sessions', 'jetons', 'propositions'] as $table) $db->prepare("DELETE FROM $table WHERE membre = ?")->execute([$m['id']]);
     $db->prepare('DELETE FROM membres WHERE id = ?')->execute([$m['id']]);

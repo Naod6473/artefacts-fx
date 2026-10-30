@@ -160,7 +160,9 @@ recherche.onkeydown = (ev) => {
 document.querySelectorAll("[data-vue]").forEach((b) => (b.onclick = () => { etat.vue = b.dataset.vue; majMur(); }));
 $("#tri").onchange = (ev) => { etat.tri = ev.target.value; majMur(); };
 
+$("#filtrer").onclick = () => $("#filtrer").setAttribute("aria-expanded", String($("#tags").classList.toggle("deplies")));
 function majTags(res) {
+  $("#nb-filtres").textContent = etat.tags.size ? `(${etat.tags.size})` : "";
   const n = new Map();
   for (const e of res) for (const t of e.tags) n.set(t, (n.get(t) ?? 0) + 1);
   for (const t of etat.tags) if (!n.has(t)) n.set(t, 0);
@@ -193,7 +195,7 @@ for (const e of LIB) {
   el.innerHTML = `<button type="button" class="ouvrir" aria-label="${esc(e.name)}"><canvas style="aspect-ratio:${pleinEcran(e.meta) ? "16/9" : "4/3"}"></canvas></button>
     <div class="ligne"><b>${esc(e.slug)}</b><button type="button" class="coeur" aria-label="${esc(T.favori)}">♥</button></div>
     <span class="info"><span class="num">#${e.n}</span> · ${e.loop ? AUTO.loop : AUTO.once} · ${e.duration}s</span>`;
-  el.querySelector(".ouvrir").onclick = () => ouvrir(e);
+  el.querySelector(".ouvrir").onclick = (ev) => { ouvrir(e); montrerPanneau(ev.detail === 0); };
   el.querySelector(".coeur").onclick = () => basculerFavori(e);
   mur.appendChild(el);
   cartes.set(e, el);
@@ -345,6 +347,27 @@ function bulle(texte) {
   setTimeout(() => d.remove(), 2600);
 }
 
+// Sur mobile le panneau est une feuille plein écran, ouverte par une carte et fermée par « Retour » ou Échap ; au
+// clavier (clic sans souris : detail 0), le focus passe dans le panneau, et revient à la carte à la fermeture.
+const aside = document.querySelector("aside");
+const mobile = matchMedia("(max-width: 980px)");
+function montrerPanneau(clavier) {
+  if (mobile.matches) {
+    aside.classList.add("ouvert");
+    document.body.classList.add("feuille");
+    aside.scrollTop = 0;
+    $("#fermer-panneau").focus();
+  } else if (clavier) $("#fx-nom").focus();
+}
+function fermerPanneau() {
+  if (!aside.classList.contains("ouvert")) return;
+  aside.classList.remove("ouvert");
+  document.body.classList.remove("feuille");
+  cartes.get(etat.choisi)?.querySelector(".ouvrir")?.focus();
+}
+$("#fermer-panneau").onclick = fermerPanneau;
+mobile.addEventListener("change", fermerPanneau);
+
 async function ouvrir(e) {
   etat.choisi = e;
   for (const [x, el] of cartes) el.setAttribute("aria-current", String(x === e));
@@ -387,6 +410,7 @@ addEventListener("keydown", (ev) => {
   const champ = /INPUT|SELECT|TEXTAREA/.test(document.activeElement?.tagName);
   if (ev.key === "/" && !champ) { ev.preventDefault(); recherche.focus(); return; }
   if (ev.key === "Escape" && champ) { document.activeElement.blur(); return; }
+  if (ev.key === "Escape") { fermerPanneau(); return; }
   if (champ || ev.ctrlKey || ev.metaKey || ev.altKey) return;
   if (ev.key === "r" || ev.key === "R") {
     const ids = rendus.map((r) => r.meta.id), i = ids.indexOf(etat.rendu);
@@ -695,7 +719,9 @@ recherche.value = etat.q;
 $("#tri").value = etat.tri;
 choisirRendu(etat.rendu);
 majMur();
+const arriveSurUnEffet = !!etat.choisi; // lien vers un effet précis (#fx=12) : sur mobile, sa feuille s'ouvre
 ouvrir(etat.choisi ?? ordre[0] ?? LIB[0]);
+if (arriveSurUnEffet && mobile.matches) montrerPanneau(false);
 if (retourCompte) compte.pret.then(() => compte.retour(...retourCompte));
 if (allerAuCode) {
   cartes.get(etat.choisi)?.scrollIntoView({ block: "center" });

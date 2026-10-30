@@ -68,11 +68,6 @@
   <p class="dim">{{ia_note}}</p>
 </main>
 {{> pied}}
-<script>
-for (const b of document.querySelectorAll("[data-copier]")) b.onclick = async () => {
-  try { await navigator.clipboard.writeText(document.getElementById(b.dataset.copier).textContent); b.textContent = "✓"; } catch (_) {}
-};
-</script>
 {{> compte}}
 <script type="module" src="{{base}}assets/entete.js"></script>
 </body>

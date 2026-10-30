@@ -61,7 +61,7 @@ function proposer(): never
     codeValide($code);
     $nom = trim(preg_replace('/[\x00-\x1f]/', '', couper((string) ($corps['nom'] ?? ''), 0, 40)));
     if ($nom === '') erreur(400, 'nom_vide');
-    $credit = trim(preg_replace('/[\x00-\x1f"\\\\`<>]/', '', couper((string) ($corps['credit'] ?? ''), 0, 60)));
+    $credit = creditPropre((string) ($corps['credit'] ?? ''));
     $id = isset($corps['id']) ? (int) $corps['id'] : 0;
     $prevenir = true; // l'administrateur reçoit un mail pour une nouvelle proposition ou une proposition corrigée
     if ($id) {
@@ -234,7 +234,7 @@ function ouvrirPullRequest(array $p): array
     }
     if ($st !== 201 && $st !== 200) erreur(502, 'github', "branche $st");
 
-    $credit = $p['credit'] !== '' ? $p['credit'] : '';
+    $credit = creditPropre($p['credit']); // de nouveau : les propositions enregistrées avant la liste blanche
     $code = codePublie($p['code'], $credit);
     [$st] = gh($jeton, 'PUT', "/contents/effets/$chemin.js", [
         'message' => "Effet proposé : {$p['nom']}", 'content' => base64_encode($code), 'branch' => $branche,
@@ -265,6 +265,15 @@ function registreJson(array $registre): string
     $lignes = [];
     foreach ($registre as $n => $id) $lignes[] = '  ' . json_encode((string) $n) . ': ' . json_encode($id, JSON_UNESCAPED_SLASHES);
     return "{\n" . implode(",\n", $lignes) . "\n}\n";
+}
+
+/**
+ * Le crédit finit dans un commentaire du fichier publié : lettres, chiffres, espace et . _ @ ' - seulement. Une liste
+ * blanche, parce qu'un caractère comme U+2028 termine un commentaire JS et ferait du crédit du code exécuté sur le site.
+ */
+function creditPropre(string $credit): string
+{
+    return trim(preg_replace('/\s+/u', ' ', preg_replace("/[^\\p{L}\\p{N} ._@'-]/u", '', couper($credit, 0, 60)) ?? ''));
 }
 
 /** Le code tel qu'il entre dans le dépôt : un en-tête de crédit et de licence, et author dans meta si l'auteur signe. */

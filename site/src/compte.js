@@ -4,6 +4,13 @@ const $ = (s) => document.querySelector(s);
 const TITRES = { connexion: "connexion_titre", inscription: "creer_titre", oubli: "oubli_titre", nouveau: "nouveau_titre" };
 const BOUTONS = { connexion: "se_connecter", inscription: "creer_bouton", oubli: "oubli_bouton", nouveau: "nouveau_bouton" };
 
+// « ≡ » de l'en-tête commun, sur téléphone : déplie les liens du menu (compte.js est chargé par toutes les pages)
+const burger = $(".entete .burger");
+if (burger) burger.onclick = () => {
+  const ouvert = $("#menu-liens").classList.toggle("ouvert");
+  burger.setAttribute("aria-expanded", String(ouvert));
+};
+
 export function initCompte({ base, T, ERR, bulle, connecte, deconnecte }) {
   const fen = $("#fen-compte"), form = $("#cpt-form"), btn = $("#btn-compte");
   const langue = document.documentElement.lang || "fr";
@@ -95,13 +102,11 @@ export function initCompte({ base, T, ERR, bulle, connecte, deconnecte }) {
   };
   $("#cpt-supprimer").onclick = async () => {
     if (!confirm(T.supprimer_confirmer)) return;
-    let mdp = "";
-    if (membre.mdp) {
-      mdp = prompt(T.supprimer_mdp);
-      if (mdp === null) return;
-    }
+    // mot de passe, ou pour un compte GitHub seul l'identifiant GitHub tapé à la main
+    const saisie = prompt(membre.mdp ? T.supprimer_mdp : T.supprimer_github);
+    if (saisie === null) return;
     try {
-      await appel("supprimer-compte", { mdp });
+      await appel("supprimer-compte", membre.mdp ? { mdp: saisie } : { confirmation: saisie.trim() });
       membre = null;
       majBouton();
       deconnecte(true);

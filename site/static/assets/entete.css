@@ -12,10 +12,16 @@ header.entete { position: sticky; top: 0; z-index: 10; background: rgba(7, 9, 15
 .entete nav.menu a[aria-current="page"], .entete nav.menu a:hover { color: #d6e2f0; background: none; }
 .entete .github span:empty { display: none; }
 .entete .btn-compte { font-family: inherit; font-size: inherit; }
+.entete .burger { display: none; }
 /* sur téléphone, l'en-tête défile avec la page : collé en haut, il mangerait un quart de l'écran */
 @media (max-width: 700px) {
   header.entete { position: static; }
   .entete .barre { gap: 8px; padding: 10px 16px; }
   .entete nav.menu { margin-inline: -10px; }
   .entete nav.menu a { padding: 8px 10px; }
+  /* les liens se replient derrière « ≡ » ; le bouton de compte reste visible */
+  .entete .burger { display: block; order: 2; margin-left: auto; min-width: 44px; min-height: 44px; font-size: 20px; line-height: 1; background: none; border: 1px solid #2a3446; color: #d6e2f0; }
+  .entete nav.menu { order: 1; margin-left: auto; }
+  .entete nav.menu:not(.ouvert) > a { display: none; }
+  .entete nav.menu.ouvert { order: 3; flex-basis: 100%; margin-left: -10px; }
 }

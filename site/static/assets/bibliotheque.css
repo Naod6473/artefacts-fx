@@ -83,8 +83,13 @@ h1::before { content: "> "; color: var(--accent); }
 .actions .principal { background: var(--accent); border-color: var(--accent); color: var(--fond); font-weight: 700; }
 .bulle { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--accent); color: var(--fond); padding: 10px 16px; font-weight: 500; z-index: 20; }
 
+.fermer-panneau { display: none; }
 @media (max-width: 980px) {
-  aside { position: static; max-width: none; max-height: none; border-left: 0; border-top: 1px solid var(--trait); }
+  /* le panneau devient une feuille plein écran, ouverte en touchant une carte */
+  aside { display: none; position: fixed; inset: 0; z-index: 30; max-width: none; max-height: none; border: 0; overflow-y: auto; overscroll-behavior: contain; }
+  aside.ouvert { display: flex; }
+  body.feuille { overflow: hidden; }
+  .fermer-panneau { display: block; position: sticky; top: -16px; z-index: 1; margin: -16px -20px 0; padding: 12px 20px; min-height: 48px; text-align: left; background: #0a0d15; border: 0; border-bottom: 1px solid var(--trait); }
   .carte.large { grid-column: auto; }
 }
 
@@ -149,3 +154,12 @@ h1::before { content: "> "; color: var(--accent); }
 .rg-actions button { flex: 1; }
 @media (max-width: 1500px) { .barre.rendus .touche { display: none; } }
 @media (max-width: 700px) { #rendus { flex-wrap: nowrap; min-width: 0; flex: 1 1 auto; overflow-x: auto; scrollbar-width: none; } .entete .barre.rendus { flex-wrap: nowrap; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; } }
+/* sur téléphone, les tags se replient derrière « Filtrer par tag » : les effets arrivent dès le premier écran */
+.filtrer { display: none; }
+@media (max-width: 700px) {
+  .filtrer { display: inline-flex; gap: 6px; align-items: center; min-height: 44px; margin-bottom: 10px; }
+  #tags:not(.deplies) { display: none; }
+  /* logo, compte et « ≡ » sur la première ligne, la recherche en dessous */
+  .entete .barre .recherche { order: 5; flex-basis: 100%; }
+  #rendus button, .barre.rendus > .dim { white-space: nowrap; }
+}

@@ -2,7 +2,7 @@
 // Une iframe sandbox="allow-scripts" sans allow-same-origin a une origine opaque : pas de cookies, pas d'accès à la
 // page ni à l'API ; sa politique de sécurité interdit en plus tout réseau. Le code y tourne dans un Worker.
 import interieur from "./bac-interieur.js?source";
-import travailleur from "./bac-travailleur.js?source";
+import travailleur from "./bac-travailleur.js?bundle";
 
 const CSP = "default-src 'none'; script-src 'unsafe-inline' blob:; worker-src blob:; style-src 'unsafe-inline'";
 let moteur = null;

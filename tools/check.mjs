@@ -7,6 +7,7 @@
 
 import { readFileSync } from "node:fs";
 import { resolveIds, allIds, loadEffect } from "./lib/fxlib.mjs";
+import { surete } from "../site/src/surete.js";
 import { createFrame, clearFrame, painterFor, createFx, stockActor, resolveOptions, Painter, BACKDROPS } from "../core/index.js";
 
 const ids = process.argv.slice(2).length ? resolveIds(process.argv.slice(2)) : allIds();
@@ -42,6 +43,8 @@ for (const id of ids) {
     const taken = Object.keys(meta.options ?? {}).filter((k) => ["x", "y", "flip", "angle", "light"].includes(k));
     if (taken.length) errs.push(`option ${taken.join(", ")} is reserved for placement and glow: rename it`);
     if (/Math\.random/.test(src)) errs.push("uses Math.random: use rng/rand/burst/cycle so frames repeat");
+    // un effet de la communauté tourne sur le site hors bac à sable : il ne doit rien atteindre d'autre que le moteur
+    if (id.startsWith("communaute/")) errs.push(...surete(src));
     if (errs.length) throw new Error(errs.join("; "));
 
     const [W, H] = meta.size, frame = createFrame(W + M * 2, H + M * 2, -M, -M);

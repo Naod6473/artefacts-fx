@@ -48,15 +48,17 @@
       <button type="button" id="projet-renommer">{{cpt_projet_renommer}}</button>
       <button type="button" id="projet-supprimer">{{cpt_projet_supprimer}}</button>
     </div>
+    <button type="button" id="filtrer" class="filtrer" aria-expanded="false" aria-controls="tags">{{bib_filtrer}} <span id="nb-filtres"></span></button>
     <div id="tags" class="tags"></div>
     <p id="vide" class="dim" hidden>{{bib_vide}}</p>
     <div id="mur"></div>
     <p class="dim petit pied-biblio">{{pied_licence}} · <a href="{{base}}{{langue}}/mentions/">{{nav_mentions}}</a></p>
   </main>
 
-  <aside aria-label="{{bib_panneau}}">
+  <aside id="panneau" aria-label="{{bib_panneau}}">
+    <button type="button" id="fermer-panneau" class="fermer-panneau">← {{bib_retour}}</button>
     <div class="titre">
-      <div><span id="fx-num" class="num"></span><h1 id="fx-nom"></h1></div>
+      <div><span id="fx-num" class="num"></span><h1 id="fx-nom" tabindex="-1"></h1></div>
       <div class="boutons">
         <button type="button" id="lien" aria-label="{{bib_lien}}" title="{{bib_lien}}">⧉</button>
         <button type="button" id="fx-coeur" class="coeur" aria-label="{{bib_favori}}" title="{{bib_favori}} (F)">♥</button>

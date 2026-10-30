@@ -1,13 +1,15 @@
 // Tourne dans un Worker créé par l'iframe isolée du bac à sable (origine opaque, sans réseau) : charge le code
-// proposé, le vérifie, puis calcule les images de l'aperçu. Ce fichier est passé en texte (import "?source") :
-// pas d'import ici, tout arrive par messages.
+// proposé, le vérifie, puis calcule les images de l'aperçu. Ce fichier est passé en texte, déjà assemblé avec ses
+// imports (import "?bundle") ; le moteur, lui, arrive par message.
 //
 //   ← { type: "charger", moteur, code }   → { type: "tests", resultats: [{ cle, ok, grave, detail }], meta }
 //   ← { type: "image", dt, pixel }          → { type: "image", w, h, sol, px, erreur }   (px : RGBA transféré)
 //   ← { type: "relancer" }
 
 // mêmes règles que le serveur (api/propositions.php) : un effet ne dessine que des pixels, il n'a rien à appeler
-// (garde-fou : la vraie barrière est l'iframe sans réseau, puis ta relecture de la pull request)
+// (garde-fou : la vraie barrière est l'iframe sans réseau, puis surete() et ta relecture de la pull request)
+import { surete } from "./surete.js";
+
 const INTERDITS = /\b(fetch|XMLHttpRequest|WebSocket|EventSource|importScripts|eval|Function|document|window|globalThis|self|opener|localStorage|sessionStorage|indexedDB|caches|navigator|location|postMessage|setTimeout|setInterval|Worker|SharedArrayBuffer|Atomics|prototype|__proto__)\b|\.\s*constructor\b|["'`]constructor["'`]|\bimport\s*\(|\bimport\.meta\b/;
 const IMPORT_MOTEUR = /(\bfrom\s*)(["'])(?:\.\.\/)+core\/index\.js\2/g;
 const MAX_OCTETS = 30000;
@@ -30,8 +32,8 @@ async function charger(moteur, code) {
   const octets = new TextEncoder().encode(code).length;
   note("taille", octets <= MAX_OCTETS, true, `${(octets / 1000).toFixed(1)} / ${MAX_OCTETS / 1000} ko`);
   const sansCommentaires = code.replace(/\/\*[\s\S]*?\*\//g, "").replace(/(^|[^:\\])\/\/.*$/gm, "$1");
-  const interdit = sansCommentaires.match(INTERDITS);
-  note("interdits", !interdit, true, interdit ? interdit[0] : "");
+  const interdit = sansCommentaires.match(INTERDITS)?.[0] ?? surete(code)[0];
+  note("interdits", !interdit, true, interdit ?? "");
   if (/Math\.random/.test(sansCommentaires)) note("hasard", false, true, "Math.random");
   else note("hasard", true, true);
   const redirige = code.replace(IMPORT_MOTEUR, "$1$2__MOTEUR__$2");

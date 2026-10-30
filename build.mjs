@@ -20,6 +20,12 @@ const sourceTexte = {
   setup(b) {
     b.onResolve({ filter: /\?source$/ }, (a) => ({ path: resolve(a.resolveDir, a.path.replace(/\?source$/, "")), namespace: "source" }));
     b.onLoad({ filter: /.*/, namespace: "source" }, (a) => ({ contents: readFileSync(a.path, "utf8"), loader: "text" }));
+    // « ?bundle » : pareil, mais le fichier est d'abord assemblé avec ses imports (le Worker du bac à sable)
+    b.onResolve({ filter: /\?bundle$/ }, (a) => ({ path: resolve(a.resolveDir, a.path.replace(/\?bundle$/, "")), namespace: "bundle" }));
+    b.onLoad({ filter: /.*/, namespace: "bundle" }, async (a) => {
+      const r = await build({ entryPoints: [a.path], bundle: true, write: false, format: "iife", minify: true, platform: "browser" });
+      return { contents: r.outputFiles[0].text, loader: "text" };
+    });
   },
 };
 
@@ -114,8 +120,16 @@ const echappe = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").re
 // les clés qui finissent par une phrase avec des liens (pied_credits) gardent leur HTML ; les autres sont échappées
 // {{> menu}} insère site/pages/_menu.html (morceaux communs, éventuellement imbriqués), puis les {{clé}} sont remplacées ;
 // le lien du menu vers la page elle-même reçoit aria-current
+// Politique de sécurité de chaque page. Les effets de la communauté tournent sur le site hors bac à sable : sans
+// 'unsafe-eval', leur seule porte de sortie (le constructeur Function) est fermée, et connect-src borne le réseau.
+// Les pages du bac à sable (proposer, modération) ont besoin de scripts en ligne et de blob: pour l'iframe isolée,
+// qui hérite de cette politique ; elles ne chargent aucun effet hors du bac.
+const CSP_BASE = "default-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'self'";
+const csp = (page) => ["proposer", "moderation"].includes(page)
+  ? CSP_BASE + "; script-src 'self' 'unsafe-inline' blob:; worker-src blob:"
+  : CSP_BASE + "; script-src 'self'";
 function remplir(modele, t, page) {
-  let html = modele;
+  let html = modele.replace('<meta charset="utf-8">', `<meta charset="utf-8">\n<meta http-equiv="Content-Security-Policy" content="${csp(page)}">`);
   // deux niveaux suffisent (en-tête → menu) ; un « {{> nom}} » cité dans le commentaire d'un morceau reste tel quel
   for (let i = 0; i < 2; i++) html = html.replace(/\{\{> (\w+)\}\}/g, (_, f) => readFileSync(`site/pages/_${f}.html`, "utf8"));
   html = html.replace(/\{\{(\w+)\}\}/g, (_, k) => {
