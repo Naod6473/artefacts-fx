@@ -46,7 +46,7 @@ est dans `config/ovh.json` ; les identifiants FTP sont dans les secrets du repo 
 ou GitHub, favoris et projets privés. Base SQLite `api/donnees/comptes.sqlite`, jamais envoyée ni écrasée par le
 déploiement. Connexion GitHub : app OAuth (callback `https://naod.fr/api/compte/github`) et secrets du repo
 `GH_CLIENT_ID` / `GH_CLIENT_SECRET`, écrits au déploiement dans `api/donnees/config.php`. Les e-mails partent par
-`mail()` d'OVH depuis `noreply@naod.fr`. Essai en local : `ARTEFACTS_MAILS=mails.log php -S localhost:8090 -t dist routeur.php`
+la boîte `noreply@naod.fr` (SMTP ssl0.ovh.net, secret `SMTP_PASSWORD`), ou `mail()` d'OVH sans ce secret. Essai en local : `ARTEFACTS_MAILS=mails.log php -S localhost:8090 -t dist routeur.php`
 (les e-mails sont écrits dans le fichier).
 
 ## Ajouter une langue

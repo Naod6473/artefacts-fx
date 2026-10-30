@@ -454,10 +454,57 @@ function envoyer(string $a, string $modele, string $lien): void
         file_put_contents($f, json_encode(['a' => $a, 'sujet' => $sujet, 'corps' => $corps]) . "\n", FILE_APPEND);
         return;
     }
-    $entetes = "From: Artefacts <" . EXPEDITEUR . ">\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Transfer-Encoding: 8bit";
+    global $config;
     $sujet = '=?UTF-8?B?' . base64_encode($sujet) . '?=';
-    // certains hébergements refusent l'option -f (adresse de retour) : on réessaie sans
-    if (!mail($a, $sujet, $corps, $entetes, '-f' . EXPEDITEUR) && !mail($a, $sujet, $corps, $entetes)) journal('mail() a échoué');
+    $entetes = "From: Artefacts <" . EXPEDITEUR . ">\r\nDate: " . date('r') . "\r\nMessage-ID: <" . bin2hex(random_bytes(12)) . "@naod.fr>\r\n"
+        . "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Transfer-Encoding: quoted-printable";
+    $corps = quoted_printable_encode(str_replace("\n", "\r\n", $corps));
+    // par la boîte noreply@naod.fr (SMTP OVH, mot de passe en secret) ; sinon mail() de l'hébergement
+    if (!empty($config['smtp_mdp'])) {
+        smtp($a, "To: <$a>\r\nSubject: $sujet\r\n$entetes\r\n\r\n$corps", $config['smtp_mdp'], $config['smtp_hote'] ?? 'ssl://ssl0.ovh.net:465');
+    } elseif (!mail($a, $sujet, $corps, $entetes, '-f' . EXPEDITEUR) && !mail($a, $sujet, $corps, $entetes)) {
+        journal('mail() a échoué');
+    }
+}
+
+/** Envoi SMTP minimal (connexion chiffrée, AUTH LOGIN). Les échecs vont au journal, sans le mot de passe. */
+function smtp(string $a, string $message, string $mdp, string $hote): bool
+{
+    $s = @stream_socket_client($hote, $no, $err, 10);
+    if (!$s) {
+        journal("smtp connexion $hote : $err");
+        return false;
+    }
+    stream_set_timeout($s, 15);
+    $etape = function (string $nom, ?string $commande, string $attendu) use ($s): void {
+        if ($commande !== null) fwrite($s, $commande . "\r\n");
+        $r = '';
+        while (($l = fgets($s, 1024)) !== false) {
+            $r .= $l;
+            if (($l[3] ?? ' ') === ' ') break; // dernière ligne d'une réponse sur plusieurs lignes : « 250 » et non « 250- »
+        }
+        if (!str_starts_with($r, $attendu)) throw new RuntimeException("smtp $nom : " . trim($r));
+    };
+    // une ligne qui commence par un point en a deux dans DATA
+    $message = preg_replace('/^\./m', '..', str_replace(["\r\n", "\n"], ["\n", "\r\n"], $message));
+    try {
+        $etape('accueil', null, '220');
+        $etape('ehlo', 'EHLO naod.fr', '250');
+        $etape('auth', 'AUTH LOGIN', '334');
+        $etape('utilisateur', base64_encode(EXPEDITEUR), '334');
+        $etape('mot de passe', base64_encode($mdp), '235');
+        $etape('expediteur', 'MAIL FROM:<' . EXPEDITEUR . '>', '250');
+        $etape('destinataire', "RCPT TO:<$a>", '25');
+        $etape('data', 'DATA', '354');
+        $etape('envoi', $message . "\r\n.", '250');
+        $etape('quit', 'QUIT', '221');
+        return true;
+    } catch (RuntimeException $e) {
+        journal($e->getMessage());
+        return false;
+    } finally {
+        fclose($s);
+    }
 }
 
 function http(string $url, ?array $post, ?string $acces = null): mixed

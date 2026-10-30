@@ -23,14 +23,16 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - name: Réglages secrets de l'API (connexion GitHub)
+      - name: Réglages secrets de l'API (connexion GitHub, envoi des e-mails)
         env:
           GH_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
           GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         run: |
           # écrits dans api/donnees/, que le serveur ne sert jamais ; absents du repo
-          if [ -z "$GH_CLIENT_ID" ]; then echo "::warning::Secret GH_CLIENT_ID absent : connexion GitHub désactivée."; exit 0; fi
-          php -r 'file_put_contents("dist/api/donnees/config.php", "<?php return " . var_export(["github_id" => getenv("GH_CLIENT_ID"), "github_secret" => getenv("GH_CLIENT_SECRET")], true) . ";\n");'
+          [ -n "$GH_CLIENT_ID" ] || echo "::warning::Secret GH_CLIENT_ID absent : connexion GitHub désactivée."
+          [ -n "$SMTP_PASSWORD" ] || echo "::warning::Secret SMTP_PASSWORD absent : e-mails envoyés par mail() de l'hébergement."
+          php -r 'file_put_contents("dist/api/donnees/config.php", "<?php return " . var_export(["github_id" => getenv("GH_CLIENT_ID"), "github_secret" => getenv("GH_CLIENT_SECRET"), "smtp_mdp" => getenv("SMTP_PASSWORD")], true) . ";\n");'
       - name: Lire config/ovh.json
         id: config
         run: |
@@ -81,8 +83,8 @@ jobs:
           PORT: ${{ steps.config.outputs.port }}
         run: |
           # les 20 dernières erreurs PHP des comptes (api/donnees/erreurs.log), affichées en avertissements du déploiement
-          lftp -c "open -p $PORT -u $FTP_USERNAME --env-password sftp://$FTP_SERVER; cat ${DOSSIER}api/donnees/erreurs.log" 2> /dev/null \
-            | tail -20 | sed 's/^/::warning::/' || true
+          journal=$(lftp -c "open -p $PORT -u $FTP_USERNAME --env-password sftp://$FTP_SERVER; cat ${DOSSIER}api/donnees/erreurs.log" 2>&1 || true)
+          echo "$journal" | tail -20 | sed 's/^/::warning::journal : /'
       - name: Secrets absents
         if: env.FTP_SERVER == ''
         env:
