@@ -455,6 +455,11 @@ function envoyer(string $a, string $modele, string $lien): void
         return;
     }
     global $config;
+    // par Brevo (API web, clé en secret) en priorité : rien ne dépend des ports SMTP de l'hébergement
+    if (!empty($config['brevo_cle'])) {
+        brevo($a, $sujet, $corps, $config['brevo_cle']);
+        return;
+    }
     $sujet = '=?UTF-8?B?' . base64_encode($sujet) . '?=';
     $entetes = "From: Artefacts <" . EXPEDITEUR . ">\r\nDate: " . date('r') . "\r\nMessage-ID: <" . bin2hex(random_bytes(12)) . "@naod.fr>\r\n"
         . "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Transfer-Encoding: quoted-printable";
@@ -465,6 +470,27 @@ function envoyer(string $a, string $modele, string $lien): void
     } elseif (!mail($a, $sujet, $corps, $entetes, '-f' . EXPEDITEUR) && !mail($a, $sujet, $corps, $entetes)) {
         journal('mail() a échoué');
     }
+}
+
+/** Envoi par l'API transactionnelle de Brevo. L'adresse noreply@naod.fr doit y être un expéditeur validé. */
+function brevo(string $a, string $sujet, string $corps, string $cle): bool
+{
+    $r = @file_get_contents('https://api.brevo.com/v3/smtp/email', false, stream_context_create(['http' => [
+        'method' => 'POST',
+        'header' => "api-key: $cle\r\nContent-Type: application/json\r\nAccept: application/json\r\n",
+        'content' => json_encode([
+            'sender' => ['name' => 'Artefacts', 'email' => EXPEDITEUR],
+            'to' => [['email' => $a]],
+            'subject' => $sujet,
+            'textContent' => $corps,
+        ]),
+        'timeout' => 10,
+        'ignore_errors' => true,
+    ]]));
+    $statut = (int) substr($http_response_header[0] ?? '', 9, 3);
+    if ($statut >= 200 && $statut < 300) return true;
+    journal("brevo $statut : " . substr((string) $r, 0, 300));
+    return false;
 }
 
 /** Envoi SMTP minimal (connexion chiffrée, AUTH LOGIN). Les échecs vont au journal, sans le mot de passe. */

@@ -28,11 +28,12 @@ jobs:
           GH_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
           GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
         run: |
           # écrits dans api/donnees/, que le serveur ne sert jamais ; absents du repo
           [ -n "$GH_CLIENT_ID" ] || echo "::warning::Secret GH_CLIENT_ID absent : connexion GitHub désactivée."
-          [ -n "$SMTP_PASSWORD" ] || echo "::warning::Secret SMTP_PASSWORD absent : e-mails envoyés par mail() de l'hébergement."
-          php -r 'file_put_contents("dist/api/donnees/config.php", "<?php return " . var_export(["github_id" => getenv("GH_CLIENT_ID"), "github_secret" => getenv("GH_CLIENT_SECRET"), "smtp_mdp" => getenv("SMTP_PASSWORD")], true) . ";\n");'
+          [ -n "$BREVO_API_KEY$SMTP_PASSWORD" ] || echo "::warning::Secrets BREVO_API_KEY et SMTP_PASSWORD absents : e-mails envoyés par mail() de l'hébergement."
+          php -r 'file_put_contents("dist/api/donnees/config.php", "<?php return " . var_export(["github_id" => getenv("GH_CLIENT_ID"), "github_secret" => getenv("GH_CLIENT_SECRET"), "smtp_mdp" => getenv("SMTP_PASSWORD"), "brevo_cle" => getenv("BREVO_API_KEY")], true) . ";\n");'
       - name: Lire config/ovh.json
         id: config
         run: |
