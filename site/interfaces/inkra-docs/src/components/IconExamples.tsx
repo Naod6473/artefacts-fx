@@ -1,0 +1,381 @@
+import { PropertyTabs } from './PropertyTabs';
+import { useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
+import { Button, ColorPicker, ColorSwatch, Input, Field, PencilIcon, Switch, Tooltip } from '@inkra/react';
+import type { PencilIconBadge } from '@inkra/react';
+import { __iconData as searchIcon } from 'lucide-react/dist/esm/icons/search.mjs';
+import { __iconData as plusIcon } from 'lucide-react/dist/esm/icons/plus.mjs';
+import { __iconData as checkIcon } from 'lucide-react/dist/esm/icons/check.mjs';
+import { __iconData as xIcon } from 'lucide-react/dist/esm/icons/x.mjs';
+import { __iconData as pencilIcon } from 'lucide-react/dist/esm/icons/pencil.mjs';
+import { __iconData as downloadIcon } from 'lucide-react/dist/esm/icons/download.mjs';
+import { __iconData as settingsIcon } from 'lucide-react/dist/esm/icons/settings.mjs';
+import { __iconData as calendarIcon } from 'lucide-react/dist/esm/icons/calendar-days.mjs';
+import { __iconData as mapPinIcon } from 'lucide-react/dist/esm/icons/map-pin.mjs';
+import { __iconData as clockIcon } from 'lucide-react/dist/esm/icons/clock.mjs';
+import { __iconData as bookmarkIcon } from 'lucide-react/dist/esm/icons/bookmark.mjs';
+import { __iconData as bookmarkCheckIcon } from 'lucide-react/dist/esm/icons/bookmark-check.mjs';
+import { __iconData as folderIcon } from 'lucide-react/dist/esm/icons/folder.mjs';
+import { __iconData as userIcon } from 'lucide-react/dist/esm/icons/user.mjs';
+import { __iconData as resetIcon } from 'lucide-react/dist/esm/icons/rotate-ccw.mjs';
+import { PencilText, useLocale } from '../i18n';
+import { ComponentExample } from './ComponentExample';
+import { ComponentPlayground } from './ComponentPlayground';
+import { DocsSelect } from './DocsSelect';
+import { DocsSlider } from './DocsSlider';
+import { DocsIcon, iconPaths } from './DocsIcon';
+import { docsIconCatalog } from './iconCatalog';
+import { IconAppearanceControl, IconCatalogGrid, type IconVariant } from './IconCatalogGrid';
+import { iconFillCopy } from './iconFillCopy';
+import './IconExamples.css';
+
+const icons = docsIconCatalog;
+const commonIcons = ['search', 'plus', 'check', 'pencil', 'settings', 'download', 'bookmark', 'folder', 'user']
+  .map(key => icons.find(icon => icon.key === key)!);
+
+const colors = [
+  { key: 'ink', label: '主要文字', value: 'var(--inkra-ink)' },
+  { key: 'accent', label: '主题文字', value: 'var(--inkra-accent-strong)' },
+  { key: 'success', label: '成功', value: 'var(--inkra-success-foreground, var(--inkra-success))' },
+  { key: 'danger', label: '危险', value: 'var(--inkra-danger-foreground, var(--inkra-danger))' },
+] as const;
+const checkPaths = iconPaths(checkIcon);
+const bookmarkPaths = iconPaths(bookmarkIcon);
+const bookmarkCheckPaths = iconPaths(bookmarkCheckIcon);
+const compositeIcons = [
+  { key: 'folder-plus', label: '新建文件夹', paths: iconPaths(folderIcon), badgePaths: iconPaths(plusIcon) },
+  { key: 'calendar-check', label: '日程已确认', paths: iconPaths(calendarIcon), badgePaths: checkPaths },
+  { key: 'pin-plus', label: '添加地点', paths: iconPaths(mapPinIcon), badgePaths: iconPaths(plusIcon) },
+  { key: 'user-plus', label: '添加成员', paths: iconPaths(userIcon), badgePaths: iconPaths(plusIcon) },
+  { key: 'download-check', label: '下载完成', paths: iconPaths(downloadIcon), badgePaths: checkPaths },
+  { key: 'bookmark-x', label: '移除收藏', paths: bookmarkPaths, badgePaths: iconPaths(xIcon) },
+];
+
+function IconFillExamples() {
+  const { locale, t } = useLocale();
+  const copy = iconFillCopy(locale);
+  const [fillColor, setFillColor] = useState('#4b96aaff');
+  const variants = ['outline', 'filled'] as const;
+  const samples = ['folder', 'bookmark', 'settings', 'search', 'user', 'plus']
+    .map(key => icons.find(icon => icon.key === key)!);
+  const folder = icons.find(icon => icon.key === 'folder')!;
+  const folderPaths = folder.paths;
+  const folderFilledPaths = folder.filledPaths;
+  const folderColors = [
+    { color: '#4b96aaff', label: copy.blue },
+    { color: '#629568ff', label: copy.green },
+    { color: '#c15e68ff', label: copy.red },
+    { color: fillColor, label: copy.customColor },
+  ];
+  return <>
+    <ComponentExample id="icon-outline-and-filled" title={copy.comparison} code={`const icons = ${JSON.stringify(samples.map(icon => ({ key: icon.key, paths: icon.paths, filledPaths: icon.filledPaths })), null, 2)};
+
+{icons.map(icon => <div key={icon.key}>
+  <PencilIcon paths={icon.paths} sourceSize={24} size={48} variant="outline" />
+  <PencilIcon paths={icon.paths} filledPaths={icon.filledPaths} sourceSize={24} size={48} variant="filled" />
+</div>)}`}>
+      <div className="icon-examples__comparison">
+        {samples.map(icon => <div className="icon-examples__comparison-item" key={icon.key}>
+          <PencilText ellipsis title={t(icon.label)}>{icon.label}</PencilText>
+          <div className="icon-examples__variant-pair">{variants.map(variant => <div key={variant}>
+            <PencilIcon paths={icon.paths} filledPaths={icon.filledPaths} sourceSize={24} size={48} variant={variant} decorative />
+            <PencilText ellipsis>{copy[variant]}</PencilText>
+          </div>)}</div>
+        </div>)}
+      </div>
+    </ComponentExample>
+    <ComponentExample id="icon-folder-colors" title={copy.folders} code={`const folderPaths = ${JSON.stringify(folderPaths, null, 2)};
+const folderFilledPaths = ${JSON.stringify(folderFilledPaths, null, 2)};
+const [fillColor, setFillColor] = useState(${JSON.stringify(fillColor)});
+
+<ColorPicker value={fillColor} onValueChange={setFillColor}
+  presentation="popover" label=${JSON.stringify(copy.customColor)} />
+<PencilIcon paths={folderPaths} filledPaths={folderFilledPaths} sourceSize={24} size={64}
+  variant="filled" fillColor={fillColor} style={{ color: 'var(--inkra-ink)' }} />`}>
+      <div className="icon-examples__folder-demo">
+        <div className="icon-examples__folder-colors">{folderColors.map(sample => <div key={sample.label}>
+          <PencilIcon paths={folderPaths} filledPaths={folderFilledPaths} sourceSize={24} size={64} variant="filled" fillColor={sample.color} style={{ color: 'var(--inkra-ink)' }} decorative />
+          <PencilText ellipsis>{sample.label}</PencilText>
+        </div>)}</div>
+        <ColorPicker value={fillColor} onValueChange={setFillColor} presentation="popover" label={copy.customColor} />
+      </div>
+    </ComponentExample>
+  </>;
+}
+
+const paletteRoles = ['primary', 'secondary', 'accent'] as const;
+type IconPalette = Record<typeof paletteRoles[number], string>;
+const paletteTokens = { primary: '--inkra-blue', secondary: '--inkra-warning-pigment', accent: '--inkra-coral' };
+const fallbackPalette: IconPalette = { primary: '#4d91a0', secondary: '#e6c17b', accent: '#994f3f' };
+
+function useIconPalette() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [palette, setPalette] = useState(fallbackPalette);
+  useLayoutEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+    const canvas = document.createElement('canvas');
+    canvas.width = canvas.height = 1;
+    const context = canvas.getContext('2d');
+    if (!context) return;
+    let frame = 0;
+    const read = () => {
+      // ColorPicker needs hex values; the icons themselves keep inheriting CSS tokens.
+      const computed = getComputedStyle(element);
+      const next = { ...fallbackPalette };
+      for (const role of paletteRoles) {
+        context.clearRect(0, 0, 1, 1);
+        context.fillStyle = fallbackPalette[role];
+        context.fillStyle = computed.getPropertyValue(`--inkra-icon-${role}`).trim()
+          || computed.getPropertyValue(paletteTokens[role]).trim() || fallbackPalette[role];
+        context.fillRect(0, 0, 1, 1);
+        next[role] = '#' + [...context.getImageData(0, 0, 1, 1).data].map(value => value.toString(16).padStart(2, '0')).join('');
+      }
+      setPalette(previous => paletteRoles.every(role => previous[role] === next[role]) ? previous : next);
+    };
+    const queue = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(read);
+    };
+    const observer = new MutationObserver(queue);
+    for (let ancestor: HTMLElement | null = element; ancestor; ancestor = ancestor.parentElement) {
+      observer.observe(ancestor, { attributes: true, attributeFilter: ['style', 'class', 'data-theme', 'data-inkra-theme'] });
+    }
+    const media = [matchMedia('(prefers-color-scheme: dark)'), matchMedia('(forced-colors: active)')];
+    media.forEach(query => query.addEventListener('change', queue));
+    read();
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+      media.forEach(query => query.removeEventListener('change', queue));
+    };
+  }, []);
+  return { ref, palette };
+}
+
+function ColorfulIconExample() {
+  const { locale, t } = useLocale();
+  const copy = iconFillCopy(locale);
+  const { ref, palette: themePalette } = useIconPalette();
+  const [palette, setPalette] = useState<Partial<IconPalette>>({});
+  const samples = icons.filter(icon => icon.colorPaths);
+  const labels = { primary: copy.primaryColor, secondary: copy.secondaryColor, accent: copy.accentColor };
+  const style = {
+    '--inkra-icon-primary': palette.primary,
+    '--inkra-icon-secondary': palette.secondary,
+    '--inkra-icon-accent': palette.accent,
+  } as CSSProperties;
+  const code = `import type { CSSProperties } from 'react';
+import { PencilIcon } from '@inkra/react';
+
+const icons = ${JSON.stringify(samples.map(icon => ({ key: icon.key, label: t(icon.label), paths: icon.paths, colorPaths: icon.colorPaths })), null, 2)};
+const colors = ${JSON.stringify(Object.fromEntries(paletteRoles.filter(role => palette[role]).map(role => [`--inkra-icon-${role}`, palette[role]])), null, 2)} as CSSProperties;
+
+<div style={colors}>
+  {icons.map(icon => <PencilIcon key={icon.key} paths={icon.paths}
+    filledPaths={icon.colorPaths} variant="filled" sourceSize={24} size={56}
+    decorative={false} aria-label={icon.label} />)}
+</div>`;
+  return <ComponentExample id="icon-colorful-icons" title={copy.colorfulIcons} code={code}>
+    <div className="icon-examples__colorful" ref={ref}>
+      <div className="icon-examples__palette">
+        {paletteRoles.map(role => <ColorPicker key={role} presentation="popover" label={labels[role]}
+          value={palette[role] ?? themePalette[role]} onValueChange={value => setPalette(previous => ({ ...previous, [role]: value }))} />)}
+        <Tooltip.Provider><Tooltip.Root><Tooltip.Trigger asChild>
+          <Button variant="ghost" size="icon" aria-label={copy.resetColors} onClick={() => setPalette({})}>
+            <DocsIcon data={resetIcon} size={24} />
+          </Button>
+        </Tooltip.Trigger><Tooltip.Portal><Tooltip.Content>{copy.resetColors}</Tooltip.Content></Tooltip.Portal></Tooltip.Root></Tooltip.Provider>
+      </div>
+      <Tooltip.Provider><div className="icon-examples__colorful-grid" role="list" aria-label={copy.colorfulIcons} style={style}>
+        {samples.map(icon => <div key={icon.key} role="listitem" data-color-icon={icon.key}>
+          <Tooltip.Root><Tooltip.Trigger asChild><span role="img" tabIndex={0} aria-label={t(icon.label)}>
+            <PencilIcon paths={icon.paths} filledPaths={icon.colorPaths} variant="filled" sourceSize={24} size={56} decorative />
+          </span></Tooltip.Trigger>
+            <Tooltip.Portal><Tooltip.Content>{t(icon.label)}</Tooltip.Content></Tooltip.Portal>
+          </Tooltip.Root>
+        </div>)}
+      </div></Tooltip.Provider>
+    </div>
+  </ComponentExample>;
+}
+
+function CompositeIconExample() {
+  const { t } = useLocale();
+  const [selected, setSelected] = useState(compositeIcons[0].key);
+  const item = compositeIcons.find(icon => icon.key === selected)!;
+  const code = `import { PencilIcon } from '@inkra/react';
+
+const paths = ${JSON.stringify(item.paths, null, 2)};
+const badgePaths = ${JSON.stringify(item.badgePaths, null, 2)};
+
+<PencilIcon paths={paths} sourceSize={24} size={48}
+  badge={{ paths: badgePaths, sourceSize: 24, position: 'bottom-end', scale: 0.55 }}
+  decorative={false} aria-label=${JSON.stringify(t(item.label))}
+/>`;
+  return <ComponentExample id="icon-composite-icons" title="组合图标" code={code}>
+    <div className="icon-examples__composites" role="group" aria-label={t('组合图标')}>
+      {compositeIcons.map(icon => <Button key={icon.key} fullWidth variant={selected === icon.key ? 'outline' : 'ghost'} aria-pressed={selected === icon.key} onClick={() => setSelected(icon.key)} className="icon-examples__choice">
+        <span className="icon-examples__choice-content"><PencilIcon paths={icon.paths} sourceSize={24} size={48} badge={{ paths: icon.badgePaths }} decorative /><PencilText>{icon.label}</PencilText></span>
+      </Button>)}
+    </div>
+  </ComponentExample>;
+}
+
+function IconActionExample() {
+  const { t } = useLocale();
+  const [saved, setSaved] = useState(false);
+  const label = t(saved ? '取消收藏' : '收藏');
+  const code = `const bookmarkPaths = ${JSON.stringify(bookmarkPaths, null, 2)};
+const savedPaths = ${JSON.stringify(bookmarkCheckPaths, null, 2)};
+const [saved, setSaved] = useState(false);
+
+<Tooltip.Provider>
+  <Tooltip.Root>
+    <Tooltip.Trigger asChild>
+      <Button size="icon" variant="outline" aria-pressed={saved}
+        aria-label={saved ? ${JSON.stringify(t('取消收藏'))} : ${JSON.stringify(t('收藏'))}}
+        onClick={() => setSaved(current => !current)}>
+        <PencilIcon paths={saved ? savedPaths : bookmarkPaths}
+          sourceSize={24} size={28} decorative />
+      </Button>
+    </Tooltip.Trigger>
+    <Tooltip.Portal>
+      <Tooltip.Content>{saved ? ${JSON.stringify(t('取消收藏'))} : ${JSON.stringify(t('收藏'))}}</Tooltip.Content>
+    </Tooltip.Portal>
+  </Tooltip.Root>
+</Tooltip.Provider>
+<output aria-live="polite">{saved ? ${JSON.stringify(t('已收藏'))} : ${JSON.stringify(t('未收藏'))}}</output>`;
+  return <ComponentExample id="icon-icon-buttons-and-tooltips" title="图标按钮与提示" code={code}>
+    <div className="icon-examples__action">
+      <Tooltip.Provider><Tooltip.Root>
+        <Tooltip.Trigger asChild><Button size="icon" variant="outline" aria-pressed={saved} aria-label={label} onClick={() => setSaved(current => !current)}><PencilIcon paths={saved ? bookmarkCheckPaths : bookmarkPaths} sourceSize={24} size={28} decorative /></Button></Tooltip.Trigger>
+        <Tooltip.Portal><Tooltip.Content>{label}</Tooltip.Content></Tooltip.Portal>
+      </Tooltip.Root></Tooltip.Provider>
+      <output className="component-demo-status" aria-live="polite">{t(saved ? '已收藏' : '未收藏')}</output>
+    </div>
+  </ComponentExample>;
+}
+
+export function IconExamples() {
+  const { locale, t } = useLocale();
+  const fillCopy = iconFillCopy(locale);
+  const [variant, setVariant] = useState<IconVariant>('outline');
+  const [catalogVariant, setCatalogVariant] = useState<IconVariant>('outline');
+  const [inheritFillColor, setInheritFillColor] = useState(true);
+  const [fillColor, setFillColor] = useState('#4b96aaff');
+  const [selected, setSelected] = useState('search');
+  const [size, setSize] = useState(40);
+  const [sourceSize, setSourceSize] = useState('24');
+  const [seed, setSeed] = useState('inkra-icon');
+  const [active, setActive] = useState(false);
+  const [customStroke, setCustomStroke] = useState(false);
+  const [strokeWidth, setStrokeWidth] = useState(1.5);
+  const [intensity, setIntensity] = useState(1);
+  const [breaks, setBreaks] = useState(0.18);
+  const [breakCount, setBreakCount] = useState(1);
+  const [pressureVariation, setPressureVariation] = useState(0.82);
+  const [decorative, setDecorative] = useState(true);
+  const [composite, setComposite] = useState(false);
+  const [badgeIcon, setBadgeIcon] = useState('plus');
+  const [badgePosition, setBadgePosition] = useState<NonNullable<PencilIconBadge['position']>>('bottom-end');
+  const [badgeScale, setBadgeScale] = useState(55);
+  const [direction, setDirection] = useState('ltr');
+  const [color, setColor] = useState<typeof colors[number]['key']>('ink');
+  const item = icons.find(icon => icon.key === selected) ?? icons[0];
+  const previewIcons = [item, ...commonIcons.filter(icon => icon.key !== item.key)].slice(0, 9);
+  const colorValue = colors.find(option => option.key === color)!.value;
+  const badgeItem = icons.find(icon => icon.key === badgeIcon)!;
+  const badgeFilledPaths = (variant === 'colorful' ? badgeItem.colorPaths : undefined) ?? badgeItem.filledPaths;
+  const badge = composite ? { paths: badgeItem.paths, filledPaths: badgeFilledPaths, sourceSize: 24, position: badgePosition, scale: badgeScale / 100 } : undefined;
+  const iconLabel = (label: string) => composite ? `${t(label)} / ${t(badgeItem.label)}` : t(label);
+  const code = `import { PencilIcon } from '@inkra/react';
+
+const icons = ${JSON.stringify(previewIcons.map(icon => ({ key: icon.key, label: iconLabel(icon.label), paths: icon.paths, filledPaths: (variant === 'colorful' ? icon.colorPaths : undefined) ?? icon.filledPaths })), null, 2)};
+${composite ? `const badgePaths = ${JSON.stringify(badgeItem.paths, null, 2)};\nconst badgeFilledPaths = ${JSON.stringify(badgeFilledPaths, null, 2)};\n` : ''}
+const color = ${JSON.stringify(colorValue)};
+
+<div style={{ width: '100%', overflowX: 'auto' }}>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+  gridTemplateRows: 'repeat(3, minmax(0, 1fr))', placeItems: 'center',
+  width: ${Math.max(240, size * 3 + 24)}, minWidth: ${size * 3 + 24}, maxWidth: '100%', aspectRatio: '1', marginInline: 'auto' }}>
+  {icons.map(icon => <PencilIcon key={icon.key} paths={icon.paths} filledPaths={icon.filledPaths} sourceSize={${sourceSize}} size={${size}}
+    variant="${variant === 'outline' ? 'outline' : 'filled'}"${inheritFillColor ? '' : ` fillColor=${JSON.stringify(fillColor)}`}
+${customStroke ? `    strokeWidth={${strokeWidth}} intensity={${intensity}} breaks={${breaks}} breakCount={${breakCount}} pressureVariation={${pressureVariation}}\n` : ''}
+${composite ? `    badge={{ paths: badgePaths, filledPaths: badgeFilledPaths, sourceSize: 24, position: '${badgePosition}', scale: ${badgeScale / 100} }}\n` : ''}
+    dir="${direction}" style={{ color }} seed=${JSON.stringify(seed)} active={${active}}
+    decorative={${decorative}}${decorative ? '' : ' aria-label={icon.label}'}
+  />)}
+</div>
+</div>`;
+  return <>
+    <ComponentPlayground code={code} controls={<PropertyTabs groups={[
+      { label: '基础', content: <>
+        <IconAppearanceControl value={variant} onValueChange={setVariant} />
+        <DocsSelect label="图标" value={selected} onValueChange={setSelected} options={icons.map(icon => [icon.key, icon.label])} />
+        <DocsSlider label="图标尺寸" value={size} onValueChange={setSize} min={16} max={128} step={1} unit="px" />
+        <DocsSelect label="源坐标范围" value={sourceSize} onValueChange={setSourceSize} options={['24', '28', '32'].map(value => [value, value])} />
+        <div className="icon-examples__colors"><PencilText>颜色</PencilText><div role="group" aria-label={t('图标颜色')}>{colors.map(option => <ColorSwatch key={option.key} color={option.value} label={t(option.label)} selected={color === option.key} onClick={() => setColor(option.key)} />)}</div></div>
+        <Switch label={fillCopy.inheritColor} checked={inheritFillColor} onCheckedChange={setInheritFillColor} disabled={variant !== 'filled'} />
+        {!inheritFillColor && <ColorPicker value={fillColor} onValueChange={setFillColor} presentation="popover" label={fillCopy.fillColor} disabled={variant !== 'filled'} />}
+        <Field label={t('笔迹种子')}><Input value={seed} onChange={event => setSeed(event.target.value)} maxLength={40} /></Field>
+      </> },
+      { label: '笔触', content: <>
+        <Switch label={t('自定义图标笔触')} checked={customStroke} onCheckedChange={setCustomStroke} />
+        <DocsSlider label="图标粗细" min={0.3} max={3} step={0.1} value={strokeWidth} onValueChange={setStrokeWidth} disabled={!customStroke} />
+        <DocsSlider label="图标浓度" min={0} max={100} step={5} value={Math.round(intensity * 100)} onValueChange={value => setIntensity(value / 100)} unit="%" disabled={!customStroke} />
+        <DocsSlider label="图标断裂程度" min={0} max={100} step={1} value={Math.round(breaks * 100)} onValueChange={value => setBreaks(value / 100)} unit="%" disabled={!customStroke} />
+        <DocsSlider label="最大断裂个数" min={0} max={12} step={1} value={breakCount} onValueChange={setBreakCount} disabled={!customStroke} />
+        <DocsSlider label="笔压变化" min={0} max={100} step={1} value={Math.round(pressureVariation * 100)} onValueChange={value => setPressureVariation(value / 100)} unit="%" disabled={!customStroke} />
+      </> },
+      { label: '组合', content: <>
+        <Switch label={t('组合图标')} checked={composite} onCheckedChange={setComposite} />
+        {composite && <>
+        <DocsSelect label="角标图标" value={badgeIcon} onValueChange={setBadgeIcon} options={icons.map(icon => [icon.key, icon.label])} />
+        <DocsSelect label="角标位置" value={badgePosition} onValueChange={value => setBadgePosition(value as typeof badgePosition)} options={[
+          ['top-start', '顶部起始侧'], ['top-end', '顶部结束侧'], ['bottom-start', '底部起始侧'], ['bottom-end', '底部结束侧'],
+        ]} />
+        <DocsSlider label="角标比例" value={badgeScale} onValueChange={setBadgeScale} min={35} max={65} step={5} unit="%" />
+        <DocsSelect label="阅读方向" value={direction} onValueChange={setDirection} options={[[ 'ltr', 'LTR' ], [ 'rtl', 'RTL' ]]} />
+      </>}
+      </> },
+      { label: '状态', content: <>
+        <Switch label={t('强调笔迹')} checked={active} onCheckedChange={setActive} />
+        <Switch label={t('装饰性图标')} checked={decorative} onCheckedChange={setDecorative} />
+      </> },
+    ]} />}>
+      <div className="icon-examples__viewport">
+        <div className="icon-examples__stage" style={{ width: Math.max(240, size * 3 + 24), minWidth: size * 3 + 24 }}>{previewIcons.map(icon => <PencilIcon key={icon.key} paths={icon.paths} filledPaths={(variant === 'colorful' ? icon.colorPaths : undefined) ?? icon.filledPaths} variant={variant === 'outline' ? 'outline' : 'filled'} fillColor={inheritFillColor ? undefined : fillColor} badge={badge} dir={direction} size={size} sourceSize={Number(sourceSize)} strokeWidth={customStroke ? strokeWidth : undefined} intensity={customStroke ? intensity : undefined} breaks={customStroke ? breaks : undefined} breakCount={customStroke ? breakCount : undefined} pressureVariation={customStroke ? pressureVariation : undefined} seed={seed} active={active} decorative={decorative} aria-label={decorative ? undefined : iconLabel(icon.label)} style={{ color: colorValue }} />)}</div>
+      </div>
+    </ComponentPlayground>
+
+    <ComponentExample id="icon-size" title="尺寸" code={`const paths = ${JSON.stringify(item.paths, null, 2)};\n\n${['16', '20', '24', '32', '40'].map(value => `<PencilIcon paths={paths} sourceSize={24} size={${value}} decorative />`).join('\n')}`}>
+      <div className="icon-examples__sizes">{[16, 20, 24, 32, 40].map(value => <div key={value}><span className="icon-examples__size-box"><PencilIcon paths={item.paths} sourceSize={24} size={value} decorative /></span><PencilText>{`${value}px`}</PencilText></div>)}</div>
+    </ComponentExample>
+
+    <ComponentExample id="icon-decoration-and-semantics" title="装饰与语义" code={`const checkPaths = ${JSON.stringify(checkPaths, null, 2)};
+
+<span>
+  <PencilIcon paths={checkPaths} sourceSize={24} size={28} decorative />
+  <PencilText>${t('已保存')}</PencilText>
+</span>
+<PencilIcon paths={checkPaths} sourceSize={24} size={28}
+  decorative={false} aria-label=${JSON.stringify(t('已保存'))} />`}>
+      <div className="icon-examples__semantics">
+        <div><PencilText as="h3">装饰性图标</PencilText><span className="icon-examples__semantic-sample"><PencilIcon paths={checkPaths} sourceSize={24} size={28} decorative /><PencilText>已保存</PencilText></span></div>
+        <div><PencilText as="h3">语义图标</PencilText><span className="icon-examples__semantic-sample"><PencilIcon paths={checkPaths} sourceSize={24} size={28} decorative={false} aria-label={t('已保存')} /></span></div>
+      </div>
+    </ComponentExample>
+
+    <IconFillExamples />
+
+    <ColorfulIconExample />
+
+    <IconActionExample />
+
+    <CompositeIconExample />
+
+    <ComponentExample id="icon-icon-catalog" title="图标目录" code={`const paths = ${JSON.stringify(item.paths, null, 2)};\nconst filledPaths = ${JSON.stringify((catalogVariant === 'colorful' ? item.colorPaths : undefined) ?? item.filledPaths, null, 2)};\n<PencilIcon paths={paths} filledPaths={filledPaths} sourceSize={24} size={32} variant="${catalogVariant === 'outline' ? 'outline' : 'filled'}" decorative />`}>
+      <IconCatalogGrid selected={selected} onSelect={setSelected} variant={catalogVariant} onVariantChange={setCatalogVariant} />
+    </ComponentExample>
+  </>;
+}

@@ -16,8 +16,13 @@
     "paquet": "node tools/paquet.mjs"
   },
   "devDependencies": {
+    "@inkra/react": "^0.12.0",
     "acorn": "^8.19.0",
     "esbuild": "^0.25.10",
-    "eslint-scope": "^8.4.0"
+    "eslint-scope": "^8.4.0",
+    "lucide-react": "^1.60.0",
+    "prismjs": "^1.30.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   }
 }

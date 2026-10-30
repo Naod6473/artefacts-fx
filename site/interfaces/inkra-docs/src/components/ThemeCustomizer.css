@@ -1,0 +1,32 @@
+.header-customize { flex: none; }
+.theme-customizer .inkra-drawer__header[data-custom-action] { flex-direction: row; align-items: center; }
+.theme-customizer .inkra-drawer__header[data-custom-action] .inkra-drawer__header-actions { order: 0; align-self: center; flex-wrap: nowrap; }
+.theme-customizer__body { display: flex; flex-direction: column; overflow: hidden; scrollbar-gutter: auto; gap: 0; padding-block: 12px; }
+.theme-customizer__sample, .theme-customizer__separator { flex: none; }
+.theme-customizer__sample { display: grid; margin-bottom: 12px; }
+.theme-customizer__preview-card { min-width: 0; color: var(--inkra-ink); }
+.theme-customizer__preview-content { display: grid; gap: 16px; justify-items: start; }
+.theme-customizer__preview-content > p { margin: 0; min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.theme-customizer__separator { display: block; width: 100%; height: 8px; margin-bottom: 8px; }
+.theme-customizer__lettering { margin: 0; font-size: var(--inkra-text-lg); max-width: 100%; overflow-wrap: anywhere; }
+.theme-customizer__line { display: block; width: 100%; height: 8px; }
+@media (max-width: 30rem) {
+  .theme-customizer .inkra-drawer__footer { flex-wrap: nowrap; gap: 8px; padding-inline: 12px; }
+  .theme-customizer .inkra-drawer__footer > .inkra-button { flex: 1; min-width: 0; padding-inline: 6px; }
+  .theme-customizer .inkra-drawer__footer .inkra-button__icon--start { display: none; }
+}
+@media (max-width: 48rem) {
+  .header-customize { margin-inline-start: auto; }
+  .header-inner .header-github { margin-inline-start: 0; }
+}
+@media (max-height: 700px) {
+  .theme-customizer .inkra-drawer__header, .theme-customizer .inkra-drawer__footer { padding-block: 12px; }
+  .theme-customizer__body { padding-block: 12px; }
+  .theme-customizer__sample { gap: 6px; margin-bottom: 8px; }
+  .theme-customizer__preview-content { gap: 6px; padding-block: 8px; }
+  .theme-customizer__separator { margin-bottom: 8px; }
+}
+
+@media (max-width: 22.5rem) {
+  .theme-customizer .inkra-drawer__title { font-size: var(--inkra-text-lg); }
+}

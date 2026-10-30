@@ -1,0 +1,28 @@
+.theme-examples { min-width: 0; }
+.theme-examples .content-section { display: grid; gap: 20px; }
+.theme-examples__settings { display: flex; flex-direction: column; gap: 12px; min-width: 0; min-height: 0; }
+.theme-examples__settings > .inkra-button { align-self: end; flex: none; }
+.theme-examples__preview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  gap: 16px;
+  padding: 24px;
+  min-width: 0;
+  width: 100%;
+  max-width: 32rem;
+  background: var(--inkra-paper);
+}
+.theme-examples__preview > * { min-width: 0; }
+.theme-examples__preview > .inkra-button { justify-self: start; }
+.theme-examples__preview > h3 { font-size: 24px; margin: 0; }
+.theme-examples__preview > p { margin: 0; }
+@media (max-width: 760px) {
+  .theme-examples__preview { grid-template-columns: minmax(0, 1fr); padding: 16px; }
+  .theme-examples__preview > .inkra-button { justify-self: start; }
+}
+.theme-examples .component-playground .preview-controls:has(> .theme-examples__settings) {
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+  padding: 12px;
+}

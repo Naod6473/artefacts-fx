@@ -1,0 +1,20 @@
+.ecosystem-page { color: var(--inkra-ink); }
+
+.ecosystem-page__empty {
+  min-height: min(540px, 65svh);
+  margin-block: 0 16px;
+  padding-inline: 0;
+}
+
+.ecosystem-page__empty .inkra-empty__description {
+  max-width: 440px;
+  line-height: 1.7;
+}
+
+.ecosystem-page__empty .inkra-empty__actions {
+  margin-top: 12px;
+}
+
+@media (max-width: 42rem) {
+  .ecosystem-page__empty { min-height: 440px; }
+}

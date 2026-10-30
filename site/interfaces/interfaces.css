@@ -1,0 +1,13 @@
+/* Page Interfaces : ce qui raccorde la documentation d'Inkra (styles.css, inchangé) au reste du site. */
+/* l'en-tête du site garde sa police et ses tailles, malgré les styles globaux de la documentation */
+body.page-interfaces header.entete { font: 14px/1.5 "JetBrains Mono", ui-monospace, Consolas, monospace; color: #d6e2f0; }
+body.page-interfaces header.entete button { font-family: inherit; }
+.evitement { position: absolute; left: -9999px; }
+.evitement:focus { left: 8px; top: 8px; z-index: 20; background: #fff; padding: 6px 10px; }
+.ifx-credit { position: relative; margin: 0; padding: 10px 20px; font-size: 15px; border-bottom: 1px dashed var(--inkra-line, #ccc); }
+.ifx-credit code { font-size: .9em; }
+.ifx-menu { display: none; position: relative; margin: 10px 16px 0; padding: 8px 14px; min-height: 44px; border: 1.5px solid currentColor; border-radius: 10px; background: transparent; cursor: pointer; }
+/* la documentation isole son cadre : son papier (fixe, plein écran) passerait alors sur l'en-tête et le crédit */
+#interfaces .app-shell { isolation: auto; }
+/* le tiroir des composants n'existe qu'en dessous de 48rem, comme dans la documentation */
+@media (max-width: 48rem) { .ifx-menu { display: block; } }

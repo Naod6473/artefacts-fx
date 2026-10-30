@@ -10,7 +10,7 @@ import { pathToFileURL } from "node:url";
 
 const DIST = "dist";
 const LANGUES = readdirSync("site/i18n").filter((f) => f.endsWith(".json")).map((f) => f.slice(0, -5));
-const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html", espace: "compte/index.html", mentions: "mentions/index.html", apropos: "a-propos/index.html", introuvable: "404.html" };
+const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html", espace: "compte/index.html", mentions: "mentions/index.html", apropos: "a-propos/index.html", interfaces: "interfaces/index.html", introuvable: "404.html" };
 // le site peut vivre dans un sous-dossier (naod.fr/artefacts/) : tous les liens partent de chemin_web
 const BASE = JSON.parse(readFileSync("config/ovh.json", "utf8")).chemin_web ?? "/";
 
@@ -111,6 +111,48 @@ await build({
   banner: { js: "/* Artefacts, MIT. Moteur et effets d'origine : pixelfx, MIT, Copyright (c) 2026 Patch, Copyright (c) 2026 Hugo Duprez. Licence complète : /LICENSE.txt */" },
 });
 
+// la page Interfaces : la documentation d'Inkra (site/interfaces/inkra-docs, MIT), en React, groupée à part avec ses
+// styles, polices et images. Deux retouches à la volée dans App.tsx : les liens deviennent « ?p=/components/… » (la page
+// vit à /fr/interfaces/, pas à la racine) et les morceaux utiles sont exportés pour site/interfaces/app.tsx.
+const inkraDocs = {
+  name: "inkra-docs",
+  setup(b) {
+    b.onLoad({ filter: /inkra-docs[\\/]src[\\/]App\.tsx$/ }, (a) => {
+      let code = readFileSync(a.path, "utf8");
+      const avant = code;
+      code = code.replace(/function routeHref\(path: RoutePath\): string \{\n  return [^\n]*\n\}/, "function routeHref(path: RoutePath): string {\n  return `?p=${path}`;\n}");
+      if (code === avant) throw new Error("inkra-docs : routeHref introuvable dans App.tsx");
+      code += "\nexport { ButtonPage, DesignStandardPage, DocsNavigationPanel, DocumentPageNavigation, GettingStartedPage, MobileDrawer, SideNavigation, SidebarPreferences, readInitialTheme, useCompactLayout, validPath };\n";
+      return { contents: code, loader: "tsx" };
+    });
+  },
+};
+await build({
+  entryPoints: { app: "site/interfaces/app.tsx" },
+  outdir: join(DIST, "assets", "interfaces"),
+  bundle: true,
+  plugins: [inkraDocs],
+  format: "esm",
+  splitting: true,
+  chunkNames: "[name]-[hash]",
+  assetNames: "[name]-[hash]",
+  loader: { ".woff2": "file", ".png": "file", ".svg": "file", ".webm": "file", ".mp3": "file", ".wav": "file", ".jpg": "file", ".webp": "file" },
+  jsx: "automatic",
+  define: { "import.meta.env.BASE_URL": JSON.stringify(BASE + "assets/interfaces/"), "process.env.NODE_ENV": '"production"' },
+  minify: true,
+  legalComments: "inline",
+  banner: { js: "/* Interfaces : Inkra (@inkra/react et sa documentation), MIT, Copyright (c) 2026 Inkra contributors. https://github.com/inkrajs/inkra */" },
+});
+// esbuild sort à part le CSS des morceaux chargés plus tard (React.lazy) sans le relier : on l'ajoute à app.css
+{
+  const d = join(DIST, "assets", "interfaces"), autres = readdirSync(d).filter((f) => f.endsWith(".css") && f !== "app.css");
+  writeFileSync(join(d, "app.css"), [readFileSync(join(d, "app.css"), "utf8"), ...autres.map((f) => readFileSync(join(d, f), "utf8"))].join("\n"));
+  for (const f of autres) rmSync(join(d, f));
+}
+// images et vidéo que la documentation appelle par une adresse absolue (/images/…, /media/…)
+cpSync("site/interfaces/inkra-docs/public", DIST, { recursive: true });
+cpSync("site/interfaces/inkra-docs/LICENSE", join(DIST, "assets", "interfaces", "LICENSE-inkra.txt"));
+
 // le moteur du bac à sable (pages Proposer et Modération) : un seul fichier, passé en texte à l'iframe isolée
 await build({
   entryPoints: ["site/src/moteur-bac.js"],
@@ -133,7 +175,7 @@ const echappe = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").re
 // Mesure d'audience : Umami (sans cookie), sur toutes les pages ; son script et ses envois sont les seuls autorisés hors du site.
 const UMAMI = "https://stats.pissits.com";
 const UMAMI_SCRIPT = `<script defer src="${UMAMI}/script.js" data-website-id="53cc1af8-a056-4405-82de-d0ddaf305681"></script>`;
-const CSP_BASE = `default-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://api.github.com ${UMAMI}; object-src 'none'; base-uri 'self'; form-action 'self'`;
+const CSP_BASE = `default-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.github.com ${UMAMI}; object-src 'none'; base-uri 'self'; form-action 'self'`;
 const csp = (page) => ["proposer", "moderation"].includes(page)
   ? CSP_BASE + `; script-src 'self' 'unsafe-inline' blob: ${UMAMI}; worker-src blob:`
   : CSP_BASE + `; script-src 'self' ${UMAMI}`;
@@ -148,7 +190,7 @@ function remplir(modele, t, page) {
   });
   return html.replace(`<a href="${BASE}${t.langue}/${t.ici}">`, `<a href="${BASE}${t.langue}/${t.ici}" aria-current="page">`);
 }
-const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps", "ap_corps"]);
+const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps", "ap_corps", "if_credit"]);
 for (const langue of LANGUES) {
   const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
   mkdirSync(join(DIST, langue), { recursive: true });

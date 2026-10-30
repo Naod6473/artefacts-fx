@@ -289,5 +289,10 @@
   "jour_titre": "L'effet du jour",
   "jour_texte": "Un effet de la bibliothèque, différent chaque jour.",
   "jour_voir": "Voir l'effet",
-  "jour_biblio": "Ouvrir dans la bibliothèque"
+  "jour_biblio": "Ouvrir dans la bibliothèque",
+  "nav_interfaces": "Interfaces",
+  "if_titre": "Interfaces : composants dessinés au crayon (Inkra) · Artefacts",
+  "if_desc": "Boutons, menus, curseurs, tableaux, fenêtres… plus de 80 composants d'interface React au style crayonné, avec leur code, tirés d'Inkra (MIT).",
+  "if_credit": "Ces composants et leur documentation viennent tels quels d'<a href=\"https://github.com/inkrajs/inkra\">Inkra</a> (React, licence MIT, © 2026 Inkra contributors). Polices sous licence SIL OFL. À installer avec <code>npm install @inkra/react</code>.",
+  "if_noscript": "Cette page a besoin de JavaScript."
 }

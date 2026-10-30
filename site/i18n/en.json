@@ -289,5 +289,10 @@
   "jour_titre": "Effect of the day",
   "jour_texte": "One effect from the library, a different one every day.",
   "jour_voir": "See the effect",
-  "jour_biblio": "Open in the library"
+  "jour_biblio": "Open in the library",
+  "nav_interfaces": "Interfaces",
+  "if_titre": "Interfaces: hand-drawn UI components (Inkra) · Artefacts",
+  "if_desc": "Buttons, menus, sliders, tables, dialogs… over 80 pencil-style React UI components with their code, from Inkra (MIT).",
+  "if_credit": "These components and their documentation come as they are from <a href=\"https://github.com/inkrajs/inkra\">Inkra</a> (React, MIT license, © 2026 Inkra contributors). Fonts under the SIL OFL. Install with <code>npm install @inkra/react</code>.",
+  "if_noscript": "This page needs JavaScript."
 }
