@@ -1,5 +1,6 @@
 // Compte membre (api/compte.php) : la fenêtre de connexion / inscription / mot de passe oublié, le bouton de l'en-tête,
 // et les appels à l'API. Ce que le compte synchronise (favoris, projets) est géré par la page, via connecte / deconnecte.
+import "./fond.js";
 const $ = (s) => document.querySelector(s);
 const TITRES = { connexion: "connexion_titre", inscription: "creer_titre", oubli: "oubli_titre", nouveau: "nouveau_titre" };
 const BOUTONS = { connexion: "se_connecter", inscription: "creer_bouton", oubli: "oubli_bouton", nouveau: "nouveau_bouton" };
