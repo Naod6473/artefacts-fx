@@ -1,12 +1,29 @@
 # Artefacts
 
-Des effets visuels de jeu écrits en code, à voir dans le rendu de son choix. Site : https://naod.fr
+**Des effets visuels de jeu écrits en code, à voir dans le rendu de son choix.** Site : **https://naod.fr**
 
-*Game visual effects written in code, shown in the style you pick.*
+*Game visual effects written in code, shown in the style you pick. English: see the [npm package README](tools/paquet/README.md).*
+
+[![Feu de camp, effet #0002](https://naod.fr/apercus/0002.png)](https://naod.fr/fr/fx/2/)
 
 Chaque effet est un petit fichier JavaScript, sans image, sous licence MIT. Le même effet s'affiche en pixel art, en
-glyphes de code, en ASCII, en braille, en blocs, sur un écran à phosphore, en Game Boy, en matrice LED, en VHS ou en Minitel. <!-- count -->232<!-- /count --> effets au
-départ, repris de [pixelfx](https://github.com/patch-gg/pixelfx).
+glyphes de code, en ASCII, en braille, en blocs, sur un écran à phosphore, en Game Boy, en matrice LED, en VHS ou en
+Minitel. <!-- count -->232<!-- /count --> effets au départ, repris de [pixelfx](https://github.com/patch-gg/pixelfx),
+plus ceux que proposent les membres.
+
+- **Bibliothèque** : recherche (`#42`, `feu`, `tag:boucle -fumée dur:<1`), réglages en direct, liens partageables, une page par effet.
+- **Exports** : planche de sprites PNG, GIF animé, vidéo WebM, fichiers Godot 4 (SpriteFrames + scène), projet zip.
+- **Dans le code** : `npm install artefacts-fx` (moteur, effets, rendus et lecteur ; voir le [README du paquet](tools/paquet/README.md)).
+- **Assistants IA** : serveur MCP public, `https://naod.fr/api/mcp`.
+- **Communauté** : comptes privés (favoris, projets), propositions d'effets testées dans un bac à sable et relues.
+
+## Contribuer
+
+- Proposer un effet : directement sur https://naod.fr/fr/proposer/ (éditeur, aperçu, vérifications), ou par pull request
+  dans `effets/communaute/`.
+- Un nouveau rendu : un fichier `rendus/<id>.js` (un filtre sur le tampon de pixels), ajouté à `rendus/index.js`. Il
+  marche aussitôt sur tous les effets.
+- Bugs et idées : les issues GitHub, ou contact@naod.fr.
 
 ## Arborescence
 
@@ -16,9 +33,9 @@ départ, repris de [pixelfx](https://github.com/patch-gg/pixelfx).
 | `rendus/<id>.js` | un rendu = un filtre sur le tampon de pixels ; un nouveau rendu marche sur tous les effets |
 | `core/` | le moteur : tampon, pinceau, particules, couleurs (pixelfx) |
 | `site/` | le site : pages (`pages/`), textes par langue (`i18n/`), scripts (`src/`), fichiers statiques (`static/`) |
-| `api/` | la partie communauté en PHP + SQLite (à venir), avec un test de santé sur `/api/` |
+| `api/` | la partie communauté en PHP + SQLite : comptes, propositions, serveur MCP |
 | `config/ovh.json` | réglages de la mise en ligne (dossier sur le FTP, adresse du site) |
-| `tools/` | `check.mjs` vérifie les effets, `index.mjs` régénère `effets/index.js` |
+| `tools/` | `check.mjs` vérifie les effets, `index.mjs` régénère `effets/index.js`, `paquet.mjs` prépare le paquet npm |
 | `docs/` | l'architecture et les choix |
 
 ## Travailler en local
@@ -54,11 +71,19 @@ la boîte `noreply@naod.fr` (SMTP ssl0.ovh.net, secret `SMTP_PASSWORD`), ou `mai
 Page `/fr/proposer/` : un éditeur, l'aperçu et des vérifications automatiques. Le code proposé tourne dans une iframe
 `sandbox="allow-scripts"` (origine opaque : ni cookies, ni accès à la page) dont la politique de sécurité coupe tout
 réseau, et dans un Worker qu'on arrête s'il ne répond plus (`site/src/bac*.js`). Le serveur refait les vérifications
-statiques (`api/propositions.php`). Page `/fr/moderation/` réservée aux comptes GitHub listés dans `admins`
+statiques (`api/propositions.php`). Comme un effet fusionné tourne ensuite sur le site hors du bac à sable,
+`site/src/surete.js` analyse les portées du code (seules quelques globales inoffensives comme `Math` sont permises)
+dans le bac à sable et dans la CI, et la politique de sécurité des pages interdit `eval` et `Function`. Page `/fr/moderation/` réservée aux comptes GitHub listés dans `admins`
 (par défaut Naod6473) : accepter ouvre une pull request qui ajoute `effets/communaute/<nom>.js` et le numéro suivant
 dans `effets/registre.json` ; à la fusion, le site se met à jour. Il faut un jeton GitHub à grain fin (Contents et
 Pull requests en écriture sur ce dépôt) en secret `GH_REPO_TOKEN`. La vérification `node tools/check.mjs communaute`
 tourne sur chaque pull request (`.github/workflows/verification.yml`).
+
+## Paquet npm
+
+`node tools/paquet.mjs` prépare `paquet/` (moteur, effets, rendus, lecteur). Pour publier : monter la version dans
+`package.json`, puis `git tag npm-v<version> && git push origin npm-v<version>` ; `.github/workflows/npm.yml` publie
+avec le secret `NPM_TOKEN`.
 
 ## Ajouter une langue
 

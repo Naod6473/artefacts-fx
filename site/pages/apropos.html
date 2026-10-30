@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{langue}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ap_titre}}</title>
+<meta name="description" content="{{ap_description}}">
+<link rel="alternate" hreflang="fr" href="{{base}}fr/a-propos/">
+<link rel="alternate" hreflang="en" href="{{base}}en/a-propos/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
+<link rel="stylesheet" href="{{base}}assets/proposer.css">
+<link rel="stylesheet" href="{{base}}assets/compte.css">
+<link rel="stylesheet" href="{{base}}assets/entete.css">
+</head>
+<body data-base="{{base}}">
+{{> entete}}
+<main id="contenu" class="proposer mentions">
+  <h1>{{ap_h1}}</h1>
+  {{ap_corps}}
+</main>
+{{> pied}}
+{{> compte}}
+<script type="module" src="{{base}}assets/entete.js"></script>
+</body>
+</html>
