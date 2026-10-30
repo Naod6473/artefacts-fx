@@ -1,0 +1,5 @@
+node_modules/
+dist/
+api/donnees/*
+!api/donnees/.htaccess
+.DS_Store

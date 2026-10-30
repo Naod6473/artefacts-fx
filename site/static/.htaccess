@@ -1,0 +1,29 @@
+# Hébergement OVH (Apache). Envoyé tel quel à la racine du site.
+
+Options -Indexes
+AddDefaultCharset utf-8
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # HTTPS partout
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # la racine envoie vers la langue du navigateur (anglais sauf si le français est demandé)
+  RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+  RewriteRule ^$ /fr/ [L,R=302]
+  RewriteRule ^$ /en/ [L,R=302]
+</IfModule>
+
+# fichiers cachés (.git, .env…) et données de l'API jamais servis
+RedirectMatch 404 /\.(?!htaccess$)
+RedirectMatch 404 ^/api/donnees/
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 day"
+  ExpiresByType application/javascript "access plus 1 day"
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>

@@ -1,0 +1,2 @@
+# Les bases SQLite et fichiers de données ne doivent jamais être téléchargeables.
+Require all denied

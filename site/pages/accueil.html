@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="{{langue}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{titre}}</title>
+<meta name="description" content="{{description}}">
+<link rel="alternate" hreflang="fr" href="/fr/">
+<link rel="alternate" hreflang="en" href="/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header>
+  <div class="in barre">
+    <a class="logo" href="/{{langue}}/">Artefacts<i>_</i></a>
+    <nav>
+      <a href="https://github.com/Naod6473/artefacts-fx">{{nav_code}}</a>
+      <a href="/{{langue_autre_code}}/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="in hero">
+    <div class="texte">
+      <h1>{{accroche}}</h1>
+      <p>{{intro}}</p>
+    </div>
+    <figure id="vitrine" class="scene">
+      <canvas></canvas>
+      <figcaption id="vitrine-rendu" aria-live="polite"></figcaption>
+    </figure>
+    <div class="choix">
+      <button type="button" id="vitrine-auto" aria-pressed="true">{{vitrine_auto}}</button>
+      <div id="vitrine-rendus" class="seg"></div>
+    </div>
+  </section>
+
+  <section class="in">
+    <h2>{{comparer_titre}}</h2>
+    <p class="dim">{{comparer_texte}}</p>
+    <div id="comparaison-effets" class="seg"></div>
+    <div id="comparaison" class="grille g3"></div>
+  </section>
+
+  <section class="in">
+    <div class="titre-ligne">
+      <h2>{{apercu_titre}}</h2>
+      <label class="dim">{{apercu_rendu}} <select id="apercu-rendu"></select></label>
+    </div>
+    <p class="dim">{{apercu_texte}}</p>
+    <div id="apercu" class="grille g4"></div>
+  </section>
+
+  <section class="in">
+    <h2>{{comment_titre}}</h2>
+    <div class="trois">
+      <div><h3>{{comment_1_t}}</h3><p>{{comment_1}}</p></div>
+      <div><h3>{{comment_2_t}}</h3><p>{{comment_2}}</p></div>
+      <div><h3>{{comment_3_t}}</h3><p>{{comment_3}}</p></div>
+    </div>
+  </section>
+</main>
+<footer class="in">
+  <p>{{pied_licence}} {{pied_credits}}</p>
+</footer>
+<script src="/assets/accueil.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "_aide": "Réglages de la mise en ligne sur OVH. Les identifiants FTP ne vont PAS ici : ils sont dans les secrets GitHub (FTP_SERVER, FTP_USERNAME, FTP_PASSWORD).",
+  "domaine": "artefacts-fx.naod.fr",
+  "dossier_distant": "/artefacts/",
+  "protocole": "ftps"
+}

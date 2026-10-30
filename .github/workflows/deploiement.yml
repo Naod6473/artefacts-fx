@@ -1,0 +1,52 @@
+# Construit le site et l'envoie sur l'hébergement OVH par FTP à chaque push sur main.
+# Réglages : config/ovh.json. Identifiants : secrets du repo FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+# (Settings > Secrets and variables > Actions). Sans ces secrets, le site est construit mais pas envoyé.
+name: Mise en ligne
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploiement
+  cancel-in-progress: false
+
+jobs:
+  construire-et-envoyer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Lire config/ovh.json
+        id: config
+        run: |
+          echo "dossier=$(jq -r .dossier_distant config/ovh.json)" >> "$GITHUB_OUTPUT"
+          echo "protocole=$(jq -r .protocole config/ovh.json)" >> "$GITHUB_OUTPUT"
+      - name: Envoyer sur OVH
+        if: env.FTP_SERVER != ''
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ steps.config.outputs.protocole }}
+          local-dir: ./dist/
+          server-dir: ${{ steps.config.outputs.dossier }}
+          # les données de la communauté vivent sur le serveur : ne jamais les écraser ni les effacer
+          exclude: |
+            **/.git*
+            **/.git*/**
+            api/donnees/*.sqlite
+      - name: Secrets absents
+        if: env.FTP_SERVER == ''
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: echo "::warning::Secrets FTP absents, le site est construit mais pas envoyé."
