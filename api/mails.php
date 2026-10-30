@@ -8,7 +8,7 @@ const MAIL_TEXTES = [
     'fr' => [
         'confirmer' => [
             'objet' => 'Activez votre compte Artefacts',
-            'titre' => 'confirmer_compte',
+            'titre' => 'Confirmer votre compte',
             'intro' => "Bienvenue sur Artefacts. Un clic et votre compte est actif : vos favoris et vos projets vous suivront sur tous vos appareils.",
             'bouton' => 'Activer mon compte',
             'duree' => 'Lien valable 48 h, utilisable une seule fois.',
@@ -17,7 +17,7 @@ const MAIL_TEXTES = [
         ],
         'oubli' => [
             'objet' => 'Nouveau mot de passe Artefacts',
-            'titre' => 'nouveau_mot_de_passe',
+            'titre' => 'Nouveau mot de passe',
             'intro' => "Quelqu'un (vous, sans doute) a demandé à changer le mot de passe de ce compte. Choisissez-en un nouveau avec le bouton ci-dessous.",
             'bouton' => 'Choisir un mot de passe',
             'duree' => 'Lien valable 1 h, utilisable une seule fois.',
@@ -26,7 +26,7 @@ const MAIL_TEXTES = [
         ],
         'proposition' => [
             'objet' => 'Nouvel effet proposé : %s',
-            'titre' => 'nouvelle_proposition',
+            'titre' => 'Nouvelle proposition',
             'intro' => "Un membre vient de proposer l'effet « %s ». Il attend ta relecture sur la page de modération.",
             'bouton' => 'Ouvrir la modération',
             'duree' => '',
@@ -35,7 +35,7 @@ const MAIL_TEXTES = [
         ],
         'acceptee' => [
             'objet' => 'Votre effet « %s » est accepté',
-            'titre' => 'effet_accepte',
+            'titre' => 'Effet accepté',
             'intro' => "Bonne nouvelle : votre effet « %s » est accepté. Il entre dans la bibliothèque avec son numéro dès que la mise à jour du site est publiée.",
             'bouton' => 'Voir mes propositions',
             'duree' => '',
@@ -44,7 +44,7 @@ const MAIL_TEXTES = [
         ],
         'a_revoir' => [
             'objet' => 'Votre effet « %s » : quelques modifications',
-            'titre' => 'modifications_demandees',
+            'titre' => 'Modifications demandées',
             'intro' => "Votre effet « %s » a été relu : il a besoin de quelques modifications avant d'entrer dans la bibliothèque. Ouvrez-le dans l'éditeur, corrigez, puis renvoyez-le.",
             'bouton' => 'Reprendre mon effet',
             'duree' => '',
@@ -53,7 +53,7 @@ const MAIL_TEXTES = [
         ],
         'refusee' => [
             'objet' => 'Votre effet « %s » n\'a pas été retenu',
-            'titre' => 'proposition_refusee',
+            'titre' => 'Proposition refusée',
             'intro' => "Votre effet « %s » a été relu, mais il n'a pas été retenu pour la bibliothèque. Merci d'avoir proposé, et n'hésitez pas à en envoyer d'autres.",
             'bouton' => 'Voir mes propositions',
             'duree' => '',
@@ -69,7 +69,7 @@ const MAIL_TEXTES = [
     'en' => [
         'confirmer' => [
             'objet' => 'Activate your Artefacts account',
-            'titre' => 'confirm_account',
+            'titre' => 'Confirm your account',
             'intro' => 'Welcome to Artefacts. One click and your account is active: your favorites and projects will follow you on every device.',
             'bouton' => 'Activate my account',
             'duree' => 'Link valid for 48 h, single use.',
@@ -78,7 +78,7 @@ const MAIL_TEXTES = [
         ],
         'oubli' => [
             'objet' => 'New Artefacts password',
-            'titre' => 'new_password',
+            'titre' => 'New password',
             'intro' => 'Someone (probably you) asked to change the password of this account. Choose a new one with the button below.',
             'bouton' => 'Choose a password',
             'duree' => 'Link valid for 1 h, single use.',
@@ -87,7 +87,7 @@ const MAIL_TEXTES = [
         ],
         'proposition' => [
             'objet' => 'New effect submitted: %s',
-            'titre' => 'new_submission',
+            'titre' => 'New submission',
             'intro' => 'A member just submitted the effect “%s”. It is waiting for your review on the moderation page.',
             'bouton' => 'Open moderation',
             'duree' => '',
@@ -96,7 +96,7 @@ const MAIL_TEXTES = [
         ],
         'acceptee' => [
             'objet' => 'Your effect “%s” is accepted',
-            'titre' => 'effect_accepted',
+            'titre' => 'Effect accepted',
             'intro' => 'Good news: your effect “%s” is accepted. It joins the library with its own number as soon as the site update is published.',
             'bouton' => 'See my submissions',
             'duree' => '',
@@ -105,7 +105,7 @@ const MAIL_TEXTES = [
         ],
         'a_revoir' => [
             'objet' => 'Your effect “%s”: a few changes',
-            'titre' => 'changes_requested',
+            'titre' => 'Changes requested',
             'intro' => 'Your effect “%s” has been reviewed: it needs a few changes before joining the library. Open it in the editor, fix it, then send it again.',
             'bouton' => 'Back to my effect',
             'duree' => '',
@@ -114,7 +114,7 @@ const MAIL_TEXTES = [
         ],
         'refusee' => [
             'objet' => 'Your effect “%s” was not selected',
-            'titre' => 'submission_declined',
+            'titre' => 'Submission declined',
             'intro' => "Your effect “%s” has been reviewed, but it wasn't selected for the library. Thanks for submitting, and feel free to send others.",
             'bouton' => 'See my submissions',
             'duree' => '',

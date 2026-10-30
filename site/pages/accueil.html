@@ -15,7 +15,7 @@
 </head>
 <body data-voir-code="{{voir_code}}" data-base="{{base}}">
 {{> entete}}
-<main>
+<main id="contenu">
   <section class="in hero">
     <div class="texte">
       <h1>{{accroche}}</h1>
@@ -52,7 +52,7 @@
     <div class="trois">
       <div><h3>{{comment_1_t}}</h3><p>{{comment_1}}</p></div>
       <div><h3>{{comment_2_t}}</h3><p>{{comment_2}}</p></div>
-      <div><h3>{{comment_3_t}}</h3><p>{{comment_3}}</p></div>
+      <div><h3>{{comment_3_t}}</h3><p>{{comment_3}} <a href="{{base}}{{langue}}/proposer/">{{comment_3_lien}} →</a></p></div>
     </div>
   </section>
 </main>

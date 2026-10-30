@@ -11,6 +11,11 @@ if (burger) burger.onclick = () => {
   burger.setAttribute("aria-expanded", String(ouvert));
 };
 
+// étoiles du dépôt dans le lien « ★ GitHub », seulement s'il y en a
+fetch("https://api.github.com/repos/Naod6473/artefacts-fx").then((r) => (r.ok ? r.json() : null)).then((d) => {
+  if (d?.stargazers_count > 0 && $("#etoiles")) $("#etoiles").textContent = d.stargazers_count;
+}).catch(() => {});
+
 export function initCompte({ base, T, ERR, bulle, connecte, deconnecte }) {
   const fen = $("#fen-compte"), form = $("#cpt-form"), btn = $("#btn-compte");
   const langue = document.documentElement.lang || "fr";
@@ -44,7 +49,7 @@ export function initCompte({ base, T, ERR, bulle, connecte, deconnecte }) {
     $("#cpt-l-mdp").hidden = m === "oubli";
     $("#cpt-l-mdp").firstChild.textContent = m === "nouveau" ? T.nouveau_mdp : T.mdp;
     form.elements.mdp.autocomplete = m === "connexion" ? "current-password" : "new-password";
-    for (const id of ["cpt-github", "cpt-ou", "cpt-intro"]) $("#" + id).hidden = m === "oubli" || m === "nouveau";
+    for (const id of ["cpt-github", "cpt-github-aide", "cpt-ou", "cpt-intro"]) $("#" + id).hidden = m === "oubli" || m === "nouveau";
     fen.querySelectorAll("[data-mode]").forEach((b) => { b.hidden = b.dataset.mode === m || m === "nouveau"; });
     $("#cpt-erreur").textContent = "";
   }

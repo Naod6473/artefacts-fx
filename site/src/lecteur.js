@@ -135,6 +135,9 @@ export function vuePartagee(get) {
  * Une boucle d'animation pour plusieurs lecteurs : seuls ceux visibles à l'écran tournent.
  * ajouter(cv, lecteur, () => idRendu)
  */
+// calme : une vignette parmi d'autres (cartes de la bibliothèque, aperçus de l'accueil). Si le visiteur demande
+// moins d'animations (prefers-reduced-motion), elle reste sur une seule image, redessinée quand le rendu change.
+const reduit = matchMedia("(prefers-reduced-motion: reduce)");
 export function boucle() {
   const vues = [];
   const io = new IntersectionObserver((es) => {
@@ -147,13 +150,25 @@ export function boucle() {
   const image = (now) => {
     const dt = Math.min(0.05, (now - avant) / 1000);
     avant = now;
-    for (const v of vues) if (v.visible) { v.lecteur.avancer(dt, now); v.lecteur.dessiner(v.cv, v.rendu(), now); }
+    for (const v of vues) {
+      if (!v.visible) continue;
+      if (v.calme && reduit.matches) {
+        const r = v.rendu();
+        if (v.fige === r) continue;
+        if (v.fige === undefined) for (let i = 0; i < 3; i++) v.lecteur.avancer(0.2, now); // une image où l'effet est déjà là
+        v.fige = r;
+        v.lecteur.dessiner(v.cv, r, now);
+        continue;
+      }
+      v.lecteur.avancer(dt, now);
+      v.lecteur.dessiner(v.cv, v.rendu(), now);
+    }
     requestAnimationFrame(image);
   };
   requestAnimationFrame(image);
   return {
-    ajouter(cv, lecteur, rendu) {
-      vues.push({ cv, lecteur, rendu, visible: false });
+    ajouter(cv, lecteur, rendu, calme = false) {
+      vues.push({ cv, lecteur, rendu, calme, visible: false });
       io.observe(cv);
     },
   };

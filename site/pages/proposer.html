@@ -17,7 +17,7 @@
 <body data-base="{{base}}">
 {{> entete}}
 
-<main class="proposer">
+<main id="contenu" class="proposer">
   <h1>{{prop_h1}}</h1>
   <p class="dim intro">{{prop_intro}}</p>
   <p id="hors-connexion" class="encart">{{prop_connexion}} <button type="button" id="prop-connexion" class="principal">{{cpt_se_connecter}}</button></p>
@@ -33,7 +33,7 @@
     </section>
 
     <section class="cote">
-      <div id="apercu" class="apercu"></div>
+      <div id="apercu" class="apercu"><p id="apercu-erreur" class="apercu-erreur" role="alert" hidden></p></div>
       <div class="outils">
         <label class="dim">{{bib_rendu}} <select id="rendu"></select></label>
         <button type="button" id="relancer">↻ {{prop_relancer}}</button>
@@ -42,7 +42,7 @@
       <h2>{{prop_verifs}}</h2>
       <ul id="tests" class="tests" aria-live="polite"></ul>
 
-      <form id="envoi" class="envoi">
+      <form id="envoi" class="envoi" novalidate>
         <label>{{prop_credit}} <span class="dim">({{prop_facultatif}})</span>
           <input name="credit" maxlength="60" autocomplete="nickname" placeholder="{{prop_credit_exemple}}">
         </label>

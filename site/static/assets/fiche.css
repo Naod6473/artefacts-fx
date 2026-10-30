@@ -19,7 +19,7 @@
 .infos dt { color: var(--faible); font-size: 11px; }
 .infos dd { margin: 0; }
 .fiche .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 14px 0 0; }
-.fiche .tags a { display: inline-block; padding: 2px 8px; border: 1px solid var(--trait2); color: var(--dim); text-decoration: none; }
+.fiche .tags a { display: inline-flex; align-items: center; min-height: 40px; padding: 2px 12px; border: 1px solid var(--trait2); color: var(--dim); text-decoration: none; }
 .fiche .tags a:hover { color: var(--encre); border-color: var(--accent); }
 .fiche pre.code { background: var(--carte); border: 1px solid var(--trait); padding: 12px 14px; overflow: auto; font-size: 12px; margin: 0; }
 .voisins { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--trait); }

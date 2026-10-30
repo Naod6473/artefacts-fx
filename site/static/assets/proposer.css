@@ -62,7 +62,8 @@ footer { padding: 20px; color: var(--faible); font-size: 12px; text-align: cente
 .carte-esp { border: 1px solid var(--trait); background: var(--carte); padding: 14px 16px; margin: 0 0 14px; }
 .carte-esp h2 { margin-top: 0; }
 .carte-esp .boutons { display: flex; flex-wrap: wrap; gap: 8px; }
-.grille-esp { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 0 0 14px; }
+.grille-esp { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 0 0 14px; }
+@media (max-width: 700px) { .grille-esp { grid-template-columns: repeat(3, 1fr); gap: 8px; } .grille-esp .carte-esp { padding: 10px; font-size: 12px; } }
 .carte-esp.lien { display: flex; flex-direction: column; gap: 4px; color: var(--encre); text-decoration: none; margin: 0; }
 .carte-esp.lien:hover { border-color: var(--accent); }
 .carte-esp.lien[hidden] { display: none; }
@@ -79,3 +80,9 @@ footer { padding: 20px; color: var(--faible); font-size: 12px; text-align: cente
 .mentions p, .mentions li { color: var(--dim); }
 .mentions strong { color: var(--encre); font-weight: 500; }
 .pied-biblio { margin-top: 32px; }
+/* message sur l'aperçu quand le code ne passe pas */
+.apercu { position: relative; }
+.apercu-erreur { position: absolute; inset: auto 0 0 0; margin: 0; padding: 10px 12px; background: rgba(40, 10, 16, .92); color: #ff8fa3; font-size: 13px; z-index: 1; }
+.proposer .bouton { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 4px 16px; margin: 4px 8px 4px 0; border: 1px solid var(--trait2); color: var(--encre); text-decoration: none; }
+.proposer .bouton:hover { border-color: var(--accent); }
+.proposer .bouton.principal { background: var(--accent); border-color: var(--accent); color: var(--fond); font-weight: 700; }

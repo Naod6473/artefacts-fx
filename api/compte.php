@@ -148,7 +148,9 @@ function confirmer(): never
     if ($id === null) rediriger('compte=lien_expire');
     $db->prepare('UPDATE membres SET confirme = 1 WHERE id = ?')->execute([$id]);
     ouvrirSession($id);
-    rediriger('compte=bienvenue');
+    $lg = $db->prepare('SELECT langue FROM membres WHERE id = ?');
+    $lg->execute([$id]);
+    rediriger('compte=bienvenue', (string) $lg->fetchColumn()); // la langue choisie à l'inscription
 }
 
 function connexion(): never
@@ -572,9 +574,10 @@ function http(string $url, ?array $post, ?string $acces = null): mixed
     return $r === false ? null : json_decode($r, true);
 }
 
-function rediriger(string $hash): never
+function rediriger(string $hash, string $langue = ''): never
 {
-    header('Location: ' . SITE . '/' . langueNavigateur() . '/bibliotheque/#' . $hash);
+    if (!in_array($langue, ['fr', 'en'], true)) $langue = langueNavigateur();
+    header('Location: ' . SITE . '/' . $langue . '/bibliotheque/#' . $hash);
     exit;
 }
 

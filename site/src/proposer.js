@@ -101,6 +101,10 @@ async function tester() {
   if (n !== numeroTest) return;
   dernier = r;
   $("#tests").replaceChildren(...r.resultats.map(ligne));
+  // le premier point bloquant s'affiche sur l'aperçu, qui sinon resterait noir sans explication
+  const ko = r.resultats.find((x) => !x.ok && x.grave);
+  $("#apercu-erreur").hidden = !ko;
+  if (ko) $("#apercu-erreur").textContent = `✗ ${VERIFS[ko.cle] ?? ko.cle}${ko.detail ? " : " + ko.detail : ""}`;
   majEtat();
 }
 
@@ -123,7 +127,7 @@ function majEtat(garderTexte = false) {
   const ok = dernier && valide(dernier.resultats);
   btnEnvoyer.disabled = !membre || !ok;
   btnEnvoyer.textContent = courant ? T.edition : T.nouvelle;
-  if (!garderTexte) $("#etat").textContent = !membre || !dernier ? "" : ok ? T.pret : T.a_corriger;
+  if (!garderTexte) $("#etat").textContent = !dernier ? "" : ok ? (membre ? T.pret : "") : T.a_corriger;
 }
 
 // ---------- envoi ----------

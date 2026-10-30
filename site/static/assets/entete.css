@@ -25,3 +25,9 @@ header.entete { position: sticky; top: 0; z-index: 10; background: rgba(7, 9, 15
   .entete nav.menu:not(.ouvert) > a { display: none; }
   .entete nav.menu.ouvert { order: 3; flex-basis: 100%; margin-left: -10px; }
 }
+
+/* commun à toutes les pages : lien d'évitement, cibles tactiles assez grandes */
+.evitement { position: absolute; left: 8px; top: -60px; z-index: 50; padding: 10px 14px; background: #5ce1e6; color: #07090f; font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 700; text-decoration: none; }
+.evitement:focus { top: 8px; }
+footer a { display: inline-block; padding: 12px 4px; }
+input[type="checkbox"] { width: 20px; height: 20px; vertical-align: middle; accent-color: #5ce1e6; }

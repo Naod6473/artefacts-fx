@@ -10,7 +10,7 @@ import { pathToFileURL } from "node:url";
 
 const DIST = "dist";
 const LANGUES = readdirSync("site/i18n").filter((f) => f.endsWith(".json")).map((f) => f.slice(0, -5));
-const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html", espace: "compte/index.html", mentions: "mentions/index.html" };
+const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html", espace: "compte/index.html", mentions: "mentions/index.html", introuvable: "404.html" };
 // le site peut vivre dans un sous-dossier (naod.fr/artefacts/) : tous les liens partent de chemin_web
 const BASE = JSON.parse(readFileSync("config/ovh.json", "utf8")).chemin_web ?? "/";
 
@@ -129,7 +129,8 @@ const csp = (page) => ["proposer", "moderation"].includes(page)
   ? CSP_BASE + "; script-src 'self' 'unsafe-inline' blob:; worker-src blob:"
   : CSP_BASE + "; script-src 'self'";
 function remplir(modele, t, page) {
-  let html = modele.replace('<meta charset="utf-8">', `<meta charset="utf-8">\n<meta http-equiv="Content-Security-Policy" content="${csp(page)}">`);
+  let html = modele.replace('<meta charset="utf-8">', `<meta charset="utf-8">\n<meta http-equiv="Content-Security-Policy" content="${csp(page)}">`
+    + `\n<link rel="icon" href="${BASE}favicon.svg" type="image/svg+xml">\n<link rel="apple-touch-icon" href="${BASE}apple-touch-icon.png">`);
   // deux niveaux suffisent (en-tête → menu) ; un « {{> nom}} » cité dans le commentaire d'un morceau reste tel quel
   for (let i = 0; i < 2; i++) html = html.replace(/\{\{> (\w+)\}\}/g, (_, f) => readFileSync(`site/pages/_${f}.html`, "utf8"));
   html = html.replace(/\{\{(\w+)\}\}/g, (_, k) => {
@@ -155,6 +156,7 @@ for (const langue of LANGUES) {
 {
   const SITE = "https://" + JSON.parse(readFileSync("config/ovh.json", "utf8")).domaine + BASE.replace(/\/$/, "");
   const { TAGS_FR, CATEGORIES_FR } = await import("./site/src/tags.js");
+  const { usage } = await import("./site/src/usage.js");
   const { apercu } = await import("./tools/apercus.mjs");
   const rapide = process.argv.includes("--rapide"); // sans les images d'aperçu (≈ 1 min), pour travailler en local
   mkdirSync(join(DIST, "apercus"), { recursive: true });
@@ -174,7 +176,7 @@ for (const langue of LANGUES) {
       const lien = (x, fleche) => x ? `<a href="${BASE}${langue}/fx/${+x.n}/">${fleche === "←" ? "← " : ""}${echappe(x.name)} #${x.n}${fleche === "→" ? " →" : ""}</a>` : "<span></span>";
       const tags = e.tags.map((g) => `<li><a href="${BASE}${langue}/bibliotheque/#tags=${encodeURIComponent(g)}">${echappe(fr ? TAGS_FR[g] ?? g : g)}</a></li>`).join("");
       const valeurs = {
-        n: e.n, num, id: echappe(e.id), nom: echappe(e.name), desc: echappe(e.desc),
+        n: e.n, num, id: echappe(e.id), nom: echappe(e.name), desc: echappe(e.desc), usage: echappe(usage(e)),
         credit: e.author ? echappe(` (${t.mod_par} ${e.author})`) : "",
         url: url(langue), url_fr: url("fr"), url_en: url("en"), url_autre: `${BASE}${t.langue_autre_code}/fx/${num}/`,
         image: `${SITE}/apercus/${e.n}.png`, image_rel: `${BASE}apercus/${e.n}.png`,
@@ -195,7 +197,7 @@ for (const langue of LANGUES) {
       urls.push(url(langue));
     });
   }
-  const pages = LANGUES.flatMap((l) => Object.values(PAGES).filter((f) => !/^(moderation|compte)\//.test(f)).map((f) => `${SITE}/${l}/${f.replace(/index\.html$/, "")}`));
+  const pages = LANGUES.flatMap((l) => Object.values(PAGES).filter((f) => !/^(moderation|compte)\/|^404/.test(f)).map((f) => `${SITE}/${l}/${f.replace(/index\.html$/, "")}`));
   writeFileSync(join(DIST, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...pages, ...urls].map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`);
   writeFileSync(join(DIST, "robots.txt"), `User-agent: *\nDisallow: ${BASE}api/\nDisallow: ${BASE}fr/moderation/\nDisallow: ${BASE}en/moderation/\nDisallow: ${BASE}fr/compte/\nDisallow: ${BASE}en/compte/\nSitemap: ${SITE}/sitemap.xml\n`);
   console.log(`fiches : ${urls.length} pages${rapide ? " (sans images d'aperçu)" : ", images dans apercus/"}`);

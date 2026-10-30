@@ -2,6 +2,7 @@
 
 Options -Indexes
 AddDefaultCharset utf-8
+ErrorDocument 404 {{base}}fr/404.html
 
 # en-têtes de sécurité (la politique de contenu de chaque page est dans son <meta>, frame-ancestors ne peut être qu'ici)
 <IfModule mod_headers.c>

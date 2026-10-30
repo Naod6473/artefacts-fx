@@ -1,6 +1,7 @@
 // La bibliothèque : tous les effets dans un mur filtré par la recherche et les tags, et un panneau qui montre
 // l'effet choisi (lecture, curseur de temps, comparaison des rendus, code). Sans compte, favoris et projet brouillon
 // sont gardés dans le navigateur ; avec un compte, ils sont sur le serveur et le membre a plusieurs projets.
+import { usage as usageDe } from "./usage.js";
 import { Lecteur, boucle, vuePartagee, pleinEcran } from "./lecteur.js";
 import { rendus, parId, RENDU_PAR_DEFAUT } from "../../rendus/index.js";
 import { catalogue, charger, source } from "virtuel:catalogue";
@@ -185,7 +186,7 @@ const charge = new IntersectionObserver((es) => {
     if (!en.isIntersecting) continue;
     charge.unobserve(en.target);
     const e = en.target._effet;
-    charger[e.n]().then((mod) => anim.ajouter(en.target.querySelector("canvas"), new Lecteur(mod), () => etat.rendu));
+    charger[e.n]().then((mod) => anim.ajouter(en.target.querySelector("canvas"), new Lecteur(mod), () => etat.rendu, true));
   }
 }, { rootMargin: "300px" });
 for (const e of LIB) {
@@ -193,7 +194,7 @@ for (const e of LIB) {
   el.className = "carte" + (pleinEcran(e.meta) ? " large" : "");
   el._effet = e;
   el.innerHTML = `<button type="button" class="ouvrir" aria-label="${esc(e.name)}"><canvas style="aspect-ratio:${pleinEcran(e.meta) ? "16/9" : "4/3"}"></canvas></button>
-    <div class="ligne"><b>${esc(e.slug)}</b><button type="button" class="coeur" aria-label="${esc(T.favori)}">♥</button></div>
+    <div class="ligne"><b>${esc(e.name)}</b><button type="button" class="coeur" aria-label="${esc(T.favori)}">♥</button></div>
     <span class="info"><span class="num">#${e.n}</span> · ${e.loop ? AUTO.loop : AUTO.once} · ${e.duration}s</span>`;
   el.querySelector(".ouvrir").onclick = (ev) => { ouvrir(e); montrerPanneau(ev.detail === 0); };
   el.querySelector(".coeur").onclick = () => basculerFavori(e);
@@ -211,7 +212,8 @@ function majMur() {
   const visibles = new Set(ordre);
   for (const [e, el] of cartes) el.hidden = !visibles.has(e);
   mur.append(...ordre.map((e) => cartes.get(e))); // l'ordre du DOM suit le tri
-  $("#compte").innerHTML = `<b>${String(ordre.length).padStart(3, "0")}</b>/${String(LIB.length).padStart(3, "0")}`;
+  const n = ordre.length;
+  $("#compte").innerHTML = n === LIB.length ? `<b>${n}</b> ${T.effets}` : `<b>${n}</b> ${n > 1 ? T.affiches : T.affiche} / ${LIB.length}`;
   $("#vide").hidden = ordre.length > 0;
   $("#vide").textContent = etat.vue === "favoris" && !favoris.size ? T.vide_favoris : etat.vue === "projet" && !projet.length ? T.vide_projet : T.vide;
   document.querySelectorAll("[data-vue]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.vue === etat.vue)));
@@ -271,17 +273,7 @@ $("#vitesse").onchange = (ev) => { if (grand) grand.vitesse = +ev.target.value; 
   requestAnimationFrame(suivre);
 })();
 
-const usage = (e) => `import { createFx, createFrame, composite } from "artefacts-fx";
-import * as fx from "artefacts-fx/effets/${e.id}.js"; // #${e.n}
-
-const frame = createFrame(${e.size[0]}, ${e.size[1]});
-const inst = createFx(fx, { x: ${e.origin[0]}, y: ${e.origin[1]}, seed: 1${optionsCode(e)} });
-
-function tick(dt) {
-  inst.update(dt);
-  inst.draw(frame);
-  composite(frame, imageData.data);
-}`;
+const usage = (e) => usageDe(e, optionsCode(e));
 let onglet = "usage", allerAuCode = false;
 document.querySelectorAll("[role=tab]").forEach((b) => (b.onclick = () => { onglet = b.dataset.onglet; majCode(); }));
 async function majCode() {
@@ -338,13 +330,20 @@ function enregistrer() {
   bulle(T.video_en_cours);
   setTimeout(() => rec.stop(), Math.max(1, grand.meta.duration) * 1000 + 200);
 }
+// une seule bulle, annoncée aux lecteurs d'écran ; un nouveau message remplace le précédent
+let bulleEl = null, bulleMinuteur = 0;
 function bulle(texte) {
-  const d = document.createElement("div");
-  d.className = "bulle";
-  d.setAttribute("role", "status");
-  d.textContent = texte;
-  document.body.appendChild(d);
-  setTimeout(() => d.remove(), 2600);
+  if (!bulleEl) {
+    bulleEl = document.createElement("div");
+    bulleEl.className = "bulle";
+    bulleEl.setAttribute("role", "status");
+    bulleEl.setAttribute("aria-live", "polite");
+    document.body.appendChild(bulleEl);
+  }
+  bulleEl.textContent = texte;
+  bulleEl.hidden = false;
+  clearTimeout(bulleMinuteur);
+  bulleMinuteur = setTimeout(() => (bulleEl.hidden = true), 2600);
 }
 
 // Sur mobile le panneau est une feuille plein écran, ouverte par une carte et fermée par « Retour » ou Échap ; au
@@ -372,7 +371,7 @@ async function ouvrir(e) {
   etat.choisi = e;
   for (const [x, el] of cartes) el.setAttribute("aria-current", String(x === e));
   $("#fx-num").textContent = "#" + e.n;
-  $("#fx-nom").textContent = e.slug;
+  $("#fx-nom").textContent = e.name;
   $("#fx-desc").textContent = e.desc + (e.author ? ` (${T.par} ${e.author})` : "");
   $("#fx-tags").replaceChildren(...e.tags.map((t) => {
     const b = document.createElement("button");
@@ -582,7 +581,7 @@ $("#planche").onclick = async () => {
   const e = etat.choisi;
   if (!e) return;
   plMod = await charger[e.n]();
-  $("#pl-effet").textContent = `#${e.n} ${e.slug}`;
+  $("#pl-effet").textContent = `#${e.n} ${e.name}`;
   $("#pl-rendu").value = etat.rendu;
   $("#pl-echelle").value = etat.rendu === "pixel" ? "2" : "3";
   $("#pl-fps").value = String([15, 12, 8].find((f) => f <= (plMod.meta.fps ?? 30)) ?? 8);
@@ -710,9 +709,6 @@ $("#projet-supprimer").onclick = async () => {
 };
 
 // ---------- étoiles du repo GitHub (si l'API répond ; sinon le lien reste sans compteur)
-fetch("https://api.github.com/repos/Naod6473/artefacts-fx").then((r) => (r.ok ? r.json() : null)).then((d) => {
-  if (d && typeof d.stargazers_count === "number") $("#etoiles").textContent = d.stargazers_count;
-}).catch(() => {});
 
 lireUrl();
 recherche.value = etat.q;

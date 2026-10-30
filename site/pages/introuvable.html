@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="{{langue}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{{nf_titre}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
+<link rel="stylesheet" href="{{base}}assets/proposer.css">
+<link rel="stylesheet" href="{{base}}assets/compte.css">
+<link rel="stylesheet" href="{{base}}assets/entete.css">
+</head>
+<body data-base="{{base}}">
+{{> entete}}
+<main id="contenu" class="proposer mentions">
+  <h1>{{nf_h1}}</h1>
+  <p>{{nf_texte}}</p>
+  <p><a class="bouton principal" href="{{base}}{{langue}}/bibliotheque/">{{nf_biblio}}</a> <a class="bouton" href="{{base}}{{langue}}/">{{nf_accueil}}</a></p>
+</main>
+{{> pied}}
+{{> compte}}
+<script type="module" src="{{base}}assets/entete.js"></script>
+</body>
+</html>

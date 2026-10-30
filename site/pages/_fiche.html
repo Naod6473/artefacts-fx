@@ -31,7 +31,7 @@
 <body data-base="{{base}}" data-n="%%n%%">
 {{> entete}}
 
-<main class="fiche">
+<main id="contenu" class="fiche">
   <p class="fil dim"><a href="{{base}}{{langue}}/bibliotheque/">{{bib_nav_biblio}}</a> › <a href="{{base}}{{langue}}/bibliotheque/#q=%%categorie_q%%">%%categorie%%</a></p>
   <h1>%%nom%% <span class="num">#%%n%%</span></h1>
   <p class="desc">%%desc%%%%credit%%</p>
@@ -55,13 +55,7 @@
   <ul class="tags">%%tags%%</ul>
 
   <h2>{{fiche_utiliser}}</h2>
-  <pre class="code"><code>import { createFx } from "artefacts/core/index.js";
-import * as effet from "artefacts/effets/%%id%%.js";
-
-const fx = createFx(effet, { x: 120, y: 80 });
-// {{fiche_boucle}}
-fx.update(dt);
-fx.draw(frame);</code></pre>
+  <pre class="code"><code>%%usage%%</code></pre>
 
   <nav class="voisins" aria-label="{{fiche_voisins}}">
     %%precedent%%

@@ -22,10 +22,12 @@ async function afficher(m) {
   $("#contenu").hidden = false;
   $("#esp-qui").textContent = [m.email, m.github && "GitHub @" + m.github].filter(Boolean).join(" · ");
   $("#esp-favoris").textContent = m.favoris.length;
-  $("#esp-projets").textContent = m.projets.length;
+  // le projet créé d'office ne compte que s'il contient des effets
+  const projets = m.projets.filter((p) => p.effets.length || m.projets.length > 1);
+  $("#esp-projets").textContent = projets.length;
   $("#esp-mdp-bloc").hidden = !m.mdp;
-  $("#esp-projets-liste-bloc").hidden = !m.projets.length;
-  $("#esp-projets-liste").replaceChildren(...m.projets.map((p) => {
+  $("#esp-projets-liste-bloc").hidden = !projets.length;
+  $("#esp-projets-liste").replaceChildren(...projets.map((p) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.href = `${BASE}${LANGUE}/bibliotheque/#vue=projet`;

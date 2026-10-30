@@ -126,7 +126,7 @@ for (const m of [lightningStrike, levelUp, hologram, heal, blackHole, swordSlash
   a.append(cv);
   f.append(a, c);
   mur.appendChild(f);
-  anim.ajouter(cv, l, () => renduApercu);
+  anim.ajouter(cv, l, () => renduApercu, true);
 }
 
 // bouton « Se connecter » : même fenêtre que dans la bibliothèque ; favoris et projets se gèrent là-bas

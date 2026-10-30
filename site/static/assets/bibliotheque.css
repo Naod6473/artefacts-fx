@@ -1,7 +1,7 @@
 /* Bibliothèque : style « terminal » (piste A) et panneau latéral (piste C). */
 :root {
   --fond: #07090f; --carte: #090c14; --scene: #0e1220; --trait: #1c2433; --trait2: #2a3547;
-  --encre: #d6e2f0; --dim: #8796ad; --faible: #6b7a90; --accent: #5ce1e6; --ambre: #ffb347;
+  --encre: #d6e2f0; --dim: #8796ad; --faible: #7d8ca3; --accent: #5ce1e6; --ambre: #ffb347;
   --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
   color-scheme: dark;
 }
@@ -12,7 +12,7 @@ a { color: var(--accent); }
 .petit { font-size: 11px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 kbd { font: inherit; color: var(--faible); border: 1px solid var(--trait2); padding: 0 6px; }
-button, select { font: inherit; color: var(--encre); background: transparent; border: 1px solid var(--trait2); min-height: 32px; padding: 4px 10px; cursor: pointer; }
+button, select { font: inherit; color: var(--encre); background: transparent; border: 1px solid var(--trait2); min-height: 40px; padding: 4px 10px; cursor: pointer; }
 button:hover:not(:disabled) { border-color: var(--accent); }
 button:disabled { opacity: .45; cursor: default; }
 button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--fond); }
@@ -56,12 +56,12 @@ main { flex: 999 1 560px; min-width: 0; padding: 16px 20px 48px; }
 .carte .ligne { display: flex; justify-content: space-between; gap: 8px; padding: 7px 10px 0; border-top: 1px solid var(--trait); }
 .carte .ligne b { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .carte .ligne i { font-style: normal; color: var(--faible); }
-.carte .info { display: block; padding: 0 10px 8px; color: var(--faible); font-size: 11px; }
+.carte .info { display: block; padding: 0 10px 8px; color: var(--faible); font-size: 12px; }
 
 aside { flex: 1 1 400px; max-width: 480px; position: sticky; top: 104px; max-height: calc(100vh - 104px); overflow-y: auto; border-left: 1px solid var(--trait); background: #0a0d15; padding: 16px 20px 24px; display: flex; flex-direction: column; gap: 12px; }
 .titre { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 h1 { margin: 0; font-size: 18px; font-weight: 700; word-break: break-all; }
-h1::before { content: "> "; color: var(--accent); }
+h1::before { content: "> "; content: "> " / ""; color: var(--accent); }
 .coeur { min-width: 44px; min-height: 44px; }
 #fx-desc { margin: 0; font-size: 12px; }
 #apercu { display: block; width: 100%; border: 1px solid var(--trait); background: var(--scene); }
@@ -73,7 +73,7 @@ h1::before { content: "> "; color: var(--accent); }
 #comparaison figure { margin: 0; cursor: pointer; }
 #comparaison canvas { display: block; width: 100%; border: 1px solid var(--trait); background: var(--scene); }
 #comparaison figure:hover canvas { border-color: var(--accent); }
-#comparaison figcaption { font-size: 10px; color: var(--dim); padding-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#comparaison figcaption { font-size: 12px; color: var(--dim); padding-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .onglets { display: flex; gap: 2px; border-bottom: 1px solid var(--trait); }
 .onglets button { border: 0; border-bottom: 2px solid transparent; min-height: 40px; color: var(--dim); }
 .onglets button[aria-selected="true"] { color: var(--encre); border-bottom-color: var(--accent); }
@@ -100,7 +100,7 @@ h1::before { content: "> "; color: var(--accent); }
 #tags { margin-bottom: 14px; }
 .carte .ouvrir { display: block; width: 100%; padding: 0; border: 0; min-height: 0; background: var(--scene); }
 .carte .ligne { align-items: center; padding: 4px 4px 0 10px; }
-.carte .coeur { border: 0; min-width: 36px; min-height: 36px; color: var(--faible); background: transparent; }
+.carte .coeur { border: 0; min-width: 44px; min-height: 44px; color: var(--faible); background: transparent; }
 .carte .coeur[aria-pressed="true"], #fx-coeur[aria-pressed="true"] { color: #ff6b8b; background: transparent; }
 .num { color: var(--accent); }
 .titre .boutons { display: flex; gap: 6px; }
