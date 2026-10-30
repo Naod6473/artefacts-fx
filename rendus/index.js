@@ -9,7 +9,8 @@ import * as gameboy from "./gameboy.js";
 import * as led from "./led.js";
 import * as vhs from "./vhs.js";
 import * as minitel from "./minitel.js";
+import * as crayon from "./crayon.js";
 
-export const rendus = [glyphes, pixel, ascii, braille, blocs, phosphore, gameboy, led, vhs, minitel];
+export const rendus = [glyphes, pixel, ascii, braille, blocs, phosphore, gameboy, led, vhs, minitel, crayon];
 export const parId = Object.fromEntries(rendus.map((r) => [r.meta.id, r]));
 export const RENDU_PAR_DEFAUT = "glyphes";

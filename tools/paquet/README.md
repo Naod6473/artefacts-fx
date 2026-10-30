@@ -35,7 +35,7 @@ function tick(dt) {
 Every effect module exports `meta` (name, size, origin, duration, loop, options…) and `draw` or `create`.
 Options from `meta.options` (palette, seed, speed…) can be overridden in the second argument of `createFx`.
 
-## Show an effect in one of the ten styles (browser)
+## Show an effect in one of the eleven styles (browser)
 
 The player handles timing, the stage and the render style on a `<canvas>`:
 
