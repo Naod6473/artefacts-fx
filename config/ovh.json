@@ -1,8 +1,9 @@
 {
   "_aide": "Réglages de la mise en ligne sur OVH. Les identifiants FTP ne vont PAS ici : ils sont dans les secrets GitHub (FTP_SERVER, FTP_USERNAME, FTP_PASSWORD).",
-  "_chemins": "dossier_distant : où GitHub envoie les fichiers sur le FTP (www = la racine de naod.fr). chemin_web : l'adresse correspondante sur le site. Les deux changent ensemble.",
+  "_chemins": "dossier_distant : où GitHub envoie les fichiers, à partir du dossier home de l'hébergement (www = la racine de naod.fr). chemin_web : l'adresse correspondante sur le site. Les deux changent ensemble.",
   "domaine": "naod.fr",
-  "dossier_distant": "/www/",
+  "dossier_distant": "www/",
   "chemin_web": "/",
-  "protocole": "ftps"
+  "protocole": "sftp",
+  "port": 22
 }

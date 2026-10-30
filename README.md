@@ -32,7 +32,7 @@ npm run index    # après l'ajout d'un effet
 
 ## Mise en ligne
 
-Chaque push sur `main` construit le site et l'envoie sur OVH (`.github/workflows/deploiement.yml`). Le dossier distant
+Chaque push sur `main` construit le site et l'envoie sur OVH en SFTP (`.github/workflows/deploiement.yml`). Le dossier distant
 est dans `config/ovh.json` ; les identifiants FTP sont dans les secrets du repo (`FTP_SERVER`, `FTP_USERNAME`,
 `FTP_PASSWORD`), jamais dans le code.
 

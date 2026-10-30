@@ -1,4 +1,4 @@
-# Construit le site et l'envoie sur l'hébergement OVH par FTP à chaque push sur main.
+# Construit le site et l'envoie sur l'hébergement OVH en SFTP à chaque push sur main.
 # Réglages : config/ovh.json. Identifiants : secrets du repo FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
 # (Settings > Secrets and variables > Actions). Sans ces secrets, le site est construit mais pas envoyé.
 name: Mise en ligne
@@ -27,25 +27,25 @@ jobs:
         id: config
         run: |
           echo "dossier=$(jq -r .dossier_distant config/ovh.json)" >> "$GITHUB_OUTPUT"
-          echo "protocole=$(jq -r .protocole config/ovh.json)" >> "$GITHUB_OUTPUT"
-      - name: Envoyer sur OVH
+          echo "port=$(jq -r .port config/ovh.json)" >> "$GITHUB_OUTPUT"
+      - name: Envoyer sur OVH (SFTP)
         if: env.FTP_SERVER != ''
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ${{ steps.config.outputs.protocole }}
-          local-dir: ./dist/
-          server-dir: ${{ steps.config.outputs.dossier }}
-          # les données de la communauté vivent sur le serveur : ne jamais les écraser ni les effacer
-          exclude: |
-            **/.git*
-            **/.git*/**
-            api/donnees/*.sqlite
-            api/donnees/*.json
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          DOSSIER: ${{ steps.config.outputs.dossier }}
+          PORT: ${{ steps.config.outputs.port }}
+        run: |
+          sudo apt-get install -y -qq lftp > /dev/null
+          mkdir -p ~/.ssh
+          ssh-keyscan -p "$PORT" "$FTP_SERVER" >> ~/.ssh/known_hosts 2> /dev/null
+          ssh-keygen -lf ~/.ssh/known_hosts
+          # mirror -R envoie dist/ ; sans --delete, rien n'est effacé sur le serveur,
+          # et les données de la communauté (api/donnees/*.sqlite, *.json) ne sont jamais écrasées
+          lftp -c "set net:max-retries 2; set net:timeout 30;
+            open -p $PORT -u $FTP_USERNAME --env-password sftp://$FTP_SERVER;
+            mirror -R --verbose --parallel=4 -x '^api/donnees/.*\.(sqlite|json)$' dist/ $DOSSIER"
       - name: Secrets absents
         if: env.FTP_SERVER == ''
         env:
