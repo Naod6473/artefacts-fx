@@ -42,12 +42,13 @@ set_exception_handler(function (Throwable $e): void {
 });
 function journal(string $texte): void
 {
-    @file_put_contents(__DIR__ . '/donnees/erreurs.log', date('c') . ' ' . ($_GET['a'] ?? '') . ' ' . $texte . "\n", FILE_APPEND);
+    @file_put_contents(__DIR__ . '/donnees/erreurs.log', date('c') . ' ' . ($GLOBALS['action'] ?? '') . ' ' . $texte . "\n", FILE_APPEND);
 }
 
 $config = is_file(__DIR__ . '/donnees/config.php') ? (array) require __DIR__ . '/donnees/config.php' : [];
 $methode = $_SERVER['REQUEST_METHOD'];
-$action = (string) ($_GET['a'] ?? '');
+// /api/compte/moi : réécrit en compte.php?a=moi par api/.htaccess, ou servi par Apache (MultiViews, chez OVH) avec PATH_INFO=/moi
+$action = (string) ($_GET['a'] ?? trim((string) ($_SERVER['PATH_INFO'] ?? ''), '/'));
 
 // une écriture doit venir du site lui-même : JSON (pas de formulaire d'un autre site) et même origine si le navigateur l'indique
 if ($methode === 'POST') {
