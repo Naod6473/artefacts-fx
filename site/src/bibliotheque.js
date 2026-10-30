@@ -6,6 +6,8 @@ import { rendus, parId, RENDU_PAR_DEFAUT } from "../../rendus/index.js";
 import { catalogue, charger, source } from "virtuel:catalogue";
 import { CATEGORIES_FR, TAGS_FR, SYNONYMES } from "./tags.js";
 import { initCompte } from "./compte.js";
+import { planche, dimensions, spriteFrames, scene, COTE_MAX } from "./planche.js";
+import { zip, telecharger } from "./zip.js";
 
 const $ = (s) => document.querySelector(s);
 const LANGUE = document.documentElement.lang || "fr";
@@ -372,6 +374,60 @@ addEventListener("keydown", (ev) => {
     if (e) { ouvrir(e); cartes.get(e).scrollIntoView({ block: "nearest" }); }
   }
 });
+
+// ---------- planche de sprites (PNG) et fichiers Godot 4
+const fenPl = $("#fen-planche");
+let plMod = null, plRes = null, plMinuteur = 0;
+$("#pl-rendu").replaceChildren(...rendus.map((r) => new Option(nomRendu(r), r.meta.id)));
+const reglagesPl = () => ({ rendu: $("#pl-rendu").value, echelle: +$("#pl-echelle").value, fps: +$("#pl-fps").value, transparent: $("#pl-transparent").checked });
+const nomPl = () => `${etat.choisi.n}-${etat.choisi.slug}-${$("#pl-rendu").value}`;
+const pngDe = (cv) => new Promise((ok) => cv.toBlob(ok, "image/png"));
+$("#planche").onclick = async () => {
+  const e = etat.choisi;
+  if (!e) return;
+  plMod = await charger[e.n]();
+  $("#pl-effet").textContent = `#${e.n} ${e.slug}`;
+  $("#pl-rendu").value = etat.rendu;
+  $("#pl-echelle").value = etat.rendu === "pixel" ? "2" : "3";
+  $("#pl-fps").value = String([15, 12, 8].find((f) => f <= (plMod.meta.fps ?? 30)) ?? 8);
+  fenPl.showModal();
+  majPlanche();
+};
+$("#pl-rendu").onchange = () => { $("#pl-echelle").value = $("#pl-rendu").value === "pixel" ? "2" : "3"; majPlanche(); };
+for (const id of ["#pl-echelle", "#pl-fps", "#pl-transparent"]) $(id).onchange = majPlanche;
+function majPlanche() {
+  clearTimeout(plMinuteur);
+  plRes = null;
+  const r = reglagesPl(), d = dimensions({ duration: 1, ...plMod.meta }, r);
+  const tropGrand = d.largeur > COTE_MAX || d.hauteur > COTE_MAX;
+  $("#pl-infos").textContent = T.pl_infos.replace("%n", d.n).replace("%g", `${d.cols}×${d.lignes}`).replace("%t", `${d.largeur}×${d.hauteur}`) + (tropGrand ? " · " + T.pl_trop_grand : "");
+  $("#pl-png").disabled = $("#pl-godot").disabled = true;
+  if (tropGrand) return;
+  plMinuteur = setTimeout(() => {
+    plRes = planche(plMod, r);
+    const cv = $("#pl-canvas");
+    cv.width = plRes.atlas.width;
+    cv.height = plRes.atlas.height;
+    cv.getContext("2d").drawImage(plRes.atlas, 0, 0);
+    $("#pl-png").disabled = $("#pl-godot").disabled = false;
+  }, 150);
+}
+$("#pl-png").onclick = async () => plRes && telecharger(await pngDe(plRes.atlas), nomPl() + ".png");
+$("#pl-godot").onclick = async () => {
+  if (!plRes) return;
+  let dossier = $("#pl-dossier").value.trim().replace(/^res:\/\//, "").replace(/^\/+|\/+$/g, "");
+  dossier = "res://" + (dossier ? dossier + "/" : "");
+  const e = etat.choisi, nom = nomPl(), echelle = +$("#pl-echelle").value;
+  const noeud = e.slug.split("_").map((m) => m[0].toUpperCase() + m.slice(1)).join("");
+  const lisezmoi = T.pl_lisezmoi.replaceAll("|", "\n").replaceAll("%e", `#${e.n} ${e.slug}`).replaceAll("%n2", plRes.n).replaceAll("%n", +e.n)
+    .replaceAll("%d", dossier).replaceAll("%fps", plRes.fps).replaceAll("%f", nom).replaceAll("%c", `${plRes.fw}×${plRes.fh}`);
+  telecharger(await zip([
+    { nom: `${nom}/${nom}.png`, contenu: await pngDe(plRes.atlas) },
+    { nom: `${nom}/${nom}.tres`, contenu: spriteFrames(plRes, `${dossier}${nom}/${nom}.png`) },
+    { nom: `${nom}/${nom}.tscn`, contenu: scene(plRes, `${dossier}${nom}/${nom}.tres`, noeud, echelle) },
+    { nom: `${nom}/LISEZMOI.txt`, contenu: lisezmoi + "\n" },
+  ]), `${nom}-godot.zip`);
+};
 
 // ---------- compte : favoris et projets suivent le membre sur tous ses appareils ; rien n'est visible des autres
 const compte = initCompte({ base: T.base, T, ERR: JSON.parse($("#erreurs-compte").textContent), bulle, connecte, deconnecte });

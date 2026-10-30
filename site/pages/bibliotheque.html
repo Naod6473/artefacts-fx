@@ -93,13 +93,31 @@
     <div class="actions">
       <button type="button" id="copier" class="principal">{{bib_copier}}</button>
       <button type="button" id="video">{{bib_video}}</button>
-      <button type="button" disabled title="{{bib_bientot}}">Godot</button>
+      <button type="button" id="planche">{{pl_bouton}}</button>
     </div>
     <p id="fx-infos" class="dim petit"></p>
   </aside>
 </div>
+<dialog id="fen-planche" aria-labelledby="pl-titre">
+  <form method="dialog" class="fermer"><button aria-label="{{cpt_fermer}}">×</button></form>
+  <h2 id="pl-titre">{{pl_titre}} <span id="pl-effet" class="dim"></span></h2>
+  <div class="pl-reglages">
+    <label>{{pl_rendu}}<select id="pl-rendu"></select></label>
+    <label>{{pl_taille}}<select id="pl-echelle"><option value="1">×1</option><option value="2">×2</option><option value="3">×3</option><option value="4">×4</option><option value="6">×6</option><option value="8">×8</option></select></label>
+    <label>{{pl_fps}}<select id="pl-fps"><option>30</option><option>24</option><option>15</option><option>12</option><option>8</option></select></label>
+    <label class="case"><input type="checkbox" id="pl-transparent" checked> {{pl_transparent}}</label>
+  </div>
+  <div class="pl-apercu"><canvas id="pl-canvas" width="1" height="1"></canvas></div>
+  <p id="pl-infos" class="dim"></p>
+  <label class="pl-dossier">{{pl_dossier}}<input id="pl-dossier" value="res://fx/" spellcheck="false"></label>
+  <div class="actions">
+    <button type="button" id="pl-png">{{pl_png}}</button>
+    <button type="button" id="pl-godot" class="principal">{{pl_godot}}</button>
+  </div>
+  <p class="dim petit">{{pl_aide}}</p>
+</dialog>
 {{> compte}}
-<script id="textes" type="application/json">{"lire":"{{bib_lire}}","pause":"{{bib_pause}}","copie":"{{bib_copie}}","copie_ko":"{{bib_copie_ko}}","video_ko":"{{bib_video_ko}}","video_ok":"{{bib_video_ok}}","video_en_cours":"{{bib_video_en_cours}}","virgule":"{{bib_virgule}}","favori":"{{bib_favori}}","vide":"{{bib_vide}}","vide_favoris":"{{bib_vide_favoris}}","vide_projet":"{{bib_vide_projet}}","ajouter_projet":"{{bib_ajouter_projet}}","retirer_projet":"{{bib_retirer_projet}}","lien_copie":"{{bib_lien_copie}}","base":"{{base}}","se_connecter":"{{cpt_se_connecter}}","creer_titre":"{{cpt_creer_titre}}","connexion_titre":"{{cpt_connexion_titre}}","oubli_titre":"{{cpt_oubli_titre}}","nouveau_titre":"{{cpt_nouveau_titre}}","creer_bouton":"{{cpt_creer_bouton}}","oubli_bouton":"{{cpt_oubli_bouton}}","nouveau_bouton":"{{cpt_nouveau_bouton}}","nouveau_mdp":"{{cpt_nouveau_mdp}}","mdp":"{{cpt_mdp}}","envoye_confirmer":"{{cpt_envoye_confirmer}}","envoye_oubli":"{{cpt_envoye_oubli}}","bienvenue":"{{cpt_bienvenue}}","deconnecte":"{{cpt_deconnecte}}","supprimer_confirmer":"{{cpt_supprimer_confirmer}}","supprimer_mdp":"{{cpt_supprimer_mdp}}","supprime":"{{cpt_supprime}}","projet_nom":"{{cpt_projet_nom}}","projet_defaut":"{{cpt_projet_defaut}}","projet_brouillon":"{{cpt_projet_brouillon}}","projet_suppr_confirmer":"{{cpt_projet_suppr_confirmer}}","hors_ligne":"{{cpt_hors_ligne}}","sync_ko":"{{cpt_sync_ko}}"}</script>
+<script id="textes" type="application/json">{"lire":"{{bib_lire}}","pause":"{{bib_pause}}","copie":"{{bib_copie}}","copie_ko":"{{bib_copie_ko}}","video_ko":"{{bib_video_ko}}","video_ok":"{{bib_video_ok}}","video_en_cours":"{{bib_video_en_cours}}","virgule":"{{bib_virgule}}","favori":"{{bib_favori}}","vide":"{{bib_vide}}","vide_favoris":"{{bib_vide_favoris}}","vide_projet":"{{bib_vide_projet}}","ajouter_projet":"{{bib_ajouter_projet}}","retirer_projet":"{{bib_retirer_projet}}","lien_copie":"{{bib_lien_copie}}","base":"{{base}}","pl_infos":"{{pl_infos}}","pl_trop_grand":"{{pl_trop_grand}}","pl_lisezmoi":"{{pl_lisezmoi}}","pl_en_cours":"{{pl_en_cours}}","se_connecter":"{{cpt_se_connecter}}","creer_titre":"{{cpt_creer_titre}}","connexion_titre":"{{cpt_connexion_titre}}","oubli_titre":"{{cpt_oubli_titre}}","nouveau_titre":"{{cpt_nouveau_titre}}","creer_bouton":"{{cpt_creer_bouton}}","oubli_bouton":"{{cpt_oubli_bouton}}","nouveau_bouton":"{{cpt_nouveau_bouton}}","nouveau_mdp":"{{cpt_nouveau_mdp}}","mdp":"{{cpt_mdp}}","envoye_confirmer":"{{cpt_envoye_confirmer}}","envoye_oubli":"{{cpt_envoye_oubli}}","bienvenue":"{{cpt_bienvenue}}","deconnecte":"{{cpt_deconnecte}}","supprimer_confirmer":"{{cpt_supprimer_confirmer}}","supprimer_mdp":"{{cpt_supprimer_mdp}}","supprime":"{{cpt_supprime}}","projet_nom":"{{cpt_projet_nom}}","projet_defaut":"{{cpt_projet_defaut}}","projet_brouillon":"{{cpt_projet_brouillon}}","projet_suppr_confirmer":"{{cpt_projet_suppr_confirmer}}","hors_ligne":"{{cpt_hors_ligne}}","sync_ko":"{{cpt_sync_ko}}"}</script>
 <script type="module" src="{{base}}assets/bibliotheque.js"></script>
 </body>
 </html>

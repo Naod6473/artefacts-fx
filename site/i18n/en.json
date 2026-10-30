@@ -133,5 +133,19 @@
   "cpt_projet_suppr_confirmer": "Delete the project “%s”? The effects stay in the library.",
   "cpt_hors_ligne": "Accounts are unavailable right now.",
   "cpt_sync_ko": "Could not save, will retry later.",
-  "cpt_erreurs_json": "{\"identifiants\": \"Wrong email or password.\", \"non_confirme\": \"Email not confirmed yet: open the link we sent you (or sign up again to get a new one).\", \"email_invalide\": \"This email address is not valid.\", \"mdp_court\": \"The password must be at least 8 characters.\", \"trop_d_essais\": \"Too many attempts. Try again in a few minutes.\", \"lien_expire\": \"This link has expired or was already used. Ask for a new one.\", \"github_refuse\": \"GitHub sign-in did not complete.\", \"github_indisponible\": \"GitHub sign-in is not available yet.\", \"defaut\": \"Something went wrong. Please try again.\"}"
+  "cpt_erreurs_json": "{\"identifiants\": \"Wrong email or password.\", \"non_confirme\": \"Email not confirmed yet: open the link we sent you (or sign up again to get a new one).\", \"email_invalide\": \"This email address is not valid.\", \"mdp_court\": \"The password must be at least 8 characters.\", \"trop_d_essais\": \"Too many attempts. Try again in a few minutes.\", \"lien_expire\": \"This link has expired or was already used. Ask for a new one.\", \"github_refuse\": \"GitHub sign-in did not complete.\", \"github_indisponible\": \"GitHub sign-in is not available yet.\", \"defaut\": \"Something went wrong. Please try again.\"}",
+  "pl_bouton": "Sprite sheet",
+  "pl_titre": "Sprite sheet",
+  "pl_rendu": "Style",
+  "pl_taille": "Scale",
+  "pl_fps": "Frames/s",
+  "pl_transparent": "Transparent background",
+  "pl_dossier": "Folder in the Godot project",
+  "pl_png": "Download PNG",
+  "pl_godot": "Download for Godot 4",
+  "pl_aide": "The Godot zip holds the sheet, a SpriteFrames (.tres) and an AnimatedSprite2D scene (.tscn). Unzip it into the folder above, then drag the scene into your level.",
+  "pl_infos": "%n frames · %g grid · %t px",
+  "pl_trop_grand": "Sheet too large: lower the scale or frames/s.",
+  "pl_en_cours": "Preparing…",
+  "pl_lisezmoi": "Effect %e, Artefacts (https://naod.fr/fx/%n), MIT license.|Engine and original effects: pixelfx (MIT, Patch, Hugo Duprez).||Godot 4:|1. Unzip this folder into %d (the folder chosen on the site).|2. Open %f.tscn or drag it into a scene: the animation starts on its own.|3. The node is an AnimatedSprite2D; the effect's origin is at (0, 0).||Other engines: %f.png is a sheet of %n2 frames of %c px, left to right then top to bottom, at %fps frames/s."
 }

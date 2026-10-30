@@ -133,5 +133,19 @@
   "cpt_projet_suppr_confirmer": "Supprimer le projet « %s » ? Les effets restent dans la bibliothèque.",
   "cpt_hors_ligne": "Comptes indisponibles pour le moment.",
   "cpt_sync_ko": "Enregistrement impossible, nouvel essai plus tard.",
-  "cpt_erreurs_json": "{\"identifiants\": \"E-mail ou mot de passe incorrect.\", \"non_confirme\": \"Adresse pas encore confirmée : ouvrez le lien reçu par e-mail (ou recréez le compte pour le recevoir à nouveau).\", \"email_invalide\": \"Cette adresse e-mail n'est pas valide.\", \"mdp_court\": \"Le mot de passe doit faire au moins 8 caractères.\", \"trop_d_essais\": \"Trop d'essais. Réessayez dans quelques minutes.\", \"lien_expire\": \"Ce lien a expiré ou a déjà servi. Demandez-en un nouveau.\", \"github_refuse\": \"La connexion GitHub n'a pas abouti.\", \"github_indisponible\": \"La connexion GitHub n'est pas encore disponible.\", \"defaut\": \"Une erreur est survenue. Réessayez.\"}"
+  "cpt_erreurs_json": "{\"identifiants\": \"E-mail ou mot de passe incorrect.\", \"non_confirme\": \"Adresse pas encore confirmée : ouvrez le lien reçu par e-mail (ou recréez le compte pour le recevoir à nouveau).\", \"email_invalide\": \"Cette adresse e-mail n'est pas valide.\", \"mdp_court\": \"Le mot de passe doit faire au moins 8 caractères.\", \"trop_d_essais\": \"Trop d'essais. Réessayez dans quelques minutes.\", \"lien_expire\": \"Ce lien a expiré ou a déjà servi. Demandez-en un nouveau.\", \"github_refuse\": \"La connexion GitHub n'a pas abouti.\", \"github_indisponible\": \"La connexion GitHub n'est pas encore disponible.\", \"defaut\": \"Une erreur est survenue. Réessayez.\"}",
+  "pl_bouton": "Sprite sheet",
+  "pl_titre": "Planche de sprites",
+  "pl_rendu": "Rendu",
+  "pl_taille": "Taille",
+  "pl_fps": "Images/s",
+  "pl_transparent": "Fond transparent",
+  "pl_dossier": "Dossier dans le projet Godot",
+  "pl_png": "Télécharger le PNG",
+  "pl_godot": "Télécharger pour Godot 4",
+  "pl_aide": "Le zip pour Godot contient la planche, un SpriteFrames (.tres) et une scène AnimatedSprite2D (.tscn). Décompressez-le dans le dossier indiqué, puis glissez la scène dans votre niveau.",
+  "pl_infos": "%n images · grille %g · %t px",
+  "pl_trop_grand": "Planche trop grande : baissez la taille ou les images/s.",
+  "pl_en_cours": "Préparation…",
+  "pl_lisezmoi": "Effet %e, Artefacts (https://naod.fr/fx/%n), licence MIT.|Moteur et effets d'origine : pixelfx (MIT, Patch, Hugo Duprez).||Godot 4 :|1. Décompressez ce dossier dans %d (le dossier choisi sur le site).|2. Ouvrez %f.tscn ou glissez-la dans une scène : l'animation démarre seule.|3. Le nœud est un AnimatedSprite2D ; l'origine de l'effet est en (0, 0).||Autres moteurs : %f.png est une planche de %n2 images de %c px, de gauche à droite puis de haut en bas, à %fps images/s."
 }
