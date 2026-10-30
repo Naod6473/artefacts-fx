@@ -436,35 +436,26 @@ function langueNavigateur(): string
 
 function envoyer(string $a, string $modele, string $lien): void
 {
-    global $langue;
-    $textes = [
-        'fr' => [
-            'confirmer' => ['Confirmez votre compte Artefacts', "Bonjour,\n\nPour activer votre compte Artefacts, ouvrez ce lien (valable 2 jours) :\n\n%s\n\nSi vous n'avez rien demandé, ignorez ce message."],
-            'oubli' => ['Nouveau mot de passe Artefacts', "Bonjour,\n\nPour choisir un nouveau mot de passe, ouvrez ce lien (valable 1 heure) :\n\n%s\n\nSi vous n'avez rien demandé, ignorez ce message : votre mot de passe ne change pas."],
-        ],
-        'en' => [
-            'confirmer' => ['Confirm your Artefacts account', "Hello,\n\nTo activate your Artefacts account, open this link (valid for 2 days):\n\n%s\n\nIf you did not ask for this, ignore this message."],
-            'oubli' => ['New Artefacts password', "Hello,\n\nTo choose a new password, open this link (valid for 1 hour):\n\n%s\n\nIf you did not ask for this, ignore this message: your password stays the same."],
-        ],
-    ];
-    [$sujet, $corps] = $textes[$langue][$modele];
-    $corps = sprintf($corps, $lien) . "\n\n-- \nArtefacts · " . SITE;
+    global $langue, $config;
+    require_once __DIR__ . '/mails.php';
+    [$sujet, $texte, $html] = contenuMail($langue, $modele, $lien, SITE);
     // essais en local : les e-mails sont écrits dans un fichier au lieu d'être envoyés
     if ($f = getenv('ARTEFACTS_MAILS')) {
-        file_put_contents($f, json_encode(['a' => $a, 'sujet' => $sujet, 'corps' => $corps]) . "\n", FILE_APPEND);
+        file_put_contents($f, json_encode(['a' => $a, 'sujet' => $sujet, 'corps' => $texte]) . "\n", FILE_APPEND);
+        file_put_contents($f . '.html', $html);
         return;
     }
-    global $config;
     // par Brevo (API web, clé en secret) en priorité : rien ne dépend des ports SMTP de l'hébergement
-    if (!empty($config['brevo_cle'])) {
-        brevo($a, $sujet, $corps, $config['brevo_cle']);
-        return;
-    }
+    if (!empty($config['brevo_cle']) && brevo($a, $sujet, $texte, $html, $config['brevo_cle'])) return;
+    // sinon un message MIME texte + HTML, par la boîte noreply@naod.fr (SMTP OVH) ou mail() de l'hébergement
+    $limite = 'art-' . bin2hex(random_bytes(8));
+    $qp = fn (string $s) => quoted_printable_encode(str_replace(["\r\n", "\n"], ["\n", "\r\n"], $s));
     $sujet = '=?UTF-8?B?' . base64_encode($sujet) . '?=';
     $entetes = "From: Artefacts <" . EXPEDITEUR . ">\r\nDate: " . date('r') . "\r\nMessage-ID: <" . bin2hex(random_bytes(12)) . "@naod.fr>\r\n"
-        . "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Transfer-Encoding: quoted-printable";
-    $corps = quoted_printable_encode(str_replace("\n", "\r\n", $corps));
-    // par la boîte noreply@naod.fr (SMTP OVH, mot de passe en secret) ; sinon mail() de l'hébergement
+        . "MIME-Version: 1.0\r\nContent-Type: multipart/alternative; boundary=\"$limite\"";
+    $corps = "--$limite\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\n" . $qp($texte)
+        . "\r\n--$limite\r\nContent-Type: text/html; charset=utf-8\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\n" . $qp($html)
+        . "\r\n--$limite--";
     if (!empty($config['smtp_mdp'])) {
         smtp($a, "To: <$a>\r\nSubject: $sujet\r\n$entetes\r\n\r\n$corps", $config['smtp_mdp'], $config['smtp_hote'] ?? 'ssl://ssl0.ovh.net:465');
     } elseif (!mail($a, $sujet, $corps, $entetes, '-f' . EXPEDITEUR) && !mail($a, $sujet, $corps, $entetes)) {
@@ -473,7 +464,7 @@ function envoyer(string $a, string $modele, string $lien): void
 }
 
 /** Envoi par l'API transactionnelle de Brevo. L'adresse noreply@naod.fr doit y être un expéditeur validé. */
-function brevo(string $a, string $sujet, string $corps, string $cle): bool
+function brevo(string $a, string $sujet, string $texte, string $html, string $cle): bool
 {
     $r = @file_get_contents('https://api.brevo.com/v3/smtp/email', false, stream_context_create(['http' => [
         'method' => 'POST',
@@ -482,7 +473,8 @@ function brevo(string $a, string $sujet, string $corps, string $cle): bool
             'sender' => ['name' => 'Artefacts', 'email' => EXPEDITEUR],
             'to' => [['email' => $a]],
             'subject' => $sujet,
-            'textContent' => $corps,
+            'textContent' => $texte,
+            'htmlContent' => $html,
         ]),
         'timeout' => 10,
         'ignore_errors' => true,
