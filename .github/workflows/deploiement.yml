@@ -46,6 +46,19 @@ jobs:
           lftp -c "set net:max-retries 2; set net:timeout 30;
             open -p $PORT -u $FTP_USERNAME --env-password sftp://$FTP_SERVER;
             mirror -R --verbose --parallel=4 -x '^api/donnees/.*\.(sqlite|json)$' dist/ $DOSSIER"
+      - name: Vérifier le site en ligne
+        if: env.FTP_SERVER != ''
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: |
+          base="https://$(jq -r .domaine config/ovh.json)$(jq -r .chemin_web config/ovh.json)"
+          for p in fr/ en/ assets/accueil.js; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "$base$p"); echo "$base$p -> $code"
+            [ "$code" = 200 ] || exit 1
+          done
+          echo "racine (fr) -> $(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' -H 'Accept-Language: fr' "$base")"
+          echo "api/ -> $(curl -s "${base}api/")"
+          echo "api/donnees/test.sqlite -> $(curl -s -o /dev/null -w '%{http_code}' "${base}api/donnees/test.sqlite") (403 ou 404 attendu)"
       - name: Secrets absents
         if: env.FTP_SERVER == ''
         env:
