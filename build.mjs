@@ -10,7 +10,7 @@ import { pathToFileURL } from "node:url";
 
 const DIST = "dist";
 const LANGUES = readdirSync("site/i18n").filter((f) => f.endsWith(".json")).map((f) => f.slice(0, -5));
-const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html" };
+const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html" };
 // le site peut vivre dans un sous-dossier (naod.fr/artefacts/) : tous les liens partent de chemin_web
 const BASE = JSON.parse(readFileSync("config/ovh.json", "utf8")).chemin_web ?? "/";
 
@@ -31,7 +31,7 @@ for (const [n, id] of Object.entries(registre)) {
   let mod;
   try { mod = await import(pathToFileURL(resolve("effets", id + ".js")).href); } catch { continue; } // effet retiré
   const m = { fps: 30, bg: "dark", loop: false, duration: 1, tags: [], options: {}, ...mod.meta };
-  catalogue.push({ n, id, name: m.name, desc: m.desc ?? "", tags: m.tags, loop: m.loop, duration: m.duration, size: m.size, origin: m.origin, bg: m.bg, actor: !!m.actor, couleur: couleurDominante(m.options) });
+  catalogue.push({ n, id, name: m.name, desc: m.desc ?? "", tags: m.tags, loop: m.loop, duration: m.duration, size: m.size, origin: m.origin, bg: m.bg, actor: !!m.actor, couleur: couleurDominante(m.options), ...(m.author ? { author: String(m.author) } : {}) });
 }
 const catalogueVirtuel = {
   name: "catalogue",
@@ -99,9 +99,20 @@ await build({
   banner: { js: "/* Artefacts, MIT. Moteur et effets d'origine : pixelfx, MIT, Copyright (c) 2026 Patch, Copyright (c) 2026 Hugo Duprez */" },
 });
 
+// le moteur du bac à sable (pages Proposer et Modération) : un seul fichier, passé en texte à l'iframe isolée
+await build({
+  entryPoints: ["site/src/moteur-bac.js"],
+  outfile: join(DIST, "assets", "moteur-bac.js"),
+  bundle: true,
+  format: "esm",
+  minify: true,
+  legalComments: "inline",
+  banner: { js: "/* Artefacts, MIT. Moteur : pixelfx, MIT, Copyright (c) 2026 Patch, Copyright (c) 2026 Hugo Duprez */" },
+});
+
 const echappe = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 // les clés qui finissent par une phrase avec des liens (pied_credits) gardent leur HTML ; les autres sont échappées
-const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json"]);
+const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json"]);
 for (const langue of LANGUES) {
   const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
   mkdirSync(join(DIST, langue), { recursive: true });

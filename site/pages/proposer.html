@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="{{langue}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{prop_titre}}</title>
+<meta name="description" content="{{prop_intro}}">
+<link rel="alternate" hreflang="fr" href="{{base}}fr/proposer/">
+<link rel="alternate" hreflang="en" href="{{base}}en/proposer/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
+<link rel="stylesheet" href="{{base}}assets/compte.css">
+<link rel="stylesheet" href="{{base}}assets/proposer.css">
+</head>
+<body data-base="{{base}}">
+<header>
+  <div class="barre">
+    <a class="logo" href="{{base}}{{langue}}/">ARTEFACTS<i>_</i></a>
+    <nav>
+      <a href="{{base}}{{langue}}/bibliotheque/">{{bib_nav_biblio}}</a>
+      <a href="{{base}}{{langue}}/proposer/" aria-current="page">{{nav_proposer}}</a>
+      <a href="{{base}}{{langue}}/moderation/" id="nav-moderation" hidden>{{nav_moderation}}</a>
+      <a href="{{base}}{{langue}}/ia/">{{nav_ia}}</a>
+      <a href="https://github.com/Naod6473/artefacts-fx" class="github">★ GitHub</a>
+      <button type="button" id="btn-compte" class="btn-compte" aria-haspopup="dialog">{{cpt_se_connecter}}</button>
+      <a href="{{base}}{{langue_autre_code}}/proposer/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
+    </nav>
+  </div>
+</header>
+
+<main class="proposer">
+  <h1>{{prop_h1}}</h1>
+  <p class="dim intro">{{prop_intro}}</p>
+  <p id="hors-connexion" class="encart">{{prop_connexion}} <button type="button" id="prop-connexion" class="principal">{{cpt_se_connecter}}</button></p>
+
+  <div class="atelier">
+    <section class="editeur" aria-label="{{prop_code}}">
+      <div class="outils">
+        <span class="dim">{{prop_code}}</span>
+        <span id="taille" class="dim petit"></span>
+        <button type="button" id="modele">{{prop_modele}}</button>
+      </div>
+      <textarea id="code" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="{{prop_code}}"></textarea>
+    </section>
+
+    <section class="cote">
+      <div id="apercu" class="apercu"></div>
+      <div class="outils">
+        <label class="dim">{{bib_rendu}} <select id="rendu"></select></label>
+        <button type="button" id="relancer">↻ {{prop_relancer}}</button>
+        <button type="button" id="tester">▶ {{prop_tester}}</button>
+      </div>
+      <h2>{{prop_verifs}}</h2>
+      <ul id="tests" class="tests" aria-live="polite"></ul>
+
+      <form id="envoi" class="envoi">
+        <label>{{prop_credit}} <span class="dim">({{prop_facultatif}})</span>
+          <input name="credit" maxlength="60" autocomplete="nickname" placeholder="{{prop_credit_exemple}}">
+        </label>
+        <p class="dim petit">{{prop_credit_aide}}</p>
+        <label class="case"><input type="checkbox" name="licence" required> <span>{{prop_licence}}</span></label>
+        <button class="principal" id="envoyer" disabled>{{prop_envoyer}}</button>
+        <p id="etat" class="dim" role="status"></p>
+      </form>
+    </section>
+  </div>
+
+  <section id="mes" class="mes" hidden>
+    <h2>{{prop_mes}}</h2>
+    <p id="mes-vide" class="dim">{{prop_mes_vide}}</p>
+    <ul id="mes-liste"></ul>
+  </section>
+
+  <details class="guide">
+    <summary>{{prop_guide}}</summary>
+    <div class="doc">
+      <p>{{prop_guide_1}}</p>
+      <pre><code>export const meta = { name, desc, tags, size: [w, h], origin: [x, y], duration, loop, fps, bg, options: { palette, seed } };
+export function draw(p, t, o) { … }</code></pre>
+      <p>{{prop_guide_2}}</p>
+      <pre><code>p.px(x, y, c)   p.dot(x, y, c, a)   p.rect(x, y, w, h, c)   p.line(x0, y0, x1, y1, c)
+p.circle(x, y, r, c)   p.ring(x, y, r, w, c)   p.disc(x, y, r, c, a)   p.beam(x0, y0, x1, y1, w, c)
+p.glow(x, y, r, c, k)   p.glowRing(x, y, R, r, c, k)   p.text("TXT", x, y, c)</code></pre>
+      <p>{{prop_guide_3}}</p>
+    </div>
+  </details>
+</main>
+
+<footer class="in"><p>{{pied_licence}} {{pied_credits}}</p></footer>
+<script id="textes" type="application/json">{"modele_confirmer":"{{prop_modele_confirmer}}","envoye":"{{prop_envoye}}","maj":"{{prop_maj}}","ko":"{{prop_ko}}","retirer":"{{prop_retirer}}","retirer_confirmer":"{{prop_retirer_confirmer}}","reprendre":"{{prop_reprendre}}","pr":"{{prop_pr}}","en_cours":"{{prop_en_cours}}","a_corriger":"{{prop_a_corriger}}","pret":"{{prop_pret}}","licence_manque":"{{prop_licence_manque}}","edition":"{{prop_edition}}","nouvelle":"{{prop_nouvelle}}"}</script>
+<script id="statuts" type="application/json">{{prop_statuts_json}}</script>
+<script id="verifs" type="application/json">{{prop_verifs_json}}</script>
+{{> compte}}
+<script type="module" src="{{base}}assets/proposer.js"></script>
+</body>
+</html>

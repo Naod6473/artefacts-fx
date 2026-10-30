@@ -14,6 +14,7 @@
 //   POST /api/compte/projet       {id?, nom, effets:[{n, rendu, note}]}   crée ou remplace un projet
 //   POST /api/compte/projet-supprimer {id}
 //   POST /api/compte/supprimer-compte {mdp?}            efface le membre et toutes ses données
+//   … et les effets proposés : voir propositions.php
 //
 // Réglages secrets (GitHub) : api/donnees/config.php, écrit au déploiement à partir des secrets du repo.
 declare(strict_types=1);
@@ -64,6 +65,7 @@ if ($methode === 'POST') {
 }
 
 $db = base();
+require __DIR__ . '/propositions.php';
 $langue = in_array($corps['langue'] ?? '', ['fr', 'en'], true) ? $corps['langue'] : langueNavigateur();
 
 match ("$methode $action") {
@@ -79,6 +81,12 @@ match ("$methode $action") {
     'POST projet' => projet(),
     'POST projet-supprimer' => projetSupprimer(),
     'POST supprimer-compte' => supprimerCompte(),
+    'POST proposer' => proposer(),
+    'GET mes-propositions' => mesPropositions(),
+    'GET proposition' => proposition(),
+    'POST proposition-retirer' => propositionRetirer(),
+    'GET moderation' => moderation(),
+    'POST moderer' => moderer(),
     default => erreur(404, 'action_inconnue'),
 };
 
@@ -99,6 +107,7 @@ function moi(): never
         'email' => $m['email'],
         'github' => $m['github_login'],
         'mdp' => $m['mdp'] !== null,
+        'admin' => estAdmin($m),
         'favoris' => $fav->fetchAll(PDO::FETCH_COLUMN),
         'projets' => $projets,
     ]);
@@ -303,7 +312,8 @@ function supprimerCompte(): never
     $m = membreOuErreur();
     // compte avec mot de passe : on le redemande ; compte GitHub seul : la session suffit
     if ($m['mdp'] !== null && !password_verify((string) ($corps['mdp'] ?? ''), $m['mdp'])) erreur(401, 'identifiants');
-    foreach (['favoris', 'projets', 'sessions', 'jetons'] as $table) $db->prepare("DELETE FROM $table WHERE membre = ?")->execute([$m['id']]);
+    tablePropositions();
+    foreach (['favoris', 'projets', 'sessions', 'jetons', 'propositions'] as $table) $db->prepare("DELETE FROM $table WHERE membre = ?")->execute([$m['id']]);
     $db->prepare('DELETE FROM membres WHERE id = ?')->execute([$m['id']]);
     poserCookie('', 1);
     repondre(['ok' => true]);
@@ -550,10 +560,10 @@ function repondre(array $donnees): never
     exit;
 }
 
-function erreur(int $code, string $raison): never
+function erreur(int $code, string $raison, string $detail = ''): never
 {
     http_response_code($code);
-    repondre(['ok' => false, 'erreur' => $raison]);
+    repondre(['ok' => false, 'erreur' => $raison] + ($detail !== '' ? ['detail' => $detail] : []));
 }
 
 function couper(string $s, int $debut, int $long): string

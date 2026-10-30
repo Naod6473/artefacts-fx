@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="{{langue}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{{mod_titre}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
+<link rel="stylesheet" href="{{base}}assets/compte.css">
+<link rel="stylesheet" href="{{base}}assets/proposer.css">
+</head>
+<body data-base="{{base}}">
+<header>
+  <div class="barre">
+    <a class="logo" href="{{base}}{{langue}}/">ARTEFACTS<i>_</i></a>
+    <nav>
+      <a href="{{base}}{{langue}}/bibliotheque/">{{bib_nav_biblio}}</a>
+      <a href="{{base}}{{langue}}/proposer/">{{nav_proposer}}</a>
+      <a href="{{base}}{{langue}}/moderation/" aria-current="page">{{nav_moderation}}</a>
+      <button type="button" id="btn-compte" class="btn-compte" aria-haspopup="dialog">{{cpt_se_connecter}}</button>
+      <a href="{{base}}{{langue_autre_code}}/moderation/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
+    </nav>
+  </div>
+</header>
+
+<main class="proposer moderation">
+  <h1>{{mod_h1}}</h1>
+  <p id="refus" class="encart" hidden>{{mod_reserve}}</p>
+  <div id="contenu" hidden>
+    <div class="outils">
+      <label class="dim">{{mod_filtre}} <select id="filtre"><option value="attente">{{mod_filtre_attente}}</option><option value="tout">{{mod_filtre_tout}}</option></select></label>
+      <span id="jeton" class="dim petit"></span>
+    </div>
+    <p id="vide" class="dim" hidden>{{mod_vide}}</p>
+    <div class="atelier">
+      <ul id="liste" class="liste-mod"></ul>
+      <section class="cote" id="examen" hidden>
+        <h2 id="ex-nom"></h2>
+        <p id="ex-qui" class="dim petit"></p>
+        <div id="apercu" class="apercu"></div>
+        <div class="outils">
+          <label class="dim">{{bib_rendu}} <select id="rendu"></select></label>
+          <button type="button" id="relancer">↻ {{prop_relancer}}</button>
+        </div>
+        <ul id="tests" class="tests"></ul>
+        <details open><summary>{{prop_code}}</summary><pre id="ex-code" class="code"></pre></details>
+        <label>{{mod_message}} <textarea id="message" rows="3" maxlength="1000"></textarea></label>
+        <div class="actions">
+          <button type="button" class="principal" data-decision="accepter">✓ {{mod_accepter}}</button>
+          <button type="button" data-decision="revoir">↺ {{mod_revoir}}</button>
+          <button type="button" data-decision="refuser">✗ {{mod_refuser}}</button>
+        </div>
+        <p id="etat" class="dim" role="status"></p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script id="textes" type="application/json">{"accepter_confirmer":"{{mod_accepter_confirmer}}","en_cours":"{{prop_en_cours}}","fait_pr":"{{mod_fait_pr}}","fait":"{{mod_fait}}","ko":"{{prop_ko}}","jeton_absent":"{{mod_jeton_absent}}","par":"{{mod_par}}"}</script>
+<script id="statuts" type="application/json">{{prop_statuts_json}}</script>
+<script id="verifs" type="application/json">{{prop_verifs_json}}</script>
+{{> compte}}
+<script type="module" src="{{base}}assets/moderation.js"></script>
+</body>
+</html>

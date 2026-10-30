@@ -1,0 +1,58 @@
+/* Proposer un effet et modération : éditeur à gauche, aperçu isolé et vérifications à droite. */
+.proposer { max-width: 1400px; margin: 0 auto; padding: 20px 20px 48px; }
+.proposer h1 { font-size: 20px; margin: 4px 0 6px; }
+.proposer h2 { font-size: 14px; margin: 18px 0 8px; }
+.intro { max-width: 80ch; margin: 0 0 16px; }
+.encart { border: 1px dashed var(--trait2); padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.encart[hidden] { display: none; }
+.principal { background: var(--accent); border-color: var(--accent); color: var(--fond); font-weight: 700; }
+.principal:disabled { background: transparent; color: var(--encre); }
+
+.atelier { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+.editeur { flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; }
+.cote { flex: 2 1 360px; min-width: 0; }
+.outils { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0; }
+.outils #modele { margin-left: auto; }
+#code { width: 100%; min-height: 560px; height: 70vh; resize: vertical; background: var(--carte); color: var(--encre); border: 1px solid var(--trait2);
+  font: 12.5px/1.55 var(--mono); padding: 12px 14px; tab-size: 2; white-space: pre; overflow: auto; }
+#code:focus { border-color: var(--accent); outline: none; }
+
+.apercu { background: #000; border: 1px solid var(--trait); aspect-ratio: 4 / 3; }
+.apercu iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+.tests { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+.tests li { padding: 3px 8px; border-left: 2px solid var(--trait2); }
+.tests li.ok { border-color: #3fb98a; }
+.tests li.ok::first-letter { color: #3fb98a; }
+.tests li.ko { border-color: #ff7a6b; color: #ffb4aa; }
+.tests li.note { border-color: var(--ambre); }
+
+.envoi { display: grid; gap: 8px; margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--trait2); }
+.envoi label, .moderation .cote > label { display: grid; gap: 4px; margin-top: 12px; }
+.envoi input:not([type]), .moderation textarea { font: inherit; color: var(--encre); background: var(--carte); border: 1px solid var(--trait2); padding: 8px 10px; }
+.envoi .case { display: flex; gap: 8px; align-items: flex-start; }
+.envoi .case input { margin-top: 4px; }
+.envoi p { margin: 0; }
+
+.mes ul, .liste-mod { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.prop { border: 1px solid var(--trait); background: var(--carte); padding: 10px 12px; }
+.prop .tete { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; }
+.prop .message { margin: 6px 0 0; color: var(--ambre); }
+.prop .actions { margin-top: 8px; align-items: center; }
+.prop .actions button { flex: 0 0 auto; min-height: 32px; }
+.statut { font-size: 11px; padding: 1px 6px; border: 1px solid var(--trait2); }
+.statut.attente { color: var(--ambre); border-color: var(--ambre); }
+.statut.a_revoir { color: var(--ambre); }
+.statut.acceptee { color: #3fb98a; border-color: #3fb98a; }
+.statut.refusee, .statut.retiree { color: var(--faible); }
+
+.guide { margin-top: 28px; border-top: 1px solid var(--trait); padding-top: 12px; }
+.guide summary { cursor: pointer; color: var(--accent); }
+.guide .doc { max-width: 90ch; }
+.guide pre, pre.code { background: var(--carte); border: 1px solid var(--trait); padding: 10px 12px; overflow: auto; font-size: 12px; }
+pre.code { max-height: 420px; }
+
+.liste-mod { flex: 1 1 280px; }
+.liste-mod button { width: 100%; text-align: left; }
+.moderation .cote { flex: 3 1 480px; }
+@media (max-width: 700px) { #code { min-height: 360px; height: 50vh; } }

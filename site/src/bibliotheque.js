@@ -350,7 +350,7 @@ async function ouvrir(e) {
   for (const [x, el] of cartes) el.setAttribute("aria-current", String(x === e));
   $("#fx-num").textContent = "#" + e.n;
   $("#fx-nom").textContent = e.slug;
-  $("#fx-desc").textContent = e.desc;
+  $("#fx-desc").textContent = e.desc + (e.author ? ` (${T.par} ${e.author})` : "");
   $("#fx-tags").replaceChildren(...e.tags.map((t) => {
     const b = document.createElement("button");
     b.type = "button";

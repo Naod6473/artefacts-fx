@@ -49,6 +49,17 @@ déploiement. Connexion GitHub : app OAuth (callback `https://naod.fr/api/compte
 la boîte `noreply@naod.fr` (SMTP ssl0.ovh.net, secret `SMTP_PASSWORD`), ou `mail()` d'OVH sans ce secret. Essai en local : `ARTEFACTS_MAILS=mails.log php -S localhost:8090 -t dist routeur.php`
 (les e-mails sont écrits dans le fichier).
 
+## Effets proposés par les membres
+
+Page `/fr/proposer/` : un éditeur, l'aperçu et des vérifications automatiques. Le code proposé tourne dans une iframe
+`sandbox="allow-scripts"` (origine opaque : ni cookies, ni accès à la page) dont la politique de sécurité coupe tout
+réseau, et dans un Worker qu'on arrête s'il ne répond plus (`site/src/bac*.js`). Le serveur refait les vérifications
+statiques (`api/propositions.php`). Page `/fr/moderation/` réservée aux comptes GitHub listés dans `admins`
+(par défaut Naod6473) : accepter ouvre une pull request qui ajoute `effets/communaute/<nom>.js` et le numéro suivant
+dans `effets/registre.json` ; à la fusion, le site se met à jour. Il faut un jeton GitHub à grain fin (Contents et
+Pull requests en écriture sur ce dépôt) en secret `GH_REPO_TOKEN`. La vérification `node tools/check.mjs communaute`
+tourne sur chaque pull request (`.github/workflows/verification.yml`).
+
 ## Ajouter une langue
 
 Copier `site/i18n/fr.json` vers `site/i18n/<code>.json` et traduire les valeurs ; le build crée `/<code>/`.

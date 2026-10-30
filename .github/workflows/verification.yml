@@ -1,0 +1,24 @@
+# Vérifie les effets d'une pull request (effets proposés par les membres, ou autres) avant la fusion :
+# fiche meta, dessin dans le cadre, boucles sans saut, images reproductibles… puis construit le site.
+name: Vérification des effets
+
+on:
+  pull_request:
+    paths: ["effets/**", "core/**", "rendus/**"]
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Effets de la communauté
+        run: node tools/check.mjs communaute
+      - name: Le site se construit
+        run: npm run build

@@ -23,17 +23,19 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - name: Réglages secrets de l'API (connexion GitHub, envoi des e-mails)
+      - name: Réglages secrets de l'API (connexion GitHub, e-mails, pull requests des effets proposés)
         env:
           GH_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
           GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          GH_REPO_TOKEN: ${{ secrets.GH_REPO_TOKEN }}
         run: |
           # écrits dans api/donnees/, que le serveur ne sert jamais ; absents du repo
           [ -n "$GH_CLIENT_ID" ] || echo "::warning::Secret GH_CLIENT_ID absent : connexion GitHub désactivée."
+          [ -n "$GH_REPO_TOKEN" ] || echo "::warning::Secret GH_REPO_TOKEN absent : accepter un effet proposé n'ouvrira pas de pull request."
           [ -n "$BREVO_API_KEY$SMTP_PASSWORD" ] || echo "::warning::Secrets BREVO_API_KEY et SMTP_PASSWORD absents : e-mails envoyés par mail() de l'hébergement."
-          php -r 'file_put_contents("dist/api/donnees/config.php", "<?php return " . var_export(["github_id" => getenv("GH_CLIENT_ID"), "github_secret" => getenv("GH_CLIENT_SECRET"), "smtp_mdp" => getenv("SMTP_PASSWORD"), "brevo_cle" => getenv("BREVO_API_KEY")], true) . ";\n");'
+          php -r 'file_put_contents("dist/api/donnees/config.php", "<?php return " . var_export(["github_id" => getenv("GH_CLIENT_ID"), "github_secret" => getenv("GH_CLIENT_SECRET"), "smtp_mdp" => getenv("SMTP_PASSWORD"), "brevo_cle" => getenv("BREVO_API_KEY"), "github_depot" => getenv("GH_REPO_TOKEN")], true) . ";\n");'
       - name: Lire config/ovh.json
         id: config
         run: |
