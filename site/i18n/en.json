@@ -270,5 +270,10 @@
   "esp_zone": "Danger zone",
   "esp_zone_aide": "Erases your account, favorites, projects and pending submissions. This is final.",
   "esp_effets": "effects",
-  "esp_effet": "effect"
+  "esp_effet": "effect",
+  "zoom_copier": "Copy code",
+  "zoom_details": "Details and settings",
+  "zoom_fermer": "Close",
+  "zoom_prec": "Previous effect",
+  "zoom_suiv": "Next effect"
 }

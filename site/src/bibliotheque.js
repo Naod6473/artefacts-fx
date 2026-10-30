@@ -198,7 +198,11 @@ for (const e of LIB) {
   el.innerHTML = `<button type="button" class="ouvrir" aria-label="${esc(e.name)}"><canvas style="aspect-ratio:${pleinEcran(e.meta) ? "16/9" : "4/3"}"></canvas></button>
     <div class="ligne"><b>${esc(e.name)}</b><button type="button" class="coeur" aria-label="${esc(T.favori)}">♥</button></div>
     <span class="info"><span class="num">#${e.n}</span> · ${e.loop ? AUTO.loop : AUTO.once} · ${e.duration}s</span>`;
-  el.querySelector(".ouvrir").onclick = (ev) => { ouvrir(e); montrerPanneau(ev.detail === 0); };
+  el.querySelector(".ouvrir").onclick = (ev) => {
+    ouvrir(e);
+    if (mobile.matches) montrerPanneau(ev.detail === 0);
+    else ouvrirZoom(e);
+  };
   el.querySelector(".coeur").onclick = () => basculerFavori(e);
   mur.appendChild(el);
   cartes.set(e, el);
@@ -239,6 +243,7 @@ function basculerFavori(e) {
 function majCoeurs() {
   for (const [e, el] of cartes) el.querySelector(".coeur").setAttribute("aria-pressed", String(favoris.has(e.n)));
   if (etat.choisi) $("#fx-coeur").setAttribute("aria-pressed", String(favoris.has(etat.choisi.n)));
+  if (etat.choisi) $("#zoom-coeur")?.setAttribute("aria-pressed", String(favoris.has(etat.choisi.n)));
 }
 
 // ---------- le panneau
@@ -369,8 +374,84 @@ function fermerPanneau() {
 $("#fermer-panneau").onclick = fermerPanneau;
 mobile.addEventListener("change", fermerPanneau);
 
+// ---------- le zoom, sur écran large : l'aperçu s'envole de sa carte jusqu'au centre de l'écran, le reste s'assombrit.
+// Échap, un clic à côté ou ✕ le renvoient dans sa carte ; ← et → passent à l'effet voisin ; « Détails » rend la main au
+// panneau. Sur mobile, la feuille du panneau joue déjà ce rôle.
+const zoom = document.createElement("div");
+zoom.className = "zoom";
+zoom.hidden = true;
+zoom.setAttribute("role", "dialog");
+zoom.setAttribute("aria-modal", "true");
+zoom.setAttribute("aria-labelledby", "zoom-nom");
+zoom.innerHTML = `<div class="zoom-boite"><canvas id="zoom-cv"></canvas>
+  <div class="zoom-bas"><div class="zoom-titre"><span id="zoom-num" class="num"></span> <span id="zoom-nom"></span></div>
+    <div class="zoom-actions"><button type="button" class="plein" id="zoom-copier">${esc(T.zoom_copier)}</button>
+      <button type="button" class="coeur" id="zoom-coeur" aria-label="${esc(T.favori)}">♥</button>
+      <button type="button" id="zoom-details">${esc(T.zoom_details)}</button>
+      <button type="button" id="zoom-fermer" aria-label="${esc(T.zoom_fermer)}">✕</button></div></div></div>
+  <button type="button" class="zoom-fleche g" aria-label="${esc(T.zoom_prec)}">←</button>
+  <button type="button" class="zoom-fleche d" aria-label="${esc(T.zoom_suiv)}">→</button>`;
+document.body.appendChild(zoom);
+const zoomCv = $("#zoom-cv");
+anim.ajouter(zoomCv, vue, () => etat.rendu);
+const zoomOuvert = () => !zoom.hidden;
+const calme = matchMedia("(prefers-reduced-motion: reduce)");
+function tailleZoom(e) {
+  const k = e.size[0] / e.size[1];
+  zoomCv.style.width = Math.round(Math.min(960, innerWidth * 0.86, innerHeight * 0.68 * k)) + "px";
+}
+function envol(depuis, retour) {
+  const a = depuis.getBoundingClientRect(), b = zoomCv.getBoundingClientRect();
+  if (!a.width || !b.width) return null;
+  const k = [{ transform: `translate(${a.left - b.left}px, ${a.top - b.top}px) scale(${a.width / b.width})` }, { transform: "none" }];
+  return zoomCv.animate(retour ? k.reverse() : k, { duration: calme.matches ? 0 : 340, easing: "cubic-bezier(.2,.8,.2,1)", fill: retour ? "forwards" : "none" });
+}
+function majZoom(e) {
+  $("#zoom-num").textContent = "#" + e.n;
+  $("#zoom-nom").textContent = e.name;
+  $("#zoom-coeur").setAttribute("aria-pressed", String(favoris.has(e.n)));
+  tailleZoom(e);
+}
+function ouvrirZoom(e) {
+  majZoom(e);
+  zoomCv.getAnimations().forEach((a) => a.cancel());
+  zoom.hidden = false;
+  document.body.classList.add("zoome");
+  requestAnimationFrame(() => zoom.classList.add("ouvert"));
+  envol(cartes.get(e).querySelector("canvas"));
+  $("#zoom-copier").focus({ preventScroll: true });
+}
+function fermerZoom(versPanneau = false) {
+  if (!zoomOuvert()) return;
+  const carte = cartes.get(etat.choisi);
+  zoom.classList.remove("ouvert");
+  const fin = () => {
+    zoom.hidden = true;
+    document.body.classList.remove("zoome");
+    zoomCv.getAnimations().forEach((a) => a.cancel());
+    if (versPanneau) $("#fx-nom").focus();
+    else carte?.querySelector(".ouvrir")?.focus({ preventScroll: true });
+  };
+  const a = !versPanneau && carte && !carte.hidden ? envol(carte.querySelector("canvas"), true) : null;
+  if (a) a.onfinish = fin;
+  else fin();
+}
+zoom.addEventListener("click", (ev) => { if (ev.target === zoom) fermerZoom(); });
+$("#zoom-fermer").onclick = () => fermerZoom();
+$("#zoom-details").onclick = () => fermerZoom(true);
+$("#zoom-copier").onclick = () => etat.choisi && copier(usage(etat.choisi), T.copie);
+$("#zoom-coeur").onclick = () => etat.choisi && basculerFavori(etat.choisi);
+const voisin = (pas) => {
+  const i = ordre.indexOf(etat.choisi), e = ordre[(i + pas + ordre.length) % ordre.length];
+  if (e) { ouvrir(e); cartes.get(e).scrollIntoView({ block: "nearest" }); }
+};
+zoom.querySelector(".zoom-fleche.g").onclick = () => voisin(-1);
+zoom.querySelector(".zoom-fleche.d").onclick = () => voisin(1);
+mobile.addEventListener("change", () => fermerZoom());
+
 async function ouvrir(e) {
   etat.choisi = e;
+  if (zoomOuvert()) majZoom(e);
   for (const [x, el] of cartes) el.setAttribute("aria-current", String(x === e));
   $("#fx-num").textContent = "#" + e.n;
   $("#fx-nom").textContent = e.name;
@@ -411,17 +492,13 @@ addEventListener("keydown", (ev) => {
   const champ = /INPUT|SELECT|TEXTAREA/.test(document.activeElement?.tagName);
   if (ev.key === "/" && !champ) { ev.preventDefault(); recherche.focus(); return; }
   if (ev.key === "Escape" && champ) { document.activeElement.blur(); return; }
-  if (ev.key === "Escape") { fermerPanneau(); return; }
+  if (ev.key === "Escape") { zoomOuvert() ? fermerZoom() : fermerPanneau(); return; }
   if (champ || ev.ctrlKey || ev.metaKey || ev.altKey) return;
   if (ev.key === "r" || ev.key === "R") {
     const ids = rendus.map((r) => r.meta.id), i = ids.indexOf(etat.rendu);
     choisirRendu(ids[(i + (ev.shiftKey ? ids.length - 1 : 1)) % ids.length]);
   } else if (ev.key === "f" && etat.choisi) basculerFavori(etat.choisi);
-  else if (ev.key === "ArrowRight" || ev.key === "ArrowLeft") {
-    const i = ordre.indexOf(etat.choisi);
-    const e = ordre[(i + (ev.key === "ArrowRight" ? 1 : ordre.length - 1)) % ordre.length];
-    if (e) { ouvrir(e); cartes.get(e).scrollIntoView({ block: "nearest" }); }
-  }
+  else if (ev.key === "ArrowRight" || ev.key === "ArrowLeft") voisin(ev.key === "ArrowRight" ? 1 : -1);
 });
 
 // ---------- réglages en direct : couleurs (teinte, saturation, luminosité), lueur, options de l'effet

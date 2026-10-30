@@ -270,5 +270,10 @@
   "esp_zone": "Zone sensible",
   "esp_zone_aide": "Efface votre compte, vos favoris, vos projets et vos propositions en attente. C'est définitif.",
   "esp_effets": "effets",
-  "esp_effet": "effet"
+  "esp_effet": "effet",
+  "zoom_copier": "Copier le code",
+  "zoom_details": "Détails et réglages",
+  "zoom_fermer": "Fermer",
+  "zoom_prec": "Effet précédent",
+  "zoom_suiv": "Effet suivant"
 }

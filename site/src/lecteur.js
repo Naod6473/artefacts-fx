@@ -95,7 +95,8 @@ export class Lecteur {
   /** Dessine l'image courante sur le canvas cv avec le rendu idRendu. */
   dessiner(cv, idRendu, now) {
     this.composer();
-    const r = cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1), W = Math.round(r.width * dpr);
+    // clientWidth et pas getBoundingClientRect : une vue qui s'anime en transform (le zoom) garde sa taille de tampon
+    const dpr = Math.min(2, devicePixelRatio || 1), W = Math.round(cv.clientWidth * dpr);
     if (!W) return;
     const H = Math.round((W * this.H) / this.W);
     let frais = cv._rendu !== idRendu;
