@@ -173,14 +173,17 @@ h1::before { content: "> "; content: "> " / ""; color: var(--accent); }
 .zoom-bas { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; opacity: 0; transition: opacity 0.2s 0.15s; }
 .zoom.ouvert .zoom-bas { opacity: 1; }
 .zoom-titre { font-size: 15px; }
-.zoom-titre .num { color: var(--cyan); }
+.zoom-titre .num { color: var(--accent); }
 .zoom-actions { display: flex; flex-wrap: wrap; gap: 8px; }
-.zoom button { font: inherit; color: var(--encre); background: var(--panneau); border: 1px solid var(--trait2); padding: 7px 11px; cursor: pointer; }
-.zoom button:hover { border-color: var(--cyan); }
-.zoom button.plein { background: var(--cyan); color: var(--bg); border-color: var(--cyan); }
+.zoom button { font: inherit; color: var(--encre); background: var(--carte); border: 1px solid var(--trait2); padding: 7px 11px; cursor: pointer; }
+.zoom button:hover { border-color: var(--accent); }
+.zoom button.plein { background: var(--accent); color: var(--fond); border-color: var(--accent); }
 .zoom .coeur[aria-pressed="true"] { color: #ff6b8a; }
 .zoom-fleche { position: fixed; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; font-size: 18px !important; padding: 0 !important; }
 .zoom-fleche.g { left: 16px; }
 .zoom-fleche.d { right: 16px; }
 body.zoome { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .zoom, .zoom-bas { transition: none; } }
+.zoom-rendus { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.zoom .zoom-rendus button { padding: 4px 9px; font-size: 12px; min-height: 30px; }
+.zoom .zoom-rendus button[aria-pressed="true"] { background: var(--accent); color: var(--fond); border-color: var(--accent); }

@@ -148,7 +148,7 @@ for (const r of rendus) {
 function choisirRendu(id) {
   etat.rendu = id;
   memo.ecrire("rendu", id);
-  rangee.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.rendu === id)));
+  document.querySelectorAll(".barre.rendus button, .zoom-rendus button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.rendu === id)));
   majComparaison();
   if (etat.choisi && dansProjet(etat.choisi)) { dansProjet(etat.choisi).rendu = id; sauverProjet(); }
   ecrireUrl();
@@ -190,7 +190,7 @@ const charge = new IntersectionObserver((es) => {
     const e = en.target._effet;
     charger[e.n]().then((mod) => anim.ajouter(en.target.querySelector("canvas"), new Lecteur(mod), () => etat.rendu, true));
   }
-}, { rootMargin: "300px" });
+}, { rootMargin: "10% 0px" }); // l'écran et 10 % de plus, pour avoir un temps d'avance au défilement
 for (const e of LIB) {
   const el = document.createElement("article");
   el.className = "carte" + (pleinEcran(e.meta) ? " large" : "");
@@ -360,6 +360,7 @@ const mobile = matchMedia("(max-width: 980px)");
 function montrerPanneau(clavier) {
   if (mobile.matches) {
     aside.classList.add("ouvert");
+    anim.vignettes(false); // la feuille recouvre les cartes
     document.body.classList.add("feuille");
     aside.scrollTop = 0;
     $("#fermer-panneau").focus();
@@ -368,6 +369,7 @@ function montrerPanneau(clavier) {
 function fermerPanneau() {
   if (!aside.classList.contains("ouvert")) return;
   aside.classList.remove("ouvert");
+  anim.vignettes(true);
   document.body.classList.remove("feuille");
   cartes.get(etat.choisi)?.querySelector(".ouvrir")?.focus();
 }
@@ -383,7 +385,7 @@ zoom.hidden = true;
 zoom.setAttribute("role", "dialog");
 zoom.setAttribute("aria-modal", "true");
 zoom.setAttribute("aria-labelledby", "zoom-nom");
-zoom.innerHTML = `<div class="zoom-boite"><canvas id="zoom-cv"></canvas>
+zoom.innerHTML = `<div class="zoom-boite"><div class="zoom-rendus" role="group" aria-label="${esc(T.zoom_rendu)}"></div><canvas id="zoom-cv"></canvas>
   <div class="zoom-bas"><div class="zoom-titre"><span id="zoom-num" class="num"></span> <span id="zoom-nom"></span></div>
     <div class="zoom-actions"><button type="button" class="plein" id="zoom-copier">${esc(T.zoom_copier)}</button>
       <button type="button" class="coeur" id="zoom-coeur" aria-label="${esc(T.favori)}">♥</button>
@@ -392,13 +394,23 @@ zoom.innerHTML = `<div class="zoom-boite"><canvas id="zoom-cv"></canvas>
   <button type="button" class="zoom-fleche g" aria-label="${esc(T.zoom_prec)}">←</button>
   <button type="button" class="zoom-fleche d" aria-label="${esc(T.zoom_suiv)}">→</button>`;
 document.body.appendChild(zoom);
+// les mêmes rendus que la barre du haut, à portée de main dans le zoom
+for (const r of rendus) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.textContent = nomRendu(r);
+  b.dataset.rendu = r.meta.id;
+  b.setAttribute("aria-pressed", String(r.meta.id === etat.rendu));
+  b.onclick = () => choisirRendu(r.meta.id);
+  zoom.querySelector(".zoom-rendus").appendChild(b);
+}
 const zoomCv = $("#zoom-cv");
 anim.ajouter(zoomCv, vue, () => etat.rendu);
 const zoomOuvert = () => !zoom.hidden;
 const calme = matchMedia("(prefers-reduced-motion: reduce)");
 function tailleZoom(e) {
   const k = e.size[0] / e.size[1];
-  zoomCv.style.width = Math.round(Math.min(960, innerWidth * 0.86, innerHeight * 0.68 * k)) + "px";
+  zoomCv.style.width = Math.round(Math.min(960, innerWidth * 0.86, innerHeight * 0.62 * k)) + "px";
 }
 function envol(depuis, retour) {
   const a = depuis.getBoundingClientRect(), b = zoomCv.getBoundingClientRect();
@@ -416,6 +428,7 @@ function ouvrirZoom(e) {
   majZoom(e);
   zoomCv.getAnimations().forEach((a) => a.cancel());
   zoom.hidden = false;
+  anim.vignettes(false);
   document.body.classList.add("zoome");
   requestAnimationFrame(() => zoom.classList.add("ouvert"));
   envol(cartes.get(e).querySelector("canvas"));
@@ -427,6 +440,7 @@ function fermerZoom(versPanneau = false) {
   zoom.classList.remove("ouvert");
   const fin = () => {
     zoom.hidden = true;
+    anim.vignettes(true);
     document.body.classList.remove("zoome");
     zoomCv.getAnimations().forEach((a) => a.cancel());
     if (versPanneau) $("#fx-nom").focus();

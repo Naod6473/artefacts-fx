@@ -7,6 +7,9 @@ const SCENE = hex("#0e1220"), NOIR = hex("#000000"), SOL = hex("#141a2e"), BORD 
 /** Plein écran : un effet au format 16/9 d'au moins 320 px de large. */
 export const pleinEcran = (m) => m.size[0] >= 320 && Math.abs(m.size[0] / m.size[1] - 16 / 9) < 0.05;
 
+// chaque pas de n'importe quel lecteur prend un numéro unique : une vue sait ainsi si son image a changé
+let horloge = 0;
+
 export class Lecteur {
   /** mod : le module de l'effet ({ meta, draw } ou { meta, create }). */
   constructor(mod, { aspect, marge } = {}) {
@@ -40,6 +43,7 @@ export class Lecteur {
     this.relancer();
     if (!this.inst) return;
     try { this.inst.update(t); } catch (e) { this.erreur = String(e.message || e); }
+    this.images = ++horloge;
   }
 
   /** Temps courant dans l'effet, entre 0 et sa durée. */
@@ -59,6 +63,7 @@ export class Lecteur {
     }
     this.acc = 0;
     this.attente = 0;
+    this.images = ++horloge;
   }
 
   /** Avance le temps de dt secondes, au pas fixe de l'effet ; un effet qui ne boucle pas repart après une courte pause. */
@@ -68,6 +73,7 @@ export class Lecteur {
     this.acc = Math.min(this.acc + dt * this.vitesse, 0.25);
     while (this.acc >= pas) {
       this.acc -= pas;
+      this.images = ++horloge;
       if (!m.loop && this.inst.t >= m.duration) {
         this.attente += pas;
         if (this.attente > 0.45) this.relancer();
@@ -94,7 +100,8 @@ export class Lecteur {
 
   /** Dessine l'image courante sur le canvas cv avec le rendu idRendu. */
   dessiner(cv, idRendu, now) {
-    this.composer();
+    // l'image de l'effet n'est composée qu'une fois par pas, même si plusieurs vues la montrent (panneau, comparaison)
+    if (this.compose !== this.images) { this.composer(); this.compose = this.images; this.versFond = this.versNoir = false; }
     // clientWidth et pas getBoundingClientRect : une vue qui s'anime en transform (le zoom) garde sa taille de tampon
     const dpr = Math.min(2, devicePixelRatio || 1), W = Math.round(cv.clientWidth * dpr);
     if (!W) return;
@@ -103,8 +110,8 @@ export class Lecteur {
     if (cv.width !== W || cv.height !== H) { cv.width = W; cv.height = H; frais = true; }
     cv._rendu = idRendu;
     const rendu = parId[idRendu] ?? parId.pixel;
-    if (rendu.meta.id === "pixel") composite(this.frame, this.img.fond, this.decor);
-    else composite(this.frame, this.img.noir, NOIR);
+    if (rendu.meta.id === "pixel") { if (!this.versFond) composite(this.frame, this.img.fond, this.decor), (this.versFond = true); }
+    else if (!this.versNoir) composite(this.frame, this.img.noir, NOIR), (this.versNoir = true);
     this.img.now = now;
     this.img.frais = frais;
     const ctx = cv.getContext("2d");
@@ -129,6 +136,7 @@ export function vuePartagee(get) {
   return {
     avancer(dt, now) { if (now !== dernier) { dernier = now; get()?.avancer(dt); } },
     dessiner(cv, rendu, now) { get()?.dessiner(cv, rendu, now); },
+    get images() { return get()?.images; },
   };
 }
 
@@ -146,12 +154,15 @@ export function boucle() {
       const v = vues.find((z) => z.cv === en.target);
       if (v) v.visible = en.isIntersecting;
     }
-  }, { rootMargin: "150px" });
-  let avant = performance.now();
+  }); // seulement ce qui est à l'écran
+  let avant = performance.now(), vignettes = true, tour = 0;
   const image = (now) => {
-    const dt = Math.min(0.05, (now - avant) / 1000);
+    const dt = Math.min(0.05, (now - avant) / 1000), debut = performance.now();
     avant = now;
-    for (const v of vues) {
+    // les vues sont parcourues à partir d'un point qui tourne, pour que le budget ci-dessous ne lèse pas toujours les mêmes
+    tour = (tour + 1) % Math.max(1, vues.length);
+    for (let j = 0; j < vues.length; j++) {
+      const v = vues[(j + tour) % vues.length];
       if (!v.visible) continue;
       if (v.calme && reduit?.matches) {
         const r = v.rendu();
@@ -161,8 +172,20 @@ export function boucle() {
         v.lecteur.dessiner(v.cv, r, now);
         continue;
       }
+      // une vignette est en pause sous le zoom ou la feuille du panneau
+      if (v.calme && !vignettes) continue;
+      // on ne redessine que quand l'effet a une nouvelle image (30 par seconde pour la plupart), pas à chaque
+      // rafraîchissement de l'écran (60, 120 ou 144 par seconde)
       v.lecteur.avancer(dt, now);
-      v.lecteur.dessiner(v.cv, v.rendu(), now);
+      const r = v.rendu(), w = v.cv.clientWidth;
+      if (v.image === v.lecteur.images && v.r === r && v.w === w) continue;
+      // budget : au-delà de 8 ms dans cette image d'écran, les vignettes attendent la suivante, pour que le
+      // défilement reste fluide sur une machine lente (elles ralentissent un peu au lieu de tout faire saccader)
+      if (v.calme && performance.now() - debut > 8) continue;
+      v.image = v.lecteur.images;
+      v.r = r;
+      v.w = w;
+      v.lecteur.dessiner(v.cv, r, now);
     }
     requestAnimationFrame(image);
   };
@@ -172,5 +195,7 @@ export function boucle() {
       vues.push({ cv, lecteur, rendu, calme, visible: false });
       io.observe(cv);
     },
+    /** Met en pause (false) ou relance les vignettes, quand une vue les recouvre. */
+    vignettes(oui) { vignettes = oui; },
   };
 }

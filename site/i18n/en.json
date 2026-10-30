@@ -275,5 +275,6 @@
   "zoom_details": "Details and settings",
   "zoom_fermer": "Close",
   "zoom_prec": "Previous effect",
-  "zoom_suiv": "Next effect"
+  "zoom_suiv": "Next effect",
+  "zoom_rendu": "Style"
 }
