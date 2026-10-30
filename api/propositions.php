@@ -63,7 +63,11 @@ function proposer(): never
     if ($nom === '') erreur(400, 'nom_vide');
     $credit = trim(preg_replace('/[\x00-\x1f"\\\\`<>]/', '', couper((string) ($corps['credit'] ?? ''), 0, 60)));
     $id = isset($corps['id']) ? (int) $corps['id'] : 0;
+    $prevenir = true; // l'administrateur reçoit un mail pour une nouvelle proposition ou une proposition corrigée
     if ($id) {
+        $avant = $db->prepare('SELECT statut FROM propositions WHERE id = ? AND membre = ?');
+        $avant->execute([$id, $m['id']]);
+        $prevenir = $avant->fetchColumn() === 'a_revoir';
         $u = $db->prepare("UPDATE propositions SET nom = ?, code = ?, credit = ?, statut = 'attente', modifie = ? WHERE id = ? AND membre = ? AND statut IN ('attente', 'a_revoir')");
         $u->execute([$nom, $code, $credit, time(), $id, $m['id']]);
         if (!$u->rowCount()) erreur(404, 'proposition_inconnue');
@@ -76,6 +80,7 @@ function proposer(): never
             ->execute([$m['id'], $nom, $code, $credit, time(), time()]);
         $id = (int) $db->lastInsertId();
     }
+    if ($prevenir) prevenirAdmins($nom);
     repondre(['ok' => true, 'id' => $id]);
 }
 
@@ -138,8 +143,10 @@ function moderer(): never
     $message = trim(couper((string) ($corps['message'] ?? ''), 0, 1000));
     $decision = (string) ($corps['decision'] ?? '');
     if ($decision === 'revoir' || $decision === 'refuser') {
+        $statut = $decision === 'revoir' ? 'a_revoir' : 'refusee';
         $db->prepare('UPDATE propositions SET statut = ?, message = ?, modifie = ? WHERE id = ?')
-            ->execute([$decision === 'revoir' ? 'a_revoir' : 'refusee', $message, time(), $p['id']]);
+            ->execute([$statut, $message, time(), $p['id']]);
+        prevenirAuteur($p, $statut, $message);
         repondre(['ok' => true]);
     }
     if ($decision !== 'accepter') erreur(400, 'decision');
@@ -147,7 +154,40 @@ function moderer(): never
     [$url, $numero, $chemin] = ouvrirPullRequest($p);
     $db->prepare("UPDATE propositions SET statut = 'acceptee', message = ?, pr_url = ?, numero = ?, chemin = ?, modifie = ? WHERE id = ?")
         ->execute([$message, $url, $numero, $chemin, time(), $p['id']]);
+    prevenirAuteur($p, 'acceptee', $message);
     repondre(['ok' => true, 'pr_url' => $url, 'numero' => $numero]);
+}
+
+// ---------- mails ----------
+// un mail qui ne part pas ne bloque rien : l'échec va au journal et la page reste à jour
+
+function prevenirAdmins(string $nom): void
+{
+    global $db, $config;
+    $admins = array_map('strtolower', (array) ($config['admins'] ?? ['naod6473']));
+    $s = $db->prepare('SELECT email, langue FROM membres WHERE email IS NOT NULL AND lower(github_login) IN (' . implode(',', array_fill(0, count($admins), '?')) . ')');
+    $s->execute($admins);
+    foreach ($s->fetchAll() as $a) {
+        try {
+            envoyer($a['email'], 'proposition', SITE . '/' . $a['langue'] . '/moderation/', $nom, '', $a['langue']);
+        } catch (Throwable $e) {
+            journal('mail admin : ' . $e->getMessage());
+        }
+    }
+}
+
+function prevenirAuteur(array $p, string $statut, string $message): void
+{
+    global $db;
+    $s = $db->prepare('SELECT email, langue FROM membres WHERE id = ?');
+    $s->execute([$p['membre']]);
+    $a = $s->fetch();
+    if (!$a || !$a['email']) return; // compte GitHub sans e-mail : la réponse reste visible sur la page
+    try {
+        envoyer($a['email'], $statut, SITE . '/' . $a['langue'] . '/proposer/', $p['nom'], $message, $a['langue']);
+    } catch (Throwable $e) {
+        journal('mail auteur : ' . $e->getMessage());
+    }
 }
 
 function ligneProposition(array $p): array

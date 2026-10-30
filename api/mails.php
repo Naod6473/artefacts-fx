@@ -24,10 +24,47 @@ const MAIL_TEXTES = [
             'fin' => "Vous n'avez rien demandé ? Ignorez ce mail : votre mot de passe ne change pas.",
             'teinte' => 'glace',
         ],
+        'proposition' => [
+            'objet' => 'Nouvel effet proposé : %s',
+            'titre' => 'nouvelle_proposition',
+            'intro' => "Un membre vient de proposer l'effet « %s ». Il attend ta relecture sur la page de modération.",
+            'bouton' => 'Ouvrir la modération',
+            'duree' => '',
+            'fin' => 'Mail envoyé à l\'administrateur du site uniquement.',
+            'teinte' => 'glace',
+        ],
+        'acceptee' => [
+            'objet' => 'Votre effet « %s » est accepté',
+            'titre' => 'effet_accepte',
+            'intro' => "Bonne nouvelle : votre effet « %s » est accepté. Il entre dans la bibliothèque avec son numéro dès que la mise à jour du site est publiée.",
+            'bouton' => 'Voir mes propositions',
+            'duree' => '',
+            'fin' => 'Merci pour votre contribution à Artefacts.',
+            'teinte' => 'feu',
+        ],
+        'a_revoir' => [
+            'objet' => 'Votre effet « %s » : quelques modifications',
+            'titre' => 'modifications_demandees',
+            'intro' => "Votre effet « %s » a été relu : il a besoin de quelques modifications avant d'entrer dans la bibliothèque. Ouvrez-le dans l'éditeur, corrigez, puis renvoyez-le.",
+            'bouton' => 'Reprendre mon effet',
+            'duree' => '',
+            'fin' => 'Votre proposition reste enregistrée en attendant.',
+            'teinte' => 'glace',
+        ],
+        'refusee' => [
+            'objet' => 'Votre effet « %s » n\'a pas été retenu',
+            'titre' => 'proposition_refusee',
+            'intro' => "Votre effet « %s » a été relu, mais il n'a pas été retenu pour la bibliothèque. Merci d'avoir proposé, et n'hésitez pas à en envoyer d'autres.",
+            'bouton' => 'Voir mes propositions',
+            'duree' => '',
+            'fin' => '',
+            'teinte' => 'glace',
+        ],
         'lien_secours' => 'Le bouton ne marche pas ? Copiez cette adresse dans votre navigateur :',
         'pied' => 'Artefacts · effets visuels de jeu en JavaScript, gratuits et sous licence MIT',
         'biblio' => 'Bibliothèque',
         'prive' => "Votre compte est privé : personne d'autre ne voit vos favoris ni vos projets.",
+        'mot' => 'Le mot du relecteur :',
     ],
     'en' => [
         'confirmer' => [
@@ -48,20 +85,65 @@ const MAIL_TEXTES = [
             'fin' => "Didn't ask for this? Ignore this email: your password stays the same.",
             'teinte' => 'glace',
         ],
+        'proposition' => [
+            'objet' => 'New effect submitted: %s',
+            'titre' => 'new_submission',
+            'intro' => 'A member just submitted the effect “%s”. It is waiting for your review on the moderation page.',
+            'bouton' => 'Open moderation',
+            'duree' => '',
+            'fin' => "Sent to the site's administrator only.",
+            'teinte' => 'glace',
+        ],
+        'acceptee' => [
+            'objet' => 'Your effect “%s” is accepted',
+            'titre' => 'effect_accepted',
+            'intro' => 'Good news: your effect “%s” is accepted. It joins the library with its own number as soon as the site update is published.',
+            'bouton' => 'See my submissions',
+            'duree' => '',
+            'fin' => 'Thank you for contributing to Artefacts.',
+            'teinte' => 'feu',
+        ],
+        'a_revoir' => [
+            'objet' => 'Your effect “%s”: a few changes',
+            'titre' => 'changes_requested',
+            'intro' => 'Your effect “%s” has been reviewed: it needs a few changes before joining the library. Open it in the editor, fix it, then send it again.',
+            'bouton' => 'Back to my effect',
+            'duree' => '',
+            'fin' => 'Your submission stays saved in the meantime.',
+            'teinte' => 'glace',
+        ],
+        'refusee' => [
+            'objet' => 'Your effect “%s” was not selected',
+            'titre' => 'submission_declined',
+            'intro' => "Your effect “%s” has been reviewed, but it wasn't selected for the library. Thanks for submitting, and feel free to send others.",
+            'bouton' => 'See my submissions',
+            'duree' => '',
+            'fin' => '',
+            'teinte' => 'glace',
+        ],
         'lien_secours' => 'Button not working? Paste this address into your browser:',
         'pied' => 'Artefacts · free JavaScript game visual effects, MIT licensed',
         'biblio' => 'Library',
         'prive' => 'Your account is private: nobody else sees your favorites or projects.',
+        'mot' => "The reviewer's note:",
     ],
 ];
 
-/** [objet, texte, html] du mail $modele (confirmer | oubli) dans la langue $langue (fr | en). */
-function contenuMail(string $langue, string $modele, string $lien, string $site): array
+/**
+ * [objet, texte, html] du mail $modele dans la langue $langue (fr | en) : confirmer, oubli (comptes) ; proposition,
+ * acceptee, a_revoir, refusee (effets proposés : $nom remplace %s, $mot est le message du relecteur, en citation).
+ */
+function contenuMail(string $langue, string $modele, string $lien, string $site, string $nom = '', string $mot = ''): array
 {
     $t = MAIL_TEXTES[$langue] ?? MAIL_TEXTES['en'];
     $m = $t[$modele];
-    $texte = "> {$m['titre']}\n\n{$m['intro']}\n\n{$m['bouton']} :\n$lien\n\n{$m['duree']}\n\n{$m['fin']}\n\n-- \n{$t['prive']}\n{$t['pied']}\n$site";
+    foreach (['objet', 'intro'] as $k) $m[$k] = str_replace('%s', $nom, $m[$k]);
+    $citation = $mot !== '' ? "\n\n{$t['mot']}\n« $mot »" : '';
+    $texte = "> {$m['titre']}\n\n{$m['intro']}$citation\n\n{$m['bouton']} :\n$lien\n\n{$m['duree']}\n\n{$m['fin']}\n\n-- \n{$t['prive']}\n{$t['pied']}\n$site";
     $h = fn (string $s) => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+    $motHtml = $mot !== '' ? '<p style="margin:16px 0 0;font-size:12px;color:#8796ad;">' . $h($t['mot']) . '</p><p style="margin:6px 0 0;padding:10px 14px;border-left:2px solid #ffb347;background:#05070c;font-size:14px;line-height:22px;color:#d6e2f0;white-space:pre-wrap;">' . $h($mot) . '</p>' : '';
+    $duree = $m['duree'] !== '' ? '<p style="margin:12px 0 0;font-size:12px;color:#ffb347;">' . $h($m['duree']) . '</p>' : '';
+    $fin = $m['fin'] !== '' ? '<p style="margin:18px 0 0;padding-top:16px;border-top:1px dashed #2a3547;font-size:12px;line-height:18px;color:#8796ad;">' . $h($m['fin']) . '</p>' : '';
     $l = $h($lien);
     $mono = "'JetBrains Mono',Consolas,Menlo,'Courier New',monospace";
     $banniere = banniereMail($m['teinte']);
@@ -76,17 +158,18 @@ function contenuMail(string $langue, string $modele, string $lien, string $site)
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="padding:26px 24px 8px;">
       <div style="font-size:16px;font-weight:700;color:#d6e2f0;"><span style="color:#5ce1e6;">&gt;</span> {$h($m['titre'])}</div>
       <p style="margin:14px 0 0;font-size:14px;line-height:22px;color:#c3cfdd;">{$h($m['intro'])}</p>
+      $motHtml
     </td></tr>
     <tr><td style="padding:22px 24px 6px;">
       <table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="background:#5ce1e6;">
         <a href="$l" style="display:inline-block;padding:14px 24px;font-family:$mono;font-size:14px;font-weight:700;color:#07090f;text-decoration:none;">{$h($m['bouton'])} &rarr;</a>
       </td></tr></table>
-      <p style="margin:12px 0 0;font-size:12px;color:#ffb347;">{$h($m['duree'])}</p>
+      $duree
     </td></tr>
     <tr><td style="padding:18px 24px 24px;">
       <p style="margin:0;font-size:12px;line-height:18px;color:#8796ad;">{$h($t['lien_secours'])}</p>
       <p style="margin:6px 0 0;font-size:12px;line-height:18px;word-break:break-all;"><a href="$l" style="color:#5ce1e6;text-decoration:none;">$l</a></p>
-      <p style="margin:18px 0 0;padding-top:16px;border-top:1px dashed #2a3547;font-size:12px;line-height:18px;color:#8796ad;">{$h($m['fin'])}</p>
+      $fin
     </td></tr></table>
   </td></tr>
   <tr><td style="padding:18px 4px 0;font-size:11px;line-height:18px;color:#6b7a90;">

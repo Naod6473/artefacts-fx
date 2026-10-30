@@ -444,11 +444,11 @@ function langueNavigateur(): string
     return preg_match('/^fr/i', (string) ($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '')) ? 'fr' : 'en';
 }
 
-function envoyer(string $a, string $modele, string $lien): void
+function envoyer(string $a, string $modele, string $lien, string $nom = '', string $mot = '', ?string $lg = null): void
 {
     global $langue, $config;
     require_once __DIR__ . '/mails.php';
-    [$sujet, $texte, $html] = contenuMail($langue, $modele, $lien, SITE);
+    [$sujet, $texte, $html] = contenuMail($lg ?? $langue, $modele, $lien, SITE, $nom, $mot);
     // essais en local : les e-mails sont écrits dans un fichier au lieu d'être envoyés
     if ($f = getenv('ARTEFACTS_MAILS')) {
         file_put_contents($f, json_encode(['a' => $a, 'sujet' => $sujet, 'corps' => $texte]) . "\n", FILE_APPEND);
