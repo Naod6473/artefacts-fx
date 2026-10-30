@@ -10,24 +10,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
 <link rel="stylesheet" href="{{base}}assets/proposer.css">
+<link rel="stylesheet" href="{{base}}assets/compte.css">
+<link rel="stylesheet" href="{{base}}assets/entete.css">
 </head>
-<body>
-<header>
-  <div class="barre">
-    <a class="logo" href="{{base}}{{langue}}/">ARTEFACTS<i>_</i></a>
-    <nav>
-      <a href="{{base}}{{langue}}/bibliotheque/">{{bib_nav_biblio}}</a>
-      <a href="{{base}}{{langue}}/proposer/">{{nav_proposer}}</a>
-      <a href="{{base}}{{langue}}/ia/">{{nav_ia}}</a>
-      <a href="https://github.com/Naod6473/artefacts-fx" class="github">★ GitHub</a>
-      <a href="{{base}}{{langue_autre_code}}/mentions/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
-    </nav>
-  </div>
-</header>
+<body data-base="{{base}}">
+{{> entete}}
 <main class="proposer mentions">
   <h1>{{ml_h1}}</h1>
   {{ml_corps}}
 </main>
 {{> pied}}
+{{> compte}}
+<script type="module" src="{{base}}assets/entete.js"></script>
 </body>
 </html>

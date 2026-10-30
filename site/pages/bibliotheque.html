@@ -11,9 +11,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
 <link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
 <link rel="stylesheet" href="{{base}}assets/compte.css">
+<link rel="stylesheet" href="{{base}}assets/entete.css">
 </head>
 <body>
-<header>
+<header class="entete">
   <div class="barre">
     <a class="logo" href="{{base}}{{langue}}/">ARTEFACTS<i>_</i></a>
     <label class="recherche">
@@ -22,14 +23,7 @@
       <input id="recherche" type="search" autocomplete="off" spellcheck="false" placeholder="{{bib_exemple}}">
       <kbd>/</kbd>
     </label>
-    <nav>
-      <a href="{{base}}{{langue}}/bibliotheque/" aria-current="page">{{bib_nav_biblio}}</a>
-      <a href="{{base}}{{langue}}/proposer/">{{nav_proposer}}</a>
-      <a href="{{base}}{{langue}}/ia/">{{nav_ia}}</a>
-      <a href="https://github.com/Naod6473/artefacts-fx" class="github" aria-label="{{bib_etoile}}">★ GitHub <span id="etoiles"></span></a>
-      <button type="button" id="btn-compte" class="btn-compte" aria-haspopup="dialog">{{cpt_se_connecter}}</button>
-      <a href="{{base}}{{langue_autre_code}}/bibliotheque/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
-    </nav>
+    {{> menu}}
   </div>
   <div class="barre rendus"><span class="dim">{{bib_rendu}}</span><div id="rendus" role="group" aria-label="{{bib_rendu}}"></div><span class="dim touche"><kbd>/</kbd> {{bib_aide_chercher}} <kbd>R</kbd> {{bib_aide_rendu}} <kbd>←</kbd><kbd>→</kbd> {{bib_aide_effet}} <kbd>F</kbd> {{bib_aide_favori}}</span></div>
 </header>

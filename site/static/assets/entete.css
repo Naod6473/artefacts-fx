@@ -1,0 +1,21 @@
+/* En-tête commun à toutes les pages (site/pages/_entete.html et _menu.html), le même que celui de la bibliothèque.
+   Couleurs et police écrites en dur : la page d'accueil et la page IA ont d'autres variables. */
+header.entete { position: sticky; top: 0; z-index: 10; background: rgba(7, 9, 15, .96); backdrop-filter: blur(6px); border-bottom: 1px solid #1c2433;
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; font-size: 13px; line-height: 1.5; }
+.entete .barre { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 12px 20px; max-width: none; margin: 0; justify-content: flex-start; }
+.entete .logo { font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; color: #d6e2f0; text-decoration: none; font-weight: 700; font-size: 18px; letter-spacing: .08em; }
+.entete .logo i { font-style: normal; color: #5ce1e6; animation: clignote-entete 1.1s steps(1) infinite; }
+@keyframes clignote-entete { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .entete .logo i { animation: none; } }
+.entete nav.menu { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 2px; min-width: 0; margin: 0; }
+.entete nav.menu a { color: #8796ad; text-decoration: none; padding: 12px 10px; border-radius: 0; background: none; }
+.entete nav.menu a[aria-current="page"], .entete nav.menu a:hover { color: #d6e2f0; background: none; }
+.entete .github span:empty { display: none; }
+.entete .btn-compte { font-family: inherit; font-size: inherit; }
+/* sur téléphone, l'en-tête défile avec la page : collé en haut, il mangerait un quart de l'écran */
+@media (max-width: 700px) {
+  header.entete { position: static; }
+  .entete .barre { gap: 8px; padding: 10px 16px; }
+  .entete nav.menu { margin-inline: -10px; }
+  .entete nav.menu a { padding: 8px 10px; }
+}

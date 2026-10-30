@@ -87,7 +87,7 @@ for (const f of ["LICENSE", "NOTICE.md"]) cpSync(f, join(DIST, "assets", "src", 
 writeFileSync(join(DIST, ".htaccess"), readFileSync("site/static/.htaccess", "utf8").replaceAll("{{base}}", BASE));
 
 await build({
-  entryPoints: [...Object.keys(PAGES).filter((p) => existsSync(`site/src/${p}.js`)).map((p) => `site/src/${p}.js`), "site/src/fiche.js"],
+  entryPoints: [...Object.keys(PAGES).filter((p) => existsSync(`site/src/${p}.js`)).map((p) => `site/src/${p}.js`), "site/src/fiche.js", "site/src/entete.js"],
   outdir: join(DIST, "assets"),
   bundle: true,
   plugins: [sourceTexte, catalogueVirtuel],
@@ -112,16 +112,26 @@ await build({
 
 const echappe = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 // les clés qui finissent par une phrase avec des liens (pied_credits) gardent leur HTML ; les autres sont échappées
+// {{> menu}} insère site/pages/_menu.html (morceaux communs, éventuellement imbriqués), puis les {{clé}} sont remplacées ;
+// le lien du menu vers la page elle-même reçoit aria-current
+function remplir(modele, t, page) {
+  let html = modele;
+  // deux niveaux suffisent (en-tête → menu) ; un « {{> nom}} » cité dans le commentaire d'un morceau reste tel quel
+  for (let i = 0; i < 2; i++) html = html.replace(/\{\{> (\w+)\}\}/g, (_, f) => readFileSync(`site/pages/_${f}.html`, "utf8"));
+  html = html.replace(/\{\{(\w+)\}\}/g, (_, k) => {
+    if (!(k in t)) throw new Error(`${t.langue}.json : clé manquante « ${k} » (page ${page})`);
+    return HTML_PERMIS.has(k) ? t[k] : echappe(t[k]);
+  });
+  return html.replace(`<a href="${BASE}${t.langue}/${t.ici}">`, `<a href="${BASE}${t.langue}/${t.ici}" aria-current="page">`);
+}
 const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps"]);
 for (const langue of LANGUES) {
   const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
   mkdirSync(join(DIST, langue), { recursive: true });
   for (const [page, fichier] of Object.entries(PAGES)) {
-    // {{> compte}} insère site/pages/_compte.html (morceau commun à plusieurs pages), puis les {{clé}} sont remplacées
-    const html = readFileSync(`site/pages/${page}.html`, "utf8").replace(/\{\{> (\w+)\}\}/g, (_, f) => readFileSync(`site/pages/_${f}.html`, "utf8")).replace(/\{\{(\w+)\}\}/g, (_, k) => {
-      if (!(k in t)) throw new Error(`${langue}.json : clé manquante « ${k} » (page ${page})`);
-      return HTML_PERMIS.has(k) ? t[k] : echappe(t[k]);
-    });
+    // ici : le chemin de la page, pour le lien vers l'autre langue et le lien du menu marqué « page courante »
+    t.ici = fichier.replace(/index\.html$/, "");
+    const html = remplir(readFileSync(`site/pages/${page}.html`, "utf8"), t, page);
     mkdirSync(dirname(join(DIST, langue, fichier)), { recursive: true });
     writeFileSync(join(DIST, langue, fichier), html);
   }
@@ -139,21 +149,18 @@ for (const langue of LANGUES) {
       try { writeFileSync(join(DIST, "apercus", e.n + ".png"), await apercu(e.id)); } catch (err) { console.warn(`aperçu ${e.id} : ${err.message}`); }
     }
   }
-  const modele = readFileSync("site/pages/_fiche.html", "utf8").replace(/\{\{> (\w+)\}\}/g, (_, f) => readFileSync(`site/pages/_${f}.html`, "utf8"));
+  const modele = readFileSync("site/pages/_fiche.html", "utf8");
   const urls = [];
   for (const langue of LANGUES) {
     const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
-    const page = modele.replace(/\{\{(\w+)\}\}/g, (_, k) => {
-      if (!(k in t)) throw new Error(`${langue}.json : clé manquante « ${k} » (fiche)`);
-      return HTML_PERMIS.has(k) ? t[k] : echappe(t[k]);
-    });
+    const page = remplir(modele, { ...t, ici: "fx/%%num%%/" }, "fiche");
     const fr = langue === "fr";
     catalogue.forEach((e, i) => {
       const num = +e.n, cat = e.id.split("/")[0], url = (l) => `${SITE}/${l}/fx/${num}/`;
       const lien = (x, fleche) => x ? `<a href="${BASE}${langue}/fx/${+x.n}/">${fleche === "←" ? "← " : ""}${echappe(x.name)} #${x.n}${fleche === "→" ? " →" : ""}</a>` : "<span></span>";
       const tags = e.tags.map((g) => `<li><a href="${BASE}${langue}/bibliotheque/#tags=${encodeURIComponent(g)}">${echappe(fr ? TAGS_FR[g] ?? g : g)}</a></li>`).join("");
       const valeurs = {
-        n: e.n, id: echappe(e.id), nom: echappe(e.name), desc: echappe(e.desc),
+        n: e.n, num, id: echappe(e.id), nom: echappe(e.name), desc: echappe(e.desc),
         credit: e.author ? echappe(` (${t.mod_par} ${e.author})`) : "",
         url: url(langue), url_fr: url("fr"), url_en: url("en"), url_autre: `${BASE}${t.langue_autre_code}/fx/${num}/`,
         image: `${SITE}/apercus/${e.n}.png`, image_rel: `${BASE}apercus/${e.n}.png`,

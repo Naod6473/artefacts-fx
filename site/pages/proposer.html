@@ -12,22 +12,10 @@
 <link rel="stylesheet" href="{{base}}assets/bibliotheque.css">
 <link rel="stylesheet" href="{{base}}assets/compte.css">
 <link rel="stylesheet" href="{{base}}assets/proposer.css">
+<link rel="stylesheet" href="{{base}}assets/entete.css">
 </head>
 <body data-base="{{base}}">
-<header>
-  <div class="barre">
-    <a class="logo" href="{{base}}{{langue}}/">ARTEFACTS<i>_</i></a>
-    <nav>
-      <a href="{{base}}{{langue}}/bibliotheque/">{{bib_nav_biblio}}</a>
-      <a href="{{base}}{{langue}}/proposer/" aria-current="page">{{nav_proposer}}</a>
-      <a href="{{base}}{{langue}}/moderation/" id="nav-moderation" hidden>{{nav_moderation}}</a>
-      <a href="{{base}}{{langue}}/ia/">{{nav_ia}}</a>
-      <a href="https://github.com/Naod6473/artefacts-fx" class="github">★ GitHub</a>
-      <button type="button" id="btn-compte" class="btn-compte" aria-haspopup="dialog">{{cpt_se_connecter}}</button>
-      <a href="{{base}}{{langue_autre_code}}/proposer/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
-    </nav>
-  </div>
-</header>
+{{> entete}}
 
 <main class="proposer">
   <h1>{{prop_h1}}</h1>

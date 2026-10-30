@@ -27,7 +27,7 @@ header { position: sticky; top: 0; z-index: 10; background: rgba(7, 9, 15, .96);
 .logo i { font-style: normal; color: var(--accent); animation: clignote 1.1s steps(1) infinite; }
 @keyframes clignote { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .logo i { animation: none; } }
-.recherche { flex: 1 1 360px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--trait2); background: var(--carte); padding: 0 12px; min-height: 44px; }
+.recherche { flex: 1 1 240px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--trait2); background: var(--carte); padding: 0 12px; min-height: 44px; }
 .recherche > span:first-child { color: var(--accent); }
 .recherche input { flex: 1; min-width: 0; background: transparent; border: 0; color: var(--encre); font: inherit; outline: none; }
 .recherche input::placeholder { color: var(--faible); }
@@ -147,3 +147,5 @@ h1::before { content: "> "; color: var(--accent); }
 .rg-sep { border-top: 1px dashed var(--trait2); margin: 4px 0; }
 .rg-actions { display: flex; gap: 8px; padding: 0 12px 12px; }
 .rg-actions button { flex: 1; }
+@media (max-width: 1500px) { .barre.rendus .touche { display: none; } }
+@media (max-width: 700px) { #rendus { flex-wrap: nowrap; min-width: 0; flex: 1 1 auto; overflow-x: auto; scrollbar-width: none; } .entete .barre.rendus { flex-wrap: nowrap; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; } }

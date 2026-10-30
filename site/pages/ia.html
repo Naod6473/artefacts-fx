@@ -8,21 +8,13 @@
 <link rel="alternate" hreflang="fr" href="{{base}}fr/ia/">
 <link rel="alternate" hreflang="en" href="{{base}}en/ia/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Silkscreen&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="{{base}}assets/style.css">
+<link rel="stylesheet" href="{{base}}assets/compte.css">
+<link rel="stylesheet" href="{{base}}assets/entete.css">
 </head>
-<body>
-<header>
-  <div class="in barre">
-    <a class="logo" href="{{base}}{{langue}}/">Artefacts<i>_</i></a>
-    <nav>
-      <a href="{{base}}{{langue}}/bibliotheque/">{{nav_biblio}}</a>
-      <a href="{{base}}{{langue}}/proposer/">{{nav_proposer}}</a>
-      <a href="https://github.com/Naod6473/artefacts-fx">★ GitHub</a>
-      <a href="{{base}}{{langue_autre_code}}/ia/" hreflang="{{langue_autre_code}}" lang="{{langue_autre_code}}">{{langue_autre}}</a>
-    </nav>
-  </div>
-</header>
+<body data-base="{{base}}">
+{{> entete}}
 <main class="in doc">
   <h1>{{ia_h1}}</h1>
   <p>{{ia_intro}}</p>
@@ -81,5 +73,7 @@ for (const b of document.querySelectorAll("[data-copier]")) b.onclick = async ()
   try { await navigator.clipboard.writeText(document.getElementById(b.dataset.copier).textContent); b.textContent = "✓"; } catch (_) {}
 };
 </script>
+{{> compte}}
+<script type="module" src="{{base}}assets/entete.js"></script>
 </body>
 </html>
