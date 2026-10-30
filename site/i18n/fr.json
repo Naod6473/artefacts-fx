@@ -158,5 +158,9 @@
   "rg_toutes": "toutes les couleurs",
   "rg_lueur": "lueur",
   "rg_miroir": "miroir",
-  "rg_lien_copie": "Lien avec vos réglages copié"
+  "rg_lien_copie": "Lien avec vos réglages copié",
+  "px_bouton": "Exporter le projet (.zip)",
+  "px_en_cours": "Préparation du zip…",
+  "px_ko": "Export impossible, réessayez.",
+  "px_lisezmoi": "Projet exporté depuis Artefacts (https://naod.fr). Effets sous licence MIT : voir artefacts/LICENSE et artefacts/NOTICE.md.||Contenu :|- index.html et demo.js : une page qui fait tourner chaque effet dans son rendu, avec vos réglages ;|- projet.json : la liste des effets avec leur rendu, votre note et leurs options ;|- artefacts/ : le code des effets, du moteur (core) et des rendus.||Voir la démo : un double-clic sur index.html ne suffit pas (les modules JavaScript ne se chargent pas depuis un fichier). Dans le dossier %d, lancez « npx serve » ou « python -m http.server », puis ouvrez l'adresse affichée.||Dans votre jeu : importez artefacts/core/index.js et l'effet voulu, puis createFx(effet, { x, y, ...options }) avec les options de projet.json."
 }

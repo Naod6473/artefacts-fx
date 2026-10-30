@@ -8,6 +8,7 @@ import { CATEGORIES_FR, TAGS_FR, SYNONYMES } from "./tags.js";
 import { initCompte } from "./compte.js";
 import { planche, dimensions, spriteFrames, scene, COTE_MAX } from "./planche.js";
 import { zip, telecharger } from "./zip.js";
+import { exporterProjet } from "./exportProjet.js";
 
 const $ = (s) => document.querySelector(s);
 const LANGUE = document.documentElement.lang || "fr";
@@ -215,6 +216,7 @@ function majMur() {
   $("#nb-favoris").textContent = favoris.size;
   $("#nb-projet").textContent = projet.length;
   $("#projets").hidden = !(projets && etat.vue === "projet");
+  $("#projet-zip").hidden = !(etat.vue === "projet" && projet.length);
   majTags(ordre);
   // une recherche par numéro ouvre l'effet directement
   if (a.numero && ordre.length === 1 && etat.choisi !== ordre[0]) ouvrir(ordre[0]);
@@ -399,6 +401,7 @@ addEventListener("keydown", (ev) => {
 
 // ---------- réglages en direct : couleurs (teinte, saturation, luminosité), lueur, options de l'effet
 let modOuvert = null, regDepuisUrl = false;
+const reglagesCourants = () => reg;
 const HEX = /^#[0-9a-f]{3}([0-9a-f]{3})?([0-9a-f]{2})?$/i;
 const estRampe = (v) => Array.isArray(v) && v.length > 0 && v.every((c) => typeof c === "string" && HEX.test(c));
 function versRgb(c) {
@@ -428,7 +431,7 @@ function teinter(c, { h, s, l }) {
   return "#" + [canal(H + 1 / 3), canal(H), canal(H - 1 / 3)].map((x) => Math.round(x * 255).toString(16).padStart(2, "0")).join("");
 }
 /** Les options à passer à createFx : celles changées à la main, couleurs teintées. */
-function optionsDe(meta) {
+function optionsDe(meta, reg = reglagesCourants()) {
   const def = meta.options ?? {}, o = { ...reg.opts };
   if (reg.h || reg.s !== 1 || reg.l) {
     for (const [k, v] of Object.entries(def)) {
@@ -522,6 +525,27 @@ function majReglages() {
 }
 $("#rg-graine").onclick = () => { reg.opts.seed = 1 + Math.floor(Math.random() * 9999); appliquerReglages(); };
 $("#rg-raz").onclick = () => { reg = REG_VIDE(); majReglages(); appliquerReglages(); };
+
+// ---------- export du projet affiché en .zip (code des effets, moteur, rendus, page de démo)
+$("#projet-zip").onclick = async () => {
+  const b = $("#projet-zip");
+  b.disabled = true;
+  bulle(T.px_en_cours);
+  try {
+    const effets = [];
+    for (const p of projet) {
+      const e = parNumero.get(p.n);
+      if (!e) continue;
+      const mod = await charger[p.n]();
+      effets.push({ n: p.n, id: e.id, nom: e.slug, rendu: p.rendu, note: p.note ?? "", options: optionsDe(mod.meta, p.o ? lireReg(p.o) : REG_VIDE()) });
+    }
+    await exporterProjet({ nom: actif?.nom ?? T.projet_defaut, effets, base: T.base + "assets/src/", lisezmoi: T.px_lisezmoi.replaceAll("|", "\n") });
+  } catch (_) {
+    bulle(T.px_ko);
+  } finally {
+    b.disabled = false;
+  }
+};
 
 // ---------- planche de sprites (PNG) et fichiers Godot 4
 const fenPl = $("#fen-planche");

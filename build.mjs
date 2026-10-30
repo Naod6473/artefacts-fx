@@ -68,6 +68,9 @@ rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, "assets"), { recursive: true });
 cpSync("site/static", DIST, { recursive: true });
 cpSync("api", join(DIST, "api"), { recursive: true });
+// sources du moteur, des rendus et des effets, servies telles quelles : l'export zip d'un projet les rassemble
+for (const d of ["core", "rendus", "effets"]) cpSync(d, join(DIST, "assets", "src", d), { recursive: true });
+for (const f of ["LICENSE", "NOTICE.md"]) cpSync(f, join(DIST, "assets", "src", f));
 // données du serveur MCP (api/mcp.php) : le catalogue et le code de chaque effet, lus par PHP
 {
   const { TAGS_FR, CATEGORIES_FR, SYNONYMES } = await import("./site/src/tags.js");

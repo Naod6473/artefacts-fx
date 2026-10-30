@@ -158,5 +158,9 @@
   "rg_toutes": "all colors",
   "rg_lueur": "glow",
   "rg_miroir": "mirror",
-  "rg_lien_copie": "Link with your settings copied"
+  "rg_lien_copie": "Link with your settings copied",
+  "px_bouton": "Export project (.zip)",
+  "px_en_cours": "Preparing the zip…",
+  "px_ko": "Export failed, please try again.",
+  "px_lisezmoi": "Project exported from Artefacts (https://naod.fr). Effects under the MIT license: see artefacts/LICENSE and artefacts/NOTICE.md.||Contents:|- index.html and demo.js: a page that runs each effect in its style, with your settings;|- projet.json: the effects with their style, your note and their options;|- artefacts/: the code of the effects, the engine (core) and the styles.||To see the demo: double-clicking index.html is not enough (JavaScript modules do not load from a file). In the %d folder, run “npx serve” or “python -m http.server”, then open the address it prints.||In your game: import artefacts/core/index.js and the effect you want, then createFx(effect, { x, y, ...options }) with the options from projet.json."
 }
