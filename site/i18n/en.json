@@ -294,5 +294,11 @@
   "if_titre": "Interfaces: hand-drawn UI components (Inkra) · Artefacts",
   "if_desc": "Buttons, menus, sliders, tables, dialogs… over 80 pencil-style React UI components with their code, from Inkra (MIT).",
   "if_credit": "These components and their documentation come as they are from <a href=\"https://github.com/inkrajs/inkra\">Inkra</a> (React, MIT license, © 2026 Inkra contributors). Fonts under the SIL OFL. Install with <code>npm install @inkra/react</code>.",
-  "if_noscript": "This page needs JavaScript."
+  "if_noscript": "This page needs JavaScript.",
+  "if_liste_titre": "Interfaces: UI component kits · Artefacts",
+  "if_liste_h1": "Interfaces",
+  "if_liste_intro": "Free UI component kits to try live before installing them. Pick a kit to open it.",
+  "if_composants": "components",
+  "if_ouvrir": "Open the kit",
+  "if_toutes": "All interfaces"
 }

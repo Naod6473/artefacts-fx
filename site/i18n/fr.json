@@ -294,5 +294,11 @@
   "if_titre": "Interfaces : composants dessinés au crayon (Inkra) · Artefacts",
   "if_desc": "Boutons, menus, curseurs, tableaux, fenêtres… plus de 80 composants d'interface React au style crayonné, avec leur code, tirés d'Inkra (MIT).",
   "if_credit": "Ces composants et leur documentation viennent tels quels d'<a href=\"https://github.com/inkrajs/inkra\">Inkra</a> (React, licence MIT, © 2026 Inkra contributors). Polices sous licence SIL OFL. À installer avec <code>npm install @inkra/react</code>.",
-  "if_noscript": "Cette page a besoin de JavaScript."
+  "if_noscript": "Cette page a besoin de JavaScript.",
+  "if_liste_titre": "Interfaces : kits de composants d'interface · Artefacts",
+  "if_liste_h1": "Interfaces",
+  "if_liste_intro": "Des kits de composants d'interface libres, à essayer en direct avant de les installer. Choisissez un kit pour l'ouvrir.",
+  "if_composants": "composants",
+  "if_ouvrir": "Ouvrir le kit",
+  "if_toutes": "Toutes les interfaces"
 }

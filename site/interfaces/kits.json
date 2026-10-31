@@ -1,0 +1,15 @@
+[
+  {
+    "id": "inkra",
+    "nom": "Inkra",
+    "image": "interfaces/inkra.webp",
+    "composants": 89,
+    "techno": "React 19",
+    "licence": "MIT",
+    "source": "https://github.com/inkrajs/inkra",
+    "desc": {
+      "fr": "Composants dessinés au crayon sur papier : boutons, formulaires, menus, tableaux, calendrier, graphes, fenêtres… Chaque composant a sa démo, son code, son API et ses règles d'accessibilité.",
+      "en": "Pencil-on-paper components: buttons, forms, menus, tables, calendar, graphs, dialogs… Each one comes with a live demo, its code, its API and accessibility notes."
+    }
+  }
+]

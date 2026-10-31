@@ -11,3 +11,4 @@ body.page-interfaces header.entete button { font-family: inherit; }
 #interfaces .app-shell { isolation: auto; }
 /* le tiroir des composants n'existe qu'en dessous de 48rem, comme dans la documentation */
 @media (max-width: 48rem) { .ifx-menu { display: block; } }
+.ifx-retour { white-space: nowrap; }

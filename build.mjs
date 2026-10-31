@@ -10,7 +10,7 @@ import { pathToFileURL } from "node:url";
 
 const DIST = "dist";
 const LANGUES = readdirSync("site/i18n").filter((f) => f.endsWith(".json")).map((f) => f.slice(0, -5));
-const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html", espace: "compte/index.html", mentions: "mentions/index.html", apropos: "a-propos/index.html", interfaces: "interfaces/index.html", introuvable: "404.html" };
+const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html", espace: "compte/index.html", mentions: "mentions/index.html", apropos: "a-propos/index.html", interfaces: "interfaces/index.html", "interfaces-inkra": "interfaces/inkra/index.html", introuvable: "404.html" };
 // le site peut vivre dans un sous-dossier (naod.fr/artefacts/) : tous les liens partent de chemin_web
 const BASE = JSON.parse(readFileSync("config/ovh.json", "utf8")).chemin_web ?? "/";
 
@@ -190,9 +190,14 @@ function remplir(modele, t, page) {
   });
   return html.replace(`<a href="${BASE}${t.langue}/${t.ici}">`, `<a href="${BASE}${t.langue}/${t.ici}" aria-current="page">`);
 }
-const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps", "ap_corps", "if_credit"]);
+const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps", "ap_corps", "if_credit", "if_kits"]);
 for (const langue of LANGUES) {
   const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
+  // les cartes de la page Interfaces, une par kit (site/interfaces/kits.json) : la page reste légère, le kit se charge au clic
+  t.if_kits = JSON.parse(readFileSync("site/interfaces/kits.json", "utf8")).map((k) => `<li><a class="kit" href="${BASE}${langue}/interfaces/${k.id}/">`
+    + `<img src="${BASE}${k.image}" alt="" loading="lazy" width="800" height="500"><span class="corps"><h2>${echappe(k.nom)}</h2>`
+    + `<p>${echappe(k.desc[langue] ?? k.desc.en)}</p><span class="infos">${k.composants} ${echappe(t.if_composants)} · ${echappe(k.techno)} · ${echappe(k.licence)}</span>`
+    + `<span class="ouvrir">${echappe(t.if_ouvrir)} →</span></span></a></li>`).join("");
   mkdirSync(join(DIST, langue), { recursive: true });
   for (const [page, fichier] of Object.entries(PAGES)) {
     // ici : le chemin de la page, pour le lien vers l'autre langue et le lien du menu marqué « page courante »
