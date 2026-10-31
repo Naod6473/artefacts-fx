@@ -13,3 +13,7 @@ MIT. Elle n'est pas incluse dans ce dépôt et ne doit pas y être ajoutée.
 ## Interfaces (Inkra)
 
 La page Interfaces reprend la documentation et les composants d'Inkra (https://github.com/inkrajs/inkra et https://github.com/inkrajs/docs), licence MIT, Copyright (c) 2026 Inkra contributors. Polices sous SIL Open Font License 1.1. Détails : site/interfaces/inkra-docs/.
+
+## Loading (loading-dev)
+
+La page Loading utilise le paquet npm loading-dev (https://github.com/jakubkrehel/loading), licence MIT, Copyright (c) 2026 Jakub Krehel.

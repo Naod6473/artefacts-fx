@@ -10,7 +10,7 @@ import { pathToFileURL } from "node:url";
 
 const DIST = "dist";
 const LANGUES = readdirSync("site/i18n").filter((f) => f.endsWith(".json")).map((f) => f.slice(0, -5));
-const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html", espace: "compte/index.html", mentions: "mentions/index.html", apropos: "a-propos/index.html", interfaces: "interfaces/index.html", "interfaces-inkra": "interfaces/inkra/index.html", introuvable: "404.html" };
+const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", ia: "ia/index.html", proposer: "proposer/index.html", moderation: "moderation/index.html", espace: "compte/index.html", mentions: "mentions/index.html", apropos: "a-propos/index.html", interfaces: "interfaces/index.html", "interfaces-inkra": "interfaces/inkra/index.html", loading: "loading/index.html", introuvable: "404.html" };
 // le site peut vivre dans un sous-dossier (naod.fr/artefacts/) : tous les liens partent de chemin_web
 const BASE = JSON.parse(readFileSync("config/ovh.json", "utf8")).chemin_web ?? "/";
 
@@ -149,6 +149,20 @@ await build({
   writeFileSync(join(d, "app.css"), [readFileSync(join(d, "app.css"), "utf8"), ...autres.map((f) => readFileSync(join(d, f), "utf8"))].join("\n"));
   for (const f of autres) rmSync(join(d, f));
 }
+// la page Loading : React et loading-dev (MIT), plus le lecteur et les rendus du site pour la vue « Avec nos effets »
+await build({
+  entryPoints: { app: "site/loading/app.jsx" },
+  outdir: join(DIST, "assets", "loading"),
+  bundle: true,
+  format: "esm",
+  splitting: true,
+  chunkNames: "[name]-[hash]",
+  jsx: "automatic",
+  define: { "process.env.NODE_ENV": '"production"' },
+  minify: true,
+  legalComments: "inline",
+  banner: { js: "/* Loading : loading-dev, MIT, Copyright (c) 2026 Jakub Krehel, https://github.com/jakubkrehel/loading. Artefacts, MIT. */" },
+});
 // images et vidéo que la documentation appelle par une adresse absolue (/images/…, /media/…)
 cpSync("site/interfaces/inkra-docs/public", DIST, { recursive: true });
 cpSync("site/interfaces/inkra-docs/LICENSE", join(DIST, "assets", "interfaces", "LICENSE-inkra.txt"));
@@ -194,7 +208,7 @@ function remplir(modele, t, page) {
   return html.replace(/(assets\/[\w\/.-]+\.(?:js|css))"/g, `$1?v=${VERSION}"`);
 }
 const VERSION = Date.now().toString(36);
-const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps", "ap_corps", "if_credit", "if_kits"]);
+const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps", "ap_corps", "if_credit", "if_kits", "ld_credit"]);
 for (const langue of LANGUES) {
   const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
   // les cartes de la page Interfaces, une par kit (site/interfaces/kits.json) : la page reste légère, le kit se charge au clic

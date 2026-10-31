@@ -300,5 +300,10 @@
   "if_liste_intro": "Free UI component kits to try live before installing them. Pick a kit to open it.",
   "if_composants": "components",
   "if_ouvrir": "Open the kit",
-  "if_toutes": "All interfaces"
+  "if_toutes": "All interfaces",
+  "nav_loading": "Loading",
+  "ld_titre": "Loading: loading indicators to copy in one click · Artefacts",
+  "ld_h1": "Loading",
+  "ld_intro": "29 loading indicators for React, text-only loaders and a Godot 4 loading screen: tweak them, then copy the code in one click.",
+  "ld_credit": "29 loading indicators for React, from <a href=\"https://github.com/jakubkrehel/loading\">loading-dev</a> (MIT license, © 2026 Jakub Krehel). Set size, color and speed, then copy the code in one click: as React, or as dependency-free HTML + CSS."
 }

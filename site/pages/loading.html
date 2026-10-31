@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{langue}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ld_titre}}</title>
+<meta name="description" content="{{ld_intro}}">
+<link rel="alternate" hreflang="fr" href="{{base}}fr/loading/">
+<link rel="alternate" hreflang="en" href="{{base}}en/loading/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="{{base}}assets/style.css">
+<link rel="stylesheet" href="{{base}}assets/loading.css">
+<link rel="stylesheet" href="{{base}}assets/compte.css">
+<link rel="stylesheet" href="{{base}}assets/entete.css">
+</head>
+<body data-base="{{base}}">
+{{> entete}}
+<main id="contenu" class="in page-loading">
+  <section class="titre">
+    <h1>{{ld_h1}}</h1>
+    <p class="dim">{{ld_credit}}</p>
+    <code class="install">npm install loading-dev</code>
+  </section>
+  <div id="loading"><noscript><p>{{if_noscript}}</p></noscript></div>
+</main>
+{{> pied}}
+{{> compte}}
+<script type="module" src="{{base}}assets/entete.js"></script>
+<script type="module" src="{{base}}assets/loading/app.js"></script>
+</body>
+</html>
