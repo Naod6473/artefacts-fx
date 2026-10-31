@@ -41,7 +41,7 @@ let vedette = 0, iRendu = 0, auto = !reduit, depuis = performance.now();
 const cvV = $("#vitrine canvas"), legende = $("#vitrine-rendu"), boutons = $("#vitrine-rendus"), lienV = $("#vitrine a");
 let lecteurV = new Lecteur(VEDETTES[0]);
 const vue = { lecteur: lecteurV };
-anim.ajouter(cvV, { avancer: (dt) => vue.lecteur.avancer(dt), dessiner: (cv, r, now) => vue.lecteur.dessiner(cv, r, now) }, () => {
+anim.ajouter(cvV, { get images() { return vue.lecteur.images; }, avancer: (dt) => vue.lecteur.avancer(dt), dessiner: (cv, r, now) => vue.lecteur.dessiner(cv, r, now) }, () => {
   const now = performance.now();
   if (auto && now - depuis > CYCLE) {
     depuis = now;
@@ -88,6 +88,7 @@ for (const r of rendus) {
   grille.appendChild(f);
   // un seul lecteur pour toutes les cases : le temps n'avance qu'une fois par image
   anim.ajouter(cv, {
+    get images() { return comp.lecteur.images; },
     avancer: (dt) => { const t = performance.now(); if (t !== comp.tick) { comp.tick = t; comp.lecteur.avancer(dt); } },
     dessiner: (cv, id, now) => comp.lecteur.dessiner(cv, id, now),
   }, () => r.meta.id);
