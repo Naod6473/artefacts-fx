@@ -16,6 +16,12 @@ export const T = {
     sit_envoi: "Envoi…", sit_bouton: "bouton", sit_recherche: "Recherche d'effets", sit_champ: "champ", sit_apercu: "Chargement de l'aperçu", sit_carte: "carte", sit_ecrit: "écrit…",
     effets_intro: "Certains effets de la bibliothèque bouclent assez bien pour servir d'indicateur de chargement, dans le rendu de votre choix. Ouvrez-en un dans la bibliothèque pour l'exporter en GIF, en planche de sprites ou pour Godot.",
     effet_voir: "Voir l'effet et l'exporter",
+    retour: "Retour", agrandir: "Agrandir", copier_code: "Copier le code", copier: "Copier", details: "Détails", fermer: "Fermer", precedent: "Précédent", suivant: "Suivant",
+    indicateur: "Indicateur", jauge: "Jauge", jauge_pleine: "Barre pleine", jauge_blocs: "Blocs de texte", jeu_astuces: "Astuces (une par ligne)",
+    jeu_note_ld: "{n} est un indicateur web (CSS) : la scène Godot utilise à sa place un indicateur en texte.",
+    jeu_note_police: "ces caractères demandent une police qui les contient (la police par défaut de Godot ne les a peut-être pas).",
+    jeu_godot_ld: "Pour Godot, un indicateur web est remplacé par un indicateur en texte : choisissez-en un de la famille « En texte » pour garder le même.",
+    sit_message: "message en cours d'écriture", sit_liste: "liste en chargement",
   },
   en: {
     vue_tous: "All ({n})", vue_texte: "Text only", vue_jeu: "Game screen", vue_situation: "In context", vue_effets: "With our effects",
@@ -33,5 +39,12 @@ export const T = {
     sit_envoi: "Sending…", sit_bouton: "button", sit_recherche: "Search effects", sit_champ: "field", sit_apercu: "Loading preview", sit_carte: "card", sit_ecrit: "typing…",
     effets_intro: "Some effects from the library loop well enough to work as loading indicators, in the style of your choice. Open one in the library to export it as a GIF, a sprite sheet or for Godot.",
     effet_voir: "View and export",
+  
+    retour: "Back", agrandir: "Enlarge", copier_code: "Copy code", copier: "Copy", details: "Details", fermer: "Close", precedent: "Previous", suivant: "Next",
+    indicateur: "Indicator", jauge: "Bar", jauge_pleine: "Solid bar", jauge_blocs: "Text blocks", jeu_astuces: "Tips (one per line)",
+    jeu_note_ld: "{n} is a web (CSS) indicator: the Godot scene uses a text indicator instead.",
+    jeu_note_police: "these characters need a font that contains them (Godot's default font may not).",
+    jeu_godot_ld: "For Godot, a web indicator is replaced by a text one: pick one from the \"Text only\" family to keep the same.",
+    sit_message: "message being typed", sit_liste: "list loading",
   },
 };
