@@ -188,8 +188,12 @@ function remplir(modele, t, page) {
     if (!(k in t)) throw new Error(`${t.langue}.json : clé manquante « ${k} » (page ${page})`);
     return HTML_PERMIS.has(k) ? t[k] : echappe(t[k]);
   });
-  return html.replace(`<a href="${BASE}${t.langue}/${t.ici}">`, `<a href="${BASE}${t.langue}/${t.ici}" aria-current="page">`);
+  html = html.replace(`<a href="${BASE}${t.langue}/${t.ici}">`, `<a href="${BASE}${t.langue}/${t.ici}" aria-current="page">`);
+  // scripts et styles d'entrée marqués du numéro de construction : le navigateur les garde un jour en cache, et un vieux
+  // accueil.js demanderait des morceaux (fx/…-hash.js) qui n'existent plus après une mise en ligne
+  return html.replace(/(assets\/[\w\/.-]+\.(?:js|css))"/g, `$1?v=${VERSION}"`);
 }
+const VERSION = Date.now().toString(36);
 const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps", "ap_corps", "if_credit", "if_kits"]);
 for (const langue of LANGUES) {
   const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
