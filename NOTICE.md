@@ -13,6 +13,15 @@ MIT License, Copyright (c) 2026 rehan-remade. Les rendus de `rendus/` sont repri
 **Hugo Duprez.** `core/sim.js` et les effets qui le disent en tête de fichier adaptent les effets pixel art open source
 de Sprite Fusion (https://www.spritefusion.com/pixel-art-vfx), Copyright (c) 2026 Hugo Duprez, MIT License.
 
+**ascii-magic-art.** Les 731 scènes animées en caractères des catégories landscapes, screens, live-data, explainers,
+lettering, solids, cosmos, motion-lab, wild, animals, things, algorithms, demoscene, arcade, frames, occasions, cities,
+mascots, empty-states, retro, science, music, food et india (#0267–#0997), ainsi que `effets/_ascii/lib/kit.js` et
+`effets/_ascii/lib/scene.js`, viennent d'[ascii-magic-art](https://github.com/kailashsr38/ascii-magic-art) (commit b324cb0),
+MIT License, Copyright (c) 2026 ASCII Magic (ascii-magic.com) ; texte complet dans `effets/_ascii/LICENSE`. Chaque fichier
+garde la pièce d'origine et le dit en tête ; `effets/_ascii/fx.js` et `effets/_ascii/glyphes.js` (code d'Artefacts) les
+branchent sur le moteur. Trois scènes du dépôt d'origine faites à partir de photos (ocean-sunset, starry-ridge :
+Unsplash License ; temple-sunset : photo d'origine non indiquée) ne sont pas sous MIT et ne sont pas reprises.
+
 **Police Patch Pixel.** La police du dossier `gallery/fonts` de pixelfx appartient à Patch et n'est pas sous licence
 MIT. Elle n'est pas incluse dans ce dépôt et ne doit pas y être ajoutée.
 

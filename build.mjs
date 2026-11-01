@@ -83,14 +83,13 @@ cpSync("api", join(DIST, "api"), { recursive: true });
 // sources du moteur, des rendus et des effets, servies telles quelles : l'export zip d'un projet les rassemble
 for (const d of ["core", "rendus", "effets"]) cpSync(d, join(DIST, "assets", "src", d), { recursive: true });
 for (const f of ["LICENSE", "NOTICE.md"]) cpSync(f, join(DIST, "assets", "src", f));
-// données du serveur MCP (api/mcp.php) : le catalogue et le code de chaque effet, lus par PHP
+// données du serveur MCP (api/mcp.php) : le catalogue, lu par PHP ; le code de chaque effet, il le lit dans assets/src/effets/
 {
   const { TAGS_FR, CATEGORIES_FR, SYNONYMES } = await import("./site/src/tags.js");
   const dossier = join(DIST, "api", "catalogue");
-  mkdirSync(join(dossier, "sources"), { recursive: true });
+  mkdirSync(dossier, { recursive: true });
   const fiches = catalogue.map((e) => {
     const cat = e.id.split("/")[0];
-    writeFileSync(join(dossier, "sources", e.n + ".js"), readFileSync(join("effets", e.id + ".js")));
     return { ...e, categorie: cat, tags_fr: [CATEGORIES_FR[cat], ...e.tags.map((t) => TAGS_FR[t])].filter(Boolean) };
   });
   const { rendus } = await import("./rendus/index.js").catch(() => ({ rendus: [] }));
@@ -108,7 +107,7 @@ await build({
   chunkNames: "fx/[name]-[hash]",
   minify: true,
   legalComments: "inline",
-  banner: { js: "/* Artefacts, MIT. Moteur et effets d'origine : pixelfx, MIT, Copyright (c) 2026 Patch, Copyright (c) 2026 Hugo Duprez. Licence complète : /LICENSE.txt */" },
+  banner: { js: "/* Artefacts, MIT. Moteur et effets d'origine : pixelfx, MIT, Copyright (c) 2026 Patch, Copyright (c) 2026 Hugo Duprez. Scènes en caractères : ascii-magic-art, MIT, Copyright (c) 2026 ASCII Magic. Licence complète : /LICENSE.txt, /NOTICE.txt */" },
 });
 
 // la page Interfaces : la documentation d'Inkra (site/interfaces/inkra-docs, MIT), en React, groupée à part avec ses

@@ -9,7 +9,8 @@ export const LARGEUR = 1200, HAUTEUR = 630;
 export async function apercu(id) {
   const fx = await loadEffect(id);
   const ecran = isScreen(fx.meta);
-  const r = renderFrames(fx, { margin: ecran ? 0 : 8, fps: Math.min(fx.meta.fps, 15) });
+  // les scènes d'ascii-magic-art durent 12 s et sont pleines dès le début : une image par seconde suffit (731 aperçus)
+  const r = renderFrames(fx, { margin: ecran ? 0 : 8, fps: fx.meta.ascii ? 1 : Math.min(fx.meta.fps, 15) });
   // l'image où l'effet couvre le plus de pixels : le cœur de l'animation, ni le début vide ni la fin
   let meilleure = r.frames[0], max = -1;
   for (const f of r.frames) {

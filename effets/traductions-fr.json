@@ -1062,5 +1062,2929 @@
   "moves/sword-combo": {
     "name": "Combo à l'épée",
     "desc": "Trois coups en avançant : une entaille, une double coupe croisée, puis un coup à deux mains dans le sol qui projette la cible."
+  },
+  "landscapes/arctic-icebergs": {
+    "name": "Icebergs arctiques",
+    "desc": "Des icebergs dérivent sur une mer polaire sombre sous une faible aurore verte, la houle roulant à côté d'eux."
+  },
+  "landscapes/aurora-cabin-snowfall": {
+    "name": "Cabane sous l'aurore et la neige",
+    "desc": "Des aurores vertes se plient lentement au-dessus d'une cabane de rondins enneigée aux fenêtres éclairées, fumée de cheminée et neige qui tombe doucement."
+  },
+  "landscapes/autumn-forest": {
+    "name": "Forêt d'automne",
+    "desc": "Un chemin s'enfonce dans des bois orange et rouges pendant que les feuilles tombent dans la lumière."
+  },
+  "landscapes/autumn-pagoda-maples": {
+    "name": "Pagode et érables d'automne",
+    "desc": "Une pagode à cinq étages parmi les érables rouges un soir d'automne, des lanternes sur un pont en arc et des feuilles d'érable qui tombent."
+  },
+  "landscapes/autumn-road-cyclist": {
+    "name": "Cycliste sur la route d'automne",
+    "desc": "Un cycliste solitaire pédale sur une route forestière sous des arbres orange et rouges, les feuilles tombant dans le soleil rasant."
+  },
+  "landscapes/balloon-valley-sunrise": {
+    "name": "Montgolfières sur la vallée au lever du soleil",
+    "desc": "Des montgolfières dérivent et montent au-dessus de vallées étagées au lever du soleil pendant que la brume roule dans les creux."
+  },
+  "landscapes/bamboo-grove-path": {
+    "name": "Allée dans la bambouseraie",
+    "desc": "Un chemin de pierre traverse une bambouseraie géante vers la lumière, un rickshaw le descend et des promeneurs remontent pendant que les feuilles flottent dans l'air vert."
+  },
+  "landscapes/bamboo-raft-karsts": {
+    "name": "Radeau de bambou entre les karsts",
+    "desc": "Un pêcheur au chapeau conique pousse son radeau de bambou sur une rivière brumeuse à l'aube, lanterne allumée et cormoran qui plonge, entre des rangées de pitons karstiques."
+  },
+  "landscapes/baobab-avenue-dusk": {
+    "name": "Allée des baobabs au crépuscule",
+    "desc": "Des baobabs géants en forme de bouteille bordent une piste rouge au crépuscule, une charrette à bœufs passe dans sa poussière et des chauves-souris quittent les cimes."
+  },
+  "landscapes/basalt-column-coast": {
+    "name": "Côte aux orgues basaltiques",
+    "desc": "Des milliers de colonnes de basalte hexagonales descendent en marches dans une mer agitée, les vagues blanchissent les pierres basses et un visiteur monte les marches."
+  },
+  "landscapes/black-sand-falls": {
+    "name": "Cascade sur le sable noir",
+    "desc": "Une haute cascade tombe d'une falaise de mousse verte sur une plaine de sable noir sous un pâle ciel du Nord, un randonneur en veste rouge marche vers les embruns."
+  },
+  "landscapes/camel-caravan-dusk": {
+    "name": "Caravane de chameaux au crépuscule",
+    "desc": "Une caravane de chameaux suit la crête d'une dune devant un soleil bas, en soulevant des traînées de poussière."
+  },
+  "landscapes/campfire-under-stars": {
+    "name": "Feu de camp sous les étoiles",
+    "desc": "Un feu de camp crépitant envoie des étincelles vers la Voie lactée pendant qu'une tente brille à sa lumière."
+  },
+  "landscapes/canal-golden-hour": {
+    "name": "Gondole sur le canal doré",
+    "desc": "Un canal étroit entre de vieilles maisons peintes à l'heure dorée, une gondole passe, le linge se balance sur les fils et des rides parcourent l'eau."
+  },
+  "landscapes/cherry-blossom-river": {
+    "name": "Rivière aux cerisiers en fleurs",
+    "desc": "Une rivière tranquille coule sous des rangées de cerisiers en fleurs, des pétales roses tombent et s'en vont au fil de l'eau."
+  },
+  "landscapes/cliff-lighthouse-night": {
+    "name": "Phare sur la falaise la nuit",
+    "desc": "Un phare sur une falaise fait tourner son faisceau dans une nuit étoilée pendant qu'un navire passe à l'horizon et que des nuages dérivent."
+  },
+  "landscapes/cliff-village-sea": {
+    "name": "Village blanchi sur la falaise",
+    "desc": "Un village blanchi à la chaux aux coupoles bleues dévale une falaise volcanique au-dessus d'une mer bleu profond, un moulin tourne, des bateaux passent et des mouettes volent."
+  },
+  "landscapes/cyberpunk-alley": {
+    "name": "Ruelle aux néons",
+    "desc": "Une ruelle pluvieuse la nuit mène vers une rue lumineuse, ses enseignes au néon grésillent et se reflètent dans le sol mouillé."
+  },
+  "landscapes/desert-buttes-road": {
+    "name": "Route des buttes du désert",
+    "desc": "Une route droite file vers de grandes buttes de grès rouge, une voiture rouge la parcourt en soulevant la poussière et les ombres des nuages glissent sur le sol."
+  },
+  "landscapes/desert-camp-milky-way": {
+    "name": "Camp du désert sous la Voie lactée",
+    "desc": "La Voie lactée s'arque au-dessus d'un camp parmi les dunes au clair de lune, tentes chaudes, feu qui crépite et silhouette à la lanterne qui passe."
+  },
+  "landscapes/desert-dunes": {
+    "name": "Dunes du désert",
+    "desc": "Des dunes ondulantes cuisent sous un ciel brûlant pendant que le vent soulève le sable de chaque crête."
+  },
+  "landscapes/desert-oasis-palms": {
+    "name": "Oasis et palmiers",
+    "desc": "Des palmiers dattiers entourent un bassin turquoise au cœur des dunes dorées, un voyageur mène ses chameaux à l'eau et le vent soulève le sable des crêtes."
+  },
+  "landscapes/elephants-at-waterhole": {
+    "name": "Éléphants au point d'eau",
+    "desc": "Des éléphants se retrouvent à un point d'eau dans la savane dorée, l'un boit, un autre s'asperge le dos, et le reste du troupeau passe sous les acacias."
+  },
+  "landscapes/fjord-ferry-passage": {
+    "name": "Ferry dans le fjord",
+    "desc": "Un ferry remonte un fjord profond entre des falaises abruptes d'où tombent de fines cascades, une ferme rouge accrochée à une corniche verte tout en haut."
+  },
+  "landscapes/floating-islands": {
+    "name": "Îles flottantes",
+    "desc": "Des îles herbeuses flottent au-dessus d'une mer de nuages, des cascades tombent de leurs bords dans la brume."
+  },
+  "landscapes/fuji-dawn-lake": {
+    "name": "Lac et volcan à l'aube",
+    "desc": "Un volcan enneigé rosit à l'aube au-dessus d'un lac miroir, des grues passent et une petite barque traverse à la perche."
+  },
+  "landscapes/ganges-dawn": {
+    "name": "Aube sur le Gange",
+    "desc": "L'aube se lève sur les ghats du fleuve, des barques en bois dérivent et des lampes flottantes vacillent sur l'eau."
+  },
+  "landscapes/giraffes-below-peak": {
+    "name": "Girafes au pied du pic",
+    "desc": "Des girafes broutent les acacias de la savane dorée au pied d'un volcan enneigé au lever du soleil, une bande de nuages glissant sur ses flancs."
+  },
+  "landscapes/glacier-calving-front": {
+    "name": "Front de glacier qui vêle",
+    "desc": "Le haut front bleu et blanc d'un glacier plonge dans le lac, et de temps en temps un bloc de glace se détache et s'écrase dans une grande gerbe pendant qu'un bateau observe."
+  },
+  "landscapes/glacier-lagoon-ice": {
+    "name": "Lagune glaciaire",
+    "desc": "Des icebergs blancs et bleu glacier, certains rayés de cendre, dérivent sur une lagune calme sous le soleil de minuit, un phoque roule dans l'eau et des sternes passent."
+  },
+  "landscapes/golden-gate-fog": {
+    "name": "Pont dans le brouillard",
+    "desc": "Un pont suspendu rouge domine la baie pendant qu'un épais brouillard roule sous son tablier."
+  },
+  "landscapes/grand-canyon-rim": {
+    "name": "Bord du Grand Canyon",
+    "desc": "Crête après crête de roche rouge striée s'effacent dans le couchant depuis le bord du canyon, la rivière un fil tout en bas, des corbeaux portés par le vent près d'un genévrier."
+  },
+  "landscapes/granite-towers-lake": {
+    "name": "Tours de granit et lac",
+    "desc": "Trois tours de granit abruptes rougeoient au lever du soleil au-dessus d'un lac glaciaire turquoise laiteux, les nuages filent des sommets et des guanacos longent la rive."
+  },
+  "landscapes/granite-valley-falls": {
+    "name": "Cascade de la vallée de granit",
+    "desc": "Une fine cascade jaillit du bord d'une vallée glaciaire de granit pendant que le grand dôme rougeoie le soir au-dessus des pins et de la rivière."
+  },
+  "landscapes/great-wall-sunset": {
+    "name": "Grande Muraille au couchant",
+    "desc": "La Grande Muraille serpente sur des crêtes bleues étagées au coucher du soleil, nuages, brume qui monte et oiseaux."
+  },
+  "landscapes/harbour-neon-skyline": {
+    "name": "Ferry dans le port aux néons",
+    "desc": "La skyline néon d'une ville au-dessus d'un port la nuit sous la pleine lune, fenêtres qui s'allument et s'éteignent, un ferry qui traverse et des voitures sur le pont."
+  },
+  "landscapes/hawa-mahal-morning": {
+    "name": "Hawa Mahal au matin",
+    "desc": "Une façade de palais rose aux innombrables petites fenêtres ajourées prend le soleil du matin pendant que des pigeons tournoient."
+  },
+  "landscapes/himalaya-peaks": {
+    "name": "Sommets de l'Himalaya",
+    "desc": "Des pics enneigés acérés dominent les nuages pendant que des guirlandes de drapeaux de prière claquent au vent."
+  },
+  "landscapes/kerala-backwaters": {
+    "name": "Backwaters du Kerala",
+    "desc": "Une péniche à toit de chaume glisse sur des backwaters verts et calmes bordés de cocotiers penchés."
+  },
+  "landscapes/lagoon-overwater-huts": {
+    "name": "Bungalows sur pilotis du lagon",
+    "desc": "Des huttes de chaume sur pilotis s'avancent sur un lagon turquoise sous un pic volcanique vert, une pirogue à balancier passe et une raie glisse dessous."
+  },
+  "landscapes/lava-meets-ocean": {
+    "name": "La lave rencontre l'océan",
+    "desc": "De la lave incandescente descend une côte volcanique noire et tombe de la falaise dans la mer au crépuscule, l'eau bout et la vapeur monte, éclairée d'orange."
+  },
+  "landscapes/lavender-fields": {
+    "name": "Champs de lavande",
+    "desc": "Des rangs de lavande violette filent vers une ferme à l'horizon pendant que le vent les fait onduler au couchant."
+  },
+  "landscapes/lighthouse-storm": {
+    "name": "Phare dans la tempête",
+    "desc": "Un phare tient sur ses rochers dans la tempête, son faisceau balaie la pluie et les vagues se fracassent dessous."
+  },
+  "landscapes/limestone-bay-junks": {
+    "name": "Jonques dans la baie calcaire",
+    "desc": "Des jonques aux voiles orange nervurées traversent une baie de jade entre de hautes îles calcaires qui s'effacent rang après rang dans la brume, un kayak passe."
+  },
+  "landscapes/lunar-base": {
+    "name": "Base lunaire",
+    "desc": "Des dômes d'habitat sur la plaine grise de la Lune, la Terre suspendue dans un ciel noir et un rover qui passe."
+  },
+  "landscapes/mars-colony": {
+    "name": "Colonie martienne",
+    "desc": "Des dômes d'habitat sur un désert couleur rouille sous deux petites lunes, une tempête de poussière qui passe."
+  },
+  "landscapes/moonlit-mausoleum": {
+    "name": "Mausolée au clair de lune",
+    "desc": "Un mausolée de marbre blanc à grand dôme et quatre minarets brille sous la pleine lune, reflété dans un long bassin qui ondule."
+  },
+  "landscapes/moonlit-sea": {
+    "name": "Mer au clair de lune",
+    "desc": "Une pleine lune au-dessus d'une mer calme la nuit, son reflet se brisant sur la houle."
+  },
+  "landscapes/mountain-sunrise": {
+    "name": "Lever de soleil sur les montagnes",
+    "desc": "Le soleil monte derrière cinq chaînes de montagnes étagées pendant que la brume flotte dans les vallées."
+  },
+  "landscapes/neon-city-rain": {
+    "name": "Pluie sur la ville néon",
+    "desc": "Des enseignes néon grésillent au-dessus d'une rue trempée la nuit, leurs couleurs étalées sur le sol mouillé."
+  },
+  "landscapes/northern-lights": {
+    "name": "Aurores boréales",
+    "desc": "Des rideaux d'aurore verts et violets ondulent au-dessus d'une forêt de pins enneigée et d'un lac gelé."
+  },
+  "landscapes/nyc-skyline-night": {
+    "name": "Skyline la nuit",
+    "desc": "Une dense skyline de gratte-ciel la nuit, fenêtres qui s'allument et s'éteignent au-dessus d'un fleuve sombre."
+  },
+  "landscapes/orbit-window-earth": {
+    "name": "La Terre par le hublot",
+    "desc": "Vue par le hublot d'une station spatiale sur la courbe de la Terre, bandes de nuages qui tournent, un satellite qui passe et le soleil qui se lève sur le limbe."
+  },
+  "landscapes/paddy-buffalo-sunrise": {
+    "name": "Buffle dans les rizières au lever du soleil",
+    "desc": "Les rizières inondées reflètent un doux lever de soleil, un paysan mène un buffle sur les diguettes et des aigrettes rasent les champs."
+  },
+  "landscapes/paris-rooftops": {
+    "name": "Toits de Paris",
+    "desc": "Toits de zinc, fumée des cheminées et fenêtres allumées au crépuscule, avec une tour de fer à l'horizon."
+  },
+  "landscapes/rainforest-falls-mist": {
+    "name": "Cascade dans la forêt tropicale",
+    "desc": "Une haute cascade dévale une falaise moussue dans un bassin de jungle, la brume monte de l'eau, les fougères bougent devant et des oiseaux traversent la lumière."
+  },
+  "landscapes/rainforest-river-canoe": {
+    "name": "Pirogue sur la rivière tropicale",
+    "desc": "Une pirogue descend une large rivière couleur thé entre des murs de forêt le matin, des aras volent, la brume se lève et un singe se balance à une liane."
+  },
+  "landscapes/rainy-window": {
+    "name": "Fenêtre sous la pluie",
+    "desc": "Des gouttes glissent sur une vitre devant les lumières floues d'une ville la nuit."
+  },
+  "landscapes/red-rock-outback-dusk": {
+    "name": "Rocher rouge de l'outback au crépuscule",
+    "desc": "Le grand monolithe rouge flamboie dans la dernière lumière de l'outback, des kangourous bondissent dans les herbes en soulevant la poussière sous les premières étoiles."
+  },
+  "landscapes/redwood-forest-light": {
+    "name": "Lumière dans la forêt de séquoias",
+    "desc": "Des rais de soleil matinal traversent la brume entre des troncs de séquoias géants sortant d'un sol de fougères, un randonneur minuscule sur le sentier."
+  },
+  "landscapes/retro-synth-sunset": {
+    "name": "Couchant rétro synthwave",
+    "desc": "Un soleil rétro rayé se couche derrière des montagnes néon en fil de fer pendant qu'une grille en perspective défile vers vous."
+  },
+  "landscapes/rice-terraces": {
+    "name": "Rizières en terrasses",
+    "desc": "Des rizières en terrasses vert vif descendent les collines pendant que de doux nuages traversent la vallée."
+  },
+  "landscapes/river-lantern-festival": {
+    "name": "Fête des lanternes sur la rivière",
+    "desc": "Des lanternes de papier montent lentement dans la nuit depuis un pont en arc bondé, brillant au-dessus de la rivière et de la ville illuminée."
+  },
+  "landscapes/salt-flat-mirror": {
+    "name": "Désert de sel miroir",
+    "desc": "Un immense désert de sel sous une fine couche d'eau reflète parfaitement le ciel du couchant, nuages dessus et dessous, une jeep passe et des marcheurs avancent sur le reflet."
+  },
+  "landscapes/savanna-sunset": {
+    "name": "Couchant sur la savane",
+    "desc": "Des acacias noirs se découpent sur un énorme soleil orange pendant que girafes et éléphants traversent la plaine."
+  },
+  "landscapes/sea-cliff-puffins": {
+    "name": "Macareux sur la falaise",
+    "desc": "Des macareux au bec orange vif se tiennent et pivotent sur une falaise herbeuse, d'autres arrivent en vrombissant depuis les vagues près d'une aiguille rocheuse."
+  },
+  "landscapes/sea-torii-sunset": {
+    "name": "Torii dans la mer au couchant",
+    "desc": "Un portique de sanctuaire se dresse dans la mer, le soleil se couche entre ses piliers, les vagues arrivent et des mouettes traversent le ciel."
+  },
+  "landscapes/slot-canyon-light": {
+    "name": "Lumière dans le canyon étroit",
+    "desc": "Dans un étroit canyon de grès, les parois tourbillonnantes brillent d'orange et de violet pendant qu'un rai de soleil glisse, traversé de sable qui tombe."
+  },
+  "landscapes/snowy-cabin": {
+    "name": "Cabane sous la neige",
+    "desc": "Une cabane de rondins brille dans les bois enneigés au crépuscule, la fumée monte de la cheminée et la neige continue de tomber."
+  },
+  "landscapes/stilt-village-sunset": {
+    "name": "Village sur pilotis au couchant",
+    "desc": "Des huttes de chaume sur pilotis au-dessus de l'eau calme au coucher du soleil, deux barques de pêche rentrent, la fumée monte et des oiseaux passent."
+  },
+  "landscapes/stone-pillar-forest": {
+    "name": "Forêt de piliers de pierre",
+    "desc": "De hauts piliers de grès couronnés de pins sortent d'une mer de nuages qui coule entre eux, un téléphérique traverse la gorge et des oiseaux se faufilent."
+  },
+  "landscapes/summit-cloud-sea": {
+    "name": "Sommet au-dessus des nuages",
+    "desc": "Un sommet enneigé rosit au-dessus d'une mer de nuages au lever du soleil pendant qu'une cordée de grimpeurs suit l'arête."
+  },
+  "landscapes/switchback-dusk-drive": {
+    "name": "Route en lacets au crépuscule",
+    "desc": "Des voitures descendent une route de montagne en lacets au crépuscule, leurs phares balaient les virages sous une lueur orange et les premières étoiles apparaissent."
+  },
+  "landscapes/taj-mahal-sunset": {
+    "name": "Taj Mahal au couchant",
+    "desc": "Un mausolée blanc à coupole et quatre minarets brille au coucher du soleil au-dessus de son long bassin miroir."
+  },
+  "landscapes/terraced-lakes-falls": {
+    "name": "Lacs en terrasses et cascades",
+    "desc": "Des lacs turquoise descendent en terrasses dans une forêt d'automne, des cascades franchissent leurs bords moussus, des promeneurs suivent le ponton et les feuilles tombent."
+  },
+  "landscapes/thundering-falls-rainbow": {
+    "name": "Chutes grondantes et arc-en-ciel",
+    "desc": "Un rideau d'eau large d'un kilomètre plonge dans une gorge de basalte, les embruns bouillonnent, un arc-en-ciel dans la brume et la forêt qui ruisselle au bord."
+  },
+  "landscapes/tokyo-crossing": {
+    "name": "Carrefour de Tokyo",
+    "desc": "La foule traverse un grand carrefour en tous sens la nuit sous des murs de panneaux lumineux qui clignotent."
+  },
+  "landscapes/train-at-dusk": {
+    "name": "Train au crépuscule",
+    "desc": "Un train de voyageurs aux fenêtres éclairées traverse un viaduc de pierre au-dessus d'une vallée brumeuse au crépuscule."
+  },
+  "landscapes/tropical-island": {
+    "name": "Île tropicale",
+    "desc": "Des palmiers qui se balancent sur une petite île entourée d'eau turquoise, des vaguelettes sous un soleil haut."
+  },
+  "landscapes/tulip-fields-windmill": {
+    "name": "Champs de tulipes et moulin",
+    "desc": "Des bandes de tulipes roses, jaunes, blanches, corail et lilas filent vers un moulin dont les ailes tournent, un cycliste suit le chemin de la ferme."
+  },
+  "landscapes/turquoise-lake-canoe": {
+    "name": "Canoë sur le lac turquoise",
+    "desc": "Un canoë rouge glisse sur un lac d'un turquoise incroyable entouré de pics déchiquetés et de pins sombres, la brume du matin se levant autour."
+  },
+  "landscapes/underwater-reef": {
+    "name": "Récif sous-marin",
+    "desc": "Un récif de corail où des poissons nagent dans les rais de lumière tombant de la surface pendant que des bulles montent."
+  },
+  "landscapes/viaduct-steam-train": {
+    "name": "Train à vapeur sur le viaduc",
+    "desc": "Un vieux train à vapeur traverse un haut viaduc de pierre à arches entre les montagnes, en crachant sa vapeur pendant que la brume flotte dans la vallée."
+  },
+  "landscapes/volcano-eruption": {
+    "name": "Éruption volcanique",
+    "desc": "Un volcan entre en éruption dans la nuit, projette des bombes de lave et des rivières incandescentes descendent ses flancs."
+  },
+  "landscapes/waterfall-canyon": {
+    "name": "Canyon et cascade",
+    "desc": "Une haute cascade tombe entre des parois de canyon striées dans un bassin vert, en projetant embruns et brume."
+  },
+  "landscapes/white-travertine-pools": {
+    "name": "Vasques de travertin blanc",
+    "desc": "Des terrasses minérales blanches dévalent une colline, chaque vasque reflète le ciel du soir, l'eau déborde, des gens marchent dedans et des parapentes passent."
+  },
+  "screens/api-request-inspector": {
+    "name": "Inspecteur de requêtes API",
+    "desc": "Un inspecteur où les appels API défilent avec méthode, chemin, statut et barres de durée, et l'un est ouvert pour montrer ses en-têtes."
+  },
+  "screens/benchmark-table": {
+    "name": "Résultats de benchmark",
+    "desc": "Un outil de benchmark mesure chaque cas avec un compteur d'itérations en direct et remplit un tableau de durées comparées à la référence."
+  },
+  "screens/bios-setup": {
+    "name": "Utilitaire de configuration du firmware",
+    "desc": "Un écran de configuration rétro : le curseur parcourt les onglets, active un réglage, réordonne les périphériques d'amorçage et enregistre."
+  },
+  "screens/bisect-hunt": {
+    "name": "Chasse par bissection",
+    "desc": "Une session de bissection teste le commit du milieu, le marque bon ou mauvais et coupe l'intervalle en deux jusqu'au premier commit fautif."
+  },
+  "screens/boot-sequence": {
+    "name": "Séquence de démarrage",
+    "desc": "Le journal de démarrage d'un système défile avec des OK verts, puis la machine attend à l'invite de connexion."
+  },
+  "screens/calculator-app": {
+    "name": "Clavier de calculatrice",
+    "desc": "Une calculatrice dont les touches s'allument quand on les presse, l'écran construit l'expression et le résultat défile au signe égal."
+  },
+  "screens/calendar-month": {
+    "name": "Calendrier du mois",
+    "desc": "Un calendrier mensuel avec pastilles d'événements colorées, le jour marqué et une sélection qui saute de jour en jour avec un panneau d'agenda."
+  },
+  "screens/chat-thread": {
+    "name": "Fil de discussion",
+    "desc": "Une conversation où les bulles apparaissent après un indicateur de frappe et les réponses sont tapées dans la zone de saisie."
+  },
+  "screens/checkout-payment-flow": {
+    "name": "Parcours de paiement",
+    "desc": "Une page de paiement remplit l'adresse et la carte, traite le paiement et arrive sur une commande confirmée."
+  },
+  "screens/cluster-rollout": {
+    "name": "Déploiement progressif",
+    "desc": "La mise à jour progressive d'un cluster : de nouveaux pods démarrent, passent le test de disponibilité et remplacent les anciens jusqu'au succès."
+  },
+  "screens/code-editor": {
+    "name": "Éditeur de code",
+    "desc": "Une fenêtre d'éditeur avec numéros de ligne où un petit limiteur de débit est tapé en couleurs syntaxiques."
+  },
+  "screens/color-picker-sliders": {
+    "name": "Sélecteur de couleur",
+    "desc": "Un sélecteur de couleur où la bande de teinte, le champ de nuances et les curseurs RVB bougent ensemble, la pastille et le code hexa suivant."
+  },
+  "screens/command-palette": {
+    "name": "Palette de commandes",
+    "desc": "Une palette de commandes s'ouvre sur un éditeur assombri, filtre les commandes à mesure qu'on tape et lance le choix."
+  },
+  "screens/compiler-output": {
+    "name": "Avertissements du compilateur",
+    "desc": "Un journal de compilation compile les dépendances, affiche un avertissement de variable inutilisée avec l'extrait pointé et finit en vert."
+  },
+  "screens/coverage-report": {
+    "name": "Rapport de couverture",
+    "desc": "Un rapport de couverture de code : les barres par fichier se remplissent, se colorent selon le seuil puis se retrient pour remonter les plus faibles."
+  },
+  "screens/data-table": {
+    "name": "Tableau de données",
+    "desc": "Un tableau d'état de services qui se retrie sur une nouvelle colonne toutes les quelques secondes pendant qu'une barre de sélection parcourt les lignes."
+  },
+  "screens/date-range-picker": {
+    "name": "Sélecteur de période",
+    "desc": "Un calendrier sur deux mois : on clique une date de début, la période s'étire avec le curseur et le nombre de nuits se met à jour."
+  },
+  "screens/delivery-route-tracker": {
+    "name": "Suivi de livraison",
+    "desc": "Un écran de suivi : l'itinéraire se trace sur un plan de rues, le livreur avance et les étapes de la commande se cochent jusqu'à « livré »."
+  },
+  "screens/dialup-handshake": {
+    "name": "Connexion par modem",
+    "desc": "Un vieux logiciel de terminal compose le numéro, montre la négociation du modem en signal bruité avec ses voyants, se connecte et arrive sur un BBS."
+  },
+  "screens/disk-partitioner": {
+    "name": "Éditeur de partitions",
+    "desc": "Un éditeur de partitions en mode texte taille une nouvelle partition dans l'espace libre, écrit la table et la formate."
+  },
+  "screens/dns-resolver-chain": {
+    "name": "Chaîne de résolution DNS",
+    "desc": "Un schéma de requête DNS : le paquet saute du client au résolveur, à la racine, au TLD et au serveur faisant autorité, puis la réponse revient."
+  },
+  "screens/download-queue": {
+    "name": "File de téléchargements",
+    "desc": "Un gestionnaire de téléchargements où six fichiers affichent taille, vitesse et temps restant, puis se terminent un à un."
+  },
+  "screens/file-tree": {
+    "name": "Arborescence de fichiers",
+    "desc": "Un explorateur de projet où un curseur parcourt l'arbre en ouvrant et fermant les dossiers."
+  },
+  "screens/flame-graph": {
+    "name": "Flame graph de profileur",
+    "desc": "Le flame graph d'un profileur dont les piles grandissent et se stabilisent avec les échantillons pendant qu'un curseur inspecte les cadres les plus chauds."
+  },
+  "screens/form-validation-errors": {
+    "name": "Erreurs de validation de formulaire",
+    "desc": "Un formulaire envoyé à moitié rempli, des erreurs rouges apparaissent sous chaque champ fautif, puis chacun est corrigé jusqu'à l'envoi."
+  },
+  "screens/git-log-graph": {
+    "name": "Graphe git log",
+    "desc": "Un graphe git log où des branches de fonctionnalités fusionnent dans main pendant que de nouveaux commits arrivent en haut."
+  },
+  "screens/heap-map": {
+    "name": "Carte d'allocation mémoire",
+    "desc": "La carte des pages d'un allocateur où des blocs sont alloués et libérés, la fragmentation s'installe et un compactage tasse tout."
+  },
+  "screens/ide-debugger-stepping": {
+    "name": "Débogueur pas à pas",
+    "desc": "Un débogueur avance ligne par ligne dans une boucle, s'arrête aux points d'arrêt pendant que variables, expressions surveillées et pile d'appels changent."
+  },
+  "screens/image-layer-pull": {
+    "name": "Téléchargement de couches de conteneur",
+    "desc": "Le téléchargement d'une image de conteneur : chaque couche a sa barre de progression, s'extrait et se termine, puis l'empreinte s'affiche."
+  },
+  "screens/inbox-list": {
+    "name": "Boîte de réception",
+    "desc": "Une boîte mail avec pastilles non lues, étoiles et aperçus, où les nouveaux messages glissent en haut."
+  },
+  "screens/infra-plan-diff": {
+    "name": "Plan et application d'infrastructure",
+    "desc": "Un plan d'infrastructure en code liste les ressources à ajouter, modifier et détruire en diffs colorés, puis les applique avec des chronomètres."
+  },
+  "screens/install-log": {
+    "name": "Journal d'installation",
+    "desc": "Le journal d'un gestionnaire de paquets qui résout, télécharge et lie les paquets, jusqu'au résumé vert."
+  },
+  "screens/kanban-board": {
+    "name": "Tableau kanban",
+    "desc": "Un tableau de tâches à trois colonnes où les cartes se soulèvent, traversent et se posent."
+  },
+  "screens/keyboard-keypress": {
+    "name": "Touches de clavier",
+    "desc": "Un clavier dont chaque touche s'enfonce et s'allume pendant qu'une phrase est tapée dans le champ au-dessus, majuscule et espace compris."
+  },
+  "screens/login-form": {
+    "name": "Formulaire de connexion",
+    "desc": "Une carte de connexion où e-mail et mot de passe se remplissent, le bouton s'enfonce et une coche de succès se dessine."
+  },
+  "screens/maintenance-mode": {
+    "name": "Mode maintenance",
+    "desc": "Une page « de retour bientôt » avec un engrenage qui tourne, une clé qui se balance et la liste des étapes de mise à jour en direct."
+  },
+  "screens/merge-conflict-resolver": {
+    "name": "Résolution de conflits de fusion",
+    "desc": "Un éditeur de fusion à trois volets parcourt les blocs en conflit, accepte la version locale, distante ou les deux jusqu'à un fichier propre."
+  },
+  "screens/modal-dialog": {
+    "name": "Boîte de dialogue",
+    "desc": "Une confirmation de suppression s'ouvre sur une page de réglages assombrie, attend le nom tapé et se ferme."
+  },
+  "screens/modal-editor": {
+    "name": "Session d'éditeur modal",
+    "desc": "Un éditeur de texte modal en terminal : le curseur saute, une ligne est supprimée, une autre insérée, un rechercher-remplacer tourne et le fichier est enregistré."
+  },
+  "screens/network-waterfall": {
+    "name": "Cascade de requêtes",
+    "desc": "Le panneau réseau d'un navigateur où les requêtes apparaissent pendant le chargement, chacune avec file, connexion, attente et téléchargement en cascade."
+  },
+  "screens/onboarding-stepper": {
+    "name": "Assistant de configuration",
+    "desc": "Un assistant parcourt quatre étapes, remplit les champs, choisit des options et coche la barre d'étapes au fur et à mesure."
+  },
+  "screens/otp-code-entry": {
+    "name": "Saisie d'un code à usage unique",
+    "desc": "Un écran de double authentification : un code à six chiffres est tapé, tremble car faux, est retapé et passe au vert."
+  },
+  "screens/package-publish": {
+    "name": "Publication d'un paquet",
+    "desc": "Un terminal empaquette, liste les fichiers, publie le paquet sur le registre, et la courbe des téléchargements hebdomadaires commence à grimper."
+  },
+  "screens/packet-sniffer": {
+    "name": "Capture de paquets",
+    "desc": "Un outil de capture fait défiler des paquets TCP, UDP, DNS et TLS colorés, avec compteurs par protocole et vidage hexa du paquet choisi."
+  },
+  "screens/page-404": {
+    "name": "404 perdu dans l'espace",
+    "desc": "Une page introuvable avec un grand 404 lumineux et un satellite perdu qui dérive entre les étoiles."
+  },
+  "screens/page-500": {
+    "name": "Erreur serveur 500",
+    "desc": "Une page d'erreur 500 avec une baie de serveurs qui fume, des voyants de panne qui clignotent et un compte à rebours avant nouvel essai."
+  },
+  "screens/password-strength-meter": {
+    "name": "Jauge de mot de passe",
+    "desc": "Un champ de mot de passe où chaque frappe fait passer la jauge de faible à fort et coche les règles une à une."
+  },
+  "screens/pod-autoscaler": {
+    "name": "Mise à l'échelle des pods",
+    "desc": "Un cluster de conteneurs où un pic de trafic fait monter le processeur, de nouveaux pods démarrent sur les nœuds puis repartent quand la charge baisse."
+  },
+  "screens/post-memory-test": {
+    "name": "Test de mémoire au démarrage",
+    "desc": "Un vieil autotest de démarrage compte la mémoire, détecte les disques un à un et passe la main au chargeur d'amorçage."
+  },
+  "screens/pr-merged": {
+    "name": "Pull request fusionnée",
+    "desc": "Une page de pull request où les vérifications passent au vert une à une, une relecture approuve et le bouton fusionne, branche supprimée."
+  },
+  "screens/pricing-toggle-table": {
+    "name": "Grille tarifaire mensuel-annuel",
+    "desc": "Une grille à trois offres où l'interrupteur passe du mensuel à l'annuel, les prix défilent vers les nouveaux montants et une offre est choisie."
+  },
+  "screens/process-sorter": {
+    "name": "Tri des processus",
+    "desc": "Un visualiseur de processus interactif avec jauges, dont le tableau glisse vers un nouvel ordre quand la colonne de tri change."
+  },
+  "screens/process-task-manager": {
+    "name": "Gestionnaire des tâches",
+    "desc": "Un gestionnaire des tâches où processeur et mémoire par processus s'agitent, les lignes se retrient par charge et un processus fou est arrêté."
+  },
+  "screens/process-tree": {
+    "name": "Arbre de processus en direct",
+    "desc": "Un arbre de processus en direct, avec ses branches, où ouvriers de build et gestionnaires de requêtes naissent en vert, tournent et finissent en rouge."
+  },
+  "screens/progress-loader": {
+    "name": "Barres de progression",
+    "desc": "Quatre barres de progression en terminal se remplissent chacune à son rythme, avec pourcentage et indicateur."
+  },
+  "screens/readme-badges": {
+    "name": "Badges de README",
+    "desc": "La rangée de badges d'un README : le build passe, la couverture monte, les téléchargements augmentent et le compteur d'étoiles change."
+  },
+  "screens/rebase-todo": {
+    "name": "Rebase interactif",
+    "desc": "La liste d'un rebase interactif où les commits sont fusionnés, renommés, supprimés et réordonnés avant d'être rejoués."
+  },
+  "screens/relay-chat-channel": {
+    "name": "Salon de chat IRC",
+    "desc": "Un client de chat en terminal où des gens rejoignent et quittent un salon, discutent avec horodatage et la liste des pseudos se met à jour."
+  },
+  "screens/release-published": {
+    "name": "Version publiée",
+    "desc": "Un terminal étiquette la v1.1.0, la pousse, et les notes de version se tapent toutes seules : nouveautés, corrections et remerciements."
+  },
+  "screens/repo-star-button": {
+    "name": "Clic sur l'étoile",
+    "desc": "L'en-tête d'un dépôt avec les boutons Watch, Fork et Star : le curseur glisse, clique sur Star et le compteur passe à votre nombre."
+  },
+  "screens/search-autocomplete": {
+    "name": "Recherche avec suggestions",
+    "desc": "Un champ de recherche dont les suggestions se resserrent et se surlignent à chaque frappe, puis un résultat est choisi aux flèches."
+  },
+  "screens/settings-toggles": {
+    "name": "Interrupteurs de réglages",
+    "desc": "Un panneau de réglages où un repère descend la liste en basculant des interrupteurs et en tirant des curseurs."
+  },
+  "screens/skeleton-loader": {
+    "name": "Squelette de chargement",
+    "desc": "Des blocs de chargement scintillants pour un fil de cartes qui se changent en vrai contenu."
+  },
+  "screens/smart-home-panel": {
+    "name": "Tableau de maison connectée",
+    "desc": "Un tableau de bord domestique où les lumières s'allument pièce par pièce, le thermostat monte, la porte se verrouille et la courbe d'énergie défile."
+  },
+  "screens/spectrum-music-player": {
+    "name": "Lecteur de musique à spectre",
+    "desc": "Une fenêtre de lecteur avec barres de spectre qui sautent, barre de progression qui avance et liste de lecture qui passe au morceau suivant."
+  },
+  "screens/spinner-set": {
+    "name": "Collection d'indicateurs",
+    "desc": "Douze indicateurs de chargement classiques de terminal côte à côte, chacun avec son nom et son nombre d'images."
+  },
+  "screens/split-pane-session": {
+    "name": "Multiplexeur à volets",
+    "desc": "Un multiplexeur de terminal partagé entre un journal de serveur, un moniteur de ressources et un lanceur de tests, le focus sautant d'un volet à l'autre."
+  },
+  "screens/spreadsheet-recalc": {
+    "name": "Recalcul de tableur",
+    "desc": "Un tableur de budget où une cellule est modifiée, la barre de formule suit et les totaux dépendants clignotent en se recalculant."
+  },
+  "screens/sql-query-runner": {
+    "name": "Exécution d'une requête SQL",
+    "desc": "Une console de base de données tape une requête SQL colorée, l'exécute et remplit une grille de résultats avec la durée."
+  },
+  "screens/ssh-login": {
+    "name": "Connexion SSH",
+    "desc": "Une session distante accepte la clé de l'hôte, affiche une bannière avec l'état du système, lance deux commandes et se déconnecte."
+  },
+  "screens/star-rating-review": {
+    "name": "Avis par étoiles",
+    "desc": "Une carte d'avis où le curseur survole cinq étoiles, choisit une note, écrit un court avis et l'ajoute au total."
+  },
+  "screens/tab-bar": {
+    "name": "Barre d'onglets",
+    "desc": "La barre d'onglets d'un éditeur où le soulignement actif glisse d'un fichier à l'autre et le contenu change dessous."
+  },
+  "screens/terminal-session": {
+    "name": "Session de terminal",
+    "desc": "Une session shell où des commandes sont tapées à une invite colorée et leur sortie s'affiche."
+  },
+  "screens/test-runner-dots": {
+    "name": "Points de la suite de tests",
+    "desc": "Un lanceur de tests affiche un point par test réussi, signale un échec avec son diff et finit sur un résumé coloré."
+  },
+  "screens/toast-stack": {
+    "name": "Pile de notifications",
+    "desc": "Des notifications glissent dans le coin d'une appli, s'empilent, décomptent et repartent."
+  },
+  "screens/twin-pane-commander": {
+    "name": "Gestionnaire de fichiers à deux volets",
+    "desc": "Un gestionnaire de fichiers rétro à deux volets : le curseur choisit des fichiers, une fenêtre de copie remplit sa barre et les fichiers arrivent dans l'autre volet."
+  },
+  "screens/upload-dropzone": {
+    "name": "Zone de dépôt",
+    "desc": "Un curseur glisse une pile de fichiers sur une zone de dépôt qui s'allume, puis chaque fichier s'envoie avec sa barre de progression."
+  },
+  "screens/weather-city-widget": {
+    "name": "Widget météo des villes",
+    "desc": "Un widget météo qui passe de ville en ville, chacune avec son icône de ciel animée, ses températures heure par heure et ses prévisions à cinq jours."
+  },
+  "screens/window-tiling-manager": {
+    "name": "Gestionnaire de fenêtres en mosaïque",
+    "desc": "Un bureau où les fenêtres s'ouvrent une à une et la disposition passe des moitiés aux colonnes puis à la grille."
+  },
+  "live-data/bar-chart-race": {
+    "name": "Course de barres",
+    "desc": "Les barres de dix villes font la course année après année et échangent leurs places au fil de la croissance de leur population."
+  },
+  "live-data/box-plot-live": {
+    "name": "Boîtes à moustaches de latence",
+    "desc": "Des boîtes à moustaches horizontales du temps de réponse de six services, boîtes, médianes, moustaches et valeurs aberrantes bougeant à chaque nouvelle fenêtre."
+  },
+  "live-data/bubble-chart-moving": {
+    "name": "Bulles richesse et santé",
+    "desc": "Un graphique à bulles revenu contre espérance de vie pour douze régions, chaque bulle dimensionnée par la population, qui monte vers la droite décennie après décennie."
+  },
+  "live-data/calendar-year-heatmap": {
+    "name": "Carte de chaleur sur douze mois",
+    "desc": "Douze petits calendriers se remplissent jour après jour de minutes de sport, cases sombres pour le repos et vives pour les grosses séances, jusqu'à l'année complète."
+  },
+  "live-data/candlestick-chart": {
+    "name": "Graphique en chandeliers",
+    "desc": "Des chandeliers de cours verts et rouges avec leurs mèches défilent vers la gauche, le dernier encore en formation face au prix en direct."
+  },
+  "live-data/cpu-cores": {
+    "name": "Moniteur de processeur",
+    "desc": "Un moniteur système en terminal avec huit barres d'usage par cœur, mémoire et swap, charge moyenne et liste de processus chargée."
+  },
+  "live-data/donut-chart": {
+    "name": "Graphique en anneau",
+    "desc": "Un anneau se remplit dans le sens horaire jusqu'à son objectif, le pourcentage comptant au centre."
+  },
+  "live-data/funnel-conversion": {
+    "name": "Entonnoir d'inscription",
+    "desc": "Un entonnoir d'inscription qui compte au fil de la journée, des points entrent en haut et s'éclaircissent d'étape en étape des visites jusqu'aux clients payants."
+  },
+  "live-data/gauge-cluster": {
+    "name": "Cadrans de serveur",
+    "desc": "Un tableau de bord de serveur à quatre cadrans pour processeur, mémoire, disque et réseau, aiguilles en direct et courbes de la dernière minute dessous."
+  },
+  "live-data/goal-progress-rings": {
+    "name": "Anneaux d'objectifs du jour",
+    "desc": "Quatre anneaux d'objectifs, pas, eau, concentration et sommeil, se remplissent au fil de la journée et se ferment d'une coche une fois atteints."
+  },
+  "live-data/heatmap-grid": {
+    "name": "Carte de contributions",
+    "desc": "Une année d'activité quotidienne se remplit case par case, du gris calme au vert vif, avec un total qui grimpe."
+  },
+  "live-data/histogram": {
+    "name": "Histogramme",
+    "desc": "Des échantillons tombent dans un histogramme, les barres montent et dessinent une courbe en cloche avec des statistiques en direct."
+  },
+  "live-data/leaderboard": {
+    "name": "Classement",
+    "desc": "Un classement en direct, scores qui montent, lignes qui se dépassent et flèches marquant chaque remontée."
+  },
+  "live-data/line-chart-live": {
+    "name": "Courbe en direct",
+    "desc": "Une courbe de latence des requêtes qui défile vers la gauche en temps réel, avec grille, axes et étiquette de valeur."
+  },
+  "live-data/network-traffic": {
+    "name": "Trafic réseau",
+    "desc": "Des graphiques de téléchargement et d'envoi défilent sur un moniteur d'interface, avec débits en direct, pics et totaux."
+  },
+  "live-data/parliament-seats": {
+    "name": "Hémicycle électoral",
+    "desc": "Un demi-cercle de 201 sièges se remplit à l'annonce des résultats, coloré par parti, avec le décompte et la ligne de majorité à 101."
+  },
+  "live-data/pie-chart": {
+    "name": "Camembert",
+    "desc": "Un camembert des sources de trafic tourne lentement, chaque part se détachant à son tour près de sa légende."
+  },
+  "live-data/polar-clock": {
+    "name": "Horloge polaire",
+    "desc": "Une horloge à trois anneaux concentriques : l'extérieur suit les secondes, le milieu les minutes et l'intérieur les heures, l'heure écrite au centre."
+  },
+  "live-data/radar-chart-morph": {
+    "name": "Profil de compétences en radar",
+    "desc": "Un graphique en toile d'araignée compare deux ingénieurs sur six compétences, les formes bleue et orange se transformant à chaque nouvelle paire."
+  },
+  "live-data/sankey-flow": {
+    "name": "Budget en Sankey",
+    "desc": "Un budget mensuel en diagramme de Sankey, trois revenus coulent en rubans courbes vers cinq catégories de dépenses, l'argent circulant sur chaque bande."
+  },
+  "live-data/scatter-plot": {
+    "name": "Nuage de points",
+    "desc": "Des points tombent un à un dans un nuage dépenses publicitaires contre chiffre d'affaires, puis une droite de tendance se trace au travers."
+  },
+  "live-data/sparkline-row": {
+    "name": "Panneau de mini-courbes",
+    "desc": "Six mini-courbes étiquetées défilent avec leur valeur en direct, flèche de tendance et barre d'amplitude."
+  },
+  "live-data/speed-gauge": {
+    "name": "Compteur de vitesse",
+    "desc": "Un cadran demi-cercle de test de débit, bandes du vert au rouge et aiguille qui oscille vers la valeur en direct."
+  },
+  "live-data/stacked-area-stream": {
+    "name": "Aires empilées en flux",
+    "desc": "Un graphique en aires empilées des requêtes par seconde de quatre régions, les nouveaux échantillons arrivent à droite pendant que l'historique glisse à gauche."
+  },
+  "live-data/star-history-climb": {
+    "name": "Courbe d'étoiles GitHub",
+    "desc": "Une courbe d'étoiles se dessine semaine par semaine en signalant chaque palier jusqu'au nombre d'étoiles de votre dépôt."
+  },
+  "live-data/stock-ticker": {
+    "name": "Bandeau boursier",
+    "desc": "Un bandeau boursier de symboles inventés défile avec flèches vertes et rouges, cours et variations en pourcentage."
+  },
+  "live-data/treemap-shuffle": {
+    "name": "Treemap d'usage disque",
+    "desc": "Une treemap de l'espace disque par dossier, les cases grandissent, rétrécissent et échangent leurs places quand les caches se remplissent et les journaux tournent."
+  },
+  "live-data/uptime-monitor": {
+    "name": "Page de statut",
+    "desc": "Une page de statut de services avec des barres de disponibilité quotidienne qui avancent et parfois un incident qui passe un service en orange ou rouge."
+  },
+  "live-data/world-map-pings": {
+    "name": "Pings sur la carte du monde",
+    "desc": "Une carte du monde en points où des requêtes s'allument dans les villes et des arcs portent le trafic de l'une à l'autre."
+  },
+  "explainers/architecture-map": {
+    "name": "Carte d'architecture",
+    "desc": "Une carte d'architecture des clients au CDN, à l'équilibreur de charge, aux services et aux bases de données, avec des requêtes qui circulent sur chaque lien."
+  },
+  "explainers/binary-search-steps": {
+    "name": "Recherche dichotomique pas à pas",
+    "desc": "Une recherche dichotomique dans un tableau trié de vingt nombres : les pointeurs bas, milieu et haut se placent, la moitié écartée grisée et chaque comparaison notée."
+  },
+  "explainers/binary-tree": {
+    "name": "Arbre binaire de recherche",
+    "desc": "Des valeurs s'insèrent une à une dans un arbre binaire de recherche, chaque comparaison éclaire le chemin avant que le nouveau nœud se place."
+  },
+  "explainers/blue-green-deploy": {
+    "name": "Bascule bleu-vert",
+    "desc": "Un déploiement bleu-vert : l'environnement inactif démarre la nouvelle version, passe ses tests, et le routeur bascule tout le trafic d'un coup pendant que l'ancien se vide."
+  },
+  "explainers/canary-rollout": {
+    "name": "Déploiement canari par paliers",
+    "desc": "Une version canari reçoit de 1 à 100 % du trafic par paliers en comparant erreurs et latence à la version stable, l'une est promue, la suivante annulée sur un pic d'erreurs."
+  },
+  "explainers/cdn-cache": {
+    "name": "Cache CDN, succès et échec",
+    "desc": "Un nœud CDN reçoit des requêtes de trois régions : succès du cache et réponse rapide, ou échec et passage par l'origine, chaque entrée comptant son TTL."
+  },
+  "explainers/ci-pipeline": {
+    "name": "Pipeline d'intégration continue",
+    "desc": "Un pipeline d'intégration continue : récupération, installation, lint, tests, build et déploiement, avec indicateurs, durées, journal en direct et parfois un test qui échoue."
+  },
+  "explainers/circuit-breaker": {
+    "name": "États d'un disjoncteur",
+    "desc": "Un disjoncteur logiciel compte les échecs d'un service en difficulté, s'ouvre pour échouer vite, attend, tente un appel en semi-ouvert puis se referme quand le service revient."
+  },
+  "explainers/consistent-hash-ring": {
+    "name": "Anneau de hachage cohérent",
+    "desc": "Un anneau de hachage cohérent où chaque clé appartient au nœud suivant dans le sens horaire ; quand un nœud arrive ou tombe, seules les clés de son arc changent de propriétaire."
+  },
+  "explainers/data-flow": {
+    "name": "Flux de données ETL",
+    "desc": "Un pipeline ETL : des enregistrements bruts quittent trois sources, passent par nettoyage, dédoublonnage et jointure, puis arrivent dans l'entrepôt pendant que les compteurs montent."
+  },
+  "explainers/db-replication": {
+    "name": "Réplication primaire-réplicas",
+    "desc": "La réplication d'une base : chaque écriture s'ajoute au journal du primaire et part vers trois réplicas, dont un distant avec du retard et un qui perd le lien puis rattrape d'un coup."
+  },
+  "explainers/dijkstra-path": {
+    "name": "Plus court chemin de Dijkstra",
+    "desc": "L'algorithme de Dijkstra sur un graphe pondéré : il sort le nœud le plus proche de la file, relâche chaque arête, met à jour les distances et éclaire le chemin le plus court."
+  },
+  "explainers/dns-resolution": {
+    "name": "Chemin d'une requête DNS",
+    "desc": "Une requête DNS : le résolveur interroge la racine, puis le TLD, puis le serveur faisant autorité, met chaque réponse en cache et répond à la requête suivante en deux millisecondes."
+  },
+  "explainers/er-diagram": {
+    "name": "Diagramme entité-association",
+    "desc": "Le diagramme entité-association d'une base de boutique, chaque clé étrangère s'allume à son tour avec sa jointure écrite dessous."
+  },
+  "explainers/flowchart": {
+    "name": "Organigramme",
+    "desc": "Un organigramme de commande avec ses cases et son losange de décision, un jeton suit les flèches, revient en arrière sur erreur et note chaque étape."
+  },
+  "explainers/gantt-chart": {
+    "name": "Diagramme de Gantt",
+    "desc": "Un diagramme de Gantt de projet : le repère « aujourd'hui » avance sur les semaines, les barres se remplissent et les jalons s'allument."
+  },
+  "explainers/git-branching": {
+    "name": "Graphe de branches Git",
+    "desc": "Un graphe de commits qui se dessine au fil du temps : des branches partent de main, reçoivent des commits et fusionnent, le dernier message affiché dessous."
+  },
+  "explainers/gradient-descent": {
+    "name": "Descente de gradient",
+    "desc": "Deux optimiseurs descendent la carte de niveaux d'une fonction de perte allongée : la descente simple zigzague, la version à inertie va droit au minimum, courbes de perte à côté."
+  },
+  "explainers/load-balancer": {
+    "name": "Équilibreur de charge",
+    "desc": "Des requêtes affluent dans un équilibreur de charge et se répartissent entre quatre serveurs, chacun avec son compteur et sa barre de connexions."
+  },
+  "explainers/lru-cache": {
+    "name": "Éviction d'un cache LRU",
+    "desc": "Un cache LRU de cinq entrées en liste chaînée : chaque accès remonte son nœud en tête, chaque nouvelle clé entre en tête et la plus ancienne tombe de la queue quand le cache est plein."
+  },
+  "explainers/mapreduce-wordcount": {
+    "name": "Comptage de mots MapReduce",
+    "desc": "Un comptage de mots MapReduce : trois morceaux d'entrée deviennent des paires (mot, 1), sont redistribués pour que chaque clé arrive à un seul réducteur, puis additionnés."
+  },
+  "explainers/message-queue": {
+    "name": "File de tâches et ouvriers",
+    "desc": "Trois producteurs poussent des tâches dans une file qui gonfle pendant un pic, trois ouvriers les prennent en tête, les traitent et résorbent le retard, avec la profondeur en direct dessous."
+  },
+  "explainers/mind-map": {
+    "name": "Carte mentale",
+    "desc": "Une carte mentale qui pousse depuis une idée centrale, des branches vers six thèmes et chaque thème faisant pousser ses propres feuilles."
+  },
+  "explainers/network-topology": {
+    "name": "Topologie réseau",
+    "desc": "Un maillage de routeurs et de liens où des paquets colorés sautent de nœud en nœud, chaque lien s'éclairant au passage du trafic."
+  },
+  "explainers/neural-forward-pass": {
+    "name": "Propagation dans un réseau de neurones",
+    "desc": "Un petit réseau de neurones lit une forme en pixels, les signaux suivent les connexions pondérées, chaque neurone s'éclaire selon son activation et un histogramme softmax nomme la forme."
+  },
+  "explainers/oauth-flow": {
+    "name": "Flux OAuth par code",
+    "desc": "Une connexion par code d'autorisation : redirections, échange du code et jeton circulent entre navigateur, appli, serveur d'autorisation et API, chaque message tapé en chemin."
+  },
+  "explainers/org-chart": {
+    "name": "Organigramme d'entreprise",
+    "desc": "Un organigramme se dessine de haut en bas, les liaisons poussent de chaque case vers les équipes du dessous."
+  },
+  "explainers/pubsub-fanout": {
+    "name": "Diffusion pub/sub",
+    "desc": "Un schéma publication-abonnement : chaque commande arrive sur un sujet et part vers quatre files d'abonnés, dont une lente qui accumule du retard puis le rattrape."
+  },
+  "explainers/sequence-diagram": {
+    "name": "Diagramme de séquence",
+    "desc": "Un diagramme de séquence de connexion où requêtes et réponses en pointillés se tracent l'une après l'autre entre les lignes de vie."
+  },
+  "explainers/sort-race": {
+    "name": "Tri à bulles contre tri rapide",
+    "desc": "Tri à bulles et tri rapide s'affrontent sur les mêmes barres mélangées, comparaisons, échanges et pivots en surbrillance : le tri rapide finit et attend pendant que l'autre peine."
+  },
+  "explainers/state-machine": {
+    "name": "Machine à états",
+    "desc": "Une machine à états de chargement de données : l'état actif s'allume et un jeton suit chaque transition nommée, erreurs et nouvelles tentatives comprises."
+  },
+  "explainers/tcp-handshake": {
+    "name": "Poignée de main TCP",
+    "desc": "Un diagramme en échelle : SYN, SYN-ACK et ACK descendent entre client et serveur, puis une requête, sa réponse et la fermeture en quatre temps, chaque état de socket noté."
+  },
+  "explainers/timeline": {
+    "name": "Frise chronologique",
+    "desc": "Une frise horizontale d'entreprise où un repère mobile révèle chaque étape, les étiquettes apparaissant au-dessus et au-dessous de la ligne."
+  },
+  "explainers/token-bucket": {
+    "name": "Limiteur à seau de jetons",
+    "desc": "Un limiteur de débit à seau : les jetons arrivent à rythme fixe, chaque requête en dépense un, et un pic soudain vide le seau, le surplus étant refusé avec des 429."
+  },
+  "explainers/trace-spans": {
+    "name": "Cascade de traces",
+    "desc": "Une cascade de traçage distribué : les spans imbriqués de chaque service s'allongent sur un axe en millisecondes, puis une trace plus lente dont le paiement expire et recommence."
+  },
+  "explainers/venn-diagram": {
+    "name": "Diagramme de Venn",
+    "desc": "Trois cercles qui se chevauchent, chaque région et intersection s'éclairant à son tour en disant ce qu'elle contient."
+  },
+  "lettering/blinking-cursor": {
+    "name": "Curseur qui clignote",
+    "desc": "Une invite minimale en gros caractères où un mot court est tapé puis effacé à côté d'un curseur bloc qui clignote."
+  },
+  "lettering/bouncing-letters": {
+    "name": "Lettres qui rebondissent",
+    "desc": "Des lettres pleines tombent une à une, rebondissent en s'écrasant un peu et se posent avant de repartir."
+  },
+  "lettering/breaking-news-ticker": {
+    "name": "Bandeau « dernière minute »",
+    "desc": "Un habillage d'info en direct : un bandeau rouge « dernière minute » glisse, chaque titre se tape dans le tiers inférieur et un défilant passe dessous."
+  },
+  "lettering/burning-title": {
+    "name": "Titre en feu",
+    "desc": "Le mot IGNITE rougeoie comme des braises pendant que des flammes turbulentes montent de chaque lettre dans le noir."
+  },
+  "lettering/chalkboard-lettering": {
+    "name": "Lettres à la craie",
+    "desc": "Un bâton de craie écrit un grand mot sur un tableau vert poussiéreux, le souligne, puis une brosse l'efface pour le suivant."
+  },
+  "lettering/cinema-title-card": {
+    "name": "Carton de film muet",
+    "desc": "Une vieille bobine décompte 3 2 1 avec son amorce qui tourne, puis s'arrête sur un carton THE END encadré, plein de grain, de rayures et de tremblements."
+  },
+  "lettering/constellation-word": {
+    "name": "Mot en constellation",
+    "desc": "Sur une carte du ciel qui dérive, des étoiles s'allument et se relient trait par trait jusqu'à écrire un mot, puis s'effacent vers le suivant."
+  },
+  "lettering/countdown-timer": {
+    "name": "Compte à rebours",
+    "desc": "De grands chiffres décomptent depuis dix dans un anneau qui se vide chaque seconde, puis GO éclate en vert."
+  },
+  "lettering/decode-reveal": {
+    "name": "Déchiffrement",
+    "desc": "Un champ de bruit chiffré cède colonne par colonne pendant qu'une phrase en grosses lettres se déchiffre."
+  },
+  "lettering/departures-hall-board": {
+    "name": "Tableau des départs",
+    "desc": "Un tableau des départs d'aéroport complet, heures, vols, destinations, portes et statuts qui changent quand l'embarquement ouvre, que la porte ferme et que les vols partent."
+  },
+  "lettering/digital-clock": {
+    "name": "Horloge numérique",
+    "desc": "Une grande horloge à sept segments égrène les secondes, segments éteints en fantôme et deux-points qui clignote."
+  },
+  "lettering/end-credits-roll": {
+    "name": "Générique de fin",
+    "desc": "Un générique de fin défile sur un écran en format cinéma, rôles alignés à droite d'une gouttière centrale, noms à côté et titres de section entre eux."
+  },
+  "lettering/extruded-word-spin": {
+    "name": "Mot extrudé qui pivote",
+    "desc": "Un mot épais extrudé en 3D se balance d'avant en arrière, face rose éclairée et flancs bleu profond."
+  },
+  "lettering/flip-dot-display": {
+    "name": "Panneau à pastilles",
+    "desc": "Un panneau mécanique à pastilles dont les disques jaunes se retournent en vague à chaque nouveau mot."
+  },
+  "lettering/fortune-cookie-terminal": {
+    "name": "Biscuit chinois dans le terminal",
+    "desc": "Une commande ouvre un biscuit chinois dans le terminal, un papier en sort avec une prédiction et des numéros porte-bonheur, puis l'écran s'efface."
+  },
+  "lettering/glitch-title-settle": {
+    "name": "Titre glitch qui se stabilise",
+    "desc": "Un grand titre se déchire en tranches qui glissent, se sépare en rouge et cyan et en blocs corrompus, puis se pose en un mot net."
+  },
+  "lettering/group-chat-transcript": {
+    "name": "Discussion de groupe",
+    "desc": "Une discussion à trois prépare une randonnée du week-end, les bulles s'empilent avec avatars, noms, réactions et accusés de lecture pendant que le fil défile."
+  },
+  "lettering/ice-crack-letters": {
+    "name": "Lettres de glace qui éclatent",
+    "desc": "Des lettres de glace givrée écrivant CHILL reçoivent un choc, se fendent, éclatent en éclats qui tombent puis regèlent depuis le sol."
+  },
+  "lettering/karaoke-lyrics": {
+    "name": "Paroles de karaoké",
+    "desc": "Des paroles se colorent syllabe par syllabe sous une balle qui sautille, la ligne suivante attend dessous et un vumètre danse."
+  },
+  "lettering/kinetic-word-slam": {
+    "name": "Mots qui claquent",
+    "desc": "De grands mots arrivent de la caméra un temps à la fois et claquent en place avec une secousse et un nuage de poussière."
+  },
+  "lettering/laser-carved-title": {
+    "name": "Plaque gravée au laser",
+    "desc": "Une tête laser balaie une plaque d'acier brossé et grave le mot CRAFT en traits chauffés à blanc qui refroidissent en sillons sombres."
+  },
+  "lettering/led-matrix-scroller": {
+    "name": "Défilant à LED",
+    "desc": "Une enseigne à matrice de LED en vitrine, grille de LED éteintes, fait défiler un message bicolore en police pixel épaisse."
+  },
+  "lettering/liquid-fill-letters": {
+    "name": "Lettres qui se remplissent",
+    "desc": "Des lettres de verre creuses écrivant WATER se remplissent d'un liquide bleu qui clapote et de bulles, puis se vident et recommencent."
+  },
+  "lettering/marquee-sign": {
+    "name": "Enseigne de théâtre",
+    "desc": "Une marquise de théâtre bordée d'ampoules qui se poursuivent, de grandes lettres chaudes défilant sur le panneau."
+  },
+  "lettering/morse-signal": {
+    "name": "Signal morse",
+    "desc": "Une phrase tapée en morse, le tracé du signal défile devant une lampe pendant que chaque lettre se décode au-dessus."
+  },
+  "lettering/neon-sign-flicker": {
+    "name": "Enseigne néon qui vacille",
+    "desc": "Une enseigne néon sur deux lignes brille sur un mur de briques, grésille et vacille avec une lettre fatiguée."
+  },
+  "lettering/nixie-tube-counter": {
+    "name": "Horloge à tubes Nixie",
+    "desc": "Six tubes Nixie aux chiffres orange lumineux comptent les secondes et font défiler toutes les cathodes toutes les dix secondes."
+  },
+  "lettering/odometer-counter": {
+    "name": "Compteur kilométrique",
+    "desc": "Six molettes de chiffres comptent comme un compteur de voiture, chaque retenue faisant tourner la molette suivante."
+  },
+  "lettering/particle-rain-word": {
+    "name": "Mot en pluie de particules",
+    "desc": "Des grains brillants tombent d'en haut et s'empilent en un grand mot, tiennent un instant puis s'écoulent par le bas pour le mot suivant."
+  },
+  "lettering/pen-stroke-word": {
+    "name": "Mot au stylo plume",
+    "desc": "Un stylo plume trace un grand mot trait par trait à l'encre bleue humide sur papier ligné, puis la page tourne."
+  },
+  "lettering/perspective-crawl": {
+    "name": "Texte défilant en perspective",
+    "desc": "Un texte d'ouverture en grosses lettres s'éloigne vers un point de fuite, rapetissant et s'assombrissant sur un champ d'étoiles."
+  },
+  "lettering/quote-of-the-day": {
+    "name": "Citation du jour",
+    "desc": "Une carte fait tourner des citations, chacune glisse vers le haut et sort pendant que la suivante monte, avec points de page et barre de temps."
+  },
+  "lettering/rain-formed-word": {
+    "name": "Écrit dans la pluie",
+    "desc": "Une averse continue où chaque goutte traversant un mot caché s'allume, si bien que le mot apparaît écrit dans la pluie."
+  },
+  "lettering/rainbow-text": {
+    "name": "Texte arc-en-ciel",
+    "desc": "Des lettres pleines parcourues par un dégradé arc-en-ciel complet et un reflet brillant qui passe."
+  },
+  "lettering/ransom-note-letters": {
+    "name": "Lettres de lettre anonyme",
+    "desc": "De grosses lettres découpées dans des magazines, couleurs et tailles discordantes, scotchées sur un bureau, chacune se retournant de temps en temps."
+  },
+  "lettering/robot-sign-crew": {
+    "name": "Équipe de drones",
+    "desc": "Une équipe de petits drones apporte des blocs d'un dépôt pour construire une grande enseigne OPEN sur un plan, puis rapporte tout."
+  },
+  "lettering/slot-reel-letters": {
+    "name": "Rouleaux de lettres",
+    "desc": "Un levier s'abaisse, cinq rouleaux de grandes lettres défilent et s'arrêtent un à un pour écrire un mot, et des pièces tombent dans le bac."
+  },
+  "lettering/split-flap-board": {
+    "name": "Tableau à palettes",
+    "desc": "Un tableau de départs d'aéroport dont chaque case fait défiler l'alphabet à palettes pour afficher les vols suivants."
+  },
+  "lettering/stencil-spray-reveal": {
+    "name": "Pochoir à la bombe",
+    "desc": "Une bombe zigzague sur un pochoir scotché à un mur de briques, le pochoir se décolle et révèle le mot peint, puis un rouleau le recouvre."
+  },
+  "lettering/subtitle-captions": {
+    "name": "Sous-titres",
+    "desc": "Une scène de toit nocturne joue dans un cadre vidéo pendant que des sous-titres minutés apparaissent, noms des personnages en couleur, bruitages et curseur de lecture."
+  },
+  "lettering/syntax-highlight-pass": {
+    "name": "Coloration syntaxique",
+    "desc": "Du code est tapé en gris dans un éditeur, puis le langage est détecté et la coloration syntaxique descend le fichier ligne par ligne."
+  },
+  "lettering/teleprompter-script": {
+    "name": "Prompteur",
+    "desc": "Un texte de discours défile sur un prompteur au-delà d'une ligne de lecture, avec indications de scène, voyant d'enregistrement et chronomètre."
+  },
+  "lettering/text-scramble": {
+    "name": "Texte brouillé",
+    "desc": "Des lettres aléatoires tournent et se fixent case par case en une phrase, puis se brouillent vers la suivante."
+  },
+  "lettering/typewriter": {
+    "name": "Machine à écrire",
+    "desc": "De grosses lettres tapées une touche à la fois derrière un curseur bloc, avec retours à la ligne avant que la page s'efface."
+  },
+  "lettering/unfolding-poem": {
+    "name": "Poème qui se déroule",
+    "desc": "Un poème s'écrit ligne par ligne derrière un curseur de plume, chaque lettre passant de pâle à pleine encre, puis s'envole pour le suivant."
+  },
+  "lettering/vertical-haiku": {
+    "name": "Haïku vertical",
+    "desc": "Des haïkus sont tracés au pinceau en colonnes verticales sur un rouleau suspendu, lus de droite à gauche, signés d'un sceau rouge, pendant qu'une feuille passe."
+  },
+  "lettering/wave-text": {
+    "name": "Texte en vague",
+    "desc": "De grosses lettres ondulent sur une sinusoïde qui avance, s'éclairent à chaque crête, leurs ombres rétrécissant quand elles montent."
+  },
+  "lettering/word-exchange": {
+    "name": "Bourse des mots",
+    "desc": "Des mots courants s'échangent comme des actions : bandeau défilant, tableau de cours qui montent et descendent et graphique du mot de l'heure."
+  },
+  "lettering/word-ladder-morph": {
+    "name": "Échelle de mots",
+    "desc": "Une échelle de mots où une grande lettre à la fois se dissout et se reforme, changeant COLD en WARM, les étapes listées à côté."
+  },
+  "solids/cylinder": {
+    "name": "Cylindre",
+    "desc": "Un cylindre rayé tourne lentement dans l'espace, son flanc courbe et ses faces planes éclairés et triés en profondeur."
+  },
+  "solids/double-helix": {
+    "name": "Double hélice",
+    "desc": "Deux brins brillants s'enroulent l'un autour de l'autre comme l'ADN, reliés par des paires de bases colorées et triés en profondeur en tournant."
+  },
+  "solids/gyroscope-rings": {
+    "name": "Gyroscope à cardan",
+    "desc": "Un gyroscope de trois anneaux imbriqués or, acier et cuivre, chacun tournant sur son pivot autour d'un rotor qui tourne vite."
+  },
+  "solids/heart-3d": {
+    "name": "Cœur 3D",
+    "desc": "Un cœur plein en 3D bat lentement, toc-toc, en pivotant un peu pendant que de petits cœurs montent derrière."
+  },
+  "solids/icosahedron": {
+    "name": "Icosaèdre",
+    "desc": "Un solide à vingt faces tourne sur deux axes, chaque facette triangulaire éclairée en aplat de nuances turquoise."
+  },
+  "solids/klein-bottle": {
+    "name": "Bouteille de Klein",
+    "desc": "Une bouteille de Klein tourne lentement, son col étroit repassant par le flanc pour rejoindre la base, les deux côtés de l'unique surface en violet et turquoise."
+  },
+  "solids/lit-sphere": {
+    "name": "Sphère éclairée",
+    "desc": "Une boule ombrée à panneaux rouges, jaunes et bleus tourne sur un axe incliné, avec un reflet brillant et une ombre douce au sol."
+  },
+  "solids/mobius-strip": {
+    "name": "Ruban de Möbius",
+    "desc": "Un ruban à une seule face avec une demi-torsion tourne lentement, sa couleur passant du turquoise au violet le long de la boucle."
+  },
+  "solids/octahedron": {
+    "name": "Octaèdre",
+    "desc": "Une gemme à huit faces tourne sur son axe en se balançant, faces éclairées en violet et bleu alternés."
+  },
+  "solids/puzzle-cube-turns": {
+    "name": "Cube casse-tête",
+    "desc": "Un cube casse-tête 3 × 3 coloré tourne pendant que ses couches pivotent d'un quart de tour à la fois, se mélangeant puis se résolvant tout seul."
+  },
+  "solids/pyramid": {
+    "name": "Pyramide",
+    "desc": "Une pyramide à base carrée tourne lentement au-dessus de son ombre, chaque face de grès en aplat avec des arêtes vives."
+  },
+  "solids/rotating-cube": {
+    "name": "Cube qui tourne",
+    "desc": "Un cube plein tourne sur deux axes, chaque face éclairée en aplat avec une rampe de caractères et des arêtes nettes."
+  },
+  "solids/rotating-dodecahedron": {
+    "name": "Dodécaèdre",
+    "desc": "Un dodécaèdre plein tourne sur trois axes, ses douze faces pentagonales éclairées en bleu, ambre et vert avec des arêtes nettes."
+  },
+  "solids/rotating-star": {
+    "name": "Étoile qui tourne",
+    "desc": "Une épaisse étoile dorée à cinq branches extrudée en 3D tourne sur son axe et accroche la lumière sur ses biseaux."
+  },
+  "solids/sphere-cube-morph": {
+    "name": "De la sphère au cube",
+    "desc": "Un solide qui tourne passe d'une boule lisse à un cube net et revient, chacune de ses six faces de sa couleur."
+  },
+  "solids/spinning-coin": {
+    "name": "Pièce d'or qui tourne",
+    "desc": "Une épaisse pièce d'or à étoile en relief et bord cannelé tourne sur la tranche, son ombre s'étirant et rétrécissant au sol."
+  },
+  "solids/spinning-torus": {
+    "name": "Tore qui tourne",
+    "desc": "Un anneau éclairé tourne lentement sur deux axes, ombré avec une rampe de caractères classique."
+  },
+  "solids/spring-coil": {
+    "name": "Ressort hélicoïdal",
+    "desc": "Un ressort d'acier suspendu à une poutre s'étire et se rétracte sous un poids qui tourne, avec un éclat métallique vif."
+  },
+  "solids/terrain-flyover": {
+    "name": "Survol de terrain en maillage",
+    "desc": "Un vol à basse altitude au-dessus d'un paysage quadrillé sans fin, vallées vertes, crêtes rocheuses et sommets enneigés qui foncent vers la caméra au crépuscule."
+  },
+  "solids/tesseract": {
+    "name": "Tesseract",
+    "desc": "Un hypercube à quatre dimensions tourne selon le quatrième axe, ses cubes intérieur et extérieur échangeant leurs places dans la projection."
+  },
+  "solids/torus-knot": {
+    "name": "Nœud torique",
+    "desc": "Un tube brillant noué en trèfle tourne lentement, éclairé et trié en profondeur pour passer dessus et dessous lui-même."
+  },
+  "solids/trefoil-tube": {
+    "name": "Nœud en sucre d'orge",
+    "desc": "Un gros tube rayé rouge et crème noué en trèfle, les rayures circulant le long de la boucle pendant que le nœud tourne lentement."
+  },
+  "solids/voxel-heart": {
+    "name": "Cœur en voxels",
+    "desc": "Un cœur massif fait de petits cubes rouges tourne lentement et bat deux fois toutes les deux secondes."
+  },
+  "solids/wireframe-city": {
+    "name": "Survol d'une ville en fil de fer",
+    "desc": "Un vol de nuit le long d'une avenue entre des tours en fil de fer, arêtes cyan et magenta qui défilent au-dessus d'une rue quadrillée."
+  },
+  "solids/wireframe-globe": {
+    "name": "Globe en fil de fer",
+    "desc": "Une sphère de parallèles et méridiens tourne sur un axe incliné, lignes proches brillantes et lignes lointaines pâles derrière."
+  },
+  "cosmos/asteroid-belt": {
+    "name": "Ceinture d'astéroïdes",
+    "desc": "Des astéroïdes bosselés et cratérisés défilent en tournant à différentes profondeurs, éclairés d'un côté par un soleil lointain."
+  },
+  "cosmos/black-hole": {
+    "name": "Trou noir",
+    "desc": "Le disque d'accrétion d'un trou noir tourbillonne autour de son ombre, sa face arrière courbée par la gravité en un halo lumineux."
+  },
+  "cosmos/comet": {
+    "name": "Passage d'une comète",
+    "desc": "Une comète brillante traverse un ciel étoilé au-dessus de collines sombres, sa queue de poussière courbe et sa queue d'ions bleue derrière elle."
+  },
+  "cosmos/earth-rotating": {
+    "name": "La Terre qui tourne",
+    "desc": "La Terre tourne sur son axe incliné, continents et nuages passent du jour à la nuit éclairée par les villes."
+  },
+  "cosmos/eclipse": {
+    "name": "Éclipse de soleil",
+    "desc": "La lune glisse devant le soleil, le ciel s'assombrit, et à la totalité la couronne pâle jaillit autour du disque noir."
+  },
+  "cosmos/meteor-shower": {
+    "name": "Pluie d'étoiles filantes sur le lac",
+    "desc": "Des météores filent depuis un point d'un ciel violet profond, têtes brillantes et traînées qui s'effacent, au-dessus de collines sombres et d'un lac qui les reflète."
+  },
+  "cosmos/moon-phases": {
+    "name": "Phases de la lune",
+    "desc": "La lune croît de la nouvelle à la pleine lune puis décroît, sa limite d'ombre balayant lentement les cratères."
+  },
+  "cosmos/nebula-drift": {
+    "name": "Nébuleuse",
+    "desc": "Une nébuleuse turquoise, magenta et or tourbillonne lentement dans l'espace pendant que de jeunes étoiles y scintillent."
+  },
+  "cosmos/orbiting-planets": {
+    "name": "Planètes en orbite",
+    "desc": "Sept planètes éclairées suivent des orbites elliptiques inclinées autour d'un soleil bouillonnant, les mondes intérieurs devançant les extérieurs."
+  },
+  "cosmos/ring-shadow-closeup": {
+    "name": "Ombre sur les anneaux de Saturne",
+    "desc": "Vue rapprochée d'une planète à anneaux : l'ombre du globe glisse sur les anneaux, qui projettent de fines bandes d'ombre sur les nuages, et une petite lune passe."
+  },
+  "cosmos/ringed-planet": {
+    "name": "Géante gazeuse à anneaux",
+    "desc": "Une géante gazeuse à bandes tourne dans ses anneaux inclinés pendant que deux petites lunes passent devant et derrière."
+  },
+  "cosmos/rocket-launch": {
+    "name": "Lancement de fusée",
+    "desc": "Une fusée s'allume sur son pas de tir au crépuscule et s'élève sur une colonne de flammes, laissant un nuage gonflé derrière elle."
+  },
+  "cosmos/rover-dunes": {
+    "name": "Rover sur les dunes rouges",
+    "desc": "Un rover à six roues roule sur des dunes rouges ridées, roues qui tournent et caméra qui balaie, laissant deux traces et de la poussière sous un ciel caramel."
+  },
+  "cosmos/satellite-orbit": {
+    "name": "Satellite en orbite",
+    "desc": "Un satellite aux panneaux solaires étincelants tourne autour d'une planète bleue nuageuse, passe derrière elle puis revient dans la lumière."
+  },
+  "cosmos/solar-flare": {
+    "name": "Éruption solaire",
+    "desc": "Le bord bouillonnant du soleil remplit l'image, le plasma court le long d'une boucle magnétique et une éruption projette de la matière brillante dans l'espace."
+  },
+  "cosmos/spiral-galaxy": {
+    "name": "Galaxie spirale",
+    "desc": "Une galaxie spirale inclinée tourne lentement, son cœur doré nourrit deux bras bleus parsemés de pouponnières d'étoiles roses."
+  },
+  "cosmos/starfield-warp": {
+    "name": "Champ d'étoiles en distorsion",
+    "desc": "Des centaines d'étoiles filent depuis le centre pendant que la vue traverse l'espace en vitesse de distorsion."
+  },
+  "cosmos/tethered-astronaut": {
+    "name": "Sortie dans l'espace",
+    "desc": "Un astronaute flotte au bout d'un câble enroulé près de la coque d'une station, fait signe de temps en temps, et la Terre bleue tourne lentement en dessous."
+  },
+  "motion-lab/binary-stars": {
+    "name": "Étoile double",
+    "desc": "Une lourde étoile orange et une compagne bleue plus légère tournent autour de leur centre de masse sur des ellipses de Kepler, accélérant au plus près et laissant des traînées."
+  },
+  "motion-lab/bouncing-balls": {
+    "name": "Balles qui rebondissent",
+    "desc": "Six balles colorées tombent, rebondissent sur le sol et les murs, perdent de l'énergie à chaque choc et s'immobilisent avant la chute suivante."
+  },
+  "motion-lab/chladni-figures": {
+    "name": "Figures de Chladni",
+    "desc": "Du sable sur une plaque de métal qui vibre quitte les zones en mouvement et se pose sur les lignes nodales immobiles, redessinant une figure à chaque changement de fréquence."
+  },
+  "motion-lab/cloth-flag": {
+    "name": "Drapeau au vent",
+    "desc": "Un drapeau ondule sur son mât dans un vent en rafales, des vagues parcourent le tissu avec ombre et lumière dans chaque pli."
+  },
+  "motion-lab/double-pendulum": {
+    "name": "Double pendule",
+    "desc": "Un double pendule oscille de façon chaotique, sa masse inférieure traçant une traînée qui ne se répète jamais."
+  },
+  "motion-lab/falling-sand": {
+    "name": "Sable qui tombe",
+    "desc": "Trois becs mobiles versent du sable coloré qui roule et s'entasse en dunes rayées, puis une trappe s'ouvre et la boîte se vide pour recommencer."
+  },
+  "motion-lab/fluid-smoke": {
+    "name": "Fumée qui monte",
+    "desc": "Un mince ruban de fumée monte d'un bâton d'encens rougeoyant, reste lisse un instant puis se brise en tourbillons turbulents."
+  },
+  "motion-lab/jelly-bounce": {
+    "name": "Gelée qui rebondit",
+    "desc": "Une gelée à corps mou sous pression tombe au sol, s'écrase, retrouve sa forme en tremblant et sautille dans sa petite pièce."
+  },
+  "motion-lab/lissajous": {
+    "name": "Oscilloscope de Lissajous",
+    "desc": "Un oscilloscope vert trace des figures de Lissajous, les courbes se tordent avec la phase et passent à un nouveau rapport de fréquences toutes les quelques secondes."
+  },
+  "motion-lab/magnet-field-lines": {
+    "name": "Lignes de champ magnétique",
+    "desc": "Limaille de fer et lignes de champ s'enroulent autour de deux aimants droits, l'un tourne lentement et les lignes basculent, s'étirent et se reconnectent."
+  },
+  "motion-lab/newtons-cradle": {
+    "name": "Pendule de Newton",
+    "desc": "Cinq billes chromées sur leur cadre se transmettent l'élan, d'abord une bille à la fois puis deux."
+  },
+  "motion-lab/orbital-gravity": {
+    "name": "Orbite à trois corps",
+    "desc": "Trois étoiles égales se poursuivent sur la célèbre solution en huit du problème à trois corps, calculée en direct sur des courbes de gravité lumineuses."
+  },
+  "motion-lab/pendulum-wave": {
+    "name": "Vague de pendules",
+    "desc": "Quinze pendules de longueurs soigneusement réglées entrent et sortent de phase, formant vagues, serpents et chaos avant de se réaligner."
+  },
+  "motion-lab/projectile-arc": {
+    "name": "Trajectoires de projectiles",
+    "desc": "Un canon tire la même charge sous quatre angles et chaque boulet trace sa vraie parabole pour comparer hauteurs et portées."
+  },
+  "motion-lab/ripple-pond": {
+    "name": "Ronds dans l'étang",
+    "desc": "Des gouttes tombent dans un étang calme entre les nénuphars, leurs ronds s'étalent, se croisent et s'effacent."
+  },
+  "motion-lab/rope-bridge": {
+    "name": "Traversée du pont de cordes",
+    "desc": "Un randonneur traverse un pont de cordes et de planches au-dessus d'un canyon au crépuscule, le tablier simulé par Verlet ployant et rebondissant à chaque pas."
+  },
+  "motion-lab/spring-mass": {
+    "name": "Masses et ressorts",
+    "desc": "Des masses oscillent sur des ressorts à leur fréquence propre, et une paire couplée se renvoie l'énergie entre deux modes normaux."
+  },
+  "motion-lab/wave-interference": {
+    "name": "Interférences",
+    "desc": "Deux sources vibrantes émettent des ondes circulaires qui s'ajoutent et s'annulent, creusant l'éventail des lignes nodales pendant que les sources s'écartent."
+  },
+  "wild/bonsai-tree": {
+    "name": "Bonsaï",
+    "desc": "Un bonsaï tortueux dans un pot bleu émaillé, ses coussins de feuillage en nuage frémissant dans une douce brise."
+  },
+  "wild/campfire": {
+    "name": "Feu de camp",
+    "desc": "Un feu de camp dans un cercle de pierres, les flammes lèchent les bûches croisées et les étincelles montent dans la nuit."
+  },
+  "wild/cloud-drift": {
+    "name": "Nuages qui passent",
+    "desc": "Des nuages blancs et cotonneux dérivent en couches lentes dans un ciel d'été bleu profond au-dessus de collines lointaines."
+  },
+  "wild/falling-leaves": {
+    "name": "Feuilles qui tombent",
+    "desc": "Des feuilles d'automne tombent en tourbillonnant d'un arbre doré dans une brume chaude, sur un tapis de feuilles mortes."
+  },
+  "wild/fern-fractal": {
+    "name": "Fougère fractale",
+    "desc": "Des frondes de fougère auto-similaires se déroulent de leurs crosses serrées sur le sol de la forêt, foliole par foliole, et se balancent dans l'air humide."
+  },
+  "wild/fireflies": {
+    "name": "Prairie aux lucioles",
+    "desc": "Des lucioles dérivent et clignotent au-dessus d'une prairie au crépuscule, sous une lisière sombre et un couchant qui s'éteint."
+  },
+  "wild/growing-tree": {
+    "name": "Arbre qui pousse",
+    "desc": "Une graine germe et devient un arbre ramifié, se couvre de feuilles, dore, les perd et recommence."
+  },
+  "wild/lightning-storm": {
+    "name": "Orage et éclairs",
+    "desc": "Des nuages d'orage bouillonnent au-dessus de collines sombres pendant que des éclairs ramifiés frappent et illuminent tout le ciel."
+  },
+  "wild/ocean-waves": {
+    "name": "Vagues qui déferlent",
+    "desc": "Vue de côté de la houle qui arrive vers le rivage, se creuse, s'enroule et se brise en écume blanche."
+  },
+  "wild/rain-shower": {
+    "name": "Averse",
+    "desc": "Une grosse averse oblique sur une prairie sombre, les gouttes éclaboussent des flaques qui ondulent."
+  },
+  "wild/rainbow-arc": {
+    "name": "Arc-en-ciel après la pluie",
+    "desc": "Une averse passe sur des collines vertes, les nuages s'ouvrent et un arc-en-ciel complet traverse le ciel qui se dégage."
+  },
+  "wild/snowfall": {
+    "name": "Vallée sous la neige",
+    "desc": "Trois couches de neige tombent sur une vallée de sapins la nuit pendant que les congères s'accumulent lentement."
+  },
+  "wild/sunrise-horizon": {
+    "name": "Lever de soleil sur l'horizon",
+    "desc": "Le soleil monte au-dessus d'un horizon marin plat pendant que le ciel passe de la nuit profonde aux roses de l'aube puis au plein jour."
+  },
+  "wild/tornado": {
+    "name": "Tornade",
+    "desc": "Un entonnoir de tornade serpente sur la plaine sous un ciel d'orage verdâtre, projetant poussière et débris autour de sa base."
+  },
+  "wild/waterfall": {
+    "name": "Cascade",
+    "desc": "Une haute cascade tombe entre des falaises moussues dans un bassin bouillonnant, en projetant embruns et brume."
+  },
+  "wild/wind-grass": {
+    "name": "Vent dans les herbes",
+    "desc": "Un champ de hautes herbes se courbe et miroite d'argent quand les rafales le traversent sous un ciel d'été."
+  },
+  "animals/bat-cave-dusk": {
+    "name": "Chauves-souris quittant la grotte",
+    "desc": "Au crépuscule, une colonie de chauves-souris jaillit d'une grotte de la falaise et file dans le ciel orange en un long ruban tourbillonnant."
+  },
+  "animals/bee-flight": {
+    "name": "Abeilles affairées",
+    "desc": "Des bourdons volent de fleur en fleur au-dessus d'une prairie ensoleillée, s'arrêtent sur chaque corolle puis filent à la suivante."
+  },
+  "animals/butterfly": {
+    "name": "Papillon",
+    "desc": "Un papillon orange et noir bat de ses ailes à motifs en suivant une boucle au-dessus d'un jardin fleuri."
+  },
+  "animals/chameleon-fly": {
+    "name": "Le caméléon et la mouche",
+    "desc": "Un caméléon vert agrippé à une branche suit une mouche de son œil tourelle et l'attrape d'un coup de langue éclair."
+  },
+  "animals/flock-of-birds": {
+    "name": "Murmuration",
+    "desc": "Des centaines d'étourneaux se plient et s'étirent d'un seul mouvement dans un ciel couchant au-dessus d'un lac calme, quelques oiseaux passant tout près."
+  },
+  "animals/goldfish-tank": {
+    "name": "Aquarium de poissons rouges",
+    "desc": "Des poissons rouges vont et viennent dans un aquarium planté pendant que des bulles montent du diffuseur."
+  },
+  "animals/hummingbird-hibiscus": {
+    "name": "Colibri et hibiscus",
+    "desc": "Un colibri à gorge rubis fait du surplace, ailes floues, butine un hibiscus rouge puis file vers l'autre."
+  },
+  "animals/jellyfish": {
+    "name": "Méduses",
+    "desc": "Des méduses lumineuses montent lentement en pulsant dans le bleu profond, leurs longs tentacules ondulant derrière elles."
+  },
+  "animals/koi-pond-ripples": {
+    "name": "Bassin de koïs et ronds dans l'eau",
+    "desc": "Vus de dessus, des koïs orange, blancs et dorés tournent lentement sous les nénuphars pendant que des ronds s'étalent sur l'eau sombre."
+  },
+  "animals/leaping-dolphins": {
+    "name": "Dauphins qui sautent",
+    "desc": "Un groupe de dauphins jaillit l'un après l'autre d'une mer au couchant, nageoires battantes, et replonge sous les vagues."
+  },
+  "animals/octopus": {
+    "name": "Pieuvre",
+    "desc": "Une pieuvre rouge flotte au-dessus du récif, agitant et enroulant ses huit bras à ventouses dans l'eau bleue."
+  },
+  "animals/owl-blink": {
+    "name": "Hibou de nuit",
+    "desc": "Un hibou grand-duc perché sur une branche au clair de lune cligne de ses grands yeux jaunes et tourne lentement la tête."
+  },
+  "animals/penguin-waddle-slide": {
+    "name": "Glissade de manchot",
+    "desc": "Un manchot se dandine sur la banquise devant ses amis, se jette sur le ventre et glisse jusqu'à la mer dans une gerbe d'eau."
+  },
+  "animals/sand-crab-scuttle": {
+    "name": "Crabe sur la plage",
+    "desc": "Un crabe rouge file de côté sur une plage ensoleillée, pinces levées, et remonte le sable à chaque vague."
+  },
+  "animals/sleeping-cat": {
+    "name": "Chat endormi",
+    "desc": "Un chat roux tigré roulé en boule sur un coussin rouge respire lentement tandis que de petits « z » montent dans la pièce."
+  },
+  "animals/snake-slither": {
+    "name": "Serpent qui ondule",
+    "desc": "Un serpent vert annelé ondule en S sur le sable ridé du désert, darde sa langue et laisse une trace."
+  },
+  "animals/snow-fox-trot": {
+    "name": "Renard dans la neige",
+    "desc": "Un renard roux trotte dans la poudreuse le long d'un bois de sapins, queue touffue qui se balance et empreintes derrière lui sous la neige."
+  },
+  "animals/spider-web": {
+    "name": "Toile d'araignée",
+    "desc": "Une araignée tisse sa toile au crépuscule, rayon par rayon puis en spirale, jusqu'à ce que la rosée brille sur les fils."
+  },
+  "animals/swimming-whale": {
+    "name": "Baleine qui nage",
+    "desc": "Une baleine à bosse glisse sous les vagues dans des rais de lumière et remonte de temps en temps souffler."
+  },
+  "animals/walking-dog": {
+    "name": "Chien en promenade",
+    "desc": "Un chien doré trotte joyeusement dans une allée de parc, queue qui remue et oreilles qui sautent, arbres et nuages défilant."
+  },
+  "things/analog-clock": {
+    "name": "Horloge murale",
+    "desc": "Une horloge murale en laiton sur un mur sombre, aiguilles des heures, minutes et secondes avançant en proportion."
+  },
+  "things/candle-flame": {
+    "name": "Flamme de bougie",
+    "desc": "Une bougie seule dans une pièce sombre, sa flamme vacille et la cire coule lentement sur le côté."
+  },
+  "things/clockwork-gears": {
+    "name": "Engrenages d'horlogerie",
+    "desc": "Un train d'engrenages en laiton, cuivre et acier, dent contre creux, tournant à leurs vrais rapports."
+  },
+  "things/coffee-steam": {
+    "name": "Tasse de café",
+    "desc": "Une tasse rouge de café sur une table en bois, des volutes de vapeur montant dans la pièce chaude."
+  },
+  "things/cuckoo-clock": {
+    "name": "Coucou",
+    "desc": "Un coucou en bois sculpté fait tic-tac sur un mur chaud, balancier qui oscille et poids en pommes de pin, et le petit oiseau sort chanter à l'heure."
+  },
+  "things/desk-fan": {
+    "name": "Ventilateur de bureau",
+    "desc": "Un ventilateur de bureau dont les pales tournent derrière la grille, sa tête balayant lentement de gauche à droite."
+  },
+  "things/espresso-pour": {
+    "name": "Machine à expresso",
+    "desc": "Une machine à expresso chromée tire un double dans une tasse en verre, deux filets coulent, la crème monte, le manomètre grimpe et la buse fume."
+  },
+  "things/ferris-wheel": {
+    "name": "Grande roue",
+    "desc": "Une grande roue tourne sur un ciel de crépuscule, ses lumières de jante se poursuivent et ses nacelles restent droites."
+  },
+  "things/film-projector": {
+    "name": "Projecteur de film",
+    "desc": "Un projecteur à bobines ronronne dans une pièce sombre, les bobines tournent et la poussière flotte dans le faisceau pendant qu'un compte à rebours passe à l'écran."
+  },
+  "things/hourglass": {
+    "name": "Sablier",
+    "desc": "Le sable coule dans un sablier en bois, qui se retourne dès que le haut est vide."
+  },
+  "things/lava-lamp": {
+    "name": "Lampe à lave",
+    "desc": "Une lampe lumineuse où des bulles de cire chaude montent, fusionnent, se séparent et redescendent dans un liquide violet."
+  },
+  "things/lighthouse-beam": {
+    "name": "Lanterne de phare",
+    "desc": "Vue rapprochée de la lanterne d'un phare la nuit, la lentille à facettes tourne et balaie le ciel de ses faisceaux."
+  },
+  "things/metronome": {
+    "name": "Métronome",
+    "desc": "Un métronome pyramidal en bois, son bras lesté oscille de gauche à droite et fait tic à chaque temps."
+  },
+  "things/neon-jukebox": {
+    "name": "Jukebox néon",
+    "desc": "Un jukebox de diner en arc brille dans une pièce sombre, des bulles montent dans ses tubes néon, un disque tourne derrière la vitre et le haut-parleur pulse."
+  },
+  "things/pendulum-wall-clock": {
+    "name": "Régulateur à balancier",
+    "desc": "Une haute horloge régulateur en bois sur un mur bleu nuit, son balancier en laiton oscille derrière la vitre, la trotteuse avance et le carillon sonne à l'heure."
+  },
+  "things/porch-wind-chimes": {
+    "name": "Carillon à vent du porche",
+    "desc": "Un carillon en cuivre suspendu au toit du porche au couchant se balance et tinte dans les rafales pendant que des feuilles traversent le jardin."
+  },
+  "things/record-player": {
+    "name": "Tourne-disque",
+    "desc": "Une platine en bois vue de dessus, le disque tourne sous le bras pendant que des notes de musique s'envolent."
+  },
+  "things/rotary-phone": {
+    "name": "Téléphone à cadran",
+    "desc": "Un téléphone de bureau rouge dont le cadran tourne jusqu'à la butée et revient pendant qu'on compose un numéro."
+  },
+  "things/sewing-machine": {
+    "name": "Machine à coudre ancienne",
+    "desc": "Une machine à coudre ancienne noir et or ronronne, l'aiguille monte et descend, le volant tourne, le tissu vichy avance et une couture bleue apparaît."
+  },
+  "things/traffic-light": {
+    "name": "Feu tricolore",
+    "desc": "Un passage piéton où le feu passe au vert, à l'orange et au rouge pendant que les voitures s'arrêtent, font la queue et repartent."
+  },
+  "things/typebar-strike": {
+    "name": "Barres de machine à écrire",
+    "desc": "Gros plan dans une machine à écrire : les barres se lèvent une à une de leur corbeille pour frapper le ruban et les lettres apparaissent pendant que le chariot avance."
+  },
+  "things/washing-machine": {
+    "name": "Machine à laver",
+    "desc": "Un lave-linge à hublot fait tourner un linge coloré dans l'eau savonneuse, puis vidange et essore à toute vitesse."
+  },
+  "things/windmill": {
+    "name": "Moulin sur la colline",
+    "desc": "Un vieux moulin sur une colline verte, ses ailes à claire-voie tournant au-dessus d'un champ de tulipes rayé au couchant."
+  },
+  "algorithms/apollonian-gasket": {
+    "name": "Baderne d'Apollonius",
+    "desc": "Une baderne d'Apollonius en perles ombrées, chaque vide comblé par des cercles tangents plus petits, la vue glissant vers un point de contact puis repartant."
+  },
+  "algorithms/boids-flock": {
+    "name": "Boids sur la prairie",
+    "desc": "Une nuée de boids vue de dessus se guide par séparation, alignement et cohésion, se scinde et se reforme quand un faucon plonge au travers."
+  },
+  "algorithms/brians-brain": {
+    "name": "Brian's Brain",
+    "desc": "L'automate cellulaire Brian's Brain : les cellules s'allument, passent en repos puis s'éteignent, et planeurs et fronts d'onde balaient la grille sans fin."
+  },
+  "algorithms/clifford-attractor": {
+    "name": "Attracteur de Clifford",
+    "desc": "Un attracteur étrange de Clifford en carte de densité lumineuse, ses quatre paramètres dérivent et ses plis soyeux changent sans cesse de forme."
+  },
+  "algorithms/colonising-tree": {
+    "name": "Arbre par colonisation",
+    "desc": "Un arbre pousse par colonisation de l'espace, chaque branche vers un nuage de points attracteurs qui disparaissent une fois atteints, puis se couvre de feuilles."
+  },
+  "algorithms/crystal-grains": {
+    "name": "Croissance de grains",
+    "desc": "Des cristaux germent un à un dans un bain qui refroidit et grandissent jusqu'à former une mosaïque de grains, chacun avec son angle de maille."
+  },
+  "algorithms/dla-growth": {
+    "name": "Agrégation par diffusion",
+    "desc": "Des marcheurs aléatoires arrivent du noir et collent au contact, bâtissant un amas ramifié comme du givre, une particule à la fois."
+  },
+  "algorithms/dragon-curve": {
+    "name": "Courbe du dragon",
+    "desc": "Une ligne pliée en deux encore et encore, chaque pli déployant une nouvelle copie jusqu'à faire apparaître le dragon de Heighway."
+  },
+  "algorithms/flow-field": {
+    "name": "Champ de flux",
+    "desc": "Des centaines de particules suivent les lignes d'un champ de flux de bruit, colorées selon leur direction."
+  },
+  "algorithms/game-of-life": {
+    "name": "Jeu de la vie",
+    "desc": "Le jeu de la vie de Conway sur un plateau torique, cellules colorées selon leur âge, un nouveau plateau toutes les 45 secondes ou plus tôt s'il se fige."
+  },
+  "algorithms/hilbert-curve": {
+    "name": "Courbe de Hilbert",
+    "desc": "Une courbe de Hilbert d'ordre cinq se trace coin par coin en arc-en-ciel, puis se rembobine."
+  },
+  "algorithms/julia-set": {
+    "name": "Ensemble de Julia",
+    "desc": "Un ensemble de Julia qui passe des spirales aux dendrites puis à la poussière tandis que sa constante c longe le bord de la cardioïde."
+  },
+  "algorithms/l-system-plant": {
+    "name": "Plante L-système",
+    "desc": "Une plante de Lindenmayer pousse branche par branche depuis le sol, se balance dans la brise et fleurit avant de repousser."
+  },
+  "algorithms/langtons-ant": {
+    "name": "Fourmi de Langton",
+    "desc": "Quatre fourmis de Langton sur un même plateau torique, chacune peignant sa couleur jusqu'à ce que l'ordre naisse du chaos."
+  },
+  "algorithms/lorenz-attractor": {
+    "name": "Papillon de Lorenz",
+    "desc": "L'attracteur de Lorenz tourne lentement en 3D pendant qu'une comète lumineuse trace ses deux ailes, l'orbite entière esquissée derrière en points braille."
+  },
+  "algorithms/mandelbrot-zoom": {
+    "name": "Zoom de Mandelbrot",
+    "desc": "Un zoom en couleurs douces dans la vallée des hippocampes de l'ensemble de Mandelbrot, en plongée profonde puis retour."
+  },
+  "algorithms/maze-builder": {
+    "name": "Bâtisseur de labyrinthe",
+    "desc": "Un labyrinthe creusé case par case par un marcheur à retour arrière, inondé depuis l'entrée, résolu, puis creusé à nouveau."
+  },
+  "algorithms/penrose-growth": {
+    "name": "Pavage de Penrose",
+    "desc": "Un pavage de Penrose en losanges épais et fins s'assemble tuile par tuile depuis un germe qui change de place à chaque tour."
+  },
+  "algorithms/reaction-diffusion": {
+    "name": "Réaction-diffusion",
+    "desc": "Une réaction-diffusion de Gray-Scott fait pousser coraux, taches et labyrinthes depuis quelques germes."
+  },
+  "algorithms/rule-30": {
+    "name": "Règle 30",
+    "desc": "L'automate cellulaire élémentaire règle 30 grandit depuis une seule cellule, ses triangles chaotiques défilant vers le haut."
+  },
+  "algorithms/sierpinski": {
+    "name": "Triangle de Sierpiński",
+    "desc": "Le jeu du chaos : un point saute à mi-chemin de coins tirés au hasard et un triangle de Sierpiński sort du bruit."
+  },
+  "algorithms/spirograph": {
+    "name": "Spirographe",
+    "desc": "Une roue dentée roule dans un anneau, son stylo trace des hypotrochoïdes en couches de couleurs, puis une nouvelle série commence."
+  },
+  "algorithms/truchet-tiles": {
+    "name": "Tuiles de Truchet",
+    "desc": "Une grille de tuiles de Truchet en quarts de cercle pivote par vagues, les tubes se reconnectant en nouveaux chemins fluides."
+  },
+  "algorithms/voronoi-cells": {
+    "name": "Cellules de Voronoï",
+    "desc": "Quatorze germes qui dérivent et les régions de Voronoï qu'ils occupent, ombrées comme un vitrail en mouvement."
+  },
+  "algorithms/wave-function-collapse": {
+    "name": "Effondrement de fonction d'onde",
+    "desc": "Une carte de terrain résolue par effondrement de fonction d'onde : la tuile la moins incertaine se fixe d'abord et chaque choix restreint ses voisines."
+  },
+  "demoscene/aurora-curtains": {
+    "name": "Rideaux d'aurore",
+    "desc": "Trois rubans d'aurore plissés, vert, turquoise et rose, ondulent lentement dans tout le ciel et leurs rayons glissent le long de chaque rideau."
+  },
+  "demoscene/crt-roll": {
+    "name": "Mire sur écran cathodique",
+    "desc": "Un vieux téléviseur cathodique affiche une mire couleur, l'image défile lentement avec ses lignes de balayage visibles."
+  },
+  "demoscene/endless-corridor": {
+    "name": "Couloir sans fin",
+    "desc": "Un vol en lancer de rayons dans un couloir infini, plafonniers, portes rouges et liseré lumineux qui défilent."
+  },
+  "demoscene/fireworks": {
+    "name": "Feu d'artifice",
+    "desc": "Des fusées montent au-dessus d'une ville la nuit et éclatent en gerbes colorées qui retombent."
+  },
+  "demoscene/holo-grid-sphere": {
+    "name": "Sphère holographique",
+    "desc": "Un globe holographique transparent en lignes de grille lumineuses tourne au-dessus d'un projecteur, un anneau de données en orbite autour."
+  },
+  "demoscene/hyperspace-jump": {
+    "name": "Saut dans l'hyperespace",
+    "desc": "Les étoiles s'étirent en traits, le vaisseau plonge dans un tunnel bleu tourbillonnant puis ressort parmi les étoiles."
+  },
+  "demoscene/ink-in-water": {
+    "name": "Encre dans l'eau",
+    "desc": "Des gouttes d'encre indigo, cramoisie et turquoise tombent dans l'eau claire et s'épanouissent en panaches qui se dissolvent lentement."
+  },
+  "demoscene/kaleidoscope": {
+    "name": "Kaléidoscope",
+    "desc": "Un motif en miroir à huit branches qui tourne et change de couleur comme un kaléidoscope."
+  },
+  "demoscene/lava-cracks": {
+    "name": "Croûte de lave fissurée",
+    "desc": "Des plaques de croûte noire refroidie dérivent sur une rivière de lave, la lumière orange en fusion brille dans les fissures qui s'écartent."
+  },
+  "demoscene/liquid-chrome": {
+    "name": "Chrome liquide",
+    "desc": "Des gouttes de mercure dérivent, fusionnent et se séparent, ombrées comme du chrome poli reflétant un ciel clair et un sol sombre."
+  },
+  "demoscene/matrix-rain": {
+    "name": "Pluie numérique",
+    "desc": "Des colonnes de glyphes verts tombent à différentes vitesses, chacune menée par une tête blanche brillante."
+  },
+  "demoscene/metaballs": {
+    "name": "Metaballs",
+    "desc": "Des blobs lumineux dérivent à l'écran, fusionnent et se séparent comme un liquide chaud."
+  },
+  "demoscene/pixel-fire": {
+    "name": "Feu de pixels",
+    "desc": "Le feu classique de la demoscene : la chaleur monte d'une base chauffée à blanc et se brise en langues vacillantes."
+  },
+  "demoscene/plasma": {
+    "name": "Plasma sinusoïdal",
+    "desc": "Un plasma sinusoïdal classique, des bandes arc-en-ciel qui roulent et se replient les unes dans les autres."
+  },
+  "demoscene/rainbow-warp-road": {
+    "name": "Route arc-en-ciel en distorsion",
+    "desc": "Une autoroute rayée arc-en-ciel serpente dans l'espace à pleine vitesse, ses bandes de couleur défilent sous la vue et les étoiles filent."
+  },
+  "demoscene/rotozoomer": {
+    "name": "Rotozoomer",
+    "desc": "Le rotozoomer de la demoscene : une texture XOR en damier qui tourne, zoome et dézoome."
+  },
+  "demoscene/smoke-rings": {
+    "name": "Ronds de fumée",
+    "desc": "Une cheminée de brique souffle des ronds de fumée qui montent, s'élargissent, tremblent et s'effilochent dans le ciel du soir."
+  },
+  "demoscene/sparks": {
+    "name": "Étincelles de meuleuse",
+    "desc": "Une meuleuse attaque une barre d'acier sur l'établi et projette un éventail d'étincelles qui retombent et rebondissent au sol."
+  },
+  "demoscene/starburst": {
+    "name": "Explosion d'étoile",
+    "desc": "Des rayons arc-en-ciel jaillissent d'un centre chauffé à blanc pendant que des anneaux pulsent vers l'extérieur."
+  },
+  "demoscene/synthwave-grid": {
+    "name": "Grille synthwave",
+    "desc": "Une grille néon fonce vers un soleil couchant rayé, avec des collines violettes à l'horizon."
+  },
+  "demoscene/tunnel": {
+    "name": "Tunnel texturé",
+    "desc": "Un vol dans un tunnel en damier sans fin qui se courbe et se tord."
+  },
+  "demoscene/tv-static": {
+    "name": "Neige télé",
+    "desc": "Un téléviseur mal réglé plein de neige, une bande plus claire descendant lentement l'écran."
+  },
+  "demoscene/vaporwave-sun": {
+    "name": "Soleil vaporwave",
+    "desc": "Un soleil rétro rayé se couche dans une mer de grille néon qui défile, des traînées de nuages passent et une barre de défilement cathodique descend l'écran."
+  },
+  "demoscene/water-caustics": {
+    "name": "Caustiques de piscine",
+    "desc": "Des réseaux de lumière scintillants dansent sur le carrelage du fond d'une piscine."
+  },
+  "arcade/alien-wave": {
+    "name": "Vague d'aliens",
+    "desc": "Des rangées d'aliens avancent de côté et descendent pendant qu'un canon, derrière ses abris, les abat un à un."
+  },
+  "arcade/block-drop": {
+    "name": "Blocs qui tombent",
+    "desc": "Un puzzle de blocs qui tombent joue tout seul, glisse chaque pièce à sa place et efface les lignes pleines."
+  },
+  "arcade/brick-breaker": {
+    "name": "Casse-briques",
+    "desc": "Une raquette qui vise toute seule entame un mur de briques arc-en-ciel jusqu'à la dernière."
+  },
+  "arcade/chess-replay": {
+    "name": "Partie d'échecs rejouée",
+    "desc": "Une courte partie d'attaque classique rejouée coup par coup sur un échiquier en bois, jusqu'au sacrifice de dame et au mat."
+  },
+  "arcade/circuit-lap-racer": {
+    "name": "Course sur circuit",
+    "desc": "Quatre voitures enchaînent les tours d'un circuit vu de dessus, freinent dans les virages et se doublent pendant que le classement se met à jour."
+  },
+  "arcade/coin-run-platformer": {
+    "name": "Plateformes et pièces",
+    "desc": "Un héros court tout seul à travers des collines herbeuses, saute les trous, atterrit sur des corniches de briques, écrase des bestioles et ramasse des pièces."
+  },
+  "arcade/crate-pusher": {
+    "name": "Pousse-caisses",
+    "desc": "Un petit magasinier résout tout seul des puzzles de caisses, pousse chacune sur sa case puis passe au niveau suivant."
+  },
+  "arcade/dino-runner": {
+    "name": "Coureur du désert",
+    "desc": "Un coureur fonce dans le désert de plus en plus vite et saute les cactus jusqu'au saut raté qui termine la course."
+  },
+  "arcade/frog-hop-crossing": {
+    "name": "Traversée de la grenouille",
+    "desc": "Une grenouille qui joue seule saute entre les voitures, prend les troncs et les tortues sur la rivière pour remplir ses cinq nénuphars."
+  },
+  "arcade/gem-cascade": {
+    "name": "Cascade de gemmes",
+    "desc": "Un plateau de « trois à la suite » joue tout seul, aligne des gemmes, les fait éclater et laisse les nouvelles tomber en combos."
+  },
+  "arcade/maze-chase": {
+    "name": "Poursuite dans le labyrinthe",
+    "desc": "Un mangeur de pastilles vide un labyrinthe tout seul, chassé par quatre fantômes, et les super-pastilles renversent la situation."
+  },
+  "arcade/minesweeper": {
+    "name": "Démineur",
+    "desc": "Un champ de mines nettoyé par un solveur qui ouvre les cases sûres, pose un drapeau sur les mines prouvées et ne devine qu'en dernier recours."
+  },
+  "arcade/number-tile-merge": {
+    "name": "Fusion de tuiles",
+    "desc": "Un puzzle de tuiles numérotées 4 × 4 joue tout seul et fusionne les tuiles égales en puissances de deux toujours plus grandes."
+  },
+  "arcade/paddle-tennis": {
+    "name": "Tennis à raquettes",
+    "desc": "Deux raquettes pilotées par l'ordinateur échangent une balle, comptent les points et relancent un match à onze."
+  },
+  "arcade/pipe-flyer": {
+    "name": "Vol entre les tuyaux",
+    "desc": "Un petit oiseau bat des ailes entre les trous d'une rangée infinie de tuyaux et recommence quand il en touche un."
+  },
+  "arcade/rock-blaster": {
+    "name": "Casseur de rochers",
+    "desc": "Un petit vaisseau en flèche tourne, accélère et tire tout seul dans l'espace, brisant des rochers en morceaux toujours plus petits."
+  },
+  "arcade/snake-autoplay": {
+    "name": "Snake",
+    "desc": "Un serpent qui joue seul chasse la nourriture et recommence quand il s'enferme."
+  },
+  "arcade/tower-defence-wave": {
+    "name": "Vague de tower defense",
+    "desc": "Des vagues d'ennemis avancent sur un chemin de terre sinueux pendant que des tours canon, givre et laser tiennent la ligne."
+  },
+  "frames/circuit-trace": {
+    "name": "Pistes de circuit",
+    "desc": "Une bande de pistes de circuit imprimé avec pastilles de cuivre et vias, des signaux verts et bleus y courent."
+  },
+  "frames/dotted-rule": {
+    "name": "Filet de points pulsants",
+    "desc": "Un filet de points discret où de douces pulsations de lumière gonflent et voyagent d'un bout à l'autre."
+  },
+  "frames/double-line-frame": {
+    "name": "Cadre à double trait",
+    "desc": "Un cadre à double trait avec un filet intérieur, des comètes de lumière dorée et bleue se poursuivant tout autour."
+  },
+  "frames/heartbeat-rule": {
+    "name": "Filet battement de cœur",
+    "desc": "Un tracé d'électrocardiogramme vert balaie la page comme un moniteur, avec un cœur qui bat à chaque pic."
+  },
+  "frames/marching-ants-frame": {
+    "name": "Cadre en fourmis",
+    "desc": "Un cadre de sélection rectangulaire dont les tirets défilent dans le sens horaire autour d'un centre vide."
+  },
+  "frames/neon-border": {
+    "name": "Bordure néon",
+    "desc": "Un cadre en tube néon arrondi qui brille dans le noir, passe du rose au cyan et grésille de temps en temps."
+  },
+  "frames/pulse-line": {
+    "name": "Ligne de pulsations",
+    "desc": "Deux impulsions de lumière à traîne lumineuse courent en sens inverse sur une ligne fine et allument ses extrémités."
+  },
+  "frames/rope-divider": {
+    "name": "Corde torsadée",
+    "desc": "Une grosse corde torsadée posée en travers de la page, ses brins roulant pendant qu'elle tourne lentement."
+  },
+  "frames/scroll-banner-frame": {
+    "name": "Bannière en ruban",
+    "desc": "Une bannière en ruban cramoisi aux bouts repliés et entaillés, liseré doré et reflet qui glisse sur le tissu."
+  },
+  "frames/stars-divider": {
+    "name": "Bande d'étoiles scintillantes",
+    "desc": "Une étroite bande de points et d'étincelles à quatre branches qui s'épanouissent et s'éteignent en blanc, or et lilas."
+  },
+  "frames/wave-divider": {
+    "name": "Séparateur en vagues",
+    "desc": "Deux douces sinusoïdes roulent sur une bande fine, leur couleur passant du bleu au rose puis à l'orange."
+  },
+  "frames/zigzag-rule": {
+    "name": "Filet en zigzag",
+    "desc": "Un double filet en zigzag qui défile de côté pendant qu'un dégradé arc-en-ciel glisse dessus."
+  },
+  "occasions/autumn-harvest": {
+    "name": "Récolte d'automne",
+    "desc": "Des citrouilles et une botte de foin devant un champ de blé qui ondule au couchant pendant que les feuilles d'automne tombent."
+  },
+  "occasions/birthday-cake": {
+    "name": "Gâteau d'anniversaire",
+    "desc": "Un gâteau à deux étages au glaçage coulant et aux vermicelles ; ses bougies vacillent, s'éteignent dans un filet de fumée et se rallument."
+  },
+  "occasions/christmas-tree": {
+    "name": "Sapin de Noël",
+    "desc": "Un sapin décoré de guirlandes lumineuses colorées qui scintillent, de guirlandes dorées et d'une étoile brillante, les cadeaux attendant dans la neige."
+  },
+  "occasions/contributors-wall": {
+    "name": "Mur des contributeurs",
+    "desc": "De petits avatars pixel apparaissent un à un sur un mur, tous différents, jusqu'au nombre de contributeurs et un message de remerciement."
+  },
+  "occasions/diwali-diyas": {
+    "name": "Diyas de Diwali",
+    "desc": "Une rangée de lampes à huile en terre vacille sur un rebord au-dessus d'un rangoli qui tourne lentement, sous une guirlande de soucis."
+  },
+  "occasions/easter-eggs": {
+    "name": "Œufs de Pâques",
+    "desc": "Cinq œufs peints à pois, zigzags et rayures vacillent tour à tour dans l'herbe de printemps sous les nuages."
+  },
+  "occasions/eid-moon": {
+    "name": "Croissant de l'Aïd",
+    "desc": "Un fin croissant de lune et des étoiles scintillantes se lèvent sur une ville de coupoles et minarets aux fenêtres chaudement éclairées."
+  },
+  "occasions/halloween-pumpkin": {
+    "name": "Citrouille d'Halloween",
+    "desc": "Une citrouille sculptée vacille sur une colline sous une énorme lune pendant que des chauves-souris traversent un ciel violet."
+  },
+  "occasions/holi-colors": {
+    "name": "Couleurs de Holi",
+    "desc": "Des nuages de poudre rose, jaune, verte, bleue, orange et violette éclatent et flottent au-dessus d'une foule en blanc qui danse."
+  },
+  "occasions/kite-festival": {
+    "name": "Fête des cerfs-volants",
+    "desc": "Des dizaines de cerfs-volants de papier vifs à longues queues dansent sur leurs fils au-dessus de toits plats colorés et bondés."
+  },
+  "occasions/lunar-new-year": {
+    "name": "Danse du dragon",
+    "desc": "Un dragon rouge et or ondule sur les perches de ses danseurs dans une rue éclairée de lanternes pour fêter le nouvel an lunaire."
+  },
+  "occasions/new-year-countdown": {
+    "name": "Compte à rebours du nouvel an",
+    "desc": "Un grand décompte doré de cinq à zéro au-dessus d'une ville endormie, puis le feu d'artifice éclate et HAPPY NEW YEAR s'allume."
+  },
+  "occasions/ramadan-lanterns": {
+    "name": "Lanternes du ramadan",
+    "desc": "Des lanternes de laiton à verres colorés brillent et se balancent au bout de longues chaînes sous un croissant de lune, au-dessus d'une galerie doucement éclairée."
+  },
+  "occasions/snow-globe": {
+    "name": "Boule à neige",
+    "desc": "Une boule à neige en verre sur un socle en bois, avec une petite maison éclairée et un sapin pendant que la neige tourbillonne."
+  },
+  "occasions/star-milestone": {
+    "name": "Palier d'étoiles",
+    "desc": "Une étoile dorée arrive en tournant, le compteur d'étoiles monte jusqu'à votre palier et des confettis tombent, avec le nom du dépôt et un merci modifiables."
+  },
+  "occasions/valentine-hearts": {
+    "name": "Cœurs de la Saint-Valentin",
+    "desc": "Des cœurs rouges et roses ombrés de toutes tailles montent et se balancent dans une brume rose chaude."
+  },
+  "cities/abu-simbel-colossi": {
+    "name": "Colosses d'Abou Simbel",
+    "desc": "Quatre colosses assis taillés dans la falaise de grès brillent au soleil du matin, des visiteurs montent vers la porte sombre et le sable vole sur le parvis."
+  },
+  "cities/acropolis-hill-dusk": {
+    "name": "Colline de l'Acropole au crépuscule",
+    "desc": "Le temple antique sur son rocher brille d'or au-dessus de la ville blanche, fenêtres qui s'allument, voitures sur l'avenue et hirondelles sous un croissant de lune."
+  },
+  "cities/alhambra-hill-dusk": {
+    "name": "Colline de l'Alhambra au crépuscule",
+    "desc": "La forteresse-palais rouge longe sa colline boisée sous la sierra enneigée, cyprès sombres, lumières de la ville qui s'allument et martinets qui tournoient."
+  },
+  "cities/alpine-lake-village": {
+    "name": "Village au bord d'un lac alpin",
+    "desc": "Maisons peintes et clocher blanc bordent un lac de montagne immobile, reflétés parfaitement pendant qu'une barque passe et que des cygnes glissent."
+  },
+  "cities/amsterdam-canal-bikes": {
+    "name": "Vélos le long des canaux d'Amsterdam",
+    "desc": "Une rangée de hautes maisons à pignon brille à l'heure dorée, des cyclistes longent le quai et un bateau à toit vitré glisse sur le canal."
+  },
+  "cities/angkor-lotus-sunrise": {
+    "name": "Temple et bassin de lotus à l'aube",
+    "desc": "Cinq tours de temple en bouton de lotus se découpent sur le lever du soleil au-dessus d'un bassin de lotus, des moines marchent sur la rive et des oiseaux passent."
+  },
+  "cities/bagan-temple-plain": {
+    "name": "Plaine des temples de Bagan",
+    "desc": "Temples de brique et pagodes à flèche s'étendent sur la plaine au couchant, une charrette à bœufs soulève la poussière et la brume flotte entre eux."
+  },
+  "cities/blue-mountain-town": {
+    "name": "Ville bleue de montagne",
+    "desc": "Une ruelle de murs et d'escaliers peints en bleu monte entre les géraniums, un chat descend les marches et un store se balance."
+  },
+  "cities/borobudur-sunrise-mist": {
+    "name": "Borobudur dans la brume de l'aube",
+    "desc": "Les stupas en cloche de la terrasse du temple font face au soleil levant, la brume traverse la vallée et un volcan lointain fume."
+  },
+  "cities/bosphorus-mosque-skyline": {
+    "name": "Mosquées au bord du Bosphore",
+    "desc": "Coupoles et minarets d'Istanbul se découpent sur le couchant au-dessus du Bosphore, des ferries traversent et des mouettes tournoient."
+  },
+  "cities/castle-bridge-dawn": {
+    "name": "Pont et château à l'aube",
+    "desc": "Un vieux pont de pierre bordé de statues franchit une rivière brumeuse à l'aube, tour-porte gothique d'un côté et château sur la colline sous un ciel rose."
+  },
+  "cities/charles-bridge-dawn": {
+    "name": "Pont Charles à l'aube",
+    "desc": "Le vieux pont de pierre, ses statues et sa tour gothique à l'aube, le château sur la colline, la brume sur la rivière et les premiers passants."
+  },
+  "cities/chichen-itza-equinox": {
+    "name": "Chichén Itzá à l'équinoxe",
+    "desc": "La pyramide à degrés de Chichén Itzá à l'heure dorée de l'équinoxe, le serpent de lumière descend l'escalier, des visiteurs traversent la pelouse et les oiseaux rentrent."
+  },
+  "cities/colosseum-golden-hour": {
+    "name": "Colisée à l'heure dorée",
+    "desc": "Le grand amphithéâtre à arcades brille d'or au soleil bas du soir, des scooters passent sur la route et une nuée d'oiseaux tournoie."
+  },
+  "cities/desert-needle-skyline": {
+    "name": "Tour aiguille dans le désert",
+    "desc": "Une tour très fine domine une ville du désert scintillante la nuit, fenêtres qui changent, voitures sur l'autoroute et pleine lune sur les dunes."
+  },
+  "cities/east-river-bridge-sunrise": {
+    "name": "Pont sur l'East River au lever du soleil",
+    "desc": "Un pont suspendu à tours de pierre gothiques franchit le fleuve au lever du soleil devant une skyline voilée, avec la circulation, un remorqueur et des mouettes."
+  },
+  "cities/fairy-chimney-balloons": {
+    "name": "Montgolfières et cheminées de fées",
+    "desc": "Des dizaines de montgolfières dérivent au-dessus d'une vallée de cheminées de fées et de maisons troglodytes pendant que le soleil se lève."
+  },
+  "cities/giza-pyramids-sunset": {
+    "name": "Pyramides de Gizeh au couchant",
+    "desc": "Les trois pyramides de Gizeh brillent sur leurs faces éclairées au coucher du soleil pendant qu'une caravane de chameaux longe les dunes."
+  },
+  "cities/golden-pavilion-pond": {
+    "name": "Pavillon d'or et son étang",
+    "desc": "Le pavillon à la feuille d'or se reflète dans son étang entre pins et érables d'automne, deux canards traversent et les nuages passent sur les collines."
+  },
+  "cities/harbour-sails-opera": {
+    "name": "Opéra aux voiles dans la baie",
+    "desc": "Un opéra aux toits en coquilles blanches sur sa pointe dans une large baie au couchant, pont en arc d'acier derrière et ferries verts avec leur sillage."
+  },
+  "cities/havana-pastel-street": {
+    "name": "Belles américaines de La Havane",
+    "desc": "De vieilles voitures arrondies roulent devant des façades coloniales pastel à arcades et balcons de fer, le linge flotte dans la brise de l'après-midi."
+  },
+  "cities/hill-street-cable-car": {
+    "name": "Tramway à câble dans la rue en pente",
+    "desc": "Un tramway à câble monte une rue raide bordée de maisons peintes pendant que le brouillard passe sous un pont suspendu rouge."
+  },
+  "cities/imperial-palace-snow": {
+    "name": "Palais impérial sous la neige",
+    "desc": "La grande salle du palais impérial sur ses terrasses de marbre sous des toits dorés, la neige tombe et des visiteurs aux parapluies rouges traversent la cour blanche."
+  },
+  "cities/island-abbey-tide": {
+    "name": "Abbaye sur l'île à marée",
+    "desc": "L'abbaye couronne son île rocheuse au couchant, reflétée dans le sable mouillé pendant que la marée monte et descend et que des pèlerins suivent la chaussée."
+  },
+  "cities/island-church-lake": {
+    "name": "Église sur l'île du lac",
+    "desc": "Une petite île avec une église blanche et son clocher dans un lac émeraude sous les Alpes et un château sur la falaise, des barques en bois y rament."
+  },
+  "cities/jungle-temple-mist": {
+    "name": "Temple dans la brume de la jungle",
+    "desc": "Une pyramide à degrés et sa haute crête dominent la canopée pendant que la brume du matin roule et que des aras traversent le ciel."
+  },
+  "cities/kyoto-pagoda-dusk": {
+    "name": "Ruelle aux lanternes et pagode",
+    "desc": "Une vieille rue en pente de maisons de bois et de lanternes rouges monte vers une pagode à cinq étages au crépuscule, des passants sous leurs parapluies dans une pluie fine."
+  },
+  "cities/leaning-tower-square": {
+    "name": "Place de la tour penchée",
+    "desc": "Le campanile de marbre blanc penche sur sa pelouse verte à côté de la cathédrale un après-midi d'été, nuages qui passent et touristes qui posent."
+  },
+  "cities/liberty-harbor-dawn": {
+    "name": "Statue de la Liberté à l'aube",
+    "desc": "La statue vert-de-gris lève sa torche sur son île à l'aube, la ville voilée au-delà du port pendant qu'un ferry traverse et que des mouettes passent."
+  },
+  "cities/machu-picchu-cloud": {
+    "name": "Machu Picchu dans les nuages du matin",
+    "desc": "Ruines de pierre et terrasses vertes sous un pic abrupt, les nuages du matin montent la vallée et des lamas broutent sur les terrasses."
+  },
+  "cities/marine-drive-necklace": {
+    "name": "Le « collier de la reine » de Marine Drive",
+    "desc": "La route du front de mer de Mumbai épouse la baie la nuit sous la pleine lune, ses lampadaires brillent, les voitures défilent et des bateaux dérivent."
+  },
+  "cities/marrakech-rooftop-dusk": {
+    "name": "Toits de Marrakech au crépuscule",
+    "desc": "Les toits rouge-rose s'étendent sous le vieux minaret carré au crépuscule, montagnes enneigées au loin, fumée des étals et lanternes des terrasses qui s'allument."
+  },
+  "cities/moai-coast-sunset": {
+    "name": "Moaï sur la côte au couchant",
+    "desc": "Une rangée de moaï sur leur plateforme de pierre au couchant, la mer derrière, les vagues sur les rochers, des oiseaux de mer et un cheval sauvage qui broute."
+  },
+  "cities/nile-felucca-sunset": {
+    "name": "Felouques sur le Nil au couchant",
+    "desc": "Des felouques aux voiles blanches gîtent sur le fleuve au couchant devant des palmiers dattiers et un vieux temple, des aigrettes rasent l'eau."
+  },
+  "cities/onion-domes-snowfall": {
+    "name": "Bulbes sous la neige",
+    "desc": "Une cathédrale de brique coiffée de bulbes rayés et torsadés sous la neige pendant que des passants emmitouflés traversent la place blanche."
+  },
+  "cities/palace-gate-lanterns": {
+    "name": "Porte du palais et lanternes",
+    "desc": "Un pavillon de porte aux toits de tuiles relevés et aux avant-toits peints au crépuscule sous une montagne de granit, gardes en robes vives et lanternes le long du mur."
+  },
+  "cities/paris-rooftops-dusk": {
+    "name": "Toits de Paris au crépuscule",
+    "desc": "La tour de fer domine les toits de zinc de Paris au crépuscule, fumée des cheminées, pigeons qui passent et soleil qui se couche derrière les toits."
+  },
+  "cities/petra-rose-treasury": {
+    "name": "Trésor de la falaise rose",
+    "desc": "Une façade de temple à colonnes taillée dans la falaise rose, vue du bout d'un canyon sombre, un chamelier traverse le sable en soulevant la poussière."
+  },
+  "cities/potala-palace-dawn": {
+    "name": "Palais du Potala à l'aube",
+    "desc": "Le palais blanc et rouge escalade sa colline à l'aube sous des sommets enneigés roses, des guirlandes de drapeaux de prière flottent au premier plan."
+  },
+  "cities/redeemer-statue-clouds": {
+    "name": "Christ Rédempteur dans les nuages",
+    "desc": "La grande statue aux bras ouverts sur son pic de granit domine une mer de nuages sur la baie, des frégates tournent dans la lumière du matin."
+  },
+  "cities/riverfront-tower-night": {
+    "name": "Tour au bord du fleuve la nuit",
+    "desc": "La skyline de l'autre rive la nuit, les sphères de la tour perle brillent parmi les géants de verre, leurs lumières filent sur l'eau pendant qu'un ferry traverse."
+  },
+  "cities/santorini-blue-domes": {
+    "name": "Coupoles bleues de Santorin",
+    "desc": "Maisons blanches et coupoles bleues descendent la falaise sur la caldeira au couchant, un voilier traverse et un chat longe un muret."
+  },
+  "cities/stonehenge-solstice": {
+    "name": "Stonehenge à l'aube du solstice",
+    "desc": "Le cercle de pierres à l'aube du solstice, le soleil se lève entre les pierres, la brume rase le sol et des moutons broutent dans la plaine."
+  },
+  "cities/sugarloaf-cable-car": {
+    "name": "Téléphérique du Pain de Sucre",
+    "desc": "La baie de Rio à l'heure dorée, les cabines montent au sommet du pic de granit, des voiliers passent, des frégates planent et les palmiers bougent sur la plage."
+  },
+  "cities/supertree-grove-night": {
+    "name": "Bosquet de super-arbres la nuit",
+    "desc": "De hauts arbres d'acier brillent en magenta, violet et turquoise la nuit près d'une skyline, des promeneurs suivent l'allée et la passerelle haute."
+  },
+  "cities/table-mountain-harbour": {
+    "name": "Montagne de la Table et port",
+    "desc": "La montagne au sommet plat domine la ville et le port, sa nappe de nuages déborde du bord, un yacht passe et des mouettes tournent au-dessus des mâts."
+  },
+  "cities/thames-clock-tower": {
+    "name": "Tour de l'horloge sur la Tamise",
+    "desc": "La tour de l'horloge illuminée et la façade gothique au bord du fleuve brillent au crépuscule, un bus rouge à impériale franchit le pont et des bateaux passent."
+  },
+  "cities/torii-gate-tunnel": {
+    "name": "Tunnel de torii",
+    "desc": "Un chemin de pierre passe sous des centaines de portiques vermillon dans la lumière verte de la forêt, un marcheur monte et des feuilles tombent."
+  },
+  "cities/tower-bridge-lift": {
+    "name": "Levée du Tower Bridge",
+    "desc": "Le pont aux deux tours à l'heure dorée lève ses deux tabliers pour laisser passer un grand voilier, puis les rabaisse sous les mouettes."
+  },
+  "cities/twin-spires-night": {
+    "name": "Tours jumelles la nuit",
+    "desc": "Deux gratte-ciel argentés reliés par une passerelle brillent sur la ville la nuit, les fontaines dansent dans le bassin du parc et un avion clignote."
+  },
+  "cities/venice-gondola-canal": {
+    "name": "Gondole sur un canal de Venise",
+    "desc": "Un canal entre de vieux palais au soleil tardif, leurs couleurs reflétées dans l'eau verte pendant qu'un gondolier passe et que des pigeons traversent."
+  },
+  "cities/victoria-harbour-junk": {
+    "name": "Jonque dans le port Victoria",
+    "desc": "Les tours de Hong Kong brillent sous le pic sombre la nuit, une jonque aux voiles rouges lattées traverse le port et deux ferries font la navette."
+  },
+  "cities/walled-city-adriatic": {
+    "name": "Cité fortifiée de l'Adriatique",
+    "desc": "Les toits orange de la vieille ville escaladent la colline derrière ses remparts pâles et ses tours rondes, des voiliers passent sur l'eau bleue et des mouettes tournent."
+  },
+  "cities/white-mosque-reflections": {
+    "name": "Reflets de la mosquée blanche",
+    "desc": "La grande mosquée blanche aux nombreuses coupoles et quatre minarets brille à l'heure bleue, reflétée dans de longs bassins, les lampes de la colonnade s'allument."
+  },
+  "mascots/bouncing-slime": {
+    "name": "Slime vert rebondissant",
+    "desc": "Un slime vert brillant sautille sur le sol d'un donjon, s'écrase à chaque atterrissage et s'étire en sautant."
+  },
+  "mascots/cool-sun-shades": {
+    "name": "Soleil à lunettes noires",
+    "desc": "Un soleil hilare à lunettes noires flotte au-dessus de la plage, ses rayons tournent, et de temps en temps il baisse ses lunettes pour un clin d'œil."
+  },
+  "mascots/dancing-cactus": {
+    "name": "Cactus qui danse",
+    "desc": "Un cactus en pot coiffé d'une fleur rose ondule des hanches et balance les bras en rythme devant un couchant du désert."
+  },
+  "mascots/debug-duck-bob": {
+    "name": "Canard de débogage",
+    "desc": "Un canard en caoutchouc jaune flotte sur l'eau qui ondule, écoute patiemment votre bug et réfléchit tout haut dans une bulle jusqu'à ce qu'il soit corrigé."
+  },
+  "mascots/debugging-bug": {
+    "name": "Insecte à la loupe",
+    "desc": "Un petit scarabée rouge arpente une page de code avec une loupe et s'arrête sur la ligne dont l'erreur est soulignée en rouge."
+  },
+  "mascots/friendly-ghost-float": {
+    "name": "Gentil fantôme flottant",
+    "desc": "Un petit fantôme rond flotte au-dessus d'un cimetière brumeux, agite ses petits bras, fait onduler son ourlet et cligne timidement des yeux."
+  },
+  "mascots/idea-lightbulb": {
+    "name": "Ampoule à idée",
+    "desc": "Une ampoule réfléchit dans le noir, yeux levés au ciel, vacille quelques fois puis s'allume d'une idée lumineuse et d'un grand sourire."
+  },
+  "mascots/juggling-octopus": {
+    "name": "Pieuvre jongleuse",
+    "desc": "Une pieuvre rose assise au fond de la mer jongle avec trois balles vives à l'aide de deux tentacules, ses grands yeux suivant chaque lancer."
+  },
+  "mascots/laptop-typing-cat": {
+    "name": "Chat au clavier",
+    "desc": "Un chat tigré gris assis devant un portable tard le soir tape sur les touches des deux pattes, les yeux sur le code qui s'affiche."
+  },
+  "mascots/paper-plane-loop": {
+    "name": "Avion en papier qui boucle",
+    "desc": "Un joyeux avion en papier aux grands yeux plane dans un ciel ensoleillé, fait un looping complet et laisse une traînée pointillée."
+  },
+  "mascots/peekaboo-box": {
+    "name": "Carton coucou",
+    "desc": "Un carton vacille au sol, ses rabats s'ouvrent, deux yeux regardent depuis le noir et une bestiole orange toute douce surgit pour saluer avant de se cacher."
+  },
+  "mascots/pixel-knight-salute": {
+    "name": "Chevalier pixel qui salue",
+    "desc": "Un petit chevalier en armure se tient devant un rempart avec son bouclier, puis lève fièrement son épée, son plumet rouge sautillant et les bannières flottant."
+  },
+  "mascots/planet-astronaut-wave": {
+    "name": "Astronaute sur sa mini-planète",
+    "desc": "Un minuscule astronaute debout sur une mini-planète qui tourne lentement salue depuis son casque rond pendant que les étoiles défilent."
+  },
+  "mascots/rain-cloud-rainbow": {
+    "name": "Le nuage qui retrouve le sourire",
+    "desc": "Un petit nuage maussade pleut sur une prairie jusqu'à retrouver le sourire, devient blanc et cotonneux et pousse un arc-en-ciel dans le ciel."
+  },
+  "mascots/robot-wave-blink": {
+    "name": "Robot en fer-blanc qui salue",
+    "desc": "Un gentil robot en fer-blanc salue d'un bras, cligne de ses yeux-écrans ronds et fait clignoter la lampe de son antenne."
+  },
+  "mascots/scarf-penguin": {
+    "name": "Manchot à l'écharpe",
+    "desc": "Un manchot rond à l'écharpe rouge rayée sous la neige, le bout de l'écharpe claquant au vent pendant qu'il sautille et bat des ailes pour se réchauffer."
+  },
+  "mascots/sleepy-moon": {
+    "name": "Lune endormie",
+    "desc": "Un croissant de lune en bonnet de nuit rayé se balance doucement dans le ciel en ronflant de petits « z », de doux nuages passant dessous."
+  },
+  "mascots/sprouting-plant-smile": {
+    "name": "Plante qui pousse",
+    "desc": "Une petite plante en pot sur un rebord de fenêtre ensoleillé reçoit une goutte d'eau, déplie lentement une nouvelle feuille et fait un grand sourire."
+  },
+  "mascots/stomping-dino": {
+    "name": "Petit dino qui trépigne",
+    "desc": "Un petit dinosaure vert tout rond trépigne sous un volcan fumant, soulève la poussière, agite ses petits bras et pousse un grand rugissement."
+  },
+  "mascots/toaster-pop": {
+    "name": "Grille-pain qui éjecte",
+    "desc": "Un grille-pain chromé plisse les yeux et rougeoit de concentration, puis éjecte deux tranches dorées bien haut et les rattrape en souriant."
+  },
+  "mascots/wagging-pup": {
+    "name": "Chiot qui remue la queue",
+    "desc": "Un chiot aux oreilles tombantes assis dans un parc ensoleillé remue la queue, halète langue pendante et penche la tête comme si on lui posait une question."
+  },
+  "mascots/yawning-coffee-cup": {
+    "name": "Tasse de café qui bâille",
+    "desc": "Une tasse de café endormie sur sa soucoupe bâille longuement en s'étirant pendant que la vapeur monte, puis cligne des yeux et se réveille."
+  },
+  "empty-states/empty-access-denied": {
+    "name": "Cadenas accès refusé",
+    "desc": "L'anse d'un cadenas en laiton retombe et se ferme d'un petit coup au-dessus d'un bouton poli « demander l'accès »."
+  },
+  "empty-states/empty-all-caught-up": {
+    "name": "Tout est à jour",
+    "desc": "Un cercle vert et une coche se tracent trait par trait, éclatent en petite gerbe puis se rembobinent."
+  },
+  "empty-states/empty-broken-link-cloud": {
+    "name": "Nuage et lien cassé",
+    "desc": "Un nuage dérive au-dessus d'un maillon de chaîne cassé en deux, les moitiés se balancent et des éclats tombent de la cassure."
+  },
+  "empty-states/empty-clipboard-copied": {
+    "name": "Copié dans le presse-papiers",
+    "desc": "Un pointeur clique « copier » sur un lien d'invitation, les lignes se collent dans un presse-papiers et une pastille « copié » apparaît."
+  },
+  "empty-states/empty-cloud-saved": {
+    "name": "Enregistré dans le nuage",
+    "desc": "Une flèche monte dans un nuage, une coche s'y dessine et un compteur « dernier enregistrement » démarre."
+  },
+  "empty-states/empty-cobweb-folder": {
+    "name": "Dossier vide et toile d'araignée",
+    "desc": "Un dossier ouvert et vide sous une toile d'araignée dans un coin, une petite araignée monte et descend au bout de son fil."
+  },
+  "empty-states/empty-construction-crane": {
+    "name": "Grue de chantier",
+    "desc": "Une grue à tour transporte des briques une à une d'un tas vers un mur qui grandit : un écran « en construction »."
+  },
+  "empty-states/empty-inbox-plane": {
+    "name": "Boîte de réception vide",
+    "desc": "Un avion en papier dessine des huit au-dessus d'un bac de réception vide, en laissant une ligne pointillée."
+  },
+  "empty-states/empty-no-results": {
+    "name": "Aucun résultat",
+    "desc": "Une loupe balaie des lignes de résultats vides sous un champ de recherche qui n'a rien trouvé."
+  },
+  "empty-states/empty-offline-plug": {
+    "name": "Câble débranché",
+    "desc": "Un câble débranché se balance près de sa prise et lâche une étincelle de temps en temps pendant qu'un compte à rebours avant nouvel essai défile."
+  },
+  "empty-states/empty-onboarding-flag": {
+    "name": "Drapeau planté",
+    "desc": "Les étapes se cochent une à une le long d'un chemin de colline, puis un drapeau se plante au sommet dans un nuage de poussière et flotte."
+  },
+  "empty-states/empty-payment-failed": {
+    "name": "Paiement refusé",
+    "desc": "Une carte bancaire tente de payer, le paiement est refusé, la carte tremble doucement et une croix rouge apparaît."
+  },
+  "empty-states/empty-payment-success": {
+    "name": "Paiement réussi",
+    "desc": "Une carte bancaire glisse, un indicateur traite le paiement, puis une coche verte apparaît et le montant s'affiche en comptant."
+  },
+  "empty-states/empty-rate-limited": {
+    "name": "Sablier de limite de requêtes",
+    "desc": "Un sablier s'écoule grain par grain pendant un compte à rebours « réessayez dans 30 secondes », puis le bouton se réveille."
+  },
+  "empty-states/empty-reconnecting": {
+    "name": "Barres de signal en reconnexion",
+    "desc": "Les barres de signal montent à chaque tentative, retombent en cas d'échec et passent toutes au vert quand la connexion revient."
+  },
+  "empty-states/empty-rocket-countdown": {
+    "name": "Fusée « bientôt »",
+    "desc": "Une petite fusée lâche de la vapeur sur son pas de tir pendant un compte à rebours de dix secondes, puis décolle sur une colonne de flammes."
+  },
+  "empty-states/empty-session-expired": {
+    "name": "Horloge de session expirée",
+    "desc": "Une horloge murale endormie balaie ses aiguilles et de petits « z » s'en échappent, au-dessus d'un bouton « se reconnecter »."
+  },
+  "empty-states/empty-smoking-server": {
+    "name": "Serveur qui fume",
+    "desc": "Un petit serveur au visage étourdi crache de la fumée par sa grille : un écran d'erreur sympathique."
+  },
+  "empty-states/empty-task-confetti": {
+    "name": "Tâches faites et confettis",
+    "desc": "Une liste de trois tâches se coche toute seule et une pluie de confettis tombe autour de la carte."
+  },
+  "empty-states/empty-trash-lid": {
+    "name": "Couvercle de corbeille",
+    "desc": "Une page froissée décrit un arc jusqu'à la corbeille, le couvercle se referme d'un coup et un minuteur « annuler » se vide."
+  },
+  "empty-states/empty-upload-tray": {
+    "name": "Envoi dans le bac",
+    "desc": "Une grosse flèche tombe dans un bac à fichiers pendant que la barre de progression se remplit, puis le bac rebondit et une coche apparaît."
+  },
+  "empty-states/empty-welcome-door": {
+    "name": "Porte de bienvenue",
+    "desc": "Une porte d'entrée s'ouvre et une lumière chaude se répand au sol : un accueil chaleureux au premier lancement."
+  },
+  "retro/amber-ledger-spreadsheet": {
+    "name": "Tableur sur écran ambre",
+    "desc": "Un tableur sur écran ambre : le curseur va sur un chiffre, une nouvelle valeur est tapée, les totaux se recalculent et la feuille passe en histogramme."
+  },
+  "retro/basic-loop-prompt": {
+    "name": "BASIC d'ordinateur familial",
+    "desc": "L'écran d'un ordinateur 8 bits dans sa bordure épaisse, une courte boucle BASIC est tapée à l'invite READY et lancée en vague d'étoiles qui défile."
+  },
+  "retro/cassette-tape-loader": {
+    "name": "Chargement sur cassette",
+    "desc": "Un ordinateur 8 bits charge depuis une cassette, la bordure clignote de rayures de tonalité et de données pendant que l'image de chargement se peint bande par bande."
+  },
+  "retro/chiptune-tracker": {
+    "name": "Tracker chiptune",
+    "desc": "Un tracker à quatre voies joue un chiptune, les lignes de notes montent devant la ligne de lecture, les vumètres sautent, les oscilloscopes gigotent et le compteur de motifs avance."
+  },
+  "retro/computer-lab-terminals": {
+    "name": "Salle informatique d'école",
+    "desc": "Une salle informatique avec trois terminaux beiges sur une longue table, l'un liste un programme BASIC en vert, un autre compile en ambre et le dernier joue à un jeu de balle, sous une horloge."
+  },
+  "retro/copper-bar-scroller": {
+    "name": "Démo aux barres copper",
+    "desc": "Une intro de demoscene : barres copper lumineuses qui se croisent, logo arc-en-ciel qui ondule ligne par ligne, étoiles en parallaxe et grand texte défilant en sinus."
+  },
+  "retro/core-memory-plane": {
+    "name": "Plan de mémoire à tores",
+    "desc": "Une mémoire à tores de ferrite : un fil X et un fil Y s'allument ensemble et le tore à leur croisement bascule, bit par bit, pour stocker un cœur et un sourire avant d'être effacé."
+  },
+  "retro/dot-matrix-banner": {
+    "name": "Banderole sur imprimante matricielle",
+    "desc": "Une imprimante matricielle imprime une banderole géante de côté sur du papier en continu, la tête allant et venant pendant que la feuille perforée monte."
+  },
+  "retro/floppy-drive-read": {
+    "name": "Copie de disquette",
+    "desc": "Un utilitaire de copie lit une disquette piste par piste, la tête avance sur le disque qui tourne, une carte des secteurs se remplit et le voyant du lecteur brille."
+  },
+  "retro/front-panel-switches": {
+    "name": "Programmation par interrupteurs",
+    "desc": "Le panneau avant d'un mini-ordinateur : un opérateur bascule les interrupteurs pour entrer un court programme mot par mot, les dépose, puis lance et les voyants courent."
+  },
+  "retro/green-word-processor": {
+    "name": "Traitement de texte sur écran vert",
+    "desc": "Un traitement de texte au phosphore vert : une lettre est tapée et revient à la ligne à la marge, les fautes effacées, un paragraphe marqué en bloc et le fichier enregistré."
+  },
+  "retro/lcd-handheld-game": {
+    "name": "Jeu LCD de poche",
+    "desc": "Un jeu LCD de poche où un petit personnage au seau saute entre trois places pour attraper des gouttes qui tombent par paliers, segments éteints visibles, jusqu'à trois ratés."
+  },
+  "retro/mainframe-lamp-console": {
+    "name": "Console à voyants de mainframe",
+    "desc": "La console d'opérateur d'un mainframe, ses rangées de voyants de registres clignotent avec le programme, les témoins changent et le journal imprime un traitement de nuit."
+  },
+  "retro/midi-step-sequencer": {
+    "name": "Séquenceur MIDI pas à pas",
+    "desc": "Une grille de séquenceur à seize pas où la tête balaie huit pistes, les pas allumés flashent, le curseur ajoute et retire des notes et les vumètres rebondissent."
+  },
+  "retro/phosphor-scope-xy": {
+    "name": "Oscilloscope rond en mode XY",
+    "desc": "Un vieil oscilloscope à tube rond en mode X-Y, son faisceau bleu-blanc trace une figure qui tourne lentement en laissant une rémanence jaune pendant qu'on règle les fréquences."
+  },
+  "retro/pixel-paint-program": {
+    "name": "Logiciel de dessin monochrome",
+    "desc": "Un ancien logiciel de dessin noir et blanc : le curseur trace une maison aux outils rectangle, ligne et ovale, la remplit de motifs et vaporise l'herbe avant d'effacer."
+  },
+  "retro/punch-card-keypunch": {
+    "name": "Perforatrice de cartes",
+    "desc": "Une perforatrice tape un court programme sur des cartes à 80 colonnes, les trous apparaissant colonne par colonne avant que chaque carte rejoigne la pile."
+  },
+  "retro/reel-to-reel-drives": {
+    "name": "Dérouleurs de bandes de mainframe",
+    "desc": "Trois dérouleurs de bandes côte à côte, leurs bobines démarrent et s'arrêtent par rafales de lecture, la bande passe d'une bobine à l'autre et les boucles dansent dans les colonnes à vide."
+  },
+  "retro/teletype-paper-roll": {
+    "name": "Téléscripteur et rouleau de papier",
+    "desc": "Un téléscripteur imprime une session en temps partagé sur un rouleau, la tête parcourt chaque ligne, les touches s'enfoncent et le papier monte."
+  },
+  "retro/text-adventure-parser": {
+    "name": "Aventure textuelle du phare",
+    "desc": "Une aventure textuelle dans un vieux phare : le joueur tape ses commandes, l'analyseur répond, score et coups augmentent et la lumière s'allume enfin."
+  },
+  "retro/vector-space-duel": {
+    "name": "Duel spatial vectoriel",
+    "desc": "Deux vaisseaux en fil de fer tournent autour d'une étoile vacillante sur un écran vectoriel vert, tirent des torpilles en laissant des traînées, jusqu'à ce que l'un se brise et réapparaisse."
+  },
+  "retro/wireframe-maze-crawl": {
+    "name": "Labyrinthe en traits ambrés",
+    "desc": "Un ancien jeu de labyrinthe à la première personne en traits ambrés glisse dans les couloirs et tourne en suivant la main droite pendant qu'une carte suit chaque pas."
+  },
+  "science/bohr-atom-photon": {
+    "name": "Atome de Bohr et photon",
+    "desc": "Un électron d'hydrogène absorbe un photon ultraviolet et saute de la couche 1 à la 3, puis redescend en deux temps en émettant un photon rouge à 656 nm et un ultraviolet."
+  },
+  "science/bond-energy-reaction": {
+    "name": "Liaisons qui se cassent et se forment",
+    "desc": "Deux molécules d'hydrogène et une d'oxygène absorbent de l'énergie pour rompre leurs liaisons, les atomes forment deux molécules d'eau et plus d'énergie est libérée."
+  },
+  "science/dna-replication-fork": {
+    "name": "Fourche de réplication de l'ADN",
+    "desc": "L'hélicase ouvre la double hélice, le brin direct est copié d'un trait et le brin retardé en courts fragments d'Okazaki amorcés, complétés et soudés, bases comprises."
+  },
+  "science/doppler-effect": {
+    "name": "Effet Doppler et sirène",
+    "desc": "Une sirène passe, ses ondes se resserrent devant et s'étirent derrière : l'auditeur de devant entend plus aigu, celui de derrière plus grave."
+  },
+  "science/energy-pyramid": {
+    "name": "Pyramide énergétique",
+    "desc": "Le soleil nourrit les plantes à la base d'une pyramide énergétique et seul un dixième de l'énergie monte à chaque niveau, le reste partant en chaleur, kilojoules comptés."
+  },
+  "science/heart-blood-flow": {
+    "name": "Circulation dans le cœur",
+    "desc": "Un cœur à quatre cavités bat, le sang pauvre en oxygène part vers les poumons et le sang riche revient pour repartir vers le corps, chaque cavité et vaisseau nommés."
+  },
+  "science/lunar-eclipse-geometry": {
+    "name": "Géométrie d'une éclipse de lune",
+    "desc": "La Lune tourne autour de la Terre et, à la pleine lune, traverse la pénombre puis l'ombre et rougit, avec en encart la vue depuis le sol."
+  },
+  "science/lungs-breathing": {
+    "name": "Poumons qui respirent",
+    "desc": "Le diaphragme descend et les poumons gonflent quand l'air frais entre par la trachée, puis il se relâche et l'air vicié ressort, chaque partie nommée."
+  },
+  "science/mitosis-stages": {
+    "name": "Étapes de la mitose",
+    "desc": "Une cellule se divise en passant par interphase, prophase, métaphase, anaphase, télophase et cytocinèse, chaque étape nommée pendant que les chromosomes bougent."
+  },
+  "science/moon-tides": {
+    "name": "La Lune et les marées",
+    "desc": "La gravité de la Lune étire les océans en deux bourrelets pendant que la Terre tourne dessous, et une courbe montre les deux marées hautes d'un port chaque jour."
+  },
+  "science/nitrogen-cycle": {
+    "name": "Cycle de l'azote",
+    "desc": "L'azote de l'air est fixé par les bactéries des nodosités, transformé en ammonium, nitrite et nitrate dans le sol, absorbé, mangé, décomposé et rendu à l'air."
+  },
+  "science/photosynthesis-leaf": {
+    "name": "Photosynthèse dans la feuille",
+    "desc": "Lumière, dioxyde de carbone et eau entrent dans une feuille pendant que le glucose descend la tige et que l'oxygène s'échappe, au-dessus de l'équation équilibrée."
+  },
+  "science/prism-dispersion": {
+    "name": "Dispersion par un prisme",
+    "desc": "Un faisceau de lumière blanche se courbe en entrant et en sortant d'un prisme de verre, et comme le violet dévie plus que le rouge il s'étale en arc-en-ciel sur un écran."
+  },
+  "science/ribosome-translation": {
+    "name": "Traduction par le ribosome",
+    "desc": "Un ribosome glisse sur l'ARNm trois bases à la fois, les ARNt correspondants arrivent, lient leurs acides aminés en une protéine qui grandit et repartent jusqu'au codon stop."
+  },
+  "science/rock-cycle-loop": {
+    "name": "Cycle des roches",
+    "desc": "Un grain de roche fait le tour du cycle : le magma refroidit en roche ignée, s'érode en sédiments, se tasse en roche sédimentaire, se transforme en roche métamorphique et refond."
+  },
+  "science/seasons-axial-tilt": {
+    "name": "Les saisons et l'inclinaison de l'axe",
+    "desc": "La Terre tourne autour du Soleil, axe toujours incliné de 23,4 degrés dans le même sens : chaque hémisphère penche vers le Soleil en été et s'en détourne en hiver."
+  },
+  "science/seed-germination": {
+    "name": "Germination d'une graine",
+    "desc": "Une graine de pois dans la terre gonfle d'eau, pousse sa première racine, envoie une tige en crosse vers la surface et ouvre ses premières feuilles, chaque étape et jour indiqués."
+  },
+  "science/simple-circuit-current": {
+    "name": "Courant dans un circuit simple",
+    "desc": "Un interrupteur se ferme, les électrons partent de la borne négative à travers une résistance et une ampoule qui s'allume, les appareils indiquant 6 volts, 12 ohms et un demi-ampère."
+  },
+  "science/states-of-matter": {
+    "name": "États de la matière",
+    "desc": "Trois boîtes de particules : un solide qui vibre dans un réseau fixe, un liquide qui glisse en vrac serré et un gaz qui file loin et vite, fusion et ébullition indiquées."
+  },
+  "science/subduction-volcano": {
+    "name": "Volcan de subduction",
+    "desc": "Une coupe où une plaque océanique plonge sous un continent dans une fosse, fond dans le manteau chaud et alimente en magma un volcan en éruption, chaque couche nommée."
+  },
+  "science/transverse-longitudinal": {
+    "name": "Ondes transversales et longitudinales",
+    "desc": "Une onde sur une corde, où chaque perle monte et descend, au-dessus d'une onde sonore dans l'air, où chaque particule va et vient, longueur d'onde et compressions indiquées."
+  },
+  "science/water-cycle-diagram": {
+    "name": "Cycle de l'eau",
+    "desc": "L'eau s'évapore de la mer, se condense en nuage, pleut sur les montagnes et retourne à la mer en surface et sous terre, chaque étape nommée."
+  },
+  "music/boombox-speaker-pump": {
+    "name": "Haut-parleurs du boombox",
+    "desc": "Un boombox chromé contre un mur de briques, ses deux haut-parleurs pompent à chaque grosse caisse, des ondes s'étalent et les bobines tournent."
+  },
+  "music/cassette-tape-reels": {
+    "name": "Bobines de cassette",
+    "desc": "Une compilation écrite à la main joue dans une platine, les bobines tournent pendant que la bande défile, puis se rembobinent à toute vitesse."
+  },
+  "music/concert-stage-crowd": {
+    "name": "Scène de concert et foule",
+    "desc": "Un groupe joue sur une scène enfumée, les lyres balaient et changent de couleur, l'écran pulse et la foule saute les mains en l'air."
+  },
+  "music/conductor-baton-beats": {
+    "name": "Battue du chef d'orchestre",
+    "desc": "Un chef vu de dos dirige l'orchestre, la pointe de sa baguette trace des mesures à quatre et trois temps avec une traînée dorée et chaque temps s'allume."
+  },
+  "music/dj-decks-crossfader": {
+    "name": "Platines et crossfader",
+    "desc": "Deux platines tournent de part et d'autre d'une table de mixage, le crossfader passe d'une platine à l'autre et les deux formes d'onde défilent."
+  },
+  "music/drum-machine-sequencer": {
+    "name": "Boîte à rythmes",
+    "desc": "Une boîte à rythmes à 16 pas joue son motif, la tête de lecture balaie les pads allumés, grosse caisse, caisse claire, charleston et claps, avec un break toutes les quatre mesures."
+  },
+  "music/festival-speaker-stack": {
+    "name": "Mur d'enceintes de festival",
+    "desc": "Une immense sono de festival la nuit, gros caissons qui pompent à chaque coup près d'un line array suspendu, lasers sur la foule et confettis."
+  },
+  "music/graphic-eq-peak-hold": {
+    "name": "Égaliseur graphique",
+    "desc": "Un égaliseur graphique en rack dont les barres de LED sautent sur grosse caisse, caisse claire et charleston, les crêtes restant en haut puis redescendant."
+  },
+  "music/guitar-fretting-hand": {
+    "name": "Main sur le manche de guitare",
+    "desc": "Une main passe d'un accord à l'autre sur le manche d'une guitare acoustique pendant qu'un médiator gratte et que les cordes vibrent."
+  },
+  "music/headphones-sound-waves": {
+    "name": "Casque et ondes sonores",
+    "desc": "Un casque brillant flotte dans une lueur violette, des ondes sortent de chaque écouteur et une forme d'onde passe entre eux."
+  },
+  "music/marching-snare-drum": {
+    "name": "Caisse claire de défilé",
+    "desc": "Un tambour de parade marche au pas sous les fanions, ses baguettes battent un ra-fla sur une caisse à cordes pendant que la rue défile."
+  },
+  "music/modular-synth-patch": {
+    "name": "Synthé modulaire",
+    "desc": "Un rack de synthé modulaire sur deux rangées, câbles colorés qui se balancent, séquenceur qui fait avancer ses LED et un câble rebranché toutes les quelques secondes."
+  },
+  "music/oscilloscope-morph": {
+    "name": "Onde d'oscilloscope",
+    "desc": "Un oscilloscope trace une onde au phosphore vert qui passe doucement du sinus au carré, à la dent de scie et au triangle, les mesures suivant."
+  },
+  "music/piano-keys-melody": {
+    "name": "Mélodie au piano",
+    "desc": "Trois octaves de touches s'enfoncent sur une douce mélodie et une main gauche qui roule, chaque note s'envolant en couleur."
+  },
+  "music/piano-roll-scroll": {
+    "name": "Piano roll",
+    "desc": "Un éditeur piano roll fait défiler basse, accords et mélodie devant la tête de lecture, allume chaque touche du clavier et montre la vélocité dessous."
+  },
+  "music/radial-sound-bars": {
+    "name": "Barres sonores circulaires",
+    "desc": "Un visualiseur circulaire où des barres de spectre arc-en-ciel rayonnent d'un disque qui tourne, l'anneau gonflant à chaque grosse caisse avec des étincelles."
+  },
+  "music/radio-dial-tuning": {
+    "name": "Radio qu'on règle",
+    "desc": "Une radio à lampes en bois balaie la bande, l'aiguille rouge glisse sur le cadran ambré à travers les grésillements jusqu'à accrocher la station suivante."
+  },
+  "music/sheet-music-playhead": {
+    "name": "Partition et tête de lecture",
+    "desc": "Une grande portée défile devant une tête de lecture fixe, chaque note s'allume en rouge quand elle sonne pendant que mesures et basse défilent."
+  },
+  "music/singing-mouth-choir": {
+    "name": "Chorale de bouches",
+    "desc": "Une chorale mignonne de chanteurs aux visages ronds sur deux rangs, chaque voix ouvre la bouche à son tour pour une harmonie à quatre voix, des notes s'envolant."
+  },
+  "music/studio-mixing-desk": {
+    "name": "Console de mixage",
+    "desc": "Une console de studio à douze tranches, faders automatisés qui glissent, vumètres à LED qui sautent et deux vumètres à aiguille sur le bus master."
+  },
+  "music/tap-tempo-counter": {
+    "name": "Tempo au tap",
+    "desc": "Un outil de tempo où chaque frappe fait clignoter le pad avec une onde, le BPM se stabilise, le graphique des intervalles se remplit et les voyants se calent."
+  },
+  "music/vinyl-crate-digging": {
+    "name": "Fouille dans un bac de vinyles",
+    "desc": "Une main fouille un bac en bois de disques, bascule chaque pochette pour révéler la suivante avec son étiquette de prix."
+  },
+  "food/boiling-pasta-pot": {
+    "name": "Casserole de pâtes qui bout",
+    "desc": "Une grande casserole à gros bouillons, les spaghettis tournoient sous la cuillère en bois, les bulles éclatent et la vapeur monte."
+  },
+  "food/bubble-tea-pearls": {
+    "name": "Perles de bubble tea",
+    "desc": "Un grand gobelet de thé au lait au sucre brun, les perles de tapioca aspirées une à une dans une grosse paille rose, la glace flotte et la buée coule."
+  },
+  "food/burger-assembly": {
+    "name": "Montage d'un burger",
+    "desc": "Un burger se monte sur une planche : steak, fromage qui fond, salade, tomate, oignon et pain au sésame tombent un à un sur la pile."
+  },
+  "food/cake-icing-turntable": {
+    "name": "Glaçage sur plateau tournant",
+    "desc": "Un gâteau à étages tourne pendant qu'une spatule lisse le glaçage rose sur le côté, puis des rosaces de crème et des baies apparaissent dessus."
+  },
+  "food/chocolate-fountain": {
+    "name": "Fontaine de chocolat",
+    "desc": "Des nappes de chocolat fondu dévalent une fontaine à trois étages dans un bassin tourbillonnant, une fraise sur pique y plonge et ressort enrobée."
+  },
+  "food/cocktail-shake-pour": {
+    "name": "Cocktail secoué et versé",
+    "desc": "Un shaker givré secoue fort, bascule et verse un cocktail corail dans une coupe, puis une rondelle de citron vert se pose sur le bord."
+  },
+  "food/cotton-candy-spin": {
+    "name": "Barbe à papa",
+    "desc": "Des fils de sucre rose tourbillonnent dans la cuve d'une machine de fête foraine pendant qu'un cornet tourne et ramasse un nuage de barbe à papa."
+  },
+  "food/doughnut-glazing-line": {
+    "name": "Chaîne de glaçage de beignets",
+    "desc": "Des beignets nature passent sur un tapis sous un rideau de glaçage rose et ressortent brillants, dégoulinants et couverts de vermicelles."
+  },
+  "food/fruit-bowl-apple-roll": {
+    "name": "Pomme qui roule de la coupe",
+    "desc": "Une coupe bleue chargée d'oranges, de bananes, de raisin et d'une poire sur une table ensoleillée ; une pomme posée dessus vacille, tombe et roule."
+  },
+  "food/lemonade-stand-pour": {
+    "name": "Stand de limonade",
+    "desc": "Un stand de limonade rayé sur une pelouse au soleil, une carafe verse de la limonade sur des glaçons dans un gobelet tendu puis remplacé."
+  },
+  "food/melting-ice-cream-cone": {
+    "name": "Cornet de glace qui fond",
+    "desc": "Un cornet fraise et menthe fond au soleil de l'après-midi, les gouttes coulent le long du cornet et tombent en flaque rose."
+  },
+  "food/oven-bread-rise": {
+    "name": "Pain qui lève au four",
+    "desc": "Par la vitre éclairée du four, un pain grigné lève et dore pendant que le minuteur décompte et que la vapeur tourbillonne."
+  },
+  "food/pancake-stack-syrup": {
+    "name": "Pile de pancakes au sirop",
+    "desc": "Des pancakes dorés tombent un à un sur l'assiette, une noix de beurre se pose dessus et le sirop d'érable coule le long de la pile."
+  },
+  "food/pizza-cheese-pull": {
+    "name": "Pizza qui file",
+    "desc": "Une roulette tranche une pizza au pepperoni brûlante, puis une part se soulève en tirant de longs fils de fromage fondu."
+  },
+  "food/popcorn-pot-pop": {
+    "name": "Popcorn à la casserole",
+    "desc": "Une casserole sur une flamme de gaz bleue, le couvercle tressaute pendant que le popcorn jaillit en arcs et s'entasse sur la cuisinière."
+  },
+  "food/pour-over-drip": {
+    "name": "Café filtre à la main",
+    "desc": "Une bouilloire à col de cygne verse en spirale sur le café qui gonfle dans un cône en céramique, et le café goutte dans une carafe en verre."
+  },
+  "food/ramen-noodle-lift": {
+    "name": "Nouilles de ramen",
+    "desc": "Un bol rouge de ramen avec œuf, porc et nori, des baguettes soulèvent un paquet de nouilles hors du bouillon fumant."
+  },
+  "food/sizzling-skewer-grill": {
+    "name": "Brochettes sur le grill",
+    "desc": "Trois brochettes de viande, poivron et oignon tournent sur les braises, les flammes lèchent, la graisse crépite et la fumée s'échappe."
+  },
+  "food/soup-ladle-bowls": {
+    "name": "Service de soupe",
+    "desc": "Une louche plonge dans une marmite fumante de soupe de tomate et remplit une rangée de bols blancs l'un après l'autre."
+  },
+  "food/sushi-conveyor": {
+    "name": "Tapis de sushis",
+    "desc": "Des assiettes à bord coloré de nigiris saumon, thon, omelette et crevette et de makis concombre défilent sur un tapis sous un rideau indigo."
+  },
+  "food/tea-pour-height": {
+    "name": "Thé versé de haut",
+    "desc": "Une théière en argent levée bien haut verse un long filet ambré de thé à la menthe dans un petit verre doré, la mousse monte et la vapeur s'enroule."
+  },
+  "food/waffle-iron-open": {
+    "name": "Gaufrier qui s'ouvre",
+    "desc": "Un gaufrier rond fume, son couvercle s'ouvre sur une gaufre dorée, elle est retirée et le couvercle se referme sur la suivante."
+  },
+  "india/amber-fort-elephants": {
+    "name": "Éléphants du fort d'Amber",
+    "desc": "Des éléphants peints montent la rampe vers un fort couleur miel pendant qu'une barque traverse le lac, la vieille muraille serpente sur les collines et des milans tournent."
+  },
+  "india/andaman-teal-beach": {
+    "name": "Plage turquoise des Andaman",
+    "desc": "Un éléphant nage dans les eaux turquoise au large d'une plage blanche au couchant, la grande forêt au bord du sable et les vagues qui arrivent."
+  },
+  "india/chai-stall-dawn": {
+    "name": "Chai au bord de la route à l'aube",
+    "desc": "Aux premières lueurs, un vendeur de chai verse le thé de haut, la vapeur monte de la bouilloire, les clients sirotent et un scooter passe."
+  },
+  "india/charminar-night-bazaar": {
+    "name": "Bazar de nuit du Charminar",
+    "desc": "La porte aux quatre minarets brille la nuit sur le bazar de bracelets bondé, la foule s'écoule, les lumières des étals vacillent et les rickshaws se faufilent."
+  },
+  "india/desert-fort-camels": {
+    "name": "Caravane au fort du Thar",
+    "desc": "Une caravane de chameaux avance sur les dunes sous un fort de grès doré à bastions ronds et pavillons à coupoles, au coucher du soleil."
+  },
+  "india/dhol-baraat-drummer": {
+    "name": "Nuit de baraat au dhol",
+    "desc": "Un cortège de mariage la nuit : un joueur de dhol tambourine et danse pendant que le marié passe sur un cheval blanc entre porteurs de lampes, danseurs et pétales."
+  },
+  "india/dosa-tawa-spread": {
+    "name": "Dosa sur la tawa",
+    "desc": "Vue de dessus, une louche étale la pâte en spirale sur une tawa brûlante, la dosa passe du crème au doré avec du ghee au bord, puis est roulée et retirée."
+  },
+  "india/ellora-rock-temple": {
+    "name": "Temple rupestre d'Ellora",
+    "desc": "Un temple entier taillé dans une colline de basalte se dresse dans sa fosse, tour, salle, piliers et éléphant de pierre d'un seul bloc, des visiteurs dans la cour et un singe sur la corniche."
+  },
+  "india/ganesh-utsav-procession": {
+    "name": "Procession de Ganesh Utsav",
+    "desc": "Une statue de Ganesh sur un char fleuri traverse les rues le soir, les dhols jouent devant, la foule lève les mains et pétales et gulal rose flottent."
+  },
+  "india/ghat-evening-aarti": {
+    "name": "Aarti du soir sur les ghats",
+    "desc": "Des prêtres font tourner lentement des lampes de laiton sur les marches du fleuve au crépuscule, des barques de spectateurs dérivent et des lampes-feuilles descendent le courant."
+  },
+  "india/goa-shack-sunset": {
+    "name": "Paillote de Goa au couchant",
+    "desc": "Les vagues montent sur le sable sous les cocotiers qui se balancent, le soleil se couche derrière un bateau de pêche et la paillote allume ses lampes."
+  },
+  "india/golden-shrine-pool": {
+    "name": "Sanctuaire doré et son bassin",
+    "desc": "Un sanctuaire doré illuminé brille sur son bassin sacré la nuit, des pèlerins traversent la chaussée de marbre et des rides parcourent son reflet."
+  },
+  "india/gully-cricket-match": {
+    "name": "Cricket de ruelle",
+    "desc": "Une série de cricket dans une ruelle de maisons peintes : le lanceur s'élance, le batteur envoie la balle par-dessus les toits et le joueur de champ lève les bras."
+  },
+  "india/hampi-boulder-ruins": {
+    "name": "Ruines de Hampi parmi les rochers",
+    "desc": "Une vieille tour de temple parmi des collines de rochers géants à l'heure dorée, une barque ronde tourne sur la rivière près des bananiers et un langur observe."
+  },
+  "india/harbour-gateway-mumbai": {
+    "name": "Porte de l'Inde à Mumbai",
+    "desc": "L'arc de triomphe de basalte au bord de l'eau au couchant près des coupoles rouges du grand hôtel, des vedettes dansent dans le port et des pigeons tournent."
+  },
+  "india/hill-train-kanchenjunga": {
+    "name": "Train de montagne et Kanchenjunga",
+    "desc": "Le petit train à vapeur bleu grimpe entre les jardins de thé sous le géant enneigé rose à l'aube, en crachant sa fumée pendant que la brume remplit la vallée."
+  },
+  "india/himalayan-flower-valley": {
+    "name": "Vallée des fleurs himalayenne",
+    "desc": "Une prairie d'altitude couverte de fleurs roses, jaunes, bleues et blanches descend des sommets, un torrent glaciaire y serpente, des randonneurs montent et des papillons volent."
+  },
+  "india/houseboat-backwater-dusk": {
+    "name": "Péniche sur les backwaters au crépuscule",
+    "desc": "Une péniche à toit de chaume glisse sur les backwaters bordés de palmiers au crépuscule, fenêtres allumées, un pêcheur lance son filet et des aigrettes rentrent."
+  },
+  "india/howrah-bridge-dawn": {
+    "name": "Pont de Howrah à l'aube",
+    "desc": "Bus et taxis jaunes traversent le grand pont d'acier dans une aube voilée, des barques et un ferry travaillent sur le fleuve et des baigneurs descendent le ghat."
+  },
+  "india/india-gate-evening": {
+    "name": "India Gate le soir",
+    "desc": "Le grand arc commémoratif brille au crépuscule quand ses lampes s'allument, des familles se promènent et les grappes de ballons des vendeurs dansent sur les pelouses."
+  },
+  "india/kolkata-tram-morning": {
+    "name": "Tramway de Calcutta le matin",
+    "desc": "Un vieux tramway à deux voitures cahote dans une rue d'immeubles coloniaux décrépits le matin, des taxis jaunes passent, un tireur de rickshaw court et la bouilloire du chai fume."
+  },
+  "india/ladakh-crag-monastery": {
+    "name": "Monastère sur l'éperon et drapeaux",
+    "desc": "Un monastère blanchi à la chaux escalade un éperon rocheux sous les sommets enneigés du haut désert, les drapeaux de prière claquent au vent."
+  },
+  "india/lake-palace-udaipur": {
+    "name": "Palais du lac d'Udaipur",
+    "desc": "Le palais de marbre blanc flotte sur le lac au couchant sous le long palais de la ville et les collines, reflété dans l'eau pendant que des barques font la traversée."
+  },
+  "india/lands-end-sunrise": {
+    "name": "Lever du soleil au bout de la terre",
+    "desc": "Le soleil se lève où trois mers se rencontrent, un mémorial et une immense statue de pierre sur des îlots, un ferry part et la foule regarde depuis la rive."
+  },
+  "india/lattu-spinning-top": {
+    "name": "Toupie lattu",
+    "desc": "Une toupie lattu en bois rayé tourne et vacille sur sa pointe en fer dans un cercle de craie, soulevant la poussière, sa ficelle enroulée à côté."
+  },
+  "india/living-root-bridge": {
+    "name": "Pont de racines vivantes",
+    "desc": "Un pont né des racines entrelacées de deux grands figuiers enjambe un ruisseau bleu-vert dans la forêt humide brumeuse pendant qu'un villageois traverse."
+  },
+  "india/lotus-temple-dusk": {
+    "name": "Temple du Lotus au crépuscule",
+    "desc": "Un temple aux pétales de marbre blanc brille au crépuscule au-dessus de ses bassins miroirs, des visiteurs se promènent et des perruches regagnent les arbres."
+  },
+  "india/mangrove-tiger-creek": {
+    "name": "Tigre dans la mangrove",
+    "desc": "Un tigre traverse à la nage un large chenal de la mangrove le matin, tête et épaules hors de l'eau brune, un martin-pêcheur plonge et une barque se balance."
+  },
+  "india/market-auto-rickshaws": {
+    "name": "Rickshaws au bazar",
+    "desc": "Des auto-rickshaws verts et jaunes et des motos se faufilent dans une rue de bazar animée devant le marchand de chai, le tailleur et la confiserie."
+  },
+  "india/mehndi-hand-design": {
+    "name": "Motif de mehndi",
+    "desc": "Un cône de henné trace un mandala dans la paume, des bandes sur les doigts et des bordures au poignet, puis la pâte sèche et s'écaille en laissant une teinte orange."
+  },
+  "india/mumbai-monsoon-street": {
+    "name": "Rue de Mumbai sous la mousson",
+    "desc": "La pluie de mousson tombe sur une rue de Mumbai, des taxis noir et jaune éclaboussent, les gens pressent le pas sous leurs parapluies et un train passe sur le pont."
+  },
+  "india/munnar-tea-mist": {
+    "name": "Collines de thé dans la brume",
+    "desc": "La brume du matin flotte sur des collines taillées en rangs de théiers, des cueilleuses en saris vifs avancent le long des buissons, panier sur le dos."
+  },
+  "india/mysore-palace-lights": {
+    "name": "Palais de Mysore illuminé",
+    "desc": "Le palais flamboie la nuit de dizaines de milliers d'ampoules dorées soulignant chaque coupole, reflété dans la fontaine pendant qu'un éléphant décoré passe devant la foule."
+  },
+  "india/pressure-cooker-whistle": {
+    "name": "Sifflet de la cocotte-minute",
+    "desc": "Une cocotte-minute en aluminium sur le gaz monte en pression, sa soupape tressaute puis siffle un jet de vapeur pendant qu'un mot au mur compte jusqu'à trois."
+  },
+  "india/pushkar-camel-fair": {
+    "name": "Foire aux chameaux de Pushkar",
+    "desc": "Une grande roue tourne au-dessus des tentes de la foire aux chameaux pendant qu'une caravane aux cavaliers enturbannés traverse les dunes au couchant dans une poussière dorée."
+  },
+  "india/qutub-minar-dusk": {
+    "name": "Qutb Minar au crépuscule",
+    "desc": "Le haut minaret de grès cannelé et ses balcons sculptés dominent des arches en ruine au crépuscule, perruches et milans tournent et les lampes de l'allée s'allument."
+  },
+  "india/rangoli-powder-bloom": {
+    "name": "Rangoli en poudre",
+    "desc": "Un rangoli symétrique se dessine anneau par anneau en poudres vives, versées d'une main pincée sur un sol rouge."
+  },
+  "india/rhino-grassland-mist": {
+    "name": "Rhinocéros dans la brume",
+    "desc": "Des rhinocéros unicornes broutent dans les hautes herbes un matin brumeux, des aigrettes blanches sur leur dos s'envolent, un éléphant de safari longe la plaine."
+  },
+  "india/rishikesh-suspension-bridge": {
+    "name": "Pont suspendu de Rishikesh",
+    "desc": "Le pont suspendu en fer franchit le Gange vert jade entre collines boisées et temple géant, pèlerins et vache traversent, des rafts dévalent les rapides et des singes se balancent."
+  },
+  "india/river-bridge-taxis": {
+    "name": "Taxis sur le pont du fleuve",
+    "desc": "Des taxis jaunes défilent sur un immense pont d'acier pendant que le soleil se couche sur le large fleuve et que des barques dérivent dessous."
+  },
+  "india/rooftop-kite-sunset": {
+    "name": "Cerfs-volants sur les toits au couchant",
+    "desc": "Pendant la fête des cerfs-volants d'hiver, sur les toits bondés de la ville, les gens tirent sur leurs fils et des cerfs-volants de papier vifs plongent dans le couchant."
+  },
+  "india/sea-link-night": {
+    "name": "Pont à haubans la nuit",
+    "desc": "Un pont à haubans traverse la baie la nuit, ses éventails de câbles éclairés, phares et feux arrière défilent devant les tours scintillantes de la ville."
+  },
+  "india/shikara-dal-lake": {
+    "name": "Shikaras sur le lac Dal",
+    "desc": "Des shikaras peints glissent sur le lac miroir devant des péniches en bois sculpté, des platanes d'automne et des sommets enneigés, dans le calme du matin."
+  },
+  "india/shore-temple-waves": {
+    "name": "Temple du rivage et vagues",
+    "desc": "Les deux tours à degrés d'un ancien temple de granit sur les rochers au lever du soleil, la mer se brise en blanc dessous et des pêcheurs descendent vers leurs catamarans."
+  },
+  "india/sitar-string-pluck": {
+    "name": "Corde de sitar pincée",
+    "desc": "Un doigt appuie sur une frette du sitar, la corde principale est pincée et vibre en s'amortissant pendant que des ondes sonores partent de la calebasse."
+  },
+  "india/summer-cooler-afternoon": {
+    "name": "Après-midi brûlant au ventilateur",
+    "desc": "Un après-midi brûlant à l'intérieur : le ventilateur tourne, le rafraîchisseur fait voler les rideaux et le calendrier passe d'un jour torride au suivant."
+  },
+  "india/sun-temple-wheel": {
+    "name": "Roue du temple du Soleil",
+    "desc": "La gigantesque roue de char sculptée du temple du Soleil brille à l'heure dorée, l'ombre de ses rayons tourne sur sa face et des perruches filent devant le toit étagé."
+  },
+  "india/tabla-hands-rhythm": {
+    "name": "Mains sur les tablas en teental",
+    "desc": "Deux mains jouent un theka de teental à seize temps sur une paire de tablas, chaque frappe fait onduler les peaux et les bols s'allument dans une bande au-dessus."
+  },
+  "india/temple-gopuram-madurai": {
+    "name": "Gopuram du temple de Madurai",
+    "desc": "Une immense porte de temple s'élève en étages couverts de figures peintes de cent couleurs, des pigeons tournent et des pèlerins passent la porte dans la lumière du matin."
+  },
+  "india/varanasi-morning-boats": {
+    "name": "Barques de Varanasi au matin",
+    "desc": "Des barques à rames traversent le fleuve brumeux au lever du soleil sous les ghats, temples et palais étagés sur la rive, des mouettes rasent l'eau et des baigneurs descendent."
+  },
+  "india/white-salt-desert-moon": {
+    "name": "Désert de sel blanc sous la lune",
+    "desc": "L'immense désert de sel blanc brille sous la pleine lune, sa croûte craquelée en hexagones, une charrette à chameau passe à l'horizon et des musiciens jouent près d'un feu."
   }
 }
