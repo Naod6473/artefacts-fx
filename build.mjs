@@ -250,11 +250,13 @@ for (const langue of LANGUES) {
       try { writeFileSync(join(DIST, "apercus", e.n + ".png"), await apercu(e.id)); } catch (err) { console.warn(`aperçu ${e.id} : ${err.message}`); }
     }
   }
-  const modele = readFileSync("site/pages/_fiche.html", "utf8");
+  const modele = readFileSync("site/pages/_fiche.html", "utf8"), statiques = process.argv.includes("--serve");
+  mkdirSync(join(DIST, "api", "fiches"), { recursive: true });
   const urls = [];
   for (const langue of LANGUES) {
     const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
     const page = remplir(modele, { ...t, ici: "fx/%%num%%/" }, "fiche");
+    const champs = [...new Set([...page.matchAll(/%%(\w+)%%/g)].map((m) => m[1]))], paquets = {};
     const fr = langue === "fr";
     catalogue.forEach((e, i) => {
       const num = +e.n, cat = e.id.split("/")[0], url = (l) => `${SITE}/${l}/fx/${num}/`;
@@ -273,14 +275,19 @@ for (const langue of LANGUES) {
           image: `${SITE}/apercus/${e.n}.png`, programmingLanguage: "JavaScript", license: "https://opensource.org/licenses/MIT",
           codeRepository: "https://github.com/Naod6473/artefacts-fx", inLanguage: langue, ...(e.author ? { author: { "@type": "Person", name: e.author } } : {}) }).replace(/</g, "\\u003c"),
       };
-      const html = page.replace(/%%(\w+)%%/g, (_, k) => {
-        if (!(k in valeurs)) throw new Error(`fiche : valeur manquante « ${k} »`);
-        return valeurs[k];
-      });
-      mkdirSync(join(DIST, langue, "fx", String(num)), { recursive: true });
-      writeFileSync(join(DIST, langue, "fx", String(num), "index.html"), html);
+      for (const k of champs) if (!(k in valeurs)) throw new Error(`fiche : valeur manquante « ${k} »`);
+      (paquets[Math.floor(num / 100)] ??= {})[num] = valeurs;
+      // en local (npm run dev, sans PHP), les pages sont aussi écrites telles quelles
+      if (statiques) {
+        mkdirSync(join(DIST, langue, "fx", String(num)), { recursive: true });
+        writeFileSync(join(DIST, langue, "fx", String(num), "index.html"), page.replace(/%%(\w+)%%/g, (_, k) => valeurs[k]));
+      }
       urls.push(url(langue));
     });
+    // En ligne, les pages des effets sont faites à la demande par api/fiche.php (règle dans .htaccess) à partir du
+    // modèle et de ces valeurs : 2 000 dossiers et pages HTML ne tenaient pas dans l'hébergement de 100 Mo.
+    writeFileSync(join(DIST, "api", "fiches", `modele-${langue}.html`), page);
+    for (const [k, v] of Object.entries(paquets)) writeFileSync(join(DIST, "api", "fiches", `${langue}-${k}.json`), JSON.stringify(v));
   }
   const pages = LANGUES.flatMap((l) => Object.values(PAGES).filter((f) => !/^(moderation|compte)\/|^404/.test(f)).map((f) => `${SITE}/${l}/${f.replace(/index\.html$/, "")}`));
   writeFileSync(join(DIST, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...pages, ...urls].map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`);

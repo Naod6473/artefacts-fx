@@ -27,6 +27,8 @@ ErrorDocument 404 {{base}}fr/404.html
   RewriteCond %{HTTP:Accept-Language} ^fr [NC]
   RewriteRule ^fx/0*(\d+)/?$ {{base}}fr/fx/$1/ [L,R=302]
   RewriteRule ^fx/0*(\d+)/?$ {{base}}en/fx/$1/ [L,R=302]
+  # la page d'un effet (/fr/fx/42/) est faite par api/fiche.php (voir build.mjs) ; /fr/fx/42 sans barre finale aussi
+  RewriteRule ^([a-z]{2})/fx/0*(\d+)/?$ {{base}}api/fiche.php?l=$1&n=$2 [L,QSA]
 </IfModule>
 
 # fichiers cachés (.git, .env…) et données de l'API jamais servis
