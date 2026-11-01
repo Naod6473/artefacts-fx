@@ -29,8 +29,11 @@ const sourceTexte = {
   },
 };
 
-// « import { catalogue, charger, source } from "virtuel:catalogue" » : la liste des effets (numéro, nom, tags, durée…)
-// calculée ici, et pour chacun un import() séparé, donc le code d'un effet n'est téléchargé que s'il est affiché
+// « import { catalogue } from "virtuel:catalogue" » : la liste des effets (numéro, nom, tags, durée, descriptions…)
+// calculée ici. « import { charger, chemins } from "virtuel:charger" » : pour chacun un import() séparé, donc le
+// code d'un effet n'est téléchargé que s'il est affiché. Deux modules, pour que les pages qui n'ont besoin que de
+// charger un effet (la page d'un effet, l'accueil) ne téléchargent pas le catalogue entier (plus de 500 Ko).
+// « virtuel:source » : le texte de chaque effet, pour l'onglet « code source »
 const registre = JSON.parse(readFileSync("effets/registre.json", "utf8"));
 // noms et descriptions en français (effets/traductions-fr.json) ; un effet sans traduction garde son texte d'origine
 const TRAD_FR = existsSync("effets/traductions-fr.json") ? JSON.parse(readFileSync("effets/traductions-fr.json", "utf8")) : {};
@@ -45,13 +48,17 @@ for (const [n, id] of Object.entries(registre)) {
 const catalogueVirtuel = {
   name: "catalogue",
   setup(b) {
-    b.onResolve({ filter: /^virtuel:catalogue$/ }, () => ({ path: "catalogue", namespace: "virtuel" }));
-    b.onLoad({ filter: /.*/, namespace: "virtuel" }, () => {
+    b.onResolve({ filter: /^virtuel:(catalogue|charger|source)$/ }, (a) => ({ path: a.path.slice(8), namespace: "virtuel" }));
+    b.onLoad({ filter: /.*/, namespace: "virtuel" }, (a) => {
       const fichier = (id) => JSON.stringify(resolve("effets", id + ".js"));
       const lignes = (suffixe) => catalogue.map((e) => `  "${e.n}": () => import(${fichier(e.id).slice(0, -1)}${suffixe}"),`).join("\n");
       return {
         resolveDir: resolve("."),
-        contents: `export const catalogue = ${JSON.stringify(catalogue)};\nexport const charger = {\n${lignes("")}\n};\nexport const source = {\n${lignes("?source")}\n};\n`,
+        contents: {
+          charger: `export const charger = {\n${lignes("")}\n};\nexport const chemins = ${JSON.stringify(Object.fromEntries(catalogue.map((e) => [e.n, e.id])))};\n`,
+          source: `export const source = {\n${lignes("?source")}\n};\n`,
+          catalogue: `export const catalogue = ${JSON.stringify(catalogue)};\nexport { charger } from "virtuel:charger";\n`,
+        }[a.path],
       };
     });
   },
@@ -147,6 +154,11 @@ await build({
   const d = join(DIST, "assets", "interfaces"), autres = readdirSync(d).filter((f) => f.endsWith(".css") && f !== "app.css");
   writeFileSync(join(d, "app.css"), [readFileSync(join(d, "app.css"), "utf8"), ...autres.map((f) => readFileSync(join(d, f), "utf8"))].join("\n"));
   for (const f of autres) rmSync(join(d, f));
+  // la police manuscrite « étendue » d'Inkra (10 Mo, des milliers de caractères chinois et rares) ne sert à aucune page
+  // du site et pèse un dixième de l'hébergement : retirée, ces caractères s'affichent dans la police de secours
+  const css = readFileSync(join(d, "app.css"), "utf8"), etendue = readdirSync(d).filter((f) => /^ui-hand-xiaolai-extended-.*\.woff2$/.test(f));
+  writeFileSync(join(d, "app.css"), css.replace(/@font-face\{[^}]*ui-hand-xiaolai-extended-[^}]*\}/g, ""));
+  for (const f of etendue) rmSync(join(d, f));
 }
 // la page Loading : React et loading-dev (MIT), plus le lecteur et les rendus du site pour la vue « Avec nos effets »
 await build({

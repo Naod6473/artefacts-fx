@@ -54,11 +54,18 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -p "$PORT" "$FTP_SERVER" >> ~/.ssh/known_hosts 2> /dev/null
           ssh-keygen -lf ~/.ssh/known_hosts
-          # mirror -R envoie dist/ ; sans --delete, rien n'est effacé sur le serveur,
+          ouvrir="set net:max-retries 2; set net:timeout 30; open -p $PORT -u $FTP_USERNAME --env-password sftp://$FTP_SERVER"
+          echo "Place prise sur le serveur avant l'envoi : $(lftp -c "$ouvrir; du -hs $DOSSIER" 2>&1 || true)"
+          # Les dossiers de morceaux de code (noms à empreinte, qui changent à chaque version) gardaient toutes les
+          # anciennes versions : avec l'hébergement à 100 Mo, l'envoi finissait en « Failure » (quota plein).
+          # Ces dossiers sont entièrement produits par le build : on les remet à l'identique, anciens fichiers effacés.
+          for d in assets/fx assets/interfaces assets/loading; do
+            lftp -c "$ouvrir; mirror -R --delete --parallel=4 dist/$d ${DOSSIER}$d"
+          done
+          # Puis tout dist/ ; ailleurs, sans --delete, rien n'est effacé sur le serveur,
           # et les données de la communauté (api/donnees/*.sqlite, *.json) ne sont jamais écrasées
-          lftp -c "set net:max-retries 2; set net:timeout 30;
-            open -p $PORT -u $FTP_USERNAME --env-password sftp://$FTP_SERVER;
-            mirror -R --verbose --parallel=4 -x '^api/donnees/.*\.(sqlite|sqlite-journal|json)$' dist/ $DOSSIER"
+          lftp -c "$ouvrir; mirror -R --verbose --parallel=4 -x '^api/donnees/.*\.(sqlite|sqlite-journal|json)$' dist/ $DOSSIER"
+          echo "Place prise sur le serveur après l'envoi : $(lftp -c "$ouvrir; du -hs $DOSSIER" 2>&1 || true)"
       - name: Vérifier le site en ligne
         if: env.FTP_SERVER != ''
         env:

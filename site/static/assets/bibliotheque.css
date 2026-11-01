@@ -49,6 +49,8 @@ main { flex: 999 1 560px; min-width: 0; padding: 16px 20px 48px; }
 #mur { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
 .carte[hidden] { display: none; }
 .carte { display: block; text-decoration: none; color: inherit; border: 1px solid var(--trait); background: var(--carte); }
+/* hors de l'écran, le navigateur ne met pas en page ni ne peint les cartes (près de 1 000) */
+.carte { content-visibility: auto; contain-intrinsic-size: auto 220px; }
 .carte.large { grid-column: span 2; }
 .carte:hover { border-color: var(--trait2); }
 .carte[aria-current="true"] { border-color: var(--accent); }

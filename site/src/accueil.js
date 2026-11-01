@@ -18,7 +18,7 @@ import * as waterfall from "../../effets/water/waterfall.js";
 import * as glitch from "../../effets/scifi/glitch.js";
 
 import registre from "../../effets/registre.json";
-import { catalogue, charger } from "virtuel:catalogue";
+import { charger, chemins } from "virtuel:charger";
 import { TAGS_FR } from "./tags.js";
 import { initCompte } from "./compte.js";
 
@@ -137,18 +137,22 @@ for (const m of [lightningStrike, levelUp, hologram, heal, blackHole, swordSlash
   const d = new Date(), jour = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   let h = 2166136261; // FNV-1a : deux jours qui se suivent tombent loin l'un de l'autre dans la liste
   for (const c of jour) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
-  const choix = catalogue.filter((e) => !e.id.startsWith("communaute/")), e = choix[(h >>> 0) % choix.length];
+  const choix = Object.keys(chemins).filter((n) => !chemins[n].startsWith("communaute/")), n = choix[(h >>> 0) % choix.length];
   const fr = LANGUE === "fr", base = document.body.dataset.base;
   $("#jour-date").textContent = d.toLocaleDateString(LANGUE, { weekday: "long", day: "numeric", month: "long" });
-  $("#jour-num").textContent = "#" + e.n;
-  $("#jour-nom").textContent = fr ? e.name_fr ?? e.name : e.name;
-  $("#jour-desc").textContent = fr ? e.desc_fr ?? e.desc : e.desc;
-  $("#jour-tags").textContent = e.tags.map((t) => "#" + (fr ? TAGS_FR[t] ?? t : t)).join(" ");
-  const biblio = `${base}${LANGUE}/bibliotheque/#fx=${e.n}`;
-  $("#jour-voir").href = `${base}${LANGUE}/fx/${+e.n}/`;
+  $("#jour-num").textContent = "#" + n;
+  const biblio = `${base}${LANGUE}/bibliotheque/#fx=${n}`;
+  $("#jour-voir").href = `${base}${LANGUE}/fx/${+n}/`;
   $("#jour-biblio").href = $("#jour-cv").href = biblio;
   $("#jour-cv").onclick = () => ($("#jour-cv").href = `${biblio}&rendu=${renduApercu}`);
-  charger[e.n]().then((mod) => anim.ajouter($("#jour-cv canvas"), new Lecteur(mod), () => renduApercu));
+  charger[n]().then((mod) => anim.ajouter($("#jour-cv canvas"), new Lecteur(mod), () => renduApercu));
+  // le nom, la description et les tags viennent du catalogue (plus de 500 Ko), chargé après l'animation
+  import("virtuel:catalogue").then(({ catalogue }) => {
+    const e = catalogue.find((c) => c.n === n);
+    $("#jour-nom").textContent = fr ? e.name_fr ?? e.name : e.name;
+    $("#jour-desc").textContent = fr ? e.desc_fr ?? e.desc : e.desc;
+    $("#jour-tags").textContent = e.tags.map((t) => "#" + (fr ? TAGS_FR[t] ?? t : t)).join(" ");
+  });
 }
 
 // bouton « Se connecter » : même fenêtre que dans la bibliothèque ; favoris et projets se gèrent là-bas

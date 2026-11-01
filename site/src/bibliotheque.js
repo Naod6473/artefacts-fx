@@ -4,7 +4,7 @@
 import { usage as usageDe } from "./usage.js";
 import { Lecteur, boucle, vuePartagee, pleinEcran } from "./lecteur.js";
 import { rendus, parId, RENDU_PAR_DEFAUT } from "../../rendus/index.js";
-import { catalogue, charger, source } from "virtuel:catalogue";
+import { catalogue, charger } from "virtuel:catalogue";
 import { CATEGORIES_FR, TAGS_FR, SYNONYMES } from "./tags.js";
 import { initCompte } from "./compte.js";
 import { planche, dimensions, spriteFrames, scene, COTE_MAX } from "./planche.js";
@@ -34,9 +34,20 @@ const LIB = catalogue.map((c) => {
   const brut = [cat, c.loop ? "loop" : "one-shot", c.bg === "ground" ? "ground" : null, pleinEcran(meta) ? "screen" : null, c.actor ? "actor" : null, ...c.tags];
   const tags = [...new Set(brut.filter(Boolean).map((t) => (t === cat && fr ? CATEGORIES_FR[cat] ?? cat : tagLocal(t))))];
   const slug = c.id.split("/")[1].replace(/-/g, "_");
-  const mots = [c.n, String(+c.n), c.name, c.name_fr, slug, c.desc, c.desc_fr, cat, CATEGORIES_FR[cat], c.couleur, ...brut, ...brut.map((t) => TAGS_FR[t])].filter(Boolean);
   // nom et description affichés dans la langue de la page ; la recherche trouve les deux langues
-  return { ...c, name: fr ? c.name_fr ?? c.name : c.name, desc: fr ? c.desc_fr ?? c.desc : c.desc, meta, cat, tags, slug, tagsNorm: tags.map(norm).concat(brut.filter(Boolean).map(norm)), texte: norm(mots.join(" ")), jetons: new Set(norm(mots.join(" ")).split(/[^a-z0-9]+/).filter((x) => x.length > 2)) };
+  const e = { ...c, name: fr ? c.name_fr ?? c.name : c.name, desc: fr ? c.desc_fr ?? c.desc : c.desc, meta, cat, tags, slug, tagsNorm: tags.map(norm).concat(brut.filter(Boolean).map(norm)) };
+  // le texte de recherche n'est calculé qu'à la première recherche qui en a besoin (près de 1 000 effets à l'ouverture)
+  let texte, jetons;
+  const indexer = () => {
+    const mots = [c.n, String(+c.n), c.name, c.name_fr, slug, c.desc, c.desc_fr, cat, CATEGORIES_FR[cat], c.couleur, ...brut, ...brut.map((t) => TAGS_FR[t])].filter(Boolean);
+    texte = norm(mots.join(" "));
+    jetons = new Set(texte.split(/[^a-z0-9]+/).filter((x) => x.length > 2));
+  };
+  Object.defineProperties(e, {
+    texte: { get: () => (texte ?? indexer(), texte) },
+    jetons: { get: () => (jetons ?? indexer(), jetons) },
+  });
+  return e;
 });
 const parNumero = new Map(LIB.map((e) => [e.n, e]));
 // les collections, avec leurs effets trouvés dans la bibliothèque, dans l'ordre choisi
@@ -308,6 +319,7 @@ async function majCode() {
   if (!e) return;
   if (onglet === "usage") { $("#code").textContent = usage(e); return; }
   $("#code").textContent = "…";
+  const { source } = await import("virtuel:source"); // la liste ne se charge qu'à la première ouverture de l'onglet
   const texte = (await source[e.n]()).default;
   if (etat.choisi === e && onglet === "source") $("#code").textContent = texte;
 }
