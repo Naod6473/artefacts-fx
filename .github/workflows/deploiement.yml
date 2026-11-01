@@ -55,8 +55,12 @@ jobs:
           ssh-keyscan -p "$PORT" "$FTP_SERVER" >> ~/.ssh/known_hosts 2> /dev/null
           ssh-keygen -lf ~/.ssh/known_hosts
           ouvrir="set net:max-retries 2; set net:timeout 30; open -p $PORT -u $FTP_USERNAME --env-password sftp://$FTP_SERVER"
-          echo "Place prise sur le serveur avant l'envoi (dossiers du compte ; ~5 min, il parcourt tout) :"
-          lftp -c "$ouvrir; du -h --max-depth=1 ." 2>&1 || true
+          # Les pages des effets sont faites par api/fiche.php (règle dans .htaccess) : d'abord la règle et le script,
+          # puis on efface les anciennes pages /<langue>/fx/<n>/ (2 000 dossiers, trop pour l'hébergement de 100 Mo)
+          lftp -c "$ouvrir; mirror -R --parallel=4 dist/api/fiches ${DOSSIER}api/fiches; put -O ${DOSSIER}api dist/api/fiche.php; put -O $DOSSIER dist/.htaccess"
+          for l in $(ls dist | grep -E '^[a-z]{2}$'); do
+            lftp -c "$ouvrir; rm -r ${DOSSIER}$l/fx" 2>&1 | tail -1 || true
+          done
           # Les dossiers de morceaux de code (noms à empreinte, qui changent à chaque version) gardaient toutes les
           # anciennes versions : avec l'hébergement à 100 Mo, l'envoi finissait en « Failure » (quota plein).
           # Ces dossiers sont entièrement produits par le build : on les remet à l'identique, anciens fichiers effacés

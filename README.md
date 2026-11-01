@@ -56,6 +56,11 @@ Chaque push sur `main` construit le site et l'envoie sur OVH en SFTP (`.github/w
 est dans `config/ovh.json` ; les identifiants FTP sont dans les secrets du repo (`FTP_SERVER`, `FTP_USERNAME`,
 `FTP_PASSWORD`), jamais dans le code.
 
+L'hébergement fait 100 Mo. Les pages des effets (`/fr/fx/42/`) ne sont donc pas des fichiers : `api/fiche.php` les fait
+à la demande, à partir du modèle et des valeurs que le build écrit dans `api/fiches/`. Les dossiers de code à empreinte
+(`assets/fx`, `assets/interfaces`, `assets/loading`) sont vidés de leurs anciennes versions à chaque envoi. Le site
+complet pèse environ 41 Mo.
+
 ## Serveur MCP (assistants IA)
 
 `https://naod.fr/api/mcp` (transport Streamable HTTP, sans compte) : outils `search_effects`, `get_effect`, `list_styles`, `list_tags`. Code : `api/mcp.php`, qui lit `dist/api/catalogue/` écrit par le build. Doc pour les utilisateurs : https://naod.fr/fr/ia/.
