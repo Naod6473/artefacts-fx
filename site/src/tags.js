@@ -1,7 +1,7 @@
 // Les tags dans la langue du visiteur. Les effets portent des tags en anglais ; on traduit les plus courants,
 // les autres restent en anglais. La recherche trouve un effet par le tag dans les deux langues.
 
-export const CATEGORIES_FR = { fire: "feu", explosions: "explosion", water: "eau", ice: "glace", lightning: "foudre", scifi: "sci-fi", melee: "mêlée", impacts: "impact", projectiles: "projectile", spawn: "apparition", arcane: "arcane", holy: "sacré", shadow: "ombre", status: "état", nature: "nature", weather: "météo", ui: "interface", pickups: "ramassage", transitions: "transition", critters: "bestiole", creatures: "créature", moves: "attaque", communaute: "communauté" };
+export const CATEGORIES_FR = { fire: "feu", explosions: "explosion", water: "eau", ice: "glace", lightning: "foudre", scifi: "sci-fi", melee: "mêlée", impacts: "impact", projectiles: "projectile", spawn: "apparition", arcane: "arcane", holy: "sacré", shadow: "ombre", status: "état", nature: "nature", weather: "météo", ui: "interface", pickups: "ramassage", transitions: "transition", critters: "bestiole", creatures: "créature", landscapes: "paysage", screens: "écran", "live-data": "données", explainers: "schéma", lettering: "lettrage", solids: "solide-3d", cosmos: "cosmos", "motion-lab": "simulation", wild: "nature-et-météo", animals: "animal", things: "objet", algorithms: "algorithme", demoscene: "demoscene", arcade: "arcade", frames: "cadre", occasions: "fête", cities: "ville", mascots: "mascotte", "empty-states": "état-vide", retro: "rétro", science: "science", music: "musique", food: "cuisine", india: "inde", moves: "attaque", communaute: "communauté" };
 
 export const TAGS_FR = {
   "one-shot": "une-fois", loop: "boucle", ground: "au-sol", directional: "directionnel", magic: "magie", fire: "feu", ambient: "ambiance",
@@ -21,6 +21,29 @@ export const TAGS_FR = {
   snake: "serpent", reptile: "reptile", slither: "reptation", bat: "chauve-souris", bird: "oiseau", crow: "corbeau", flock: "nuée", swarm: "essaim",
   move: "attaque", bow: "arc", arrow: "flèche", ranged: "distance", dash: "ruée", crit: "critique", stomp: "piétinement", jump: "saut",
   landing: "atterrissage", strike: "frappe", meteor: "météore", ultimate: "ultime", pistol: "pistolet", combo: "combo",
+  // tags des scènes d'ascii-magic-art
+  ascii: "ascii", loader: "chargement", terminal: "terminal", dashboard: "tableau-de-bord", retro: "rétro", india: "inde", app: "appli",
+  landmark: "monument", diagram: "schéma", education: "pédagogie", "empty-state": "état-vide", "3d": "3d", wonder: "merveille", game: "jeu",
+  sunset: "coucher-de-soleil", developer: "développeur", science: "science", city: "ville", mascot: "mascotte", 404: "404", dusk: "crépuscule",
+  food: "cuisine", desert: "désert", space: "espace", letters: "lettres", chart: "graphique", cute: "mignon", data: "données", calm: "calme",
+  stars: "étoiles", physics: "physique", summer: "été", river: "rivière", travel: "voyage", sunrise: "lever-de-soleil", bridge: "pont",
+  cli: "ligne-de-commande", math: "maths", arcade: "arcade", docs: "doc", mountains: "montagne", mountain: "montagne", ocean: "océan",
+  cozy: "douillet", winter: "hiver", algorithm: "algorithme", dawn: "aube", neon: "néon", moon: "lune", festival: "festival", temple: "temple",
+  network: "réseau", spring: "printemps", simulation: "simulation", street: "rue", music: "musique", success: "réussite", fractal: "fractale",
+  celebration: "fête", kitchen: "cuisine", editor: "éditeur", growth: "croissance", biology: "biologie", autumn: "automne", fall: "automne",
+  mist: "brume", waterfall: "cascade", intro: "intro", form: "formulaire", divider: "séparateur", separator: "séparateur", skyline: "silhouette-de-ville",
+  lake: "lac", reflection: "reflet", island: "île", forest: "forêt", animals: "animaux", tree: "arbre", puzzle: "puzzle", morning: "matin",
+  typing: "frappe", monitor: "moniteur", waves: "vagues", wave: "vague", error: "erreur", clock: "horloge", time: "temps", japan: "japon",
+  system: "système", traffic: "circulation", vintage: "vintage", rings: "anneaux", palace: "palais", rooftops: "toits", lanterns: "lanternes",
+  rainbow: "arc-en-ciel", beach: "plage", geometry: "géométrie", architecture: "architecture", coast: "côte", flowers: "fleurs", garden: "jardin",
+  orbit: "orbite", gravity: "gravité", steam: "vapeur", volcano: "volcan", camels: "chameaux", classroom: "classe", film: "film", code: "code",
+  computer: "ordinateur", history: "histoire", landscape: "paysage", progress: "progression", planet: "planète", security: "sécurité",
+  particles: "particules", boats: "bateaux", audio: "audio", harbour: "port", pattern: "motif", finance: "finance", canal: "canal", road: "route",
+  halloween: "halloween", table: "tableau", party: "fête", birds: "oiseaux", bounce: "rebond", drink: "boisson", cafe: "café", coffee: "café",
+  dessert: "dessert", calendar: "calendrier", nostalgia: "nostalgie", tea: "thé", market: "marché", messages: "messages", christmas: "noël",
+  holiday: "vacances", chaos: "chaos", clouds: "nuages", lights: "lumières", countdown: "compte-à-rebours", palms: "palmiers", breakfast: "petit-déjeuner",
+  frame: "cadre", pendulum: "pendule", rhythm: "rythme", wildlife: "faune", files: "fichiers", sign: "panneau", bay: "baie", pets: "animaux-de-compagnie",
+  underwater: "sous-marin", rainforest: "forêt-tropicale", lava: "lave", login: "connexion", header: "en-tête", seasonal: "saison",
 };
 
 // mots français courants vers l'anglais, pour chercher dans les noms et descriptions (en anglais)

@@ -1,6 +1,6 @@
 # Catalog
 
-266 effects in 22 categories. Every one is a file in
+997 effects in 46 categories. Every one is a file in
 `effets/<category>/<name>.js`; check any of them with `node tools/check.mjs <id>`.
 
 ## fire
@@ -422,3 +422,902 @@ whole attacks, wind-up to recovery, chained from the effects above.
 | Pistol shots | `moves/pistol-shots` | one-shot 3.12s | 438×96 | Three aimed shots: the gun kicks up each time and settles, tracers cross the floor, and the target staggers under each hit. |
 | Rocket launcher | `moves/rocket-launcher` | one-shot 7.34s | 540×254 | He drops to one knee, shoulders the tube and fires: the kick shoves him back along the floor, the rocket crawls out on its jet and the target goes up. |
 | Sword combo | `moves/sword-combo` | one-shot 4.06s | 349×149 | Three strokes walking forward: a slash, a crossing double cut, and a two-handed cleave into the floor that throws the target about. |
+
+## landscapes
+
+hand-built places and skies that move: coasts, peaks, cities at night.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Arctic Icebergs | `landscapes/arctic-icebergs` | loop 12s | 400×288 | Icebergs drift on a dark polar sea under a faint green aurora, the swell rolling past them. |
+| Aurora Cabin Snowfall | `landscapes/aurora-cabin-snowfall` | loop 12s | 384×216 | Green northern lights fold slowly over a snowy log cabin with lit windows, chimney smoke and gently falling snow. |
+| Autumn Forest | `landscapes/autumn-forest` | loop 12s | 400×288 | A path winds into orange and red autumn woods while leaves drift down through the light. |
+| Autumn Pagoda Maples | `landscapes/autumn-pagoda-maples` | loop 12s | 384×216 | A five tier pagoda stands among red maples on an autumn evening, with lanterns on an arched bridge and maple leaves drifting down. |
+| Autumn Road Cyclist | `landscapes/autumn-road-cyclist` | loop 12s | 384×216 | A lone cyclist pedals along a forest road under orange and red autumn trees while leaves drift down through the low sunlight. |
+| Balloon Valley Sunrise | `landscapes/balloon-valley-sunrise` | loop 12s | 384×216 | Hot air balloons drift and rise over layered valleys at sunrise while mist rolls through the low ground. |
+| Bamboo Grove Path | `landscapes/bamboo-grove-path` | loop 12s | 384×216 | A stone path runs through a towering bamboo grove toward the light, a rickshaw running down it and visitors strolling the other way as leaves drift through the green air. |
+| Bamboo Raft Karsts | `landscapes/bamboo-raft-karsts` | loop 12s | 384×216 | A fisherman in a conical hat poles a bamboo raft down a misty river at dawn, his lantern lit and a cormorant diving, between rank on rank of cone-shaped karst peaks. |
+| Baobab Avenue Dusk | `landscapes/baobab-avenue-dusk` | loop 12s | 384×216 | Giant bottle-shaped baobabs line a red dirt road at dusk against the glowing sky as an ox cart rolls past in its dust and bats leave the crowns. |
+| Basalt Column Coast | `landscapes/basalt-column-coast` | loop 12s | 384×216 | Thousands of hexagonal basalt columns step down like stairs into a stormy sea as waves break white over the lowest stones and a visitor climbs the steps. |
+| Black Sand Falls | `landscapes/black-sand-falls` | loop 12s | 384×216 | A tall waterfall pours off a mossy green cliff onto a black sand plain under a pale northern sky as a hiker in a red jacket walks toward the spray. |
+| Camel Caravan Dusk | `landscapes/camel-caravan-dusk` | loop 12s | 384×216 | A caravan of camels walks a desert dune crest against a low dusk sun, kicking up trails of dust. |
+| Campfire Under Stars | `landscapes/campfire-under-stars` | loop 12s | 400×288 | A crackling campfire sends sparks up toward the milky way while a tent glows in its light. |
+| Golden Canal Gondola | `landscapes/canal-golden-hour` | loop 12s | 384×216 | A narrow canal between old painted houses at golden hour, with a gondola gliding across, laundry swaying on the lines and ripples moving on the water. |
+| Cherry Blossom River | `landscapes/cherry-blossom-river` | loop 12s | 384×288 | A quiet river flows beneath rows of cherry blossom trees as pink petals drift down and float away. |
+| Cliff Lighthouse Night | `landscapes/cliff-lighthouse-night` | loop 12s | 384×216 | A lighthouse on a sea cliff turns its beam across a starry night while a ship passes on the horizon and clouds drift by. |
+| Whitewashed Cliff Village | `landscapes/cliff-village-sea` | loop 12s | 384×216 | A whitewashed village with blue domes spills down a volcanic cliff above a deep blue sea, with a windmill turning, boats crossing and gulls overhead. |
+| Neon Alley | `landscapes/cyberpunk-alley` | loop 12s | 400×288 | A rainy night alley runs toward a glowing street, its neon signs buzzing and pooling in the wet ground. |
+| Desert Buttes Road | `landscapes/desert-buttes-road` | loop 12s | 384×216 | A straight road runs toward giant red sandstone buttes across the desert as a red car drives it trailing dust, cloud shadows sliding over the land. |
+| Desert Camp Milky Way | `landscapes/desert-camp-milky-way` | loop 12s | 384×216 | The Milky Way arches over a desert camp among moonlit dunes, tents glowing warm and a campfire throwing sparks as a figure with a lantern walks between them. |
+| Desert Dunes | `landscapes/desert-dunes` | loop 12s | 384×288 | Rolling sand dunes bake under a blazing sky while the wind lifts sand off every crest. |
+| Desert Oasis Palms | `landscapes/desert-oasis-palms` | loop 12s | 384×216 | Date palms ring a turquoise pool deep in the golden dunes as a traveller leads camels down to the water and the wind lifts sand off the crests. |
+| Elephants At Waterhole | `landscapes/elephants-at-waterhole` | loop 12s | 384×216 | Elephants gather at a waterhole on the golden savanna, one drinking and one spraying water over its back, as the rest of the herd walks past under the flat-topped acacias. |
+| Fjord Ferry Passage | `landscapes/fjord-ferry-passage` | loop 12s | 384×216 | A ferry sails up a deep fjord between plunging cliff walls as ribbon waterfalls pour down them and a red farmhouse clings to a green ledge high above. |
+| Floating Islands | `landscapes/floating-islands` | loop 12s | 400×288 | Grassy islands drift above a sea of cloud, waterfalls pouring off their edges into the mist below. |
+| Fuji Dawn Lake | `landscapes/fuji-dawn-lake` | loop 12s | 384×216 | A snow capped volcano glows pink at dawn over a mirror lake, with cranes flying past and a small boat poling across. |
+| Ganges Dawn | `landscapes/ganges-dawn` | loop 12s | 400×288 | Dawn breaks over riverside ghats as wooden boats drift past and floating lamps flicker on the water. |
+| Giraffes Below The Peak | `landscapes/giraffes-below-peak` | loop 12s | 384×216 | Giraffes browse the flat-topped acacias on the golden savanna below the snow-capped volcano at sunrise as a band of cloud drifts across its flanks. |
+| Glacier Calving Front | `landscapes/glacier-calving-front` | loop 12s | 384×216 | The towering blue-white front of a glacier meets the lake, and every so often a slab of ice breaks away and crashes in with a great splash as bergs drift and a tour boat watches. |
+| Glacier Lagoon Ice | `landscapes/glacier-lagoon-ice` | loop 12s | 384×216 | Icebergs of white and glacial blue, some striped with ash, drift across a still lagoon under the pastel midnight sun as a seal rolls through the water and terns fly over. |
+| Bridge in the Fog | `landscapes/golden-gate-fog` | loop 12s | 400×288 | A red suspension bridge stands over the bay as thick fog rolls in beneath its deck. |
+| Grand Canyon Rim | `landscapes/grand-canyon-rim` | loop 12s | 384×216 | Ridge after ridge of banded red rock fades into the sunset from the canyon rim, the river a thin thread far below as ravens ride the updraft past a gnarled juniper. |
+| Granite Towers Lake | `landscapes/granite-towers-lake` | loop 12s | 384×216 | Three sheer granite towers glow orange at sunrise over a milky turquoise glacial lake as cloud streams off their summits and guanacos walk the windswept shore. |
+| Granite Valley Falls | `landscapes/granite-valley-falls` | loop 12s | 384×216 | A ribbon waterfall leaps from the rim of a glacier-carved granite valley as the great half-dome glows orange in the evening light above the pines and the meadow river. |
+| Great Wall Sunset | `landscapes/great-wall-sunset` | loop 12s | 384×216 | The Great Wall winds over layered blue ridges as the sun sets, with drifting cloud, rising mist and birds. |
+| Neon Harbour Ferry | `landscapes/harbour-neon-skyline` | loop 12s | 384×216 | A neon city skyline over a night harbour under a full moon, with office windows switching on and off, a ferry crossing and cars streaming over the bridge. |
+| Hawa Mahal Morning | `landscapes/hawa-mahal-morning` | loop 12s | 384×304 | A pink palace facade of countless small latticed windows catches the morning sun as pigeons wheel past. |
+| Himalaya Peaks | `landscapes/himalaya-peaks` | loop 12s | 400×288 | Sharp snow peaks rise above drifting cloud while strings of prayer flags flutter in the wind. |
+| Kerala Backwaters | `landscapes/kerala-backwaters` | loop 12s | 400×288 | A thatched houseboat glides along calm green backwaters lined with leaning coconut palms. |
+| Lagoon Overwater Huts | `landscapes/lagoon-overwater-huts` | loop 12s | 384×216 | Thatched huts on stilts curve out over a turquoise lagoon below a sheer green volcanic peak, an outrigger canoe paddling past and a ray gliding beneath. |
+| Lava Meets Ocean | `landscapes/lava-meets-ocean` | loop 12s | 384×216 | Glowing lava runs down a black volcanic coast and pours off the cliff into the sea at dusk, the water boiling white and steam billowing up lit orange from below. |
+| Lavender Fields | `landscapes/lavender-fields` | loop 12s | 400×288 | Rows of purple lavender run to a farmhouse on the horizon as the wind ripples through them at sunset. |
+| Lighthouse Storm | `landscapes/lighthouse-storm` | loop 12s | 384×288 | A lighthouse stands on the rocks through a storm, its beam sweeping the rain as waves crash below. |
+| Limestone Bay Junks | `landscapes/limestone-bay-junks` | loop 12s | 384×216 | Junk boats with ribbed orange sails cross a jade bay between tall limestone islands that fade rank after rank into the morning haze, a kayak paddling past. |
+| Lunar Base | `landscapes/lunar-base` | loop 12s | 400×288 | Habitat domes on the grey lunar plain with Earth hanging in a black sky and a rover rolling past. |
+| Mars Colony | `landscapes/mars-colony` | loop 12s | 400×288 | Habitat domes on a rust red desert under two small moons, with a dust storm drifting across. |
+| Moonlit Mausoleum | `landscapes/moonlit-mausoleum` | loop 12s | 384×216 | A white marble mausoleum with a great dome and four minarets glows under a full moon, mirrored in a long rippling pool. |
+| Moonlit Sea | `landscapes/moonlit-sea` | loop 12s | 384×288 | A full moon over a calm night sea, its reflection breaking on the swell. |
+| Mountain Sunrise | `landscapes/mountain-sunrise` | loop 12s | 384×288 | The sun climbs behind five layered mountain ranges while mist drifts through the valleys. |
+| Neon City Rain | `landscapes/neon-city-rain` | loop 12s | 400×288 | Neon signs buzz over a rain-soaked night street, their colours smeared across the wet ground. |
+| Northern Lights | `landscapes/northern-lights` | loop 12s | 384×288 | Green and violet aurora curtains ripple above a snowy pine forest and a frozen lake. |
+| City Skyline Night | `landscapes/nyc-skyline-night` | loop 12s | 312×216 | A dense skyscraper skyline at night, its windows flicking on and off above a dark river. |
+| Orbit Window Earth | `landscapes/orbit-window-earth` | loop 12s | 384×216 | Looking out of a space station window at the curve of the Earth, with cloud bands turning slowly, a satellite drifting past and the sun rising on the limb. |
+| Paddy Buffalo Sunrise | `landscapes/paddy-buffalo-sunrise` | loop 12s | 384×216 | Flooded rice paddies mirror a soft sunrise as a farmer leads a water buffalo along the dikes and egrets fly low over the fields. |
+| Paris Rooftops | `landscapes/paris-rooftops` | loop 12s | 400×288 | Zinc rooftops, chimney smoke and lit windows at twilight, with an iron tower on the far skyline. |
+| Rainforest Falls Mist | `landscapes/rainforest-falls-mist` | loop 12s | 384×216 | A tall waterfall pours down a mossy cliff into a jungle pool, with mist rolling off the water, ferns swaying in front and birds crossing the canopy light. |
+| Rainforest River Canoe | `landscapes/rainforest-river-canoe` | loop 12s | 384×216 | A dugout canoe glides down a wide tea-brown river between walls of rainforest at morning as macaws fly over, the mist lifts off the water and a monkey swings on a vine. |
+| Rainy Window | `landscapes/rainy-window` | loop 12s | 384×288 | Raindrops slide down a window pane in front of the blurred, glowing lights of a city at night. |
+| Red Rock Outback Dusk | `landscapes/red-rock-outback-dusk` | loop 12s | 384×216 | The great red monolith burns in the last light on the flat outback as kangaroos bound across the spinifex, kicking dust, under the first evening stars. |
+| Redwood Forest Light | `landscapes/redwood-forest-light` | loop 12s | 384×216 | Beams of morning sun slant through the mist between giant redwood trunks rising out of a bright fern floor, a hiker small on the winding trail below. |
+| Retro Synth Sunset | `landscapes/retro-synth-sunset` | loop 12s | 400×288 | A striped retro sun sinks behind neon wireframe mountains while a perspective grid scrolls toward you. |
+| Rice Terraces | `landscapes/rice-terraces` | loop 12s | 384×288 | Bright green rice terraces step down the hillsides while soft clouds drift across the valley. |
+| River Lantern Festival | `landscapes/river-lantern-festival` | loop 12s | 384×216 | Paper lanterns rise slowly into the night from a crowded arched bridge, glowing over the river and the lit town beyond. |
+| Salt Flat Mirror | `landscapes/salt-flat-mirror` | loop 12s | 384×216 | A vast salt flat under a thin sheet of water mirrors the sunset sky perfectly, clouds above and below, as a jeep crosses the horizon and walkers stride out on the reflection. |
+| Savanna Sunset | `landscapes/savanna-sunset` | loop 12s | 312×216 | Acacia trees stand black against a huge orange sun while giraffes and elephants walk across the plain. |
+| Sea Cliff Puffins | `landscapes/sea-cliff-puffins` | loop 12s | 384×216 | Puffins with bright orange beaks stand and turn on a grassy clifftop above the sea, more whirring in from the waves past a sea stack ringed with surf. |
+| Sea Torii Sunset | `landscapes/sea-torii-sunset` | loop 12s | 384×216 | A shrine gate stands in the sea as the sun sets between its posts, with waves rolling in and gulls crossing the sky. |
+| Slot Canyon Light | `landscapes/slot-canyon-light` | loop 12s | 384×216 | Inside a narrow sandstone slot canyon the swirling walls glow orange and violet as a shaft of sunlight slides across with sand sifting down through it. |
+| Snowy Cabin | `landscapes/snowy-cabin` | loop 12s | 384×288 | A log cabin glows in snowy woods at dusk while chimney smoke curls up and snow keeps falling. |
+| Stilt Village Sunset | `landscapes/stilt-village-sunset` | loop 12s | 384×216 | Thatched huts stand on stilts over calm water as the sun sets, while two fishing boats row home, smoke rises and birds fly over. |
+| Stone Pillar Forest | `landscapes/stone-pillar-forest` | loop 12s | 384×216 | Towering sandstone pillars crowned with pines rise out of a sea of cloud that flows between them, a cable car gliding across the gorge and birds threading the gaps. |
+| Summit Above Clouds | `landscapes/summit-cloud-sea` | loop 12s | 384×216 | A snowy peak glows pink above a drifting sea of cloud at sunrise while a roped line of climbers walks the ridge below. |
+| Switchback Dusk Drive | `landscapes/switchback-dusk-drive` | loop 12s | 384×216 | Cars wind down a switchback mountain road at dusk, headlights sweeping the bends under an orange afterglow while the first stars come out. |
+| Taj Mahal Sunset | `landscapes/taj-mahal-sunset` | loop 12s | 384×320 | A white domed mausoleum with four minarets glows at sunset above its long reflecting pool. |
+| Terraced Lakes Falls | `landscapes/terraced-lakes-falls` | loop 12s | 384×216 | Turquoise lakes step down through an autumn forest, waterfalls pouring over the mossy lips between them, as walkers cross the wooden boardwalk and leaves drift down. |
+| Thundering Falls Rainbow | `landscapes/thundering-falls-rainbow` | loop 12s | 384×216 | A mile-wide curtain of water pours into a basalt gorge, spray boiling up out of it with a rainbow standing in the mist and the rainforest dripping at its edge. |
+| Tokyo Crossing | `landscapes/tokyo-crossing` | loop 12s | 400×304 | Crowds stream across a scramble crossing at night beneath walls of glowing, flickering billboards. |
+| Train at Dusk | `landscapes/train-at-dusk` | loop 12s | 312×216 | A passenger train with glowing windows crosses a stone viaduct over a misty valley at dusk. |
+| Tropical Island | `landscapes/tropical-island` | loop 12s | 384×288 | Swaying palms on a small island ringed by turquoise water, waves lapping under a high sun. |
+| Tulip Fields Windmill | `landscapes/tulip-fields-windmill` | loop 12s | 384×216 | Stripes of tulips in pink, yellow, white, coral and lilac run to a windmill whose sails turn against a big sky as a cyclist rides the farm path. |
+| Turquoise Lake Canoe | `landscapes/turquoise-lake-canoe` | loop 12s | 384×216 | A red canoe glides across an impossibly turquoise lake ringed by jagged peaks and dark pines, morning mist lifting off the water around it. |
+| Underwater Reef | `landscapes/underwater-reef` | loop 12s | 400×288 | A coral reef where fish swim through shafts of light falling from the surface as bubbles rise. |
+| Viaduct Steam Train | `landscapes/viaduct-steam-train` | loop 12s | 384×216 | An old steam train crosses a tall arched stone viaduct between the mountains, puffing steam as mist drifts through the valley. |
+| Volcano Eruption | `landscapes/volcano-eruption` | loop 12s | 384×288 | A volcano erupts into the night, throwing up lava bombs while glowing rivers run down its sides. |
+| Waterfall Canyon | `landscapes/waterfall-canyon` | loop 12s | 384×304 | A tall waterfall drops between striped canyon walls into a green pool, throwing up spray and mist. |
+| White Travertine Pools | `landscapes/white-travertine-pools` | loop 12s | 384×216 | White mineral terraces cascade down a hillside, each scalloped pool holding the evening sky, as water trickles over the lips, people wade the pools and paragliders drift overhead. |
+
+## screens
+
+working interfaces in text: apps, terminals, tools and system screens.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| API Request Inspector | `screens/api-request-inspector` | loop 12s | 400×208 | A request inspector where API calls stream in with method, path, status and timing bars, and one is opened to show its headers. |
+| Benchmark Results | `screens/benchmark-table` | loop 12s | 368×192 | A benchmark runner that measures each case with a live iteration counter and fills a table of timings compared to the last baseline. |
+| Firmware Setup Utility | `screens/bios-setup` | loop 12s | 352×184 | A retro firmware setup screen where a cursor walks the tabs, enables a setting, reorders boot devices and saves. |
+| Bisect Hunt | `screens/bisect-hunt` | loop 12s | 352×208 | A bisect session that tests the middle commit, marks it good or bad and halves the range until the first bad commit is found. |
+| Boot Sequence | `screens/boot-sequence` | loop 12s | 320×192 | A system boot log scrolls past with green OK tags, then the machine waits at a login prompt. |
+| Calculator Keypad | `screens/calculator-app` | loop 12s | 192×248 | A calculator where keys light up as they are pressed, the display builds an expression and the result rolls in on equals. |
+| Calendar Month | `screens/calendar-month` | loop 12s | 336×176 | A month calendar with coloured event dots, today marked, and a selection hopping between days with an agenda panel. |
+| Chat Thread | `screens/chat-thread` | loop 12s | 240×224 | A chat conversation where bubbles appear after a typing indicator and replies are typed in the composer. |
+| Checkout Payment Flow | `screens/checkout-payment-flow` | loop 12s | 320×184 | A checkout page fills shipping and card details, processes the payment and lands on a confirmed order. |
+| Rolling Deployment | `screens/cluster-rollout` | loop 12s | 368×208 | A cluster rolling update where new pods start, pass readiness and replace old ones while a status line counts up to a successful rollout. |
+| Code Editor | `screens/code-editor` | loop 12s | 344×240 | An editor window with line numbers where a small rate limiter is typed out in syntax colours. |
+| Color Picker Sliders | `screens/color-picker-sliders` | loop 12s | 288×176 | A colour picker where the hue strip, the shade field and the RGB sliders move together and the swatch and hex code follow. |
+| Command Palette | `screens/command-palette` | loop 12s | 320×192 | A command palette drops over a dimmed editor, filters commands as a query is typed and runs the pick. |
+| Compiler Warnings | `screens/compiler-output` | loop 12s | 344×224 | A compiler build log that compiles dependencies, prints an unused variable warning with a pointed snippet and finishes green. |
+| Coverage Report | `screens/coverage-report` | loop 12s | 336×200 | A code coverage report where per-file bars fill up, colour by threshold and then re-sort so the weakest files rise to the top. |
+| Data Table | `screens/data-table` | loop 12s | 328×168 | A service status table that re-sorts by a new column every few seconds while a selection bar walks the rows. |
+| Date Range Picker | `screens/date-range-picker` | loop 12s | 264×168 | A two month calendar where a start date is clicked, the range stretches with the cursor and the night count updates. |
+| Delivery Route Tracker | `screens/delivery-route-tracker` | loop 12s | 360×224 | A delivery tracking screen where the route draws across a street grid, the courier moves along it and the order steps tick to delivered. |
+| Dial-Up Handshake | `screens/dialup-handshake` | loop 12s | 336×224 | A retro terminal program that dials out, shows the modem handshake as a noisy signal with front panel lights, connects and lands on a bulletin board. |
+| Partition Editor | `screens/disk-partitioner` | loop 12s | 328×216 | A curses-style partition editor that carves a new partition out of free space, writes the table and formats it. |
+| DNS Resolver Chain | `screens/dns-resolver-chain` | loop 12s | 384×224 | A DNS lookup diagram where a query packet hops from the client to the resolver, root, TLD and authoritative servers and the answer returns. |
+| Download Queue | `screens/download-queue` | loop 12s | 320×192 | A download manager where six files report size, speed and time left, then finish one by one. |
+| File Tree | `screens/file-tree` | loop 12s | 216×208 | A project explorer where a cursor walks the tree, opening and closing folders as it goes. |
+| Profiler Flame Graph | `screens/flame-graph` | loop 12s | 400×208 | A CPU profiler flame graph whose stacks grow and settle as samples come in while a cursor inspects the hottest frames. |
+| Form Validation Errors | `screens/form-validation-errors` | loop 12s | 280×216 | A form is submitted half filled, red errors drop in under each bad field, then each one is corrected until it submits clean. |
+| Git Log Graph | `screens/git-log-graph` | loop 12s | 336×192 | A git log graph with feature branches merging back into main as new commits land on top. |
+| Heap Allocator Map | `screens/heap-map` | loop 12s | 336×224 | A memory allocator page map where blocks are allocated and freed, fragmentation builds up and a compaction pass packs it tight. |
+| Debugger Stepping | `screens/ide-debugger-stepping` | loop 12s | 312×168 | An editor debugger steps line by line through a loop, pausing on breakpoints while locals, watches and the call stack change. |
+| Container Layer Pull | `screens/image-layer-pull` | loop 12s | 360×160 | A container image pull where each layer downloads with its own progress bar, extracts and completes, ending with a digest. |
+| Inbox List | `screens/inbox-list` | loop 12s | 336×192 | An email inbox with unread dots, stars and previews, where new mail slides in at the top. |
+| Infra Plan and Apply | `screens/infra-plan-diff` | loop 12s | 360×240 | An infrastructure-as-code plan that lists resources to add, change and destroy in coloured diffs, then applies them with elapsed timers. |
+| Install Log | `screens/install-log` | loop 12s | 320×192 | A package manager install log resolving, fetching and linking packages, ending in a green summary. |
+| Kanban Board | `screens/kanban-board` | loop 12s | 344×232 | A three column task board where cards lift, travel across and settle into place. |
+| Keyboard Keypress | `screens/keyboard-keypress` | loop 12s | 392×200 | A keyboard where each key sinks and lights as a sentence is typed into the text field above it, shift and space included. |
+| Login Form | `screens/login-form` | loop 12s | 224×208 | A sign-in card where the email and password fill in, the button presses and a success tick draws itself. |
+| Maintenance Mode | `screens/maintenance-mode` | loop 12s | 368×208 | A be right back page with a turning gear, a rocking wrench and a live list of upgrade steps. |
+| Merge Conflict Resolver | `screens/merge-conflict-resolver` | loop 12s | 312×156 | A three pane merge editor walks through conflicting hunks, accepting ours, theirs or both until the file is clean. |
+| Modal Dialog | `screens/modal-dialog` | loop 12s | 304×192 | A delete confirmation dialog pops up over a dimmed settings page, takes a typed name and closes. |
+| Modal Editor Session | `screens/modal-editor` | loop 12s | 320×208 | A modal terminal text editor where the cursor hops, a line is deleted, a new one inserted, a search and replace runs and the file is saved. |
+| Request Waterfall | `screens/network-waterfall` | loop 12s | 312×168 | A browser network panel where requests appear as a page loads, each with queue, connect, wait and download segments on a waterfall. |
+| Onboarding Stepper | `screens/onboarding-stepper` | loop 12s | 304×176 | A setup wizard walks through four steps, filling fields, picking options and ticking the stepper rail as it goes. |
+| OTP Code Entry | `screens/otp-code-entry` | loop 12s | 240×152 | A two step verification screen where a six digit code is typed, shakes as wrong, is retyped and goes green. |
+| Package Publish | `screens/package-publish` | loop 12s | 384×208 | A terminal packs a package, lists its files, publishes it to the registry, and the weekly downloads graph beside it starts to climb. |
+| Packet Capture | `screens/packet-sniffer` | loop 12s | 400×240 | A packet capture tool streaming colour-coded TCP, UDP, DNS and TLS packets with protocol counters and a hex dump of the selected packet. |
+| Lost In Space 404 | `screens/page-404` | loop 12s | 336×224 | A not found page with a big glowing 404 and a lost satellite drifting through twinkling stars. |
+| Server Error 500 | `screens/page-500` | loop 12s | 344×224 | A 500 error page with a smoking server rack, blinking fault lights and a retry countdown. |
+| Password Strength Meter | `screens/password-strength-meter` | loop 12s | 248×176 | A password field where each keystroke moves a strength meter from weak to strong and ticks off the rules. |
+| Pod Autoscaler | `screens/pod-autoscaler` | loop 12s | 384×224 | A container cluster view where a traffic spike pushes CPU up, new pods spin up across the nodes, then scale back down as load eases. |
+| Power-On Memory Count | `screens/post-memory-test` | loop 12s | 320×208 | A retro power-on self test that counts up memory, detects drives one by one and hands off to the boot loader. |
+| Pull Request Merged | `screens/pr-merged` | loop 12s | 352×240 | A pull request page where the checks turn green one by one, a review approves it and the merge button lands it, branch deleted. |
+| Pricing Plan Toggle | `screens/pricing-toggle-table` | loop 12s | 384×208 | A three plan pricing table where the billing switch flips between monthly and yearly, prices roll to the new numbers and a plan is picked. |
+| Process Viewer Sort | `screens/process-sorter` | loop 12s | 384×224 | An interactive process viewer with meter bars where the table slides into a new order as the sort column changes. |
+| Process Task Manager | `screens/process-task-manager` | loop 12s | 368×208 | A task manager where per process CPU and memory numbers churn, rows slide to re-sort by load, and a runaway process gets ended. |
+| Process Tree Live | `screens/process-tree` | loop 12s | 304×240 | A live process tree with branch lines where build workers and request handlers spawn in green, run and exit in red. |
+| Progress Loader | `screens/progress-loader` | loop 12s | 224×72 | Four terminal progress bars filling at their own pace, with percent and a spinner. |
+| README Badge Row | `screens/readme-badges` | loop 12s | 368×112 | A README's badge row where build turns passing, coverage climbs, downloads tick up and the star count rolls over. |
+| Interactive Rebase Todo | `screens/rebase-todo` | loop 12s | 320×208 | An interactive rebase todo list where commits are squashed, reworded, dropped and reordered before the rebase replays them. |
+| Relay Chat Channel | `screens/relay-chat-channel` | loop 12s | 384×224 | A terminal relay chat client where people join and leave a channel, chat with timestamps and the nick list updates beside them. |
+| Release Published | `screens/release-published` | loop 12s | 320×224 | A terminal tags v1.1.0, pushes it, and the release notes type themselves out with new features, fixes and thanks to contributors. |
+| Star Button Click | `screens/repo-star-button` | loop 12s | 336×176 | A repository header with Watch, Fork and Star buttons: the cursor glides over, clicks Star, and the count ticks over to your number. |
+| Search Autocomplete | `screens/search-autocomplete` | loop 12s | 280×176 | A search box where suggestions narrow and highlight with every keystroke, then a result is picked with the arrow keys. |
+| Settings Toggles | `screens/settings-toggles` | loop 12s | 264×136 | A settings panel where a focus marker moves down the list, flipping switches and dragging sliders. |
+| Skeleton Loader | `screens/skeleton-loader` | loop 12s | 256×208 | Shimmering skeleton placeholders for a feed of cards that dissolve into the real content. |
+| Smart Home Panel | `screens/smart-home-panel` | loop 12s | 368×208 | A home dashboard where lights flip on room by room, the thermostat climbs to its target, the door locks and the energy graph scrolls. |
+| Spectrum Music Player | `screens/spectrum-music-player` | loop 12s | 312×192 | A music player window with bouncing spectrum bars, a moving progress bar and a playlist that advances track by track. |
+| Spinner Set | `screens/spinner-set` | loop 12s | 232×128 | Twelve classic terminal spinners side by side, each labelled with its name and frame count. |
+| Split Pane Multiplexer | `screens/split-pane-session` | loop 12s | 312×192 | A terminal multiplexer split into a streaming server log, a live resource meter and a test watcher, with focus hopping between panes. |
+| Spreadsheet Recalc | `screens/spreadsheet-recalc` | loop 12s | 368×192 | A budget spreadsheet where a cell is edited, its formula bar updates and the dependent totals flash as they recalculate. |
+| SQL Query Runner | `screens/sql-query-runner` | loop 12s | 360×208 | A database console types a SQL query with highlighting, runs it and fills a result grid with rows and timing. |
+| Secure Shell Login | `screens/ssh-login` | loop 12s | 328×240 | A remote shell session that accepts a host key, prints a welcome banner with system stats, runs two commands and logs out. |
+| Star Rating Review | `screens/star-rating-review` | loop 12s | 288×176 | A review card where the cursor hovers across five stars, settles on a rating, writes a short review and posts it to the tally. |
+| Tab Bar | `screens/tab-bar` | loop 12s | 320×160 | An editor tab bar where the active underline slides between files and the content swaps beneath. |
+| Terminal Session | `screens/terminal-session` | loop 12s | 320×192 | A shell session where commands are typed at a coloured prompt and their output streams back. |
+| Test Suite Dots | `screens/test-runner-dots` | loop 12s | 336×224 | A test runner that prints a dot per passing test across files, flags a failure with a diff and ends in a coloured summary. |
+| Toast Stack | `screens/toast-stack` | loop 12s | 320×192 | Notification toasts slide into the corner of an app, stack up, count down and slide away. |
+| Twin Pane Commander | `screens/twin-pane-commander` | loop 12s | 400×240 | A retro two-pane file manager where the cursor picks files, a copy dialog fills its progress bar and the files land in the other pane. |
+| Upload Dropzone | `screens/upload-dropzone` | loop 12s | 288×192 | A cursor drags a stack of files onto a drop zone that lights up, then each file uploads with its own progress bar. |
+| Weather City Widget | `screens/weather-city-widget` | loop 12s | 264×176 | A weather widget that slides from city to city, each with an animated sky icon, hourly temperatures and a five day outlook. |
+| Window Tiling Manager | `screens/window-tiling-manager` | loop 12s | 384×240 | A desktop where windows open one by one and the tiling layout slides between halves, columns and a grid. |
+
+## live data
+
+charts, gauges and tables that keep updating.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Bar Chart Race | `live-data/bar-chart-race` | loop 12s | 304×200 | Ten city bars racing year by year, swapping places as their populations grow. |
+| Latency Box Plots | `live-data/box-plot-live` | loop 12s | 336×192 | Horizontal box plots of response time for six services, the boxes, medians, whiskers and outliers shifting as each new window of samples arrives. |
+| Wealth and Health Bubbles | `live-data/bubble-chart-moving` | loop 12s | 352×240 | A bubble chart of income against life expectancy for twelve regions, each bubble sized by population and drifting up and to the right decade by decade. |
+| Twelve Month Heatmap | `live-data/calendar-year-heatmap` | loop 12s | 400×192 | Twelve little month calendars fill in day by day with workout minutes, darker squares for rest days and bright ones for big sessions, until the whole year is logged. |
+| Candlestick Chart | `live-data/candlestick-chart` | loop 12s | 312×184 | Green and red price candles with wicks scrolling left, the newest candle still forming against a live price line. |
+| CPU Monitor | `live-data/cpu-cores` | loop 12s | 320×176 | A terminal system monitor with eight per-core usage bars, memory and swap, load averages and a busy process list. |
+| Donut Chart | `live-data/donut-chart` | loop 12s | 256×192 | A ring chart filling clockwise to its target with the percentage counting up in the middle. |
+| Signup Funnel | `live-data/funnel-conversion` | loop 12s | 320×192 | A signup funnel counting up through the day, dots dropping in at the top and thinning out stage by stage from visits down to paid customers. |
+| Server Gauge Cluster | `live-data/gauge-cluster` | loop 12s | 384×192 | A server dashboard of four arc gauges for CPU, memory, disk and network, the needles swinging to live readings with sparklines of the last minute underneath. |
+| Daily Goal Rings | `live-data/goal-progress-rings` | loop 12s | 352×176 | Four daily goal rings for steps, water, focus time and sleep filling up as the day goes on, each one closing with a check mark when its goal is met. |
+| Contribution Heatmap | `live-data/heatmap-grid` | loop 12s | 336×84 | A year of daily activity filling in square by square, from quiet grey to bright green, with a running total. |
+| Histogram | `live-data/histogram` | loop 12s | 304×192 | Samples pouring into a histogram, the bars rising and settling into a bell curve with live stats. |
+| Leaderboard | `live-data/leaderboard` | loop 12s | 256×200 | A live ranked leaderboard with scores ticking up, rows sliding past each other and arrows marking every climb. |
+| Live Line Chart | `live-data/line-chart-live` | loop 12s | 304×176 | A request latency line chart scrolling left in real time, with gridlines, axes and a live value tag. |
+| Network Traffic | `live-data/network-traffic` | loop 12s | 320×184 | Download and upload graphs scrolling left on an interface monitor, with live rates, peaks and running totals. |
+| Election Seat Chart | `live-data/parliament-seats` | loop 12s | 360×208 | A half circle of 201 parliament seats filling in as results are declared, coloured by party, with a running tally and the majority line at 101. |
+| Pie Chart | `live-data/pie-chart` | loop 12s | 288×208 | A round pie chart of traffic sources turning slowly, each slice lifting out in turn beside its legend. |
+| Polar Ring Clock | `live-data/polar-clock` | loop 12s | 256×240 | A polar clock of three concentric rings, the outer one sweeping round with the seconds, the middle with the minutes and the inner with the hours, the time printed in the centre. |
+| Radar Skill Profile | `live-data/radar-chart-morph` | loop 12s | 304×224 | A spider chart compares two engineers across six skills, the blue and orange shapes morphing smoothly as each new pair of profiles loads. |
+| Budget Sankey Flow | `live-data/sankey-flow` | loop 12s | 384×240 | A monthly budget as a sankey diagram, three income streams pouring through curved ribbons into five spending categories, with money flowing along each band. |
+| Scatter Plot | `live-data/scatter-plot` | loop 12s | 288×192 | Points landing one by one in a scatter plot of ad spend against revenue, then a fitted trend line drawing through them. |
+| Sparkline Panel | `live-data/sparkline-row` | loop 12s | 280×136 | Six labelled sparklines scrolling with their live values, trend arrows and a range bar. |
+| Speed Gauge | `live-data/speed-gauge` | loop 12s | 264×184 | A semicircular speed test gauge with green to red bands and a needle swinging to the live reading. |
+| Stacked Area Stream | `live-data/stacked-area-stream` | loop 12s | 336×208 | A stacked area chart of requests per second from four regions, new samples streaming in on the right while the history slides away to the left. |
+| Star History Climb | `live-data/star-history-climb` | loop 12s | 384×240 | A star history chart draws itself week by week, flagging each milestone as the line climbs to your repo's star count. |
+| Stock Ticker | `live-data/stock-ticker` | loop 12s | 400×72 | A market ticker tape of made-up symbols scrolling past with green and red arrows, prices and percent changes. |
+| Disk Usage Treemap | `live-data/treemap-shuffle` | loop 12s | 336×224 | A treemap of disk usage by folder, the boxes growing, shrinking and trading places as caches fill and logs rotate. |
+| Status Page | `live-data/uptime-monitor` | loop 12s | 336×200 | A service status page with daily uptime bars sliding along and the occasional incident turning a service amber or red. |
+| World Map Pings | `live-data/world-map-pings` | loop 12s | 400×256 | A dotted world map where live request pings flare up in cities and arcs carry traffic between them. |
+
+## explainers
+
+animated diagrams that show how something works, step by step.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Architecture Map | `explainers/architecture-map` | loop 12s | 384×208 | A system architecture map from clients through a CDN and load balancer to services and data stores, with requests flowing along every link. |
+| Binary Search Steps | `explainers/binary-search-steps` | loop 12s | 306×120 | Binary search on a sorted array of twenty numbers, with lo, mid and hi pointers sliding into place, the discarded half greying out at every step and a log of each comparison until the target is found or proven missing. |
+| Binary Search Tree | `explainers/binary-tree` | loop 12s | 320×176 | Values inserting into a binary search tree one by one, each comparison lighting the path down before the new node drops into place. |
+| Blue Green Switch | `explainers/blue-green-deploy` | loop 12s | 400×240 | A blue and green deployment where the idle environment boots the new release, passes its smoke tests, and the router flips every request across in one step while the old side drains and stands by. |
+| Canary Rollout Gates | `explainers/canary-rollout` | loop 12s | 400×224 | A canary release that moves traffic from 1 to 100 percent in steps while error rate and latency are compared against the stable build, promoting one release and automatically rolling back the next when its errors spike. |
+| Edge Cache Hit Miss | `explainers/cdn-cache` | loop 12s | 400×208 | A CDN edge node where requests from three regions hit the cache and return fast, or miss and travel on to the origin, while every cached path counts down its TTL and expires. |
+| CI Pipeline | `explainers/ci-pipeline` | loop 12s | 384×152 | A CI pipeline where each run moves through checkout, install, lint, test, build and deploy, with spinners, timings, a live log and the odd failing test. |
+| Circuit Breaker States | `explainers/circuit-breaker` | loop 12s | 400×208 | A circuit breaker that counts failures from a struggling downstream service, trips open to fail fast, waits out a cooldown, sends a trial call while half open and closes again once the service recovers. |
+| Consistent Hash Ring | `explainers/consistent-hash-ring` | loop 12s | 384×256 | A consistent hashing ring where each key belongs to the next node clockwise, and when a node joins or fails only the keys in its arc move, shown as they change owner. |
+| ETL Data Flow | `explainers/data-flow` | loop 12s | 384×192 | An ETL pipeline where raw records leave three sources, pass through clean, dedupe and join steps, and land in a warehouse as counters climb. |
+| Primary Replica Sync | `explainers/db-replication` | loop 12s | 400×240 | Database replication where every write is appended to the primary's log and streamed to three replicas, one cross-region with visible lag and one that loses its link and then catches up in a burst. |
+| Dijkstra Shortest Path | `explainers/dijkstra-path` | loop 12s | 384×216 | Dijkstra's algorithm on a weighted graph, popping the closest node from the priority queue, relaxing each edge and updating distances, then lighting the shortest route from A to O. |
+| DNS Lookup Path | `explainers/dns-resolution` | loop 12s | 400×224 | A DNS lookup where the resolver asks the root, then the TLD, then the authoritative server, caches each referral and answers the repeat query in two milliseconds. |
+| ER Diagram | `explainers/er-diagram` | loop 12s | 360×184 | An entity relationship diagram of a shop database where each foreign key link lights up in turn with its join written below. |
+| Flowchart | `explainers/flowchart` | loop 12s | 352×208 | An order flowchart of boxes and a decision diamond, with a token travelling the arrows, looping back on an error and logging each step. |
+| Gantt Chart | `explainers/gantt-chart` | loop 12s | 376×192 | A project Gantt chart where the today marker sweeps across the weeks, task bars fill with progress and milestones light up. |
+| Git Branch Graph | `explainers/git-branching` | loop 12s | 384×136 | A commit graph drawing itself over time as feature branches split from main, gain commits and merge back, with the latest commit message below. |
+| Gradient Descent Contours | `explainers/gradient-descent` | loop 12s | 312×180 | Two optimisers walk down a contour map of a stretched loss bowl, plain gradient descent zigzagging across the valley while momentum curves smoothly to the minimum, with their loss curves drawn alongside. |
+| Load Balancer | `explainers/load-balancer` | loop 12s | 360×200 | Requests streaming into a load balancer and fanning out across four servers, each with its own request counter and connection bar. |
+| LRU Cache Eviction | `explainers/lru-cache` | loop 12s | 400×192 | A least recently used cache of five entries drawn as a linked list, where every hit lifts its node to the front, every new key slides in at the head and the oldest entry falls off the tail when the cache is full. |
+| MapReduce Word Count | `explainers/mapreduce-wordcount` | loop 12s | 330×168 | A MapReduce word count where three input splits are mapped to word and one pairs, shuffled across the network so each key lands on one reducer, then summed into the final counts. |
+| Job Queue Workers | `explainers/message-queue` | loop 12s | 400×224 | Three producers push jobs into a FIFO queue that swells during a traffic burst while three workers pull from the head, process each job and drain the backlog, with a live depth chart below. |
+| Mind Map | `explainers/mind-map` | loop 12s | 400×240 | A mind map growing out from a central idea, branches reaching to six topics and each topic sprouting its own leaves. |
+| Network Topology | `explainers/network-topology` | loop 12s | 336×208 | A mesh of routers and links with coloured packets hopping node to node along their routes, each link glowing as traffic passes. |
+| Neural Net Forward Pass | `explainers/neural-forward-pass` | loop 12s | 312×180 | A small neural network reading a pixel shape, with signals travelling along weighted connections, each neuron shading by its activation layer after layer, and a softmax bar chart naming the shape. |
+| OAuth Code Flow | `explainers/oauth-flow` | loop 12s | 400×192 | An authorization code login flow where redirects, the code exchange and the bearer token hop between the browser, app, auth server and API, with each message typed out as it travels. |
+| Org Chart | `explainers/org-chart` | loop 12s | 400×160 | An organisation chart drawing itself from the top down, connectors growing out of each box into the teams below. |
+| Pub Sub Fan Out | `explainers/pubsub-fanout` | loop 12s | 400×208 | A publish and subscribe diagram where each order event lands on a topic and fans out to four subscriber queues, one of them slow enough to build a backlog that it later works through. |
+| Sequence Diagram | `explainers/sequence-diagram` | loop 12s | 336×208 | A login sequence diagram where requests and dashed replies draw across the lifelines one after another. |
+| Bubble vs Quick Sort | `explainers/sort-race` | loop 12s | 400×208 | Bubble sort and quicksort race on the same shuffled bars, highlighting each comparison, swap and pivot, so quicksort finishes and waits while bubble sort is still carrying large values to the end. |
+| State Machine | `explainers/state-machine` | loop 12s | 320×200 | A data fetching state machine where the active state lights up and a token runs each labelled transition, through errors and retries. |
+| TCP Handshake Ladder | `explainers/tcp-handshake` | loop 12s | 400×312 | A packet ladder diagram where SYN, SYN-ACK and ACK step down between client and server, followed by a request, its reply and the four-way close, with each socket state logged as it changes. |
+| Timeline | `explainers/timeline` | loop 12s | 384×136 | A horizontal company timeline where a moving marker reveals each milestone, labels popping up above and below the line. |
+| Token Bucket Limiter | `explainers/token-bucket` | loop 12s | 384×224 | A token bucket rate limiter where tokens drip in at a fixed rate, each request spends one on its way to the API, and a sudden burst drains the bucket so the overflow is turned away with 429s. |
+| Trace Span Waterfall | `explainers/trace-spans` | loop 12s | 312×126 | A distributed tracing waterfall where nested spans for each service grow along a millisecond axis as a checkout request runs, followed by a slower trace whose payment call times out and retries. |
+| Venn Diagram | `explainers/venn-diagram` | loop 12s | 336×224 | Three overlapping circles, corrected to stay round, with each region and overlap lighting up in turn and naming what lives there. |
+
+## lettering
+
+words that move: big letterforms, credits, tickers and reading effects.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Blinking Cursor | `lettering/blinking-cursor` | loop 12s | 224×72 | A minimal prompt in big block type where a short word is typed and erased beside a blinking block cursor. |
+| Bouncing Letters | `lettering/bouncing-letters` | loop 12s | 288×168 | Block letters drop in one at a time, bounce with a little squash and settle on the floor before falling away. |
+| Breaking News Ticker | `lettering/breaking-news-ticker` | loop 12s | 384×208 | A live news graphic where a red breaking banner slides in, each headline types itself into the lower third and a ticker crawls underneath. |
+| Burning Title | `lettering/burning-title` | loop 12s | 336×192 | The word IGNITE glows like hot coals while turbulent flames curl up from every letter into the dark. |
+| Chalkboard Lettering | `lettering/chalkboard-lettering` | loop 12s | 384×224 | A stick of chalk writes a big word on a dusty green board, underlines it, and a felt eraser wipes it away for the next one. |
+| Silent Film Title Card | `lettering/cinema-title-card` | loop 12s | 384×240 | An old projector reel counts down 3 2 1 with a sweeping leader, then lands on a framed THE END card full of grain, scratches and gate weave. |
+| Constellation Lettering | `lettering/constellation-word` | loop 12s | 400×240 | On a drifting star chart, bright stars light up and are joined line by line until the constellation spells a word, then it fades into the next. |
+| Countdown Timer | `lettering/countdown-timer` | loop 12s | 224×208 | Big digits count down from ten inside a ring that drains every second, then GO bursts out in green. |
+| Decode Reveal | `lettering/decode-reveal` | loop 12s | 360×176 | A field of cipher noise gives way column by column as a block letter phrase decrypts out of it. |
+| Departures Hall Board | `lettering/departures-hall-board` | loop 12s | 400×224 | A full airport departures board with times, flights, destinations, gates and statuses that flip as boarding opens, gates close and flights leave the list. |
+| Digital Clock | `lettering/digital-clock` | loop 12s | 288×128 | A big seven segment clock ticking through the seconds, with ghosted unlit segments and a blinking colon. |
+| End Credits Roll | `lettering/end-credits-roll` | loop 12s | 288×240 | Film end credits roll up a letterboxed screen, roles right-aligned against a centre gutter, names beside them and section headings in between. |
+| Extruded Word Spin | `lettering/extruded-word-spin` | loop 12s | 312×192 | A chunky 3D extruded word swings back and forth in space with a lit pink face and deep blue sides. |
+| Flip Dot Board | `lettering/flip-dot-display` | loop 12s | 372×126 | A mechanical flip dot board whose yellow discs turn over in a sweeping wave each time it changes to the next word. |
+| Terminal Fortune Cookie | `lettering/fortune-cookie-terminal` | loop 12s | 288×192 | A shell command cracks open a fortune cookie in the terminal, a paper slip slides out with an original fortune and lucky numbers, then the screen clears for another. |
+| Glitch Title Settle | `lettering/glitch-title-settle` | loop 12s | 400×192 | A big title tears into sliding slices, splits into red and cyan channels and corrupted blocks, then settles into a crisp clean word. |
+| Group Chat Transcript | `lettering/group-chat-transcript` | loop 12s | 256×240 | A three-person group chat plans a weekend hike, bubbles stacking up with avatars, names, reactions and read receipts while the feed scrolls. |
+| Shattering Ice Letters | `lettering/ice-crack-letters` | loop 12s | 384×224 | Frosted ice letters spelling CHILL take a hit, crack outward, shatter into falling shards and then freeze back from the ground up. |
+| Karaoke Lyrics | `lettering/karaoke-lyrics` | loop 12s | 312×176 | Original song lyrics fill with colour syllable by syllable under a hopping ball, the next line waiting below and a level meter dancing along. |
+| Kinetic Word Slam | `lettering/kinetic-word-slam` | loop 12s | 400×224 | Big words zoom in from the camera one beat at a time and slam into place with a screen shake and a burst of dust. |
+| Laser Engraved Plate | `lettering/laser-carved-title` | loop 12s | 384×208 | A laser head rasters across a brushed steel plate, engraving the word CRAFT with white hot cuts that cool to dark grooves. |
+| LED Matrix Scroller | `lettering/led-matrix-scroller` | loop 12s | 360×120 | A shop window LED matrix sign with a dotted grid of dark LEDs scrolling a two colour message in a chunky pixel font. |
+| Liquid Fill Letters | `lettering/liquid-fill-letters` | loop 12s | 368×224 | Hollow glass letters spelling WATER fill up with sloshing blue liquid and rising bubbles, then drain and refill. |
+| Marquee Sign | `lettering/marquee-sign` | loop 12s | 336×136 | A theatre marquee framed by chasing light bulbs, with big warm letters scrolling across the board. |
+| Morse Signal | `lettering/morse-signal` | loop 12s | 304×176 | A phrase keyed out in morse code, the signal trace scrolling past a lamp while each letter decodes above it. |
+| Neon Sign Flicker | `lettering/neon-sign-flicker` | loop 12s | 320×200 | A two line neon tube sign glowing on a brick wall, buzzing and flickering with one tired letter. |
+| Nixie Tube Clock | `lettering/nixie-tube-counter` | loop 12s | 400×184 | Six glass nixie tubes with glowing orange wire digits count the seconds, rolling through every cathode every ten seconds. |
+| Odometer Counter | `lettering/odometer-counter` | loop 12s | 248×112 | Six rolling digit wheels count up like a car odometer, every carry turning the next wheel over. |
+| Particle Rain Lettering | `lettering/particle-rain-word` | loop 12s | 400×208 | Bright grains rain from the top and pile up into a big block word, hold for a beat, then pour off the bottom for the next word. |
+| Fountain Pen Lettering | `lettering/pen-stroke-word` | loop 12s | 384×208 | A fountain pen draws a big word stroke by stroke in wet blue ink on ruled paper, then the page turns for the next word. |
+| Perspective Text Crawl | `lettering/perspective-crawl` | loop 12s | 384×272 | An opening text crawl of block letters slides away from the viewer toward a vanishing point, shrinking and dimming over a field of stars. |
+| Quote Of The Day | `lettering/quote-of-the-day` | loop 12s | 272×136 | A card rotates through original quotes, each sliding up and out as the next one rises into place, with page dots and a timer bar. |
+| Written in Rain | `lettering/rain-formed-word` | loop 12s | 400×240 | A steady downpour where every drop passing through a hidden word lights up, so the word appears written in falling rain. |
+| Rainbow Text | `lettering/rainbow-text` | loop 12s | 280×200 | Chunky block letters with a full rainbow gradient sweeping across them and a bright glint passing through. |
+| Ransom Note Cutouts | `lettering/ransom-note-letters` | loop 12s | 384×224 | Big letters cut from magazines in clashing colours and sizes, taped on a desk, each one flipping over now and then for a fresh clipping. |
+| Drone Sign Crew | `lettering/robot-sign-crew` | loop 12s | 368×240 | A crew of tiny drones ferries blocks from a depot to build a big OPEN sign on a blueprint, then carries it all back. |
+| Letter Slot Reels | `lettering/slot-reel-letters` | loop 12s | 360×240 | A lever pulls, five reels of big letters blur past and thunk to a stop one by one to spell a word, and coins rattle into the tray. |
+| Split Flap Board | `lettering/split-flap-board` | loop 12s | 264×152 | An airport departures board where every tile flaps through the alphabet to show the next flights. |
+| Stencil Spray Paint | `lettering/stencil-spray-reveal` | loop 12s | 384×224 | A spray can zigzags over a card stencil taped to a brick wall, the stencil peels away to reveal the painted word, and a roller paints it over. |
+| Subtitle Captions | `lettering/subtitle-captions` | loop 12s | 336×224 | A night rooftop scene plays in a video frame while timed captions appear with coloured speaker names, sound cues and a moving scrubber. |
+| Syntax Highlight Pass | `lettering/syntax-highlight-pass` | loop 12s | 320×152 | Code is typed into an editor as plain grey text, then the language is detected and syntax colour sweeps down the file line by line. |
+| Teleprompter Script | `lettering/teleprompter-script` | loop 12s | 280×192 | A speech script scrolls up a prompter screen past a marked reading line, with stage cues, a recording light and a running timer. |
+| Text Scramble | `lettering/text-scramble` | loop 12s | 288×112 | Random block letters churn and settle one slot at a time into a phrase, then scramble away into the next. |
+| Typewriter | `lettering/typewriter` | loop 12s | 304×176 | Big block letters typed one key at a time behind a block cursor, wrapping onto new lines before the page clears. |
+| Unfolding Poem | `lettering/unfolding-poem` | loop 12s | 256×208 | An original poem is written out line by line behind a pen cursor, each letter settling from faint to full ink, then lifts away for the next poem. |
+| Vertical Haiku Scroll | `lettering/vertical-haiku` | loop 12s | 200×304 | Original haiku are brushed onto a hanging scroll in vertical columns read right to left, finished with a red seal, while a leaf drifts past. |
+| Wave Text | `lettering/wave-text` | loop 12s | 304×160 | Big block letters bob along a travelling sine wave, brightening at each crest, with shadows that shrink as they rise. |
+| Word Exchange | `lettering/word-exchange` | loop 12s | 384×208 | Everyday words trade like shares on a quote screen, with a crawling tape, a table of prices that tick up and down and a chart for the word of the hour. |
+| Word Ladder Morph | `lettering/word-ladder-morph` | loop 12s | 336×160 | A word ladder where one big letter at a time dissolves and re-forms into its neighbour, turning COLD into WARM while the steps are listed beside it. |
+
+## solids
+
+rotating 3D forms, shaded in characters.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Cylinder | `solids/cylinder` | loop 12s | 224×240 | A striped cylinder tumbling slowly in space, its curved side and flat caps lit and depth-sorted. |
+| Double Helix | `solids/double-helix` | loop 12s | 208×288 | Two glossy strands twisting around each other like DNA, joined by coloured base pairs and depth-sorted as they turn. |
+| Gimbal Gyroscope | `solids/gyroscope-rings` | loop 12s | 280×288 | A gyroscope of three nested gold, steel and copper rings, each turning on its own pivot around a fast spinning rotor disc. |
+| Heart 3D | `solids/heart-3d` | loop 12s | 256×240 | A solid 3D heart surface beating slowly with a lub-dub pulse, turning a little side to side as small hearts drift up behind it. |
+| Icosahedron | `solids/icosahedron` | loop 12s | 224×224 | A twenty-faced solid turning on two axes, every triangular facet lit flat in shades of teal. |
+| Klein Bottle | `solids/klein-bottle` | loop 12s | 288×288 | A Klein bottle turning slowly, its narrow neck curling back through the side to join the base, the two sides of the one surface lit violet and teal. |
+| Lit Sphere | `solids/lit-sphere` | loop 12s | 240×240 | A shaded ball with red, yellow and blue panels turning on a tilted axis, with a bright glint and a soft floor shadow. |
+| Mobius Strip | `solids/mobius-strip` | loop 12s | 264×240 | A one-sided band with a half twist turning slowly, its colour shifting from teal to violet as it travels around the loop. |
+| Octahedron | `solids/octahedron` | loop 12s | 192×240 | An eight-faced gem spinning on its axis and rocking gently, with faces lit in alternating violet and blue. |
+| Puzzle Cube Turns | `solids/puzzle-cube-turns` | loop 12s | 256×256 | A three by three colour puzzle cube turning while its layers twist one quarter turn at a time, scrambling and then solving itself. |
+| Pyramid | `solids/pyramid` | loop 12s | 224×224 | A square pyramid turning slowly above its shadow, each sandstone face lit flat with bright edges. |
+| Rotating Cube | `solids/rotating-cube` | loop 12s | 224×224 | A solid cube tumbling on two axes, each face lit flat with a character ramp and crisp bright edges. |
+| Dodecahedron | `solids/rotating-dodecahedron` | loop 12s | 256×256 | A solid dodecahedron tumbling on three axes, its twelve pentagon faces lit in blue, amber and green with crisp edges. |
+| Rotating Star | `solids/rotating-star` | loop 12s | 224×240 | A thick five-pointed gold star extruded in 3D, spinning on its axis and catching the light on its bevels. |
+| Sphere to Cube Morph | `solids/sphere-cube-morph` | loop 12s | 256×256 | A turning solid that swells from a smooth ball into a sharp cube and back, each of its six sides painted its own colour. |
+| Spinning Gold Coin | `solids/spinning-coin` | loop 12s | 224×240 | A thick gold coin with a raised star and a ridged rim spinning on its edge, its shadow stretching and shrinking on the floor below. |
+| Spinning Torus | `solids/spinning-torus` | loop 12s | 192×192 | A lit ring turning slowly on two axes, shaded with a classic character ramp. |
+| Spring Coil | `solids/spring-coil` | loop 12s | 200×272 | A steel coil spring hanging from a beam, stretching and recoiling under a turning weight, lit with a bright metallic glint. |
+| Terrain Mesh Flyover | `solids/terrain-flyover` | loop 12s | 400×288 | A low flight over an endless gridded landscape, green valleys rising to rocky ridges and snowy peaks that sweep toward the camera under a dusk sky. |
+| Tesseract | `solids/tesseract` | loop 12s | 240×240 | A four dimensional hypercube turning through the fourth axis, its inner and outer cubes swapping places as it projects down. |
+| Torus Knot | `solids/torus-knot` | loop 12s | 256×256 | A glossy tube tied in a trefoil torus knot, turning slowly, lit and depth-sorted so it passes over and under itself. |
+| Candy Trefoil Tube | `solids/trefoil-tube` | loop 12s | 288×272 | A fat red and cream striped tube tied in a trefoil knot, the stripes flowing around the loop while the knot slowly turns. |
+| Voxel Heart | `solids/voxel-heart` | loop 12s | 256×256 | A chunky heart built from small red cubes, turning slowly and giving a double beat every couple of seconds. |
+| Wireframe City Flyby | `solids/wireframe-city` | loop 12s | 400×272 | A night flight down a long avenue between wireframe towers, cyan and magenta edges racing past over a gridded street. |
+| Wireframe Globe | `solids/wireframe-globe` | loop 12s | 240×240 | A wire sphere of latitude and longitude lines turning on a tilted axis, near lines bright and far lines dim behind. |
+
+## cosmos
+
+planets, stars, orbits and the craft that visit them.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Asteroid Belt | `cosmos/asteroid-belt` | loop 12s | 400×288 | Lumpy, cratered asteroids tumble past at different depths, lit warm from one side by a distant sun. |
+| Black Hole | `cosmos/black-hole` | loop 12s | 400×304 | A black hole's accretion disk swirls around the dark shadow, its far side bent by gravity into a glowing halo. |
+| Comet Crossing | `cosmos/comet` | loop 12s | 400×288 | A bright comet glides across a starry sky above dark hills, its curved dust tail and straight blue ion tail streaming behind. |
+| Rotating Earth | `cosmos/earth-rotating` | loop 12s | 384×320 | The earth turns on its tilted axis, continents and clouds sliding from daylight across the terminator into city-lit night. |
+| Solar Eclipse | `cosmos/eclipse` | loop 12s | 384×304 | The moon slides across the sun as the sky darkens, and at totality the pale corona flares out around the black disc. |
+| Meteor Shower Lake | `cosmos/meteor-shower` | loop 12s | 312×216 | Meteors streak down from one point of a deep violet night sky, bright heads and fading trails, over dark hills and a still mountain lake that mirrors them. |
+| Moon Phases | `cosmos/moon-phases` | loop 12s | 360×304 | The moon waxes from new to full and wanes back again, its terminator sweeping slowly across the craters. |
+| Nebula Drift | `cosmos/nebula-drift` | loop 12s | 400×304 | A teal, magenta and gold nebula swirls slowly in deep space while young stars twinkle inside it. |
+| Orbiting Planets | `cosmos/orbiting-planets` | loop 12s | 330×228 | Seven lit planets sweep along tilted elliptical orbits around a boiling sun, inner worlds racing the outer ones. |
+| Saturn Ring Shadow | `cosmos/ring-shadow-closeup` | loop 12s | 312×228 | A close view of a ringed planet as the shadow of its globe slides across the rings, the rings throw thin bands of shade on its clouds and a small moon crosses. |
+| Ringed Gas Giant | `cosmos/ringed-planet` | loop 12s | 400×304 | A banded gas giant turns inside its tilted rings while two small moons slip in front and behind. |
+| Rocket Launch | `cosmos/rocket-launch` | loop 12s | 384×320 | A rocket ignites on the pad at dusk and climbs away on a column of flame, leaving a billowing cloud behind. |
+| Rover on Red Dunes | `cosmos/rover-dunes` | loop 12s | 400×272 | A six-wheeled rover rolls across rippled red dunes, wheels turning and mast camera scanning, leaving twin tracks and a trail of dust under a butterscotch sky. |
+| Satellite Orbit | `cosmos/satellite-orbit` | loop 12s | 384×304 | A satellite with glinting solar panel wings circles a cloudy blue planet, slipping behind it and back into the light. |
+| Solar Flare Eruption | `cosmos/solar-flare` | loop 12s | 400×288 | The boiling edge of the sun fills the frame while plasma runs along a glowing magnetic loop and a flare erupts, flinging bright matter into space. |
+| Spiral Galaxy | `cosmos/spiral-galaxy` | loop 12s | 312×240 | A tilted spiral galaxy turns slowly, its golden core feeding two blue arms dotted with pink star nurseries. |
+| Starfield Warp | `cosmos/starfield-warp` | loop 12s | 384×288 | Hundreds of stars streak outward from the centre as the view punches through space at warp speed. |
+| Tethered Spacewalk | `cosmos/tethered-astronaut` | loop 12s | 400×288 | An astronaut drifts on a curling tether beside a station hull, waving now and then, while the cloudy blue earth turns slowly far below. |
+
+## motion lab
+
+simulations: pendulums, waves, particles and fields.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Binary Star Orbit | `motion-lab/binary-stars` | loop 12s | 384×272 | A heavy orange star and a lighter blue companion swing around their shared centre of mass on Kepler ellipses, speeding up at closest approach and leaving fading trails. |
+| Bouncing Balls | `motion-lab/bouncing-balls` | loop 12s | 320×240 | Six coloured balls fall under gravity, bounce off the floor and walls, lose energy with every hit and settle before the next drop. |
+| Chladni Figures | `motion-lab/chladni-figures` | loop 12s | 336×288 | Sand on a vibrating metal plate jumps off the moving regions and settles on the still nodal lines, redrawing a new figure each time the frequency changes. |
+| Waving Flag | `motion-lab/cloth-flag` | loop 12s | 368×256 | A flag ripples on its pole in a gusty wind, travelling waves rolling along the cloth with light and shade in every fold. |
+| Double Pendulum | `motion-lab/double-pendulum` | loop 12s | 288×272 | A double pendulum swings chaotically under gravity, its lower bob tracing a fading trail that never settles into a pattern. |
+| Falling Sand | `motion-lab/falling-sand` | loop 12s | 320×256 | Three moving spouts pour coloured sand that tumbles and piles into striped dunes, then a trapdoor opens and the box drains to start again. |
+| Rising Smoke | `motion-lab/fluid-smoke` | loop 12s | 288×320 | A thin ribbon of smoke rises from a glowing incense tip, stays smooth for a moment, then breaks into curling turbulent eddies. |
+| Jelly Bounce | `motion-lab/jelly-bounce` | loop 12s | 320×240 | A pressure soft body jelly drops onto the floor, squashes, wobbles back into shape and hops around its little room. |
+| Lissajous Scope | `motion-lab/lissajous` | loop 12s | 320×256 | A green oscilloscope traces Lissajous figures, the curves twisting as the phase drifts and snapping to a new frequency ratio every few seconds. |
+| Magnetic Field Lines | `motion-lab/magnet-field-lines` | loop 12s | 384×272 | Iron filings and traced field lines wrap around two bar magnets, one slowly turning so the field lines swing, stretch and reconnect between the poles. |
+| Newtons Cradle | `motion-lab/newtons-cradle` | loop 12s | 368×256 | Five chrome balls on a frame pass momentum down the line, first one ball at a time and then two. |
+| Three Body Orbit | `motion-lab/orbital-gravity` | loop 12s | 384×256 | Three equal stars chase each other around the famous figure-eight solution of the three-body problem, integrated live over glowing gravity contours. |
+| Pendulum Wave | `motion-lab/pendulum-wave` | loop 12s | 360×256 | Fifteen pendulums with carefully tuned lengths swing in and out of phase, forming travelling waves, snakes and chaos before realigning. |
+| Projectile Arcs | `motion-lab/projectile-arc` | loop 12s | 384×256 | A cannon fires the same charge at four angles, and each ball traces its true parabola so you can compare their heights and ranges. |
+| Ripple Pond | `motion-lab/ripple-pond` | loop 12s | 384×272 | Drops fall into a still pond between lily pads, and their circular ripples spread, cross and fade. |
+| Rope Bridge Crossing | `motion-lab/rope-bridge` | loop 12s | 384×272 | A hiker crosses a plank rope bridge over a canyon at dusk, the Verlet simulated deck sagging and bouncing under every step. |
+| Spring Mass | `motion-lab/spring-mass` | loop 12s | 336×272 | Masses bob on coil springs at their own natural frequencies, and a coupled pair passes its energy back and forth between two normal modes. |
+| Wave Interference | `motion-lab/wave-interference` | loop 12s | 384×272 | Two vibrating sources send out circular waves that reinforce and cancel, carving the classic fan of nodal lines as the sources drift apart. |
+
+## weather & wild
+
+rain, fire, wind, plants and the elements.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Bonsai Tree | `wild/bonsai-tree` | loop 12s | 336×288 | A twisted bonsai in a glazed blue pot, its cloud-shaped foliage pads rustling in a soft breeze. |
+| Campfire | `wild/campfire` | loop 12s | 320×272 | A campfire in a ring of stones, flames licking over crossed logs and sparks drifting up into the night. |
+| Cloud Drift | `wild/cloud-drift` | loop 12s | 400×256 | Puffy white clouds drift in slow layers across a deep blue summer sky above distant hills. |
+| Falling Leaves | `wild/falling-leaves` | loop 12s | 384×272 | Autumn leaves tumble and drift down from a golden tree in a warm haze onto a carpet of fallen leaves. |
+| Fern Fractal | `wild/fern-fractal` | loop 12s | 360×304 | Self-similar fern fronds unroll from tight fiddleheads on the forest floor, leaflet by leaflet, and sway in the damp air. |
+| Firefly Meadow | `wild/fireflies` | loop 12s | 384×272 | Fireflies drift and blink over a dusk meadow beneath a dark treeline and a fading sunset. |
+| Growing Tree | `wild/growing-tree` | loop 12s | 360×288 | A seed sprouts and grows into a branching tree, leafs out, turns gold, drops its leaves and starts again. |
+| Lightning Storm | `wild/lightning-storm` | loop 12s | 384×272 | Storm clouds churn over dark hills while branching bolts crack down and flash the whole sky. |
+| Breaking Waves | `wild/ocean-waves` | loop 12s | 400×272 | A side view of ocean swells rolling toward shore, steepening, curling over and breaking into white foam. |
+| Rain Shower | `wild/rain-shower` | loop 12s | 384×272 | A heavy shower slanting over a dark meadow, drops splashing into rippling puddles. |
+| Rainbow After Rain | `wild/rainbow-arc` | loop 12s | 384×272 | A rain shower drifts past over green hills, the clouds part and a full rainbow arcs across the clearing sky. |
+| Snowfall Valley | `wild/snowfall` | loop 12s | 384×272 | Three layers of snow falling over a pine valley at night while the drifts slowly pile up. |
+| Sunrise Horizon | `wild/sunrise-horizon` | loop 12s | 384×272 | The sun climbs over a flat sea horizon while the sky shifts from deep night through dawn pinks to clear day. |
+| Tornado | `wild/tornado` | loop 12s | 384×288 | A twisting tornado funnel snakes across open plains under a green storm sky, flinging dust and debris around its base. |
+| Waterfall | `wild/waterfall` | loop 12s | 360×304 | A tall waterfall pours between dark mossy cliffs into a churning pool, throwing up spray and drifting mist. |
+| Wind Through Grass | `wild/wind-grass` | loop 12s | 384×256 | A field of tall grass bends and shimmers silver as gusts of wind roll across it under a summer sky. |
+
+## animals
+
+living things, from cats to whales.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Bats Leaving the Cave | `animals/bat-cave-dusk` | loop 12s | 384×256 | At dusk a colony of bats pours from a cave in the cliff and streams into the orange sky in a long swirling ribbon. |
+| Busy Bees | `animals/bee-flight` | loop 12s | 384×256 | Bumblebees buzz from flower to flower over a sunny meadow, hovering at each bloom before zipping to the next. |
+| Butterfly | `animals/butterfly` | loop 12s | 384×272 | An orange and black butterfly flaps its patterned wings along a looping path above a flower garden. |
+| Chameleon and the Fly | `animals/chameleon-fly` | loop 12s | 360×240 | A green chameleon grips a jungle branch, swivels its turret eye after a buzzing fly and catches it with one lightning flick of its tongue. |
+| Murmuration | `animals/flock-of-birds` | loop 12s | 400×288 | Hundreds of starlings fold and stretch as one across a sunset sky over a still lake, while a few birds flap past close by. |
+| Goldfish Tank | `animals/goldfish-tank` | loop 12s | 336×272 | Goldfish glide back and forth through a planted aquarium while bubbles stream up from the air stone. |
+| Hummingbird at Hibiscus | `animals/hummingbird-hibiscus` | loop 12s | 352×256 | A ruby-throated hummingbird hovers on blurred wings, sipping from one red hibiscus and then darting across to the other. |
+| Jellyfish | `animals/jellyfish` | loop 12s | 336×304 | Glowing jellyfish pulse slowly upward through the deep blue, their long tentacles trailing and swaying behind them. |
+| Koi Pond Ripples | `animals/koi-pond-ripples` | loop 12s | 368×272 | Seen from above, orange, white and golden koi glide in slow loops beneath lily pads while rings spread across the dark pond water. |
+| Leaping Dolphins | `animals/leaping-dolphins` | loop 12s | 384×256 | A pod of dolphins arcs out of a sunset sea one after another, flukes flicking, and splashes back under the rolling waves. |
+| Octopus | `animals/octopus` | loop 12s | 344×288 | A red octopus hovers above the reef, waving and curling its eight sucker-lined arms in the blue water. |
+| Night Owl | `animals/owl-blink` | loop 12s | 304×304 | A horned owl perched on a moonlit branch blinks its big yellow eyes and slowly turns its head to look around. |
+| Penguin Belly Slide | `animals/penguin-waddle-slide` | loop 12s | 368×256 | A penguin waddles across the ice shelf past its friends, flops onto its belly and toboggans down the slope into the sea with a splash. |
+| Sand Crab Scuttle | `animals/sand-crab-scuttle` | loop 12s | 352×224 | A red crab scuttles sideways across a sunny beach, claws raised, darting up the sand whenever a wave washes in. |
+| Sleeping Cat | `animals/sleeping-cat` | loop 12s | 320×240 | A ginger tabby curled up asleep on a red cushion, breathing slowly as little z's drift up into the warm room. |
+| Slithering Snake | `animals/snake-slither` | loop 12s | 384×256 | A banded green snake slithers across rippled desert sand in a smooth S curve, flicking its tongue and leaving a track. |
+| Fox Trotting in Snow | `animals/snow-fox-trot` | loop 12s | 384×272 | A red fox trots through fresh powder past snowy pine woods, bushy tail swaying and paw prints trailing behind it as snow falls. |
+| Spider Web | `animals/spider-web` | loop 12s | 336×288 | A spider spins an orb web at dusk, spoke by spoke and then round and round, until dew glints along the finished threads. |
+| Swimming Whale | `animals/swimming-whale` | loop 12s | 400×272 | A humpback whale glides beneath the waves through shafts of light, rising now and then to blow a spout. |
+| Walking Dog | `animals/walking-dog` | loop 12s | 384×256 | A golden dog trots happily along a park path, tail wagging and ears bouncing while the trees and clouds roll by. |
+
+## things
+
+everyday objects with moving parts.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Analog Wall Clock | `things/analog-clock` | loop 12s | 256×256 | A brass wall clock on a dark wall, hour, minute and second hands sweeping in proportion. |
+| Candle Flame | `things/candle-flame` | loop 12s | 224×288 | A single candle in a dark room, its flame flickering and wax dripping slowly down the side. |
+| Clockwork Gears | `things/clockwork-gears` | loop 12s | 384×304 | A train of brass, copper and steel gears meshing tooth to gap and turning at their true ratios. |
+| Coffee Mug | `things/coffee-steam` | loop 12s | 256×272 | A red mug of coffee on a wooden table, wisps of steam curling up into the warm room. |
+| Cuckoo Clock | `things/cuckoo-clock` | loop 12s | 256×304 | A carved wooden cuckoo clock ticks on a warm wall, pendulum swinging and pinecone weights on their chains, and the little bird pops out to call on the hour. |
+| Desk Fan | `things/desk-fan` | loop 12s | 240×304 | An electric desk fan with spinning blades behind a wire guard, its head slowly sweeping left and right. |
+| Espresso Machine Pour | `things/espresso-pour` | loop 12s | 288×272 | A chrome espresso machine pulls a double shot into a glass cup, twin streams pouring, crema rising, the pressure gauge climbing and steam drifting from the wand. |
+| Ferris Wheel | `things/ferris-wheel` | loop 12s | 368×320 | A big wheel turning against a dusk sky, its rim lights chasing and its gondolas hanging level. |
+| Film Projector | `things/film-projector` | loop 12s | 360×256 | A reel-to-reel film projector whirs in a dark room, reels turning and dust drifting through its beam as a countdown leader plays on the screen. |
+| Hourglass | `things/hourglass` | loop 12s | 280×288 | Sand pours through a wooden hourglass, which turns over as soon as the top runs empty. |
+| Lava Lamp | `things/lava-lamp` | loop 12s | 192×320 | A glowing lamp where blobs of warm wax rise, merge, split and sink through violet liquid. |
+| Lighthouse Lamp Room | `things/lighthouse-beam` | loop 12s | 384×320 | A close view of a lighthouse lamp room at night, the faceted lens turning and sweeping its beams across the sky. |
+| Metronome | `things/metronome` | loop 12s | 208×288 | A wooden pyramid metronome, its weighted arm swinging side to side and ticking on every beat. |
+| Neon Jukebox | `things/neon-jukebox` | loop 12s | 256×288 | An arched diner jukebox glows in a dark room, bubbles rising through its neon tubes while a record spins behind the glass and the speaker pulses. |
+| Pendulum Wall Clock | `things/pendulum-wall-clock` | loop 12s | 240×336 | A tall wooden regulator clock hangs on a dark blue wall, its brass pendulum swinging behind the glass, second hand ticking and chimes ringing out on the hour. |
+| Porch Wind Chimes | `things/porch-wind-chimes` | loop 12s | 288×288 | Copper wind chimes hang from a porch roof at sunset, swinging and knocking together in the gusts while leaves blow across the garden behind. |
+| Record Player | `things/record-player` | loop 12s | 336×288 | A wooden turntable seen from above, the record spinning under the tonearm while music notes drift up. |
+| Rotary Phone | `things/rotary-phone` | loop 12s | 304×304 | A red desk telephone whose finger wheel turns to the stop and springs back as a number is dialled. |
+| Vintage Sewing Machine | `things/sewing-machine` | loop 12s | 336×240 | A black and gold vintage sewing machine whirs away, needle bobbing and handwheel turning as gingham fabric feeds through and a blue seam appears. |
+| Traffic Light | `things/traffic-light` | loop 12s | 368×272 | A street crossing where the signal cycles green, amber and red while cars stop, queue and pull away. |
+| Typebar Close-Up | `things/typebar-strike` | loop 12s | 344×256 | A close-up inside a typewriter: one typebar after another swings up from the fanned basket to strike the ribbon, and letters appear on the paper as the carriage steps along. |
+| Washing Machine | `things/washing-machine` | loop 12s | 232×304 | A front loading washer tumbling a colourful load through soapy water, then draining and spinning fast. |
+| Windmill on a Hill | `things/windmill` | loop 12s | 368×288 | An old windmill on a green hill, its lattice sails turning above a striped tulip field at sunset. |
+
+## algorithms
+
+maths and code that draw: fractals, automata, attractors.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Apollonian Gasket | `algorithms/apollonian-gasket` | loop 12s | 384×288 | An Apollonian gasket of shaded pearls, every gap filled by smaller tangent circles, while the view glides in toward a tangency point and back out. |
+| Boids Over Meadow | `algorithms/boids-flock` | loop 12s | 384×272 | A top-down boids flock steers by separation, alignment and cohesion, splitting and regrouping whenever a hunting hawk dives through. |
+| Brian's Brain | `algorithms/brians-brain` | loop 12s | 384×272 | The Brian's Brain cellular automaton: firing cells turn refractory then rest, so gliders and spreading wavefronts sweep endlessly across the grid. |
+| Clifford Attractor | `algorithms/clifford-attractor` | loop 12s | 384×288 | A Clifford strange attractor drawn as a glowing density map, its four parameters drifting so the silky folds keep reshaping themselves. |
+| Space Colonisation Tree | `algorithms/colonising-tree` | loop 12s | 360×288 | A tree grows by the space colonisation algorithm, each branch reaching toward a cloud of attractor points that vanish as they are claimed, then bursts into leaf. |
+| Crystal Grain Growth | `algorithms/crystal-grains` | loop 12s | 384×272 | Crystals nucleate one by one in a cooling melt and grow outward until they lock together into a mosaic of grains, each with its own lattice angle. |
+| Diffusion Aggregation | `algorithms/dla-growth` | loop 12s | 360×272 | Random walkers drift in from the dark and stick on contact, building a branching frost-like cluster one particle at a time. |
+| Dragon Curve | `algorithms/dragon-curve` | loop 12s | 336×288 | A line folded in half over and over, each fold swinging out a new copy until the Heighway dragon appears. |
+| Flow Field | `algorithms/flow-field` | loop 12s | 368×288 | Hundreds of particles tracing streamlines through a noise flow field, coloured by the direction they travel. |
+| Game of Life | `algorithms/game-of-life` | loop 12s | 384×288 | Conway's Game of Life on a wrapping board, cells coloured by age, starting a fresh random board every 45 seconds, or sooner if it stalls. |
+| Hilbert Curve | `algorithms/hilbert-curve` | loop 12s | 272×272 | A fifth-order Hilbert curve drawing itself corner by corner in a rainbow, then reeling back in. |
+| Julia Set | `algorithms/julia-set` | loop 12s | 336×288 | A Julia set that morphs between spirals, dendrites and dust as its constant c traces the edge of the main cardioid. |
+| L-System Plant | `algorithms/l-system-plant` | loop 12s | 320×304 | A Lindenmayer system plant growing branch by branch from the soil, swaying in a breeze and blossoming before it regrows. |
+| Langton's Ant | `algorithms/langtons-ant` | loop 12s | 384×288 | Four of Langton's ants share one wrapping board, each painting its own colour until order emerges from the chaos. |
+| Lorenz Butterfly | `algorithms/lorenz-attractor` | loop 12s | 336×272 | The Lorenz attractor turns slowly in 3D while a glowing comet traces its two butterfly wings, the full orbit drawn faintly behind in braille dots. |
+| Mandelbrot Zoom | `algorithms/mandelbrot-zoom` | loop 12s | 336×288 | A smooth colour zoom into the seahorse valley of the Mandelbrot set, diving deep and drifting back out. |
+| Maze Builder | `algorithms/maze-builder` | loop 12s | 328×280 | A maze carved cell by cell by a backtracking walker, flooded from the entrance, solved, then carved anew. |
+| Penrose Growth | `algorithms/penrose-growth` | loop 12s | 384×288 | A Penrose tiling of thick and thin rhombuses assembles itself tile by tile, spreading outward from a seed point that moves each round. |
+| Reaction Diffusion | `algorithms/reaction-diffusion` | loop 12s | 320×240 | Gray-Scott reaction diffusion growing coral, spots and mazes outward from a handful of seeds. |
+| Rule 30 | `algorithms/rule-30` | loop 12s | 384×288 | The rule 30 elementary cellular automaton growing from a single cell, its chaotic triangles scrolling upward. |
+| Sierpinski Triangle | `algorithms/sierpinski` | loop 12s | 320×288 | The chaos game at work: a point hops halfway to random corners and a Sierpinski triangle appears out of the noise. |
+| Spirograph | `algorithms/spirograph` | loop 12s | 320×288 | A toothed wheel rolls inside a ring, its pen tracing hypotrochoid curves layered in colour, then a fresh set begins. |
+| Truchet Tiles | `algorithms/truchet-tiles` | loop 12s | 384×288 | A grid of quarter-circle Truchet tiles turning in rippling waves, the tubes re-routing into new flowing paths. |
+| Voronoi Cells | `algorithms/voronoi-cells` | loop 12s | 368×288 | Fourteen drifting seed points and the Voronoi regions they claim, shaded like moving stained glass. |
+| Wave Function Collapse | `algorithms/wave-function-collapse` | loop 12s | 384×256 | A terrain map is solved by wave function collapse, the lowest entropy tile collapsing first and every choice narrowing what its neighbours can become. |
+
+## demoscene
+
+classic demo effects: fire, plasma, tunnels and warps.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Aurora Curtains | `demoscene/aurora-curtains` | loop 12s | 400×272 | Three folded ribbons of aurora, green, teal and rose, sway slowly across the whole sky while their rays drift along each curtain. |
+| CRT Test Card | `demoscene/crt-roll` | loop 12s | 360×272 | An old CRT television showing a colour test card, the picture rolling slowly with visible scanlines. |
+| Endless Corridor | `demoscene/endless-corridor` | loop 12s | 384×256 | A ray-cast flight down an infinite corridor, ceiling lamps, red doors and a glowing trim line rushing past. |
+| Fireworks | `demoscene/fireworks` | loop 12s | 384×272 | Rockets climbing over a night city skyline and bursting into coloured, falling shells. |
+| Holographic Grid Sphere | `demoscene/holo-grid-sphere` | loop 12s | 336×272 | A see-through holographic globe of glowing grid lines turns above a projector pad while a ring of data blips orbits around it. |
+| Hyperspace Jump | `demoscene/hyperspace-jump` | loop 12s | 384×256 | Calm stars stretch into streaks, the ship plunges into a swirling blue hyperspace tunnel and then drops back out among the stars. |
+| Ink in Water | `demoscene/ink-in-water` | loop 12s | 384×272 | Drops of indigo, crimson and teal ink fall into clear water and bloom into curling mushroom plumes that slowly dissolve. |
+| Kaleidoscope | `demoscene/kaleidoscope` | loop 12s | 320×256 | An eightfold mirrored pattern that turns and shifts colour like a kaleidoscope. |
+| Lava Crust Cracks | `demoscene/lava-cracks` | loop 12s | 384×256 | Plates of cooled black crust drift down a lava river, molten orange light glowing up through the cracks as they pull apart. |
+| Liquid Chrome | `demoscene/liquid-chrome` | loop 12s | 352×256 | Mercury blobs drift, merge and split apart, shaded like polished chrome reflecting a bright sky and dark ground. |
+| Digital Rain | `demoscene/matrix-rain` | loop 12s | 336×240 | Columns of green glyphs falling at different speeds, each led by a bright white head. |
+| Metaballs | `demoscene/metaballs` | loop 12s | 352×240 | Glowing blobs drifting across the screen, merging and splitting like hot liquid. |
+| Pixel Fire | `demoscene/pixel-fire` | loop 12s | 320×240 | The classic demoscene fire, heat rising from a white hot base and breaking into flickering tongues. |
+| Sine Plasma | `demoscene/plasma` | loop 12s | 352×240 | A classic sine plasma, rainbow bands rolling and folding into each other. |
+| Rainbow Warp Road | `demoscene/rainbow-warp-road` | loop 12s | 384×256 | A rainbow striped highway snakes away through deep space at warp speed, its colour bands rushing underfoot as stars streak past. |
+| Rotozoomer | `demoscene/rotozoomer` | loop 12s | 336×240 | The demoscene rotozoomer, a checkered XOR texture spinning and zooming in and out. |
+| Rising Smoke Rings | `demoscene/smoke-rings` | loop 12s | 336×288 | A brick chimney puffs out smoke rings that rise, widen, wobble and slowly thin away into a dusky sky. |
+| Grinder Sparks | `demoscene/sparks` | loop 12s | 384×288 | An angle grinder bites into a steel bar on a workbench, throwing a bright fan of sparks that arc down and bounce across the floor. |
+| Starburst | `demoscene/starburst` | loop 12s | 352×256 | Rainbow rays bursting from a white hot centre while rings pulse outward through them. |
+| Synthwave Grid | `demoscene/synthwave-grid` | loop 12s | 384×272 | A neon grid rushing toward a striped sunset sun, with purple hills on the horizon. |
+| Texture Tunnel | `demoscene/tunnel` | loop 12s | 352×240 | A flight down an endless checkered tunnel that bends and twists as it goes. |
+| TV Static | `demoscene/tv-static` | loop 12s | 320×224 | An untuned television full of snowy static, a brighter bar rolling slowly down the screen. |
+| Vaporwave Sun | `demoscene/vaporwave-sun` | loop 12s | 384×256 | A striped retro sun sinks into a scrolling neon grid sea while cloud streaks drift past and a CRT roll bar slides down the screen. |
+| Pool Caustics | `demoscene/water-caustics` | loop 12s | 352×240 | Shimmering networks of light dancing across the tiled floor of a swimming pool. |
+
+## arcade
+
+little games that play themselves.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Alien Wave | `arcade/alien-wave` | loop 12s | 256×224 | Rows of aliens march side to side and down while a cannon behind its bunkers picks them off. |
+| Block Drop | `arcade/block-drop` | loop 12s | 160×192 | A falling-block puzzle that plays itself, sliding each piece into place and clearing full lines. |
+| Brick Breaker | `arcade/brick-breaker` | loop 12s | 248×208 | A paddle that aims its own shots, chipping away at a rainbow wall of bricks until it is gone. |
+| Chess Replay | `arcade/chess-replay` | loop 12s | 344×224 | A short classic attacking game replayed move by move on a wooden board, ending in a queen sacrifice and mate. |
+| Circuit Lap Racer | `arcade/circuit-lap-racer` | loop 12s | 344×256 | Four cars race lap after lap around a top-down circuit, braking into the corners and trading places while the standings update. |
+| Coin Run Platformer | `arcade/coin-run-platformer` | loop 12s | 320×192 | A side-scrolling hero runs on its own through grassy hills, jumping pits, landing on brick ledges, stomping critters and collecting coins. |
+| Crate Pusher Puzzle | `arcade/crate-pusher` | loop 12s | 240×176 | A tiny warehouse worker solves box-pushing puzzles on its own, shoving every crate onto a marked spot before moving to the next level. |
+| Desert Runner | `arcade/dino-runner` | loop 12s | 336×192 | A runner sprints across the desert at ever faster speed, jumping cacti until a mistimed leap ends the run. |
+| Frog Hop Crossing | `arcade/frog-hop-crossing` | loop 12s | 256×224 | A self-playing frog hops between speeding cars and rides logs and turtles across the river to fill its five lily pad homes. |
+| Gem Cascade | `arcade/gem-cascade` | loop 12s | 240×192 | A match-three board that plays itself, swapping gems into lines, clearing them in bursts and letting new gems cascade down into combos. |
+| Maze Chase | `arcade/maze-chase` | loop 12s | 168×184 | A dot-eater clears a maze on its own while four ghosts hunt it, with power pellets that turn the tables. |
+| Mine Sweeper | `arcade/minesweeper` | loop 12s | 212×176 | A mine field cleared by a solver that opens safe squares, flags the mines it can prove and guesses only when it must. |
+| Number Tile Merge | `arcade/number-tile-merge` | loop 12s | 288×176 | A four by four sliding number puzzle that plays itself, merging matching tiles into ever larger powers of two. |
+| Paddle Tennis | `arcade/paddle-tennis` | loop 12s | 288×192 | Two computer paddles rally a ball across a court, keeping score and starting a new match at eleven. |
+| Pipe Flyer | `arcade/pipe-flyer` | loop 12s | 288×224 | A little bird flaps its way through gaps in an endless row of pipes, starting over when it clips one. |
+| Rock Blaster | `arcade/rock-blaster` | loop 12s | 336×256 | A small arrow ship in deep space turns, thrusts and fires on its own, splitting tumbling space rocks into smaller and smaller pieces. |
+| Snake | `arcade/snake-autoplay` | loop 12s | 224×160 | A self-playing snake that hunts the food on its own and starts over when it traps itself. |
+| Tower Defence Wave | `arcade/tower-defence-wave` | loop 12s | 384×240 | Waves of creeps march along a winding dirt road while cannon, frost and laser towers built beside it hold the line. |
+
+## rules & frames
+
+animated dividers, borders and frames for layouts.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Circuit Trace | `frames/circuit-trace` | loop 12s | 384×64 | A strip of circuit board traces with copper pads and vias, green and blue signals racing along them. |
+| Pulsing Dot Rule | `frames/dotted-rule` | loop 12s | 360×24 | A quiet rule of dots where soft pulses of light swell and travel from end to end. |
+| Double Line Frame | `frames/double-line-frame` | loop 12s | 288×72 | A double-line box frame with an inner rule, while comets of gold and blue light chase each other round it. |
+| Heartbeat Rule | `frames/heartbeat-rule` | loop 12s | 384×56 | A green ECG heartbeat trace swept across the page like a bedside monitor, with a heart that beats on every spike. |
+| Marching Ants Frame | `frames/marching-ants-frame` | loop 12s | 240×72 | A rectangular selection frame with dashes marching clockwise around an empty middle. |
+| Neon Border | `frames/neon-border` | loop 12s | 336×72 | A rounded neon tube frame that glows into the dark, sliding from pink to cyan and buzzing now and then. |
+| Pulse Line | `frames/pulse-line` | loop 12s | 384×24 | Two pulses of light with glowing tails race in opposite directions along a thin line and light its end caps. |
+| Twisted Rope | `frames/rope-divider` | loop 12s | 384×40 | A thick twisted rope laid across the page, its strands rolling along as it slowly turns. |
+| Ribbon Banner | `frames/scroll-banner-frame` | loop 12s | 384×72 | A crimson ribbon banner with folded, notched tails, gold trim and a sheen sliding across the cloth. |
+| Twinkle Star Band | `frames/stars-divider` | loop 12s | 384×40 | A narrow band of twinkling dots and four-pointed sparkles that bloom and fade in white, gold and lilac. |
+| Wave Divider | `frames/wave-divider` | loop 12s | 384×56 | Two soft sine waves roll across a thin band, their colour drifting from blue to pink to orange. |
+| Zigzag Rule | `frames/zigzag-rule` | loop 12s | 360×40 | A doubled zigzag rule that scrolls sideways while a rainbow gradient slides along it. |
+
+## occasions
+
+festivals, holidays and celebrations.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Autumn Harvest | `occasions/autumn-harvest` | loop 12s | 384×272 | Pumpkins and a hay bale sit before a wheat field swaying in the sunset while autumn leaves tumble down. |
+| Birthday Cake | `occasions/birthday-cake` | loop 12s | 320×288 | A two-tier birthday cake with dripping frosting and sprinkles; its candles flicker, blow out in a puff of smoke and relight. |
+| Christmas Tree | `occasions/christmas-tree` | loop 12s | 320×304 | A decorated fir tree with twinkling coloured lights, gold garlands and a shining star, presents waiting in the snow. |
+| Contributors Wall | `occasions/contributors-wall` | loop 12s | 360×224 | Tiny pixel avatars pop onto a wall one by one, every face different, until the contributor count lands and a thank-you appears. |
+| Diwali Diyas | `occasions/diwali-diyas` | loop 12s | 384×304 | A row of clay oil lamps flickering on a ledge above a slowly turning rangoli, under a marigold garland. |
+| Easter Eggs | `occasions/easter-eggs` | loop 12s | 320×240 | Five painted eggs with dots, zigzags and stripes wobble in turn in spring grass beneath drifting clouds. |
+| Eid Crescent | `occasions/eid-moon` | loop 12s | 400×288 | A slim new crescent and twinkling stars rise over a skyline of domes and minarets with warmly lit windows. |
+| Jack O Lantern | `occasions/halloween-pumpkin` | loop 12s | 360×288 | A carved pumpkin flickers on a hill beneath a huge moon while bats flap across a purple night sky. |
+| Holi Colours | `occasions/holi-colors` | loop 12s | 384×272 | Clouds of pink, yellow, green, blue, orange and violet powder burst and drift over a dancing crowd in white. |
+| Kite Festival | `occasions/kite-festival` | loop 12s | 400×288 | Dozens of bright paper kites with fluttering tails bob on their strings above crowded, colourful flat rooftops. |
+| Dragon Dance | `occasions/lunar-new-year` | loop 12s | 400×272 | A red and gold dragon weaves down a lantern-lit street on its dancers' poles to celebrate the lunar new year. |
+| New Year Countdown | `occasions/new-year-countdown` | loop 12s | 400×272 | A big golden countdown from five to zero over a sleeping city, then fireworks burst and HAPPY NEW YEAR lights up. |
+| Ramadan Lanterns | `occasions/ramadan-lanterns` | loop 12s | 360×288 | Brass lanterns with coloured glass glow and sway on long chains beneath a crescent moon, above a softly lit arcade. |
+| Snow Globe | `occasions/snow-globe` | loop 12s | 288×304 | A glass snow globe on a wooden base, holding a tiny lit cottage and a fir tree while snow swirls around them. |
+| Star Milestone | `occasions/star-milestone` | loop 12s | 400×272 | A gold star spins in, the star count rolls up to your milestone and confetti falls, with your repo name and a thank-you line you can change. |
+| Valentine Hearts | `occasions/valentine-hearts` | loop 12s | 320×256 | Shaded red and pink hearts of every size float upwards and sway through a warm rose haze. |
+
+## cities of the world
+
+famous places around the world, hand-built and alive.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Abu Simbel Colossi | `cities/abu-simbel-colossi` | loop 12s | 384×216 | Four seated colossi carved into the sandstone cliff glow in the morning sun as visitors walk up to the dark doorway and sand blows across the forecourt. |
+| Acropolis Hill Dusk | `cities/acropolis-hill-dusk` | loop 12s | 384×216 | The ancient temple on its rock glows gold above the white town at dusk, windows coming on below, cars on the avenue and swallows under a crescent moon. |
+| Alhambra Hill Dusk | `cities/alhambra-hill-dusk` | loop 12s | 384×216 | The red fortress-palace runs along its wooded hill at dusk below the snowy sierra, cypresses dark against it as the town's lights come on and swifts wheel. |
+| Alpine Lake Village | `cities/alpine-lake-village` | loop 12s | 384×216 | Painted houses and a white needle spire line a still mountain lake, mirrored perfectly as a wooden boat rows across and swans glide by. |
+| Amsterdam Canal Bicycles | `cities/amsterdam-canal-bikes` | loop 12s | 384×216 | A row of tall gabled canal houses glows at golden hour while cyclists ride along the quay and a glass-roofed boat glides down the canal. |
+| Lotus Pond Temple Dawn | `cities/angkor-lotus-sunrise` | loop 12s | 384×216 | Five lotus bud temple towers stand dark against the sunrise over a still pond of lotus leaves, as robed monks walk the bank and birds cross the sky. |
+| Bagan Temple Plain | `cities/bagan-temple-plain` | loop 12s | 384×216 | Brick temples and spired pagodas stretch across the plain at sunset while an ox cart raises dust along the road and haze drifts between them. |
+| Blue Mountain Town | `cities/blue-mountain-town` | loop 12s | 384×216 | A lane of blue-washed walls and stairs climbs through the mountain town past potted geraniums as a cat strolls down the steps and an awning sways. |
+| Borobudur Sunrise Mist | `cities/borobudur-sunrise-mist` | loop 12s | 384×216 | Bell-shaped stone stupas on the temple's top terrace face the sunrise as mist drifts through the jungle valley and a far volcano trails smoke. |
+| Bosphorus Mosque Skyline | `cities/bosphorus-mosque-skyline` | loop 12s | 384×216 | Istanbul's domes and slender minarets stand against a sunset over the Bosphorus, with ferries crossing the strait and gulls wheeling overhead. |
+| Castle Bridge Dawn | `cities/castle-bridge-dawn` | loop 12s | 384×216 | An old stone bridge lined with statues crosses a misty river at dawn, with a gothic gate tower at one end and a hilltop castle against a pink sky. |
+| Charles Bridge Dawn | `cities/charles-bridge-dawn` | loop 12s | 384×216 | The old stone bridge with its row of statues and gothic gate tower at dawn, the castle on the hill beyond, mist on the river and the first walkers crossing. |
+| Chichen Itza Equinox | `cities/chichen-itza-equinox` | loop 12s | 384×216 | The stepped pyramid at Chichen Itza at golden hour on the equinox, the serpent of light forming down its stair while visitors cross the lawn and birds fly home. |
+| Colosseum Golden Hour | `cities/colosseum-golden-hour` | loop 12s | 384×216 | The great arched amphitheatre glows gold in the low evening sun as scooters buzz past on the road and a flock of birds wheels overhead. |
+| Desert Needle Skyline | `cities/desert-needle-skyline` | loop 12s | 384×216 | A needle thin supertall tower rises over a glittering desert city at night, with lit windows changing, cars streaming along the highway and a full moon above the dunes. |
+| East River Bridge Sunrise | `cities/east-river-bridge-sunrise` | loop 12s | 384×216 | A suspension bridge with gothic stone towers spans the river at sunrise in front of a hazy skyline, with traffic crossing, a tugboat pushing upstream and gulls overhead. |
+| Fairy Chimney Balloons | `cities/fairy-chimney-balloons` | loop 12s | 384×216 | Dozens of hot air balloons drift over a valley of capped rock chimneys and carved cave homes as the sun comes up behind the far tablelands. |
+| Giza Pyramids Sunset | `cities/giza-pyramids-sunset` | loop 12s | 384×216 | The three pyramids of Giza glow on their sunlit faces as the sun sets, while a camel caravan with riders walks along the dunes in front. |
+| Golden Pavilion Pond | `cities/golden-pavilion-pond` | loop 12s | 384×216 | The gold-leaf pavilion stands mirrored in its pond among pines and autumn maples while two ducks paddle across and clouds drift over the hills. |
+| Harbour Sails Opera | `cities/harbour-sails-opera` | loop 12s | 384×216 | An opera house of white shell roofs sits on its point in a wide harbour at sunset, with a steel arch bridge behind and green ferries crossing with their wakes. |
+| Havana Pastel Cruisers | `cities/havana-pastel-street` | loop 12s | 384×216 | Old rounded cars cruise past a row of pastel colonial facades with arcades and iron balconies, while laundry sways on the lines in the afternoon breeze. |
+| Hill Street Cable Car | `cities/hill-street-cable-car` | loop 12s | 384×216 | A cable car clanks up a steep street lined with painted houses while fog rolls under a red suspension bridge across the bay below. |
+| Imperial Palace Snow | `cities/imperial-palace-snow` | loop 12s | 384×216 | The imperial palace's great hall stands on its marble terraces under golden roofs as snow falls, visitors with red umbrellas crossing the white courtyard. |
+| Island Abbey Tide | `cities/island-abbey-tide` | loop 12s | 384×216 | The abbey crowns its rocky tidal island at sunset, mirrored in the wet sand as the tide creeps in and out and pilgrims walk the causeway. |
+| Island Church Lake | `cities/island-church-lake` | loop 12s | 384×216 | A tiny island with a white church and tall bell tower sits in an emerald lake below the alps and a cliff-top castle as wooden ferry boats row out to it. |
+| Jungle Temple Mist | `cities/jungle-temple-mist` | loop 12s | 384×216 | A steep stepped temple pyramid with its tall roof comb rises above the rainforest canopy as morning mist rolls through and macaws cross the sky. |
+| Pagoda Lantern Lane | `cities/kyoto-pagoda-dusk` | loop 12s | 384×216 | A sloping old street of wooden houses and red lanterns leads up to a five storey pagoda at dusk, with people under umbrellas walking through light rain. |
+| Leaning Tower Square | `cities/leaning-tower-square` | loop 12s | 384×216 | The white marble bell tower leans over its green lawn beside the cathedral on a summer afternoon, clouds drifting, tourists strolling and posing. |
+| Harbor Liberty Dawn | `cities/liberty-harbor-dawn` | loop 12s | 384×216 | The copper-green statue raises her torch on her island at dawn, the city skyline hazy beyond the harbour as a ferry crosses and gulls drift by. |
+| Machu Picchu Morning Cloud | `cities/machu-picchu-cloud` | loop 12s | 384×216 | Stone ruins and stepped green terraces sit beneath a steep sugarloaf peak as morning cloud drifts up the valley and llamas graze along the terraces. |
+| Marine Drive Necklace | `cities/marine-drive-necklace` | loop 12s | 384×216 | Mumbai's seafront road curves round the bay at night under a full moon, its string of lamps glowing as cars stream both ways and boats drift on the water. |
+| Marrakech Rooftop Dusk | `cities/marrakech-rooftop-dusk` | loop 12s | 384×216 | Red-pink rooftops spread below the old square minaret at dusk, snowy mountains beyond, while smoke rises from the food stalls and the terrace lanterns come on. |
+| Moai Coast Sunset | `cities/moai-coast-sunset` | loop 12s | 384×216 | A row of moai on their stone platform at sunset with the sea behind them, surf breaking on the rocks, seabirds wheeling and a wild horse grazing. |
+| Nile Felucca Sunset | `cities/nile-felucca-sunset` | loop 12s | 384×216 | White-sailed feluccas lean across the river at sunset past date palms and an old temple on the far bank, egrets flying low over the water. |
+| Onion Domes Snowfall | `cities/onion-domes-snowfall` | loop 12s | 384×216 | A brick cathedral crowned with swirling striped onion domes stands in falling snow while bundled-up people cross the white square below. |
+| Palace Gate Lanterns | `cities/palace-gate-lanterns` | loop 12s | 384×216 | A palace gate hall with sweeping tiled roofs and painted eaves stands at dusk below a granite mountain as guards in bright robes pace and lanterns sway along the wall. |
+| Paris Rooftops Dusk | `cities/paris-rooftops-dusk` | loop 12s | 384×216 | The iron lattice tower rises over Paris zinc rooftops at dusk, with chimney smoke drifting, pigeons crossing and the sun going down behind the roofs. |
+| Rose Cliff Treasury | `cities/petra-rose-treasury` | loop 12s | 384×216 | A columned temple front carved into rose red cliffs, seen from the end of a dark canyon, with a camel and rider plodding across the sand and dust lifting from its feet. |
+| Potala Palace Dawn | `cities/potala-palace-dawn` | loop 12s | 384×216 | The white and red palace climbs its hill at dawn below pink snow peaks while strings of prayer flags flutter across the foreground. |
+| Redeemer Statue Clouds | `cities/redeemer-statue-clouds` | loop 12s | 384×216 | The great statue with open arms stands on its granite peak above a sea of cloud drifting over the bay, frigatebirds circling in the morning light. |
+| Riverfront Tower Night | `cities/riverfront-tower-night` | loop 12s | 384×216 | The skyline across the river at night, the pearl tower's spheres glowing among the glass giants, their lights streaking down the water as a ferry crosses. |
+| Santorini Blue Domes | `cities/santorini-blue-domes` | loop 12s | 384×216 | White houses and blue domes step down the cliff over the caldera at sunset while a sailboat crosses the sea and a cat strolls along a wall. |
+| Stonehenge Solstice Dawn | `cities/stonehenge-solstice` | loop 12s | 384×216 | The ancient stone circle at dawn on the solstice, the sun rising through its stones while ground mist drifts between them and sheep graze the plain. |
+| Sugarloaf Cable Car | `cities/sugarloaf-cable-car` | loop 12s | 384×216 | Rio's bay at golden hour, with cable cars climbing to the top of the domed granite peak, sailboats crossing, frigatebirds gliding and palms swaying on the beach. |
+| Supertree Grove Night | `cities/supertree-grove-night` | loop 12s | 384×216 | Tall steel supertrees glow magenta, violet and teal at night beside a city skyline, while people stroll the garden path and cross the high skywalk. |
+| Table Mountain Harbour | `cities/table-mountain-harbour` | loop 12s | 384×216 | The flat-topped mountain stands over the city and harbour as its tablecloth of cloud pours over the edge, a yacht sails across and gulls wheel above the masts. |
+| Thames Clock Tower | `cities/thames-clock-tower` | loop 12s | 384×216 | London's floodlit clock tower and gothic riverside front glow at dusk, as a red double-decker bus crosses the bridge and boats pass on the river below. |
+| Torii Gate Tunnel | `cities/torii-gate-tunnel` | loop 12s | 384×216 | A stone path runs through hundreds of vermilion shrine gates into the green forest light while a walker climbs the path and leaves drift down. |
+| Tower Bridge Lift | `cities/tower-bridge-lift` | loop 12s | 384×216 | The twin-towered bridge at golden hour lifts its two road decks to let a tall ship sail through, then lowers them again as gulls wheel over the river. |
+| Twin Spires Night | `cities/twin-spires-night` | loop 12s | 384×216 | Two silver skyscrapers joined by a sky bridge glow over the city at night as the fountains dance in the park pool and a plane blinks across the sky. |
+| Venice Gondola Canal | `cities/venice-gondola-canal` | loop 12s | 384×216 | A canal between old palaces in late sun, their colours mirrored in the green water as a gondolier rows through and pigeons cross the sky. |
+| Victoria Harbour Junk | `cities/victoria-harbour-junk` | loop 12s | 384×216 | Hong Kong's towers glow below the dark peak at night as a junk with red battened sails crosses the harbour and two ferries ply between the shores. |
+| Walled City Adriatic | `cities/walled-city-adriatic` | loop 12s | 384×216 | The old city's orange roofs climb the hill behind its massive pale sea walls and round towers as sailboats cross the deep blue water below and gulls wheel overhead. |
+| White Mosque Reflections | `cities/white-mosque-reflections` | loop 12s | 384×216 | The great white mosque with its many domes and four minarets glows at blue hour, mirrored in long pools as the colonnade lamps come on and visitors stroll by. |
+
+## mascots & characters
+
+original characters with personality, for 404s, empty states and READMEs.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Bouncy Green Slime | `mascots/bouncing-slime` | loop 12s | 240×208 | A glossy green slime blob hops along a dungeon floor, squashing flat on every landing and stretching tall as it leaps. |
+| Sun in Sunglasses | `mascots/cool-sun-shades` | loop 12s | 256×240 | A grinning sun in dark sunglasses bobs over the beach as its rays turn, now and then sliding the shades down its nose to give you a wink. |
+| Dancing Pot Cactus | `mascots/dancing-cactus` | loop 12s | 224×240 | A potted cactus with a pink flower on its head sways its hips and swings its arms to a beat against a desert sunset. |
+| Rubber Duck Debugger | `mascots/debug-duck-bob` | loop 12s | 256×224 | A yellow rubber duck bobs on rippling water, listening patiently to your bug and thinking out loud in a speech bubble until it is fixed. |
+| Bug With a Magnifier | `mascots/debugging-bug` | loop 12s | 256×224 | A little red beetle paces along a page of code holding up a magnifying glass, stopping to peer at the line with the error underlined in red. |
+| Friendly Floating Ghost | `mascots/friendly-ghost-float` | loop 12s | 240×224 | A round little ghost bobs above a misty graveyard, waving its stubby arms, rippling its hem and blinking shyly. |
+| Bright Idea Bulb | `mascots/idea-lightbulb` | loop 12s | 224×240 | A light bulb ponders in the dark with its eyes rolled up, flickers a few times, then switches on with a bright idea and a delighted grin. |
+| Juggling Octopus | `mascots/juggling-octopus` | loop 12s | 256×240 | A pink octopus sits on the sea floor juggling three bright balls with two tentacles while its big eyes follow every throw. |
+| Cat at the Keyboard | `mascots/laptop-typing-cat` | loop 12s | 256×224 | A grey tabby sits up at a laptop late at night, tapping the keys with both paws while its eyes follow the code appearing on screen. |
+| Loop the Loop Plane | `mascots/paper-plane-loop` | loop 12s | 288×224 | A cheerful folded paper plane with big eyes glides across a sunny sky, flies a full loop the loop and leaves a dashed trail behind it. |
+| Peekaboo Box | `mascots/peekaboo-box` | loop 12s | 240×224 | A cardboard box wobbles on the floor, its flaps pop open, two eyes peer out of the dark and a fuzzy orange critter pops up to wave before hiding again. |
+| Saluting Pixel Knight | `mascots/pixel-knight-salute` | loop 12s | 224×240 | A small armoured knight stands before a castle wall with its shield, then raises its sword in a proud salute while its red plume bobs and banners wave. |
+| Pocket Planet Astronaut | `mascots/planet-astronaut-wave` | loop 12s | 256×240 | A tiny astronaut stands on top of a slowly turning pocket planet, waving hello from inside a round helmet as stars drift past. |
+| Raincloud Cheers Up | `mascots/rain-cloud-rainbow` | loop 12s | 256×240 | A gloomy little cloud rains on a green meadow until it cheers up, turns fluffy white and pushes a rainbow out across the sky. |
+| Waving Tin Robot | `mascots/robot-wave-blink` | loop 12s | 256×240 | A friendly tin robot waves hello with one arm, blinks its round screen eyes and flashes the light on its antenna. |
+| Penguin in a Scarf | `mascots/scarf-penguin` | loop 12s | 224×240 | A round penguin in a striped red scarf stands in the falling snow, its scarf tail flapping in the wind as it hops and flaps to keep warm. |
+| Drowsy Crescent Moon | `mascots/sleepy-moon` | loop 12s | 240×224 | A crescent moon in a striped nightcap rocks gently in the night sky, snoring little z's as soft clouds drift past below. |
+| Sprouting Pot Plant | `mascots/sprouting-plant-smile` | loop 12s | 224×240 | A little pot plant on a sunny window sill catches a drop of water, slowly unfurls a brand new leaf and gives a big happy smile. |
+| Stomping Little Dino | `mascots/stomping-dino` | loop 12s | 256×224 | A chubby little green dinosaur stomps in place under a smoking volcano, kicking up dust, flailing its tiny arms and letting out a big roar. |
+| Toaster Pops Toast | `mascots/toaster-pop` | loop 12s | 240×240 | A chrome toaster squints and glows as it concentrates, then pops two golden slices high into the air and catches them with a grin. |
+| Happy Wagging Pup | `mascots/wagging-pup` | loop 12s | 240×240 | A floppy eared puppy sits in a sunny park, wagging its tail, panting with its tongue out and tilting its head as if asked a question. |
+| Yawning Coffee Mug | `mascots/yawning-coffee-cup` | loop 12s | 224×224 | A sleepy coffee mug on its saucer gives a long stretchy yawn as curls of steam rise, then blinks itself wide awake. |
+
+## empty states & feedback
+
+no results, all done, offline, success, error: the moments every app needs.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Access Denied Padlock | `empty-states/empty-access-denied` | loop 12s | 224×176 | A brass padlock's shackle drops and snaps shut with a small jolt above a polite request access button. |
+| All Caught Up Check | `empty-states/empty-all-caught-up` | loop 12s | 224×160 | A green ring and checkmark draw themselves stroke by stroke, pop a little burst and rewind. |
+| Broken Link Cloud | `empty-states/empty-broken-link-cloud` | loop 12s | 224×160 | A cloud drifts above a chain link that has snapped in two, the halves swinging apart as chips fall from the break. |
+| Copied To Clipboard | `empty-states/empty-clipboard-copied` | loop 12s | 224×160 | A pointer clicks copy on an invite link, the lines paste onto a clipboard and a small copied pill pops up. |
+| Saved To Cloud Tick | `empty-states/empty-cloud-saved` | loop 12s | 224×160 | An arrow rises into a soft cloud, a tick is cut into the cloud and a last saved timer starts counting. |
+| Cobweb Empty Folder | `empty-states/empty-cobweb-folder` | loop 12s | 224×160 | An empty open folder sits under a corner cobweb while a small spider bobs up and down on its thread. |
+| Construction Crane Panel | `empty-states/empty-construction-crane` | loop 12s | 240×160 | A tower crane trolleys bricks one at a time from a pile onto a growing wall, an under construction state. |
+| Empty Inbox Plane | `empty-states/empty-inbox-plane` | loop 12s | 224×160 | A paper plane loops a figure eight above an empty inbox tray, trailing a dotted line. |
+| No Search Results | `empty-states/empty-no-results` | loop 12s | 224×160 | A magnifying glass sweeps over empty result rows beneath a search box that came up with nothing. |
+| Unplugged Offline Cable | `empty-states/empty-offline-plug` | loop 12s | 240×160 | An unplugged cable sways beside its wall socket and throws the odd spark while a retry timer counts down. |
+| Onboarding Flag Planted | `empty-states/empty-onboarding-flag` | loop 12s | 224×160 | Checkpoints tick off one by one up a hill path, then a flag drops onto the summit, kicks up dust and waves. |
+| Payment Declined Shake | `empty-states/empty-payment-failed` | loop 12s | 240×160 | A bank card tries to pay, the charge is declined, the card gives a gentle shake and a red cross appears. |
+| Payment Success Card | `empty-states/empty-payment-success` | loop 12s | 240×160 | A bank card slides in, a spinner processes the charge, then a green tick pops and the amount counts up. |
+| Rate Limit Hourglass | `empty-states/empty-rate-limited` | loop 12s | 248×144 | An hourglass drains grain by grain as a try again in 30 seconds countdown ticks down, then the retry button wakes up. |
+| Reconnecting Signal Bars | `empty-states/empty-reconnecting` | loop 12s | 224×160 | Signal bars climb on each reconnect attempt, drop when it fails, and all turn green when the connection is back. |
+| Coming Soon Rocket | `empty-states/empty-rocket-countdown` | loop 12s | 240×144 | A small rocket vents steam on its pad through a ten second countdown, then lifts off on a column of flame. |
+| Session Expired Clock | `empty-states/empty-session-expired` | loop 12s | 224×160 | A sleepy wall clock sweeps its hands while little z's drift up from it, above a sign in again button. |
+| Smoking Server Box | `empty-states/empty-smoking-server` | loop 12s | 224×168 | A small server box with a dizzy face puffs smoke from its vent, a friendly something went wrong state. |
+| Task Done Confetti | `empty-states/empty-task-confetti` | loop 12s | 224×160 | A three item checklist ticks itself off and a burst of confetti rains down around the card. |
+| Trash Lid Closing | `empty-states/empty-trash-lid` | loop 12s | 224×160 | A crumpled page arcs into a bin, the lid swings shut with a bump and an undo timer drains away. |
+| Upload Into Tray | `empty-states/empty-upload-tray` | loop 12s | 224×160 | A big arrow drops into a file tray while the progress bar fills, then the tray bounces and a tick pops up. |
+| Welcome Door Opening | `empty-states/empty-welcome-door` | loop 12s | 224×184 | A front door swings open and warm light spills out across the floor, a friendly first run welcome. |
+
+## retro computing
+
+boot screens, teletypes, tapes and the machines that started it all.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Amber Ledger Spreadsheet | `retro/amber-ledger-spreadsheet` | loop 12s | 328×200 | An amber screen spreadsheet where the cell pointer moves to a figure, a new value is typed on the entry line, the totals recalculate and the sheet flips to a bar graph. |
+| Home Computer BASIC | `retro/basic-loop-prompt` | loop 12s | 288×224 | An 8-bit home computer screen inside its thick border, where a short BASIC loop is typed at the READY prompt and run as a scrolling sine wave of stars. |
+| Cassette Tape Loading | `retro/cassette-tape-loader` | loop 12s | 336×256 | An 8-bit computer loading from cassette, the border flashing pilot tone and data stripes while the loading screen picture paints in band by band. |
+| Chiptune Tracker | `retro/chiptune-tracker` | loop 12s | 400×256 | A four channel music tracker plays a chiptune, note rows scrolling up past the play line while the meters jump, the channel scopes wiggle and the pattern counter steps. |
+| School Computer Lab | `retro/computer-lab-terminals` | loop 12s | 336×216 | A school computer lab with three beige terminals on a long desk, one listing a BASIC program in green, one compiling in amber and one playing a bat and ball game, under a ticking wall clock. |
+| Copper Bar Demo | `retro/copper-bar-scroller` | loop 12s | 400×272 | A demoscene intro with glowing copper bars swinging past each other, a rainbow logo wobbling line by line, parallax stars and a big sine wave scroller. |
+| Magnetic Core Plane | `retro/core-memory-plane` | loop 12s | 330×180 | A magnetic core memory plane where an X and a Y select wire light up together and the ferrite core where they cross flips, bit by bit storing a heart and a smile before the rows are cleared. |
+| Dot Matrix Banner | `retro/dot-matrix-banner` | loop 12s | 288×288 | A dot matrix printer prints a giant sideways banner on continuous tractor-feed paper, the head racing back and forth as the perforated sheet feeds up and away. |
+| Floppy Disk Copier | `retro/floppy-drive-read` | loop 12s | 384×240 | A disk copy utility reads a floppy track by track, the head stepping across the spinning disk while a sector map fills in and the drive light glows. |
+| Front Panel Toggle Programming | `retro/front-panel-switches` | loop 12s | 400×208 | A minicomputer front panel where an operator flips the toggle switches to enter a short program word by word, deposits each one, then hits run and the data lights chase. |
+| Green Screen Word Processor | `retro/green-word-processor` | loop 12s | 320×200 | A green phosphor word processor where a letter is typed and wraps at the margin, typos are backspaced, a paragraph is marked as a block and the file is saved. |
+| Pocket LCD Rain Catch | `retro/lcd-handheld-game` | loop 12s | 288×288 | A pocket LCD game where a little figure with a bucket hops between three spots to catch raindrops falling in fixed steps, faint unlit segments showing behind, until three misses end the round. |
+| Mainframe Lamp Console | `retro/mainframe-lamp-console` | loop 12s | 400×256 | A mainframe operator console whose rows of register lamps flicker with the running program, status lights change and the console log prints a nightly batch. |
+| MIDI Step Sequencer | `retro/midi-step-sequencer` | loop 12s | 400×240 | A sixteen step sequencer grid where the playhead sweeps eight tracks, lit steps flash as they fire, the edit cursor adds and removes notes and the meters bounce. |
+| Round Tube XY Scope | `retro/phosphor-scope-xy` | loop 12s | 400×272 | A vintage round-tube oscilloscope in X-Y mode, its blue-white beam tracing a slowly rotating figure that leaves a yellow afterglow while the operator turns the frequency knobs. |
+| Monochrome Paint Program | `retro/pixel-paint-program` | loop 12s | 384×256 | An early black and white paint program where the cursor drags out a house with the rectangle, line and oval tools, floods it with patterns and sprays grass before clearing the page. |
+| Keypunch Card Deck | `retro/punch-card-keypunch` | loop 12s | 360×200 | A keypunch types a short program onto 80-column cards, the holes appearing column by column before each finished card slides off to the stacker. |
+| Mainframe Tape Drives | `retro/reel-to-reel-drives` | loop 12s | 354×204 | Three mainframe tape drives side by side, their reels starting and stopping in read bursts, tape packs shifting from reel to reel and loops bobbing in the vacuum columns. |
+| Teletype Paper Roll | `retro/teletype-paper-roll` | loop 12s | 320×272 | A teletype prints a time-sharing session onto a roll of paper, the type head running along each line, keys going down as the user types and the paper feeding upward. |
+| Lighthouse Text Adventure | `retro/text-adventure-parser` | loop 12s | 320×208 | A text adventure in an old lighthouse where the player types commands at the prompt, the parser answers, the score and move counter tick up and the light is lit at last. |
+| Vector Space Duel | `retro/vector-space-duel` | loop 12s | 384×256 | Two wireframe ships circle a flickering star on a green vector display, firing torpedoes, leaving phosphor trails, until one breaks apart and respawns. |
+| Line Drawn Maze Crawl | `retro/wireframe-maze-crawl` | loop 12s | 392×240 | An early first-person maze game drawn in amber lines, gliding down corridors and turning at junctions by the right-hand rule while a map tracks each step. |
+
+## science & learning
+
+how things work, from cells to the water cycle.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Bohr Atom Photon | `science/bohr-atom-photon` | loop 12s | 400×256 | A hydrogen electron absorbs an ultraviolet photon and leaps from shell 1 to shell 3, then drops back in two steps, giving out a red 656 nm photon and an ultraviolet one, tracked on an energy level diagram. |
+| Bonds Break And Form | `science/bond-energy-reaction` | loop 12s | 400×240 | Two hydrogen molecules and one oxygen molecule absorb energy to break their bonds, the atoms regroup into two water molecules and more energy is released, traced on an energy profile. |
+| DNA Replication Fork | `science/dna-replication-fork` | loop 12s | 312×180 | Helicase unzips the double helix, the leading strand is copied in one smooth run and the lagging strand in short Okazaki fragments that are primed, filled and sealed, base letters and all. |
+| Doppler Effect Siren | `science/doppler-effect` | loop 12s | 400×240 | A siren drives across while its sound waves crowd together in front and spread out behind, so the listener ahead hears a higher pitch and the one behind a lower one. |
+| Food Chain Energy Pyramid | `science/energy-pyramid` | loop 12s | 384×240 | Sunlight feeds the plants at the base of an energy pyramid and only about a tenth of the energy climbs to each level above, the rest drifting off as heat, with the kilojoules counted. |
+| Heart Blood Flow | `science/heart-blood-flow` | loop 12s | 400×272 | A four-chamber heart beats as oxygen-poor blood is pumped to the lungs and oxygen-rich blood returns to be pumped out to the body, every chamber and vessel labelled. |
+| Lunar Eclipse Geometry | `science/lunar-eclipse-geometry` | loop 12s | 312×180 | The Moon circles Earth and, at full moon, slides through the penumbra into the dark umbra and turns red, with an inset showing what we see from the ground. |
+| Breathing Lungs | `science/lungs-breathing` | loop 12s | 368×256 | The diaphragm pulls down and the lungs swell as fresh air rushes in through the trachea, then it relaxes and stale air is pushed back out, with every part labelled. |
+| Mitosis Stages | `science/mitosis-stages` | loop 12s | 384×256 | A cell copies itself through interphase, prophase, metaphase, anaphase, telophase and cytokinesis, each stage named and explained as the chromosomes move. |
+| Moon And Tides | `science/moon-tides` | loop 12s | 400×256 | The Moon's gravity stretches Earth's oceans into two bulges while Earth spins beneath them, and a tide chart traces the two high tides a coastal town gets each day. |
+| Nitrogen Cycle | `science/nitrogen-cycle` | loop 12s | 400×256 | Nitrogen gas is fixed by bacteria in root nodules, turned into ammonium, nitrite and nitrate in the soil, taken up by plants, eaten, decomposed and finally returned to the air. |
+| Photosynthesis Leaf | `science/photosynthesis-leaf` | loop 12s | 384×240 | Sunlight, carbon dioxide and water flow into a leaf while glucose travels down the stem and oxygen drifts out, above the balanced equation. |
+| Prism Dispersion | `science/prism-dispersion` | loop 12s | 400×240 | A beam of white light bends as it enters and leaves a glass prism, and because violet bends more than red it fans out into the colours of the spectrum on a screen. |
+| Ribosome Translation | `science/ribosome-translation` | loop 12s | 400×240 | A ribosome slides along mRNA three bases at a time as matching tRNAs drop in, link their amino acids into a growing protein and leave, until a stop codon releases the chain. |
+| Rock Cycle Loop | `science/rock-cycle-loop` | loop 12s | 384×256 | A rock grain travels the rock cycle: magma cools into igneous rock, weathers into sediment, is pressed into sedimentary rock, squeezed into metamorphic rock and melts again. |
+| Seasons From Axial Tilt | `science/seasons-axial-tilt` | loop 12s | 312×192 | Earth circles the Sun with its axis always tilted 23.4 degrees the same way, so each hemisphere leans toward the Sun for summer and away for winter, shown in orbit and close up. |
+| Seed Germination | `science/seed-germination` | loop 12s | 368×256 | A pea seed in the soil soaks up water, pushes its first root down, sends a hooked shoot up through the surface and opens its first leaves, with each stage and day labelled. |
+| Simple Circuit Current | `science/simple-circuit-current` | loop 12s | 384×240 | A switch closes and electrons drift from the negative terminal round through a resistor and a bulb, which lights, while meters show 6 volts, 12 ohms and half an amp. |
+| States Of Matter Particles | `science/states-of-matter` | loop 12s | 400×240 | Three boxes of particles: a solid vibrating in a fixed lattice, a liquid sliding in a close jumble and a gas flying fast and far apart, with melting, boiling and their reverses marked. |
+| Subduction Zone Volcano | `science/subduction-volcano` | loop 12s | 400×272 | A cross-section where an oceanic plate dives under a continent at a trench, melts in the hot mantle and feeds magma up into an erupting volcano, every layer labelled. |
+| Transverse And Longitudinal | `science/transverse-longitudinal` | loop 12s | 400×256 | A wave on a string, where each bead moves up and down, above a sound wave in air, where each particle moves back and forth, with wavelength, compressions and rarefactions marked. |
+| Water Cycle Diagram | `science/water-cycle-diagram` | loop 12s | 400×272 | Water evaporates from the sea, condenses into a cloud, rains on the mountains and runs back to the sea above and below ground, with every stage labelled. |
+
+## music & sound
+
+equalisers, turntables, sequencers and waveforms.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Boombox Speaker Pump | `music/boombox-speaker-pump` | loop 12s | 312×204 | A chrome boombox sits against a brick wall, its two speaker cones pumping on every kick while sound rings spread out and the tape reels turn. |
+| Cassette Tape Reels | `music/cassette-tape-reels` | loop 12s | 368×256 | A handwritten mixtape plays in a deck, its reels turning as the tape winds across, then rewinding fast to the start. |
+| Concert Stage Crowd | `music/concert-stage-crowd` | loop 12s | 330×216 | A band plays on a hazy stage as moving head beams sweep and change colour, the screen behind pulses and the crowd jumps with hands in the air. |
+| Conductor Baton Beats | `music/conductor-baton-beats` | loop 12s | 368×256 | A conductor seen from behind leads an orchestra, the baton tip tracing four and three beat patterns with a golden trail and each beat number lighting up. |
+| DJ Decks Crossfader | `music/dj-decks-crossfader` | loop 12s | 330×204 | Two turntables spin either side of a mixer while the crossfader slides from one deck to the other and both waveforms scroll past the playhead. |
+| Drum Machine Sequencer | `music/drum-machine-sequencer` | loop 12s | 384×240 | A 16 step drum machine plays its pattern, the playhead sweeping across lit pads as kick, snare, hats and claps fire, with a fill every fourth bar. |
+| Festival Speaker Stack | `music/festival-speaker-stack` | loop 12s | 368×288 | A towering festival sound system at night, its big sub cones pumping on every kick beside a hanging line array while lasers rake over the crowd and confetti falls. |
+| Graphic EQ Peak Hold | `music/graphic-eq-peak-hold` | loop 12s | 368×240 | A rack mounted graphic equaliser whose LED bars jump to a kick, snare and hats while peak hold markers hang at the top and drift back down. |
+| Guitar Fretting Hand | `music/guitar-fretting-hand` | loop 12s | 324×180 | A hand moves between chord shapes on an acoustic guitar neck while a pick strums and the strings blur as they vibrate. |
+| Headphones Sound Waves | `music/headphones-sound-waves` | loop 12s | 336×256 | Glossy over-ear headphones float in a violet glow, sound rings rolling out of each cup while a waveform plays across the space between them. |
+| Marching Snare Drum | `music/marching-snare-drum` | loop 12s | 336×272 | A parade drummer marches in step under bunting, sticks beating a paradiddle on a roped drum with ripples on the head while the street rolls past. |
+| Modular Synth Patch | `music/modular-synth-patch` | loop 12s | 330×204 | A two row modular synth rack with coloured patch cables swaying between jacks, a step sequencer walking its LEDs and one cable being re-patched every few seconds. |
+| Oscilloscope Wave Morph | `music/oscilloscope-morph` | loop 12s | 344×240 | A bench oscilloscope traces a green phosphor wave that morphs smoothly between sine, square, saw and triangle while the readouts follow along. |
+| Piano Keys Melody | `music/piano-keys-melody` | loop 12s | 384×240 | Three octaves of piano keys press down to a gentle melody over a rolling left hand, each note lifting off its key in colour. |
+| Piano Roll Scroll | `music/piano-roll-scroll` | loop 12s | 400×304 | A piano roll editor scrolls bass, chord and melody notes past the playhead, lighting each key on the side keyboard as it plays, with a velocity lane below. |
+| Radial Sound Bars | `music/radial-sound-bars` | loop 12s | 336×304 | A circular audio visualiser where rainbow spectrum bars radiate from a spinning record, the ring swelling on each kick as sparks fly outward. |
+| Radio Dial Tuning | `music/radio-dial-tuning` | loop 12s | 400×256 | A wooden valve radio tunes across the band, the red needle gliding over a glowing amber dial through crackling static until it locks onto the next station. |
+| Sheet Music Playhead | `music/sheet-music-playhead` | loop 12s | 400×240 | A grand staff of sheet music scrolls past a fixed playhead, each note lighting up red as it sounds while the bars and bass line roll by. |
+| Singing Mouth Choir | `music/singing-mouth-choir` | loop 12s | 400×240 | A cute choir of round faced singers in two rows, each part opening its mouth in turn for four part harmony while little notes float up from the stage. |
+| Studio Mixing Desk | `music/studio-mixing-desk` | loop 12s | 324×216 | A studio mixing console with twelve channel strips, faders gliding on automation, LED meters bouncing and two needle VU meters on the master bus. |
+| Tap Tempo Counter | `music/tap-tempo-counter` | loop 12s | 296×208 | A tap tempo tool where each tap flashes the pad with a ripple while the BPM readout settles, the intervals chart fills and the beat lights lock in. |
+| Vinyl Crate Digging | `music/vinyl-crate-digging` | loop 12s | 384×256 | A hand digs through a wooden crate of records, tipping each sleeve forward to reveal the next bold cover with its price sticker. |
+
+## food & drink
+
+steam, sizzle and pour: food that moves.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Boiling Pasta Pot | `food/boiling-pasta-pot` | loop 12s | 304×304 | A big steel pot at a rolling boil, spaghetti swirling as a wooden spoon stirs, bubbles bursting across the surface and steam pouring up. |
+| Bubble Tea Pearls | `food/bubble-tea-pearls` | loop 12s | 232×320 | A tall cup of brown sugar milk tea, tapioca pearls sucked one by one up a fat pink straw while ice bobs and condensation runs down the cup. |
+| Burger Stack Build | `food/burger-assembly` | loop 12s | 288×304 | A burger builds itself on a wooden board, patty, melting cheese, lettuce, tomato, onion and a sesame bun dropping onto the stack one by one. |
+| Cake Icing Turntable | `food/cake-icing-turntable` | loop 12s | 264×288 | A layer cake turns on a cake stand as a steel spatula smooths pink icing around its side, then cream rosettes and berries appear along the top. |
+| Chocolate Fountain | `food/chocolate-fountain` | loop 12s | 264×320 | Sheets of melted chocolate cascade down a three tier steel fountain into a swirling basin while a strawberry on a skewer is dipped in and pulled out coated. |
+| Cocktail Shaker Pour | `food/cocktail-shake-pour` | loop 12s | 280×304 | A frosted steel shaker rattles hard, tips over and pours a coral cocktail into a coupe glass, then a lime wheel lands on the rim. |
+| Cotton Candy Spinner | `food/cotton-candy-spin` | loop 12s | 280×320 | Pink sugar threads whirl around a carnival spinner tub while a paper cone turns and gathers a growing cloud of cotton candy. |
+| Doughnut Glazing Line | `food/doughnut-glazing-line` | loop 12s | 400×240 | Plain ring doughnuts ride a bakery conveyor under a falling curtain of pink glaze and roll out shiny, dripping and covered in sprinkles. |
+| Fruit Bowl Apple Roll | `food/fruit-bowl-apple-roll` | loop 12s | 312×272 | A heaped blue fruit bowl of oranges, bananas, grapes and a pear on a sunny table; an apple is set on top, wobbles, tumbles off and rolls away. |
+| Lemonade Stand Pour | `food/lemonade-stand-pour` | loop 12s | 336×304 | A striped lemonade stand on a sunny lawn, a glass pitcher tipping to pour fresh lemonade over ice into a cup that is handed away and replaced. |
+| Melting Ice Cream Cone | `food/melting-ice-cream-cone` | loop 12s | 240×304 | A strawberry and mint waffle cone melting in the afternoon sun, drips running down the cone and falling into a pink puddle. |
+| Oven Bread Rising | `food/oven-bread-rise` | loop 12s | 320×288 | Through a glowing oven window a scored loaf rises and turns golden while the timer counts down and steam curls up inside. |
+| Pancake Stack Syrup | `food/pancake-stack-syrup` | loop 12s | 288×304 | Golden pancakes drop one by one onto a plate, a pat of butter lands on top and maple syrup pours over and runs down the stack. |
+| Pizza Cheese Pull | `food/pizza-cheese-pull` | loop 12s | 336×304 | A cutter wheel rolls through a hot pepperoni pizza, then a slice is lifted high, trailing long strings of melted cheese. |
+| Popcorn Pot | `food/popcorn-pot-pop` | loop 12s | 304×288 | A steel pot sits on a blue gas flame, the lid rattling as fluffy popcorn bursts out in arcs and piles up across the stovetop. |
+| Pour Over Drip | `food/pour-over-drip` | loop 12s | 288×304 | A gooseneck kettle spirals hot water over blooming grounds in a ceramic cone while coffee drips steadily into a glass carafe. |
+| Ramen Noodle Lift | `food/ramen-noodle-lift` | loop 12s | 336×288 | A deep red bowl of ramen with egg, pork and nori, chopsticks lifting a tangle of noodles out of the steaming broth. |
+| Sizzling Skewer Grill | `food/sizzling-skewer-grill` | loop 12s | 360×272 | Three kebab skewers of meat, peppers and onion turn over glowing charcoal while flames lick up, fat spits and smoke rolls away. |
+| Soup Ladle Service | `food/soup-ladle-bowls` | loop 12s | 336×288 | A steel ladle dips into a steaming red pot of tomato soup and swings over to fill a row of white bowls one after another. |
+| Sushi Conveyor Belt | `food/sushi-conveyor` | loop 12s | 400×240 | Colour rimmed plates of salmon, tuna, egg and prawn nigiri and cucumber maki glide past on a steel belt below a swaying indigo curtain. |
+| Tea Poured From Height | `food/tea-pour-height` | loop 12s | 240×320 | A silver teapot is lifted high as it pours a long amber stream of mint tea into a small gold-rimmed glass, foam rising and steam curling. |
+| Waffle Iron Opening | `food/waffle-iron-open` | loop 12s | 304×304 | A round waffle iron puffs steam, its lid swings open on a golden grid waffle, the waffle is lifted out and the lid closes on the next batch. |
+
+## india
+
+festivals, streets, monsoons and moments from across India.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Amber Fort Elephants | `india/amber-fort-elephants` | loop 12s | 384×216 | Painted elephants climb the walled ramp to a honey-coloured hill fort as a boat rows across the lake below, the old wall snaking over the hills and kites wheeling overhead. |
+| Andaman Teal Beach | `india/andaman-teal-beach` | loop 12s | 384×216 | An elephant swims through clear teal shallows off a white island beach at sunset, the tall forest standing at the sand's edge and the surf rolling in. |
+| Roadside Chai Dawn | `india/chai-stall-dawn` | loop 12s | 384×216 | At first light a chai vendor pours tea from a height while steam rises from the kettle, customers sip and a scooter putters past. |
+| Charminar Night Bazaar | `india/charminar-night-bazaar` | loop 12s | 384×216 | The four-minaret gateway glows at night over the crowded bangle bazaar as shoppers flow through the street, stall lights flicker and autorickshaws weave past. |
+| Thar Fort Caravan | `india/desert-fort-camels` | loop 12s | 384×216 | A camel train plods across the dunes below a golden sandstone hill fort with round bastions and domed pavilions as the desert sun sets. |
+| Baraat Dhol Night | `india/dhol-baraat-drummer` | loop 12s | 400×288 | A wedding procession at night: a dhol player drums and dances while the groom rides a white horse past lamp bearers, dancers and falling petals. |
+| Dosa On The Tawa | `india/dosa-tawa-spread` | loop 12s | 360×272 | Seen from above, a ladle spirals batter thin across a hot iron tawa, the dosa crisps from cream to gold with ghee at the rim, then is rolled up and slid off. |
+| Ellora Rock Temple | `india/ellora-rock-temple` | loop 12s | 384×216 | A whole temple carved down out of a single basalt hillside stands in its pit, tower, hall, pillars and stone elephant all one rock, as visitors walk the court and a monkey runs the cliff ledge. |
+| Ganesh Utsav Procession | `india/ganesh-utsav-procession` | loop 12s | 400×304 | A Ganesh idol rides a flower-decked cart through the evening streets as dhol players drum in front, the crowd raises its hands and petals and pink gulal drift by. |
+| Ghat Evening Aarti | `india/ghat-evening-aarti` | loop 12s | 384×216 | Priests swing brass lamps in slow circles on the river steps at dusk while boats of onlookers drift and leaf lamps float downstream. |
+| Goa Shack Sunset | `india/goa-shack-sunset` | loop 12s | 384×216 | Waves roll up the sand below swaying coconut palms as the sun sets behind a fishing boat and the beach shack lights its lamps. |
+| Golden Shrine Pool | `india/golden-shrine-pool` | loop 12s | 384×216 | A floodlit golden shrine glows on its sacred pool at night as pilgrims cross the marble causeway and ripples run through its reflection. |
+| Gully Cricket Over | `india/gully-cricket-match` | loop 12s | 400×272 | A gully cricket over in a narrow lane of painted houses: the bowler runs in, the batter lofts it over the rooftops and the fielder throws up his arms. |
+| Hampi Boulder Ruins | `india/hampi-boulder-ruins` | loop 12s | 384×216 | An old temple tower rises among hills of giant piled boulders at golden hour as a round coracle spins down the river past banana groves and a langur watches from the rocks. |
+| Harbour Gateway Mumbai | `india/harbour-gateway-mumbai` | loop 12s | 384×216 | The basalt triumphal arch stands on the waterfront at sunset beside the grand hotel's red domes as ferry launches bob in the harbour and pigeons wheel over the plaza. |
+| Hill Train Kanchenjunga | `india/hill-train-kanchenjunga` | loop 12s | 384×216 | The little blue steam train climbs its winding track through tea gardens below the snow giant glowing pink at dawn, puffing smoke as mist fills the valley. |
+| Himalayan Flower Valley | `india/himalayan-flower-valley` | loop 12s | 384×216 | A high alpine meadow thick with pink, yellow, blue and white wildflowers runs down from the snow peaks, a glacier stream winding through it as trekkers climb the trail and butterflies flutter. |
+| Houseboat Backwater Dusk | `india/houseboat-backwater-dusk` | loop 12s | 384×216 | A thatched rice-barge houseboat glides down the palm-lined backwaters at dusk, its windows lit, as a fisherman casts his net from a canoe and egrets fly home. |
+| Howrah Bridge Dawn | `india/howrah-bridge-dawn` | loop 12s | 384×216 | Buses and yellow taxis cross the great steel cantilever bridge in a hazy dawn as country boats and a ferry work the river below and bathers walk down the ghat. |
+| India Gate Evening | `india/india-gate-evening` | loop 12s | 384×216 | The great memorial arch glows at dusk as its lamps come on, families stroll the long avenue and balloon sellers' bunches bob over the lawns. |
+| Kolkata Tram Morning | `india/kolkata-tram-morning` | loop 12s | 384×216 | An old two-car tram rattles down a street of weathered colonial buildings at morning, its pole on the wire, as yellow taxis pass, a rickshaw puller runs by and the tea stall's kettle steams. |
+| Crag Monastery Flags | `india/ladakh-crag-monastery` | loop 12s | 384×216 | A whitewashed monastery climbs a rocky crag below snow peaks in the high desert while strings of prayer flags ripple in the wind. |
+| Lake Palace Udaipur | `india/lake-palace-udaipur` | loop 12s | 384×216 | The white marble palace floats on the lake at sunset below the long city palace and the Aravalli hills, mirrored in the water as boats ferry across. |
+| Lands End Sunrise | `india/lands-end-sunrise` | loop 12s | 384×216 | The sun rises where three seas meet at the land's end, a rock memorial and a towering stone statue on islets offshore as a ferry heads out and the crowd watches from the shore. |
+| Lattu Spinning Top | `india/lattu-spinning-top` | loop 12s | 320×240 | A striped wooden lattu spins and wobbles on its iron nail inside a chalk ring on a dusty courtyard, flicking up dust, its string coiled nearby. |
+| Living Root Bridge | `india/living-root-bridge` | loop 12s | 384×216 | A bridge grown from the twisted roots of two great fig trees arches over a clear blue-green stream in the misty rainforest as a villager crosses and mist drifts through. |
+| Lotus Temple Dusk | `india/lotus-temple-dusk` | loop 12s | 384×216 | A temple of white marble petals glows at dusk above its mirror pools as visitors walk the paths and parakeets fly home to the trees. |
+| Mangrove Tiger Creek | `india/mangrove-tiger-creek` | loop 12s | 384×216 | A tiger swims across a wide tidal creek in the mangrove forest at morning, head and shoulders above the brown water, as a kingfisher dives and a wooden boat rocks at its mooring. |
+| Bazaar Rickshaw Rush | `india/market-auto-rickshaws` | loop 12s | 384×216 | Green and yellow auto-rickshaws and motorbikes weave along a busy bazaar street past the chai, tailor and sweet shops. |
+| Mehndi Hand Design | `india/mehndi-hand-design` | loop 12s | 336×304 | A henna cone traces a palm mandala, finger bands and wrist borders on an open hand, then the paste dries and flakes to a deep orange stain. |
+| Mumbai Monsoon Street | `india/mumbai-monsoon-street` | loop 12s | 384×216 | Monsoon rain pours on a Mumbai street as black and yellow taxis splash past, people hurry under umbrellas and a local train crosses the bridge. |
+| Tea Hills Mist | `india/munnar-tea-mist` | loop 12s | 384×216 | Morning mist drifts over hills clipped into rows of tea as pickers in bright saris work along the bushes with baskets on their backs. |
+| Mysore Palace Lights | `india/mysore-palace-lights` | loop 12s | 384×216 | The palace blazes at night with tens of thousands of bulbs outlining every dome and arch in gold, mirrored in the fountain as the crowd gathers and a decorated elephant walks past. |
+| Pressure Cooker Whistle | `india/pressure-cooker-whistle` | loop 12s | 288×320 | An aluminium pressure cooker on a gas flame builds pressure, its weight rattles, then it whistles out a jet of steam while a note on the wall counts to three. |
+| Pushkar Camel Fair | `india/pushkar-camel-fair` | loop 12s | 384×216 | A big wheel turns over the tents of the desert camel fair as a camel train with turbaned riders crosses the dunes at sunset, kicking up gold dust. |
+| Qutub Minar Dusk | `india/qutub-minar-dusk` | loop 12s | 384×216 | The tall fluted sandstone minaret with its carved balconies rises over ruined arches at dusk as parakeets and kites circle it and the path lamps come on. |
+| Rangoli Powder Bloom | `india/rangoli-powder-bloom` | loop 12s | 384×304 | A symmetric rangoli draws itself ring by ring in bright coloured powder, trickled from a pinching hand onto a red oxide floor. |
+| Rhino Grassland Mist | `india/rhino-grassland-mist` | loop 12s | 384×216 | One-horned rhinos graze in tall elephant grass on a misty morning, white egrets riding their backs and lifting off, as a safari elephant walks the far edge of the plain. |
+| Rishikesh Suspension Bridge | `india/rishikesh-suspension-bridge` | loop 12s | 384×216 | The iron suspension bridge spans the jade-green Ganga between forested hills and a towering temple as pilgrims and a cow cross, rafts shoot the rapids and monkeys swing on the cables. |
+| River Bridge Taxis | `india/river-bridge-taxis` | loop 12s | 384×216 | Yellow taxis stream across a giant steel cantilever bridge as the sun sets over the wide river and country boats drift below. |
+| Rooftop Kite Sunset | `india/rooftop-kite-sunset` | loop 12s | 384×216 | On the winter kite festival, people on crowded city rooftops tug their strings as bright paper kites swoop across the sunset. |
+| Sea Link Night | `india/sea-link-night` | loop 12s | 384×216 | A cable-stayed bridge sweeps across the bay at night, its fans of cables lit, as headlights and tail lights stream along the deck past the glittering city towers. |
+| Shikara Dal Lake | `india/shikara-dal-lake` | loop 12s | 384×216 | Painted shikaras glide across the mirror lake past carved wooden houseboats, autumn chinars and snow peaks, their boatmen paddling through the morning stillness. |
+| Shore Temple Waves | `india/shore-temple-waves` | loop 12s | 384×216 | The twin stepped towers of an ancient granite temple stand on the rocks at sunrise as the sea breaks white below them and fishermen walk down to their catamarans. |
+| Sitar String Pluck | `india/sitar-string-pluck` | loop 12s | 400×240 | A finger stops a fret on a sitar, the main string is plucked and blurs into a decaying vibration while sound rings spread out from the gourd. |
+| Hot Afternoon Cooler | `india/summer-cooler-afternoon` | loop 12s | 400×288 | A hot afternoon indoors: the ceiling fan whirls, the desert cooler blows the curtains about and the wall calendar flips from one scorching day to the next. |
+| Sun Temple Chariot Wheel | `india/sun-temple-wheel` | loop 12s | 384×216 | The giant carved stone chariot wheel of the sun temple glows at golden hour, the shadows of its spokes turning across its face as parakeets dart past the tiered temple roof. |
+| Tabla Teental Hands | `india/tabla-hands-rhythm` | loop 12s | 360×272 | Two hands play a sixteen beat teental theka on a tabla pair, each stroke rippling the drum heads while the bols light up in a strip above. |
+| Temple Gopuram Madurai | `india/temple-gopuram-madurai` | loop 12s | 384×216 | A towering temple gateway rises in tiers crowded with painted figures in a hundred colours as pigeons circle it and pilgrims pass the gate in the morning light. |
+| Varanasi Morning Boats | `india/varanasi-morning-boats` | loop 12s | 384×216 | Wooden rowing boats cross the misty river at sunrise below the ghats, temples and palaces stacked up the bank as gulls skim the water and bathers step down. |
+| White Salt Desert Moon | `india/white-salt-desert-moon` | loop 12s | 384×216 | The endless white salt desert glows under a full moon, its crust cracked into hexagons, as a camel cart crosses the horizon and musicians play beside a small fire. |

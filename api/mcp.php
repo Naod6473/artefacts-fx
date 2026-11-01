@@ -2,7 +2,7 @@
 // Serveur MCP d'Artefacts (Model Context Protocol, transport « Streamable HTTP ») : les outils d'IA
 // (Claude, Cursor, VS Code…) y cherchent des effets et lisent leur code. Lecture seule, sans compte.
 //   POST https://naod.fr/api/mcp   (JSON-RPC 2.0, une requête par appel, réponse en JSON)
-// Données : api/catalogue/catalogue.json et api/catalogue/sources/<numéro>.js, produits par build.mjs.
+// Données : api/catalogue/catalogue.json, produit par build.mjs, et le code des effets servi dans assets/src/effets/.
 declare(strict_types=1);
 
 const VERSIONS = ['2025-06-18', '2025-03-26', '2024-11-05'];
@@ -216,7 +216,8 @@ function lire(string $numero): string
     $n = str_pad($m[1], 4, '0', STR_PAD_LEFT);
     foreach (donnees()['effets'] as $e) {
         if ($e['n'] !== $n) continue;
-        $source = (string) file_get_contents(__DIR__ . '/catalogue/sources/' . $n . '.js');
+        // le code servi avec le site (assets/src/effets/<id>.js) : une seule copie des sources sur l'hébergement de 100 Mo
+        $source = (string) @file_get_contents(__DIR__ . '/../assets/src/effets/' . $e['id'] . '.js');
         $usage = "import { createFx, createFrame, composite } from \"artefacts-fx\";\n"
             . "import * as fx from \"artefacts-fx/effets/{$e['id']}.js\";\n\n"
             . "const frame = createFrame({$e['size'][0]}, {$e['size'][1]});\n"

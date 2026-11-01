@@ -8,9 +8,10 @@
 
 Chaque effet est un petit fichier JavaScript, sans image, sous licence MIT. Le même effet s'affiche en pixel art, en
 glyphes de code, en ASCII, en braille, en blocs, sur un écran à phosphore, en Game Boy, en matrice LED, en VHS, en Minitel ou
-au crayon de couleur. <!-- count -->266<!-- /count --> effets : 244 repris de [pixelfx](https://github.com/patch-gg/pixelfx) (dont 12 attaques jouées par un personnage), 22 créatures
+au crayon de couleur. <!-- count -->997<!-- /count --> effets : 244 repris de [pixelfx](https://github.com/patch-gg/pixelfx) (dont 12 attaques jouées par un personnage), 22 créatures
 vues de dessus tirées des jeux de Simon (les boss rampants d'Antivirus TD, les koïs de Koïs, puis un python, une chauve-souris, des corbeaux et un essaim), plus ceux que proposent
-les membres.
+les membres, et 731 scènes animées en caractères reprises d'[ascii-magic-art](https://github.com/kailashsr38/ascii-magic-art)
+(paysages, villes, interfaces, graphiques, cosmos, demoscene, mini-jeux…).
 
 - **Bibliothèque** : recherche (`#42`, `feu`, `tag:boucle -fumée dur:<1`), réglages en direct, liens partageables, une page par effet.
 - **Exports** : planche de sprites PNG, GIF animé, vidéo WebM, fichiers Godot 4 (SpriteFrames + scène), projet zip.
@@ -31,6 +32,7 @@ les membres.
 | Dossier | Contenu |
 | --- | --- |
 | `effets/<catégorie>/<nom>.js` | un effet = un fichier : `meta` + `draw(p, t, o)` ou `create(o)` (format pixelfx) |
+| `effets/_ascii/` | le branchement des scènes d'ascii-magic-art : `fx.js` (une case de caractère = un bloc de pixels), `glyphes.js` (police 3 × 5, cadres, braille, blocs), `lib/` (leur boîte à outils d'origine) ; réimport avec `node tools/ascii-magic.mjs <clone>` |
 | `rendus/<id>.js` | un rendu = un filtre sur le tampon de pixels ; un nouveau rendu marche sur tous les effets |
 | `core/` | le moteur : tampon, pinceau, particules, couleurs (pixelfx) |
 | `site/` | le site : pages (`pages/`), textes par langue (`i18n/`), scripts (`src/`), fichiers statiques (`static/`) |
