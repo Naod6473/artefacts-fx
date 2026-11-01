@@ -154,6 +154,11 @@ await build({
   const d = join(DIST, "assets", "interfaces"), autres = readdirSync(d).filter((f) => f.endsWith(".css") && f !== "app.css");
   writeFileSync(join(d, "app.css"), [readFileSync(join(d, "app.css"), "utf8"), ...autres.map((f) => readFileSync(join(d, f), "utf8"))].join("\n"));
   for (const f of autres) rmSync(join(d, f));
+  // la police manuscrite « étendue » d'Inkra (10 Mo, des milliers de caractères chinois et rares) ne sert à aucune page
+  // du site et pèse un dixième de l'hébergement : retirée, ces caractères s'affichent dans la police de secours
+  const css = readFileSync(join(d, "app.css"), "utf8"), etendue = readdirSync(d).filter((f) => /^ui-hand-xiaolai-extended-.*\.woff2$/.test(f));
+  writeFileSync(join(d, "app.css"), css.replace(/@font-face\{[^}]*ui-hand-xiaolai-extended-[^}]*\}/g, ""));
+  for (const f of etendue) rmSync(join(d, f));
 }
 // la page Loading : React et loading-dev (MIT), plus le lecteur et les rendus du site pour la vue « Avec nos effets »
 await build({
