@@ -1014,5 +1014,53 @@
   "creatures/locust-swarm": {
     "name": "Essaim de criquets",
     "desc": "Un essaim de criquets vu de dessus avance en tourbillonnant, une centaine d'insectes autour de son cœur, ailes scintillantes, nuage d'ombre en dessous."
+  },
+  "moves/arrow-shot": {
+    "name": "Tir à l'arc",
+    "desc": "Il lève l'arc, tire la corde jusqu'à la joue, retient son souffle et lâche : la corde claque, la flèche traverse le sol et se plante dans la cible."
+  },
+  "moves/dash-strike": {
+    "name": "Ruée tranchante",
+    "desc": "Un temps accroupi, puis il traverse le terrain dans un sillage d'images rémanentes en frappant déjà : coup critique, un temps, et il revient d'un bond à sa place."
+  },
+  "moves/earth-stomp": {
+    "name": "Coup de talon tellurique",
+    "desc": "Un genou se lève, la botte s'abat, le sol se soulève sous la cible et un pic de pierre jaillit au travers."
+  },
+  "moves/fireball-throw": {
+    "name": "Lancer de boule de feu",
+    "desc": "Il rassemble le feu dans sa main, se penche en arrière et la projette : la boule file, la cible encaisse l'explosion et en ressort carbonisée."
+  },
+  "moves/ground-pound": {
+    "name": "Frappe au sol",
+    "desc": "Il se ramasse, saute plus haut que le cadre, reste suspendu et retombe comme un roc : le sol se fend, les ondes de choc filent et secouent la cible au passage."
+  },
+  "moves/holy-smite": {
+    "name": "Châtiment sacré",
+    "desc": "Les deux mains se lèvent et une lueur marque la cible ; il les abaisse et un éclair de lumière tombe comme un marteau, laissant la cible blanchie."
+  },
+  "moves/ice-lance-throw": {
+    "name": "Lancer de lance de glace",
+    "desc": "Le givre se forme en lance dans sa main, il la jette comme un javelot, et la cible se couvre de glace dans une gerbe de flocons et de frissons."
+  },
+  "moves/lightning-call": {
+    "name": "Appel de la foudre",
+    "desc": "Un bras se lève, un sceau s'allume sous la cible, et quand il l'abaisse un gros éclair s'abat ; la cible tressaute dans les répliques."
+  },
+  "moves/meteor-call": {
+    "name": "Appel du météore",
+    "desc": "Une longue incantation : un cercle se trace autour de lui, s'embrase, il pointe du doigt, et un rocher en feu s'écrase sur la cible et écrase la scène."
+  },
+  "moves/pistol-shots": {
+    "name": "Tirs au pistolet",
+    "desc": "Trois tirs visés : l'arme relève à chaque coup puis se repose, les traçantes traversent le sol et la cible titube à chaque impact."
+  },
+  "moves/rocket-launcher": {
+    "name": "Lance-roquettes",
+    "desc": "Un genou à terre, le tube sur l'épaule, il tire : le recul le fait glisser en arrière, la roquette s'élance sur sa traînée et la cible saute."
+  },
+  "moves/sword-combo": {
+    "name": "Combo à l'épée",
+    "desc": "Trois coups en avançant : une entaille, une double coupe croisée, puis un coup à deux mains dans le sol qui projette la cible."
   }
 }

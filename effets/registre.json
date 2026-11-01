@@ -252,5 +252,17 @@
   "0251": "creatures/crow-flock",
   "0252": "creatures/giant-python",
   "0253": "creatures/locust-swarm",
-  "0254": "creatures/vampire-bat"
+  "0254": "creatures/vampire-bat",
+  "0255": "moves/arrow-shot",
+  "0256": "moves/dash-strike",
+  "0257": "moves/earth-stomp",
+  "0258": "moves/fireball-throw",
+  "0259": "moves/ground-pound",
+  "0260": "moves/holy-smite",
+  "0261": "moves/ice-lance-throw",
+  "0262": "moves/lightning-call",
+  "0263": "moves/meteor-call",
+  "0264": "moves/pistol-shots",
+  "0265": "moves/rocket-launcher",
+  "0266": "moves/sword-combo"
 }

@@ -8,7 +8,7 @@
 
 Chaque effet est un petit fichier JavaScript, sans image, sous licence MIT. Le même effet s'affiche en pixel art, en
 glyphes de code, en ASCII, en braille, en blocs, sur un écran à phosphore, en Game Boy, en matrice LED, en VHS, en Minitel ou
-au crayon de couleur. <!-- count -->254<!-- /count --> effets : 232 repris de [pixelfx](https://github.com/patch-gg/pixelfx), 22 créatures
+au crayon de couleur. <!-- count -->266<!-- /count --> effets : 244 repris de [pixelfx](https://github.com/patch-gg/pixelfx) (dont 12 attaques jouées par un personnage), 22 créatures
 vues de dessus tirées des jeux de Simon (les boss rampants d'Antivirus TD, les koïs de Koïs, puis un python, une chauve-souris, des corbeaux et un essaim), plus ceux que proposent
 les membres.
 

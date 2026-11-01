@@ -254,6 +254,18 @@ import * as creatures_swelling_tick from "./creatures/swelling-tick.js";
 import * as creatures_vampire_bat from "./creatures/vampire-bat.js";
 import * as creatures_wolf_spider from "./creatures/wolf-spider.js";
 import * as creatures_woodlouse from "./creatures/woodlouse.js";
+import * as moves_arrow_shot from "./moves/arrow-shot.js";
+import * as moves_dash_strike from "./moves/dash-strike.js";
+import * as moves_earth_stomp from "./moves/earth-stomp.js";
+import * as moves_fireball_throw from "./moves/fireball-throw.js";
+import * as moves_ground_pound from "./moves/ground-pound.js";
+import * as moves_holy_smite from "./moves/holy-smite.js";
+import * as moves_ice_lance_throw from "./moves/ice-lance-throw.js";
+import * as moves_lightning_call from "./moves/lightning-call.js";
+import * as moves_meteor_call from "./moves/meteor-call.js";
+import * as moves_pistol_shots from "./moves/pistol-shots.js";
+import * as moves_rocket_launcher from "./moves/rocket-launcher.js";
+import * as moves_sword_combo from "./moves/sword-combo.js";
 
 export { categories } from "./categories.js";
 
@@ -512,4 +524,16 @@ export const effects = {
   "creatures/vampire-bat": creatures_vampire_bat,
   "creatures/wolf-spider": creatures_wolf_spider,
   "creatures/woodlouse": creatures_woodlouse,
+  "moves/arrow-shot": moves_arrow_shot,
+  "moves/dash-strike": moves_dash_strike,
+  "moves/earth-stomp": moves_earth_stomp,
+  "moves/fireball-throw": moves_fireball_throw,
+  "moves/ground-pound": moves_ground_pound,
+  "moves/holy-smite": moves_holy_smite,
+  "moves/ice-lance-throw": moves_ice_lance_throw,
+  "moves/lightning-call": moves_lightning_call,
+  "moves/meteor-call": moves_meteor_call,
+  "moves/pistol-shots": moves_pistol_shots,
+  "moves/rocket-launcher": moves_rocket_launcher,
+  "moves/sword-combo": moves_sword_combo,
 };
