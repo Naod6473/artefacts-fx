@@ -1,7 +1,7 @@
 // Les tags dans la langue du visiteur. Les effets portent des tags en anglais ; on traduit les plus courants,
 // les autres restent en anglais. La recherche trouve un effet par le tag dans les deux langues.
 
-export const CATEGORIES_FR = { fire: "feu", explosions: "explosion", water: "eau", ice: "glace", lightning: "foudre", scifi: "sci-fi", melee: "mêlée", impacts: "impact", projectiles: "projectile", spawn: "apparition", arcane: "arcane", holy: "sacré", shadow: "ombre", status: "état", nature: "nature", weather: "météo", ui: "interface", pickups: "ramassage", transitions: "transition", critters: "bestiole", creatures: "créature", communaute: "communauté" };
+export const CATEGORIES_FR = { fire: "feu", explosions: "explosion", water: "eau", ice: "glace", lightning: "foudre", scifi: "sci-fi", melee: "mêlée", impacts: "impact", projectiles: "projectile", spawn: "apparition", arcane: "arcane", holy: "sacré", shadow: "ombre", status: "état", nature: "nature", weather: "météo", ui: "interface", pickups: "ramassage", transitions: "transition", critters: "bestiole", creatures: "créature", moves: "attaque", communaute: "communauté" };
 
 export const TAGS_FR = {
   "one-shot": "une-fois", loop: "boucle", ground: "au-sol", directional: "directionnel", magic: "magie", fire: "feu", ambient: "ambiance",
@@ -19,6 +19,8 @@ export const TAGS_FR = {
   rune: "rune", heal: "soin", plant: "plante", creature: "créature", boss: "boss", walk: "marche", swim: "nage", "top-down": "vue-de-dessus",
   spider: "araignée", koi: "koï", pond: "bassin", sea: "mer", insect: "insecte", bug: "insecte",
   snake: "serpent", reptile: "reptile", slither: "reptation", bat: "chauve-souris", bird: "oiseau", crow: "corbeau", flock: "nuée", swarm: "essaim",
+  move: "attaque", bow: "arc", arrow: "flèche", ranged: "distance", dash: "ruée", crit: "critique", stomp: "piétinement", jump: "saut",
+  landing: "atterrissage", strike: "frappe", meteor: "météore", ultimate: "ultime", pistol: "pistolet", combo: "combo",
 };
 
 // mots français courants vers l'anglais, pour chercher dans les noms et descriptions (en anglais)

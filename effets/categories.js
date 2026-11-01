@@ -22,5 +22,6 @@ export const categories = [
   { id: "transitions", name: "transitions", blurb: "wipes, irises, dissolves" },
   { id: "critters", name: "critters", blurb: "slimes, bats, ghosts, frogs" },
   { id: "creatures", name: "creatures", blurb: "koi, giant spiders, centipedes, crabs, seen from above" },
+  { id: "moves", name: "moves", blurb: "whole attacks, wind-up to recovery, chained from the effects above" },
   { id: "communaute", name: "community", blurb: "effects sent in by members of naod.fr" },
 ];

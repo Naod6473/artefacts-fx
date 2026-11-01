@@ -36,7 +36,7 @@ for (const id of ids) {
     if (typeof meta.desc !== "string" || meta.desc.length < 12) errs.push("meta.desc missing or too short");
     if (meta.desc?.length > 180) notes.push(`desc is ${meta.desc.length} chars (keep it under 180)`);
     if (!Array.isArray(meta.tags) || !meta.tags.length) errs.push("meta.tags missing");
-    if (!Array.isArray(meta.size) || meta.size.some((v) => !Number.isInteger(v) || v < 8 || v > 400)) errs.push("meta.size must be [w, h], whole pixels 8..400");
+    if (!Array.isArray(meta.size) || meta.size.some((v) => !Number.isInteger(v) || v < 8 || v > 560)) errs.push("meta.size must be [w, h], whole pixels 8..560");
     if (!Array.isArray(meta.origin) || meta.origin.length !== 2) errs.push("meta.origin must be [x, y]");
     if (!(meta.duration > 0 && meta.duration <= 12)) errs.push("meta.duration must be 0..12 s");
     if (!BACKDROPS.includes(meta.bg)) errs.push(`meta.bg must be one of ${BACKDROPS.join(", ")}`);

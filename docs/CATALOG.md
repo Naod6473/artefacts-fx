@@ -1,6 +1,6 @@
 # Catalog
 
-254 effects in 21 categories. Every one is a file in
+266 effects in 22 categories. Every one is a file in
 `effets/<category>/<name>.js`; check any of them with `node tools/check.mjs <id>`.
 
 ## fire
@@ -403,3 +403,22 @@ koi, giant spiders, centipedes, crabs, seen from above.
 | Vampire Bat | `creatures/vampire-bat` | loop 6s | 176×132 | A vampire bat seen from above flaps a looping flight, its webbed wings folding and spreading, red eyes glowing, sonar rings pulsing ahead of it. |
 | Wolf Spider | `creatures/wolf-spider` | loop 6s | 176×128 | A hairy wolf spider seen from above prowls a loop with her brood riding on her back; spiderlings keep dropping off and scattering away. |
 | Rolling Woodlouse | `creatures/woodlouse` | loop 6s | 160×112 | A woodlouse seen from above trundles along on its little legs, curls up into an armoured ball, rolls away fast, then uncurls and walks on. |
+
+## moves
+
+whole attacks, wind-up to recovery, chained from the effects above.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Arrow shot | `moves/arrow-shot` | one-shot 2.41s | 353×93 | He raises the bow, draws to his cheek, holds his breath and looses: the string snaps forward, the arrow crosses the floor and thuds home. |
+| Dash strike | `moves/dash-strike` | one-shot 2.97s | 358×162 | A crouch, then he's across the floor in a blur of after-images and already cutting: a critical hit, a beat, and he hops back to where he started. |
+| Earth stomp | `moves/earth-stomp` | one-shot 4.2s | 289×192 | A knee comes up, the boot slams down, the floor heaves under the target and a stone spike rams up through it. |
+| Fireball throw | `moves/fireball-throw` | one-shot 7.41s | 398×254 | He gathers fire in his hand, leans back and hurls it: the ball flies, the target takes it in a blast and comes out charred. |
+| Ground pound | `moves/ground-pound` | one-shot 4.57s | 344×235 | He coils, leaps out of frame height, hangs, and comes down like a rock: the floor cracks, shock waves race out and throw the target about as they pass. |
+| Holy smite | `moves/holy-smite` | one-shot 3.36s | 289×216 | Both hands go up and a glint marks the target; he brings them down and a bolt of light drops like a hammer, leaving the target blanched. |
+| Ice lance throw | `moves/ice-lance-throw` | one-shot 4.87s | 397×163 | Frost gathers into a spear in his hand, he throws it like a javelin, and the target ices over in a burst of snowflakes and shivers. |
+| Lightning call | `moves/lightning-call` | one-shot 3.2s | 319×337 | An arm goes up, a sigil lights under the target, and on the downswing a thick bolt comes down on it; the target jolts through the aftershocks. |
+| Meteor call | `moves/meteor-call` | one-shot 7.05s | 432×259 | A long chant: a circle draws itself round him, it flares, he points, and a burning rock comes down on the target and flattens the scene. |
+| Pistol shots | `moves/pistol-shots` | one-shot 3.12s | 438×96 | Three aimed shots: the gun kicks up each time and settles, tracers cross the floor, and the target staggers under each hit. |
+| Rocket launcher | `moves/rocket-launcher` | one-shot 7.34s | 540×254 | He drops to one knee, shoulders the tube and fires: the kick shoves him back along the floor, the rocket crawls out on its jet and the target goes up. |
+| Sword combo | `moves/sword-combo` | one-shot 4.06s | 349×149 | Three strokes walking forward: a slash, a crossing double cut, and a two-handed cleave into the floor that throws the target about. |
