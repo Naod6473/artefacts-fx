@@ -68,7 +68,8 @@ jobs:
           for d in assets/fx assets/interfaces assets/loading; do
             lftp -c "$ouvrir; mirror -R --verbose --delete --delete-first --parallel=4 dist/$d ${DOSSIER}$d"
           done
-          lftp -c "$ouvrir; mirror -R --parallel=4 dist/api/fiches ${DOSSIER}api/fiches; put -O ${DOSSIER}api dist/api/fiche.php; put -O $DOSSIER dist/.htaccess"
+          # (.htaccess ne s'écrase pas avec put sur OVH : le mirror ci-dessous l'efface puis le renvoie)
+          lftp -c "$ouvrir; mirror -R --parallel=4 dist/api/fiches ${DOSSIER}api/fiches; rm -f ${DOSSIER}api/fiche.php; put -O ${DOSSIER}api dist/api/fiche.php"
           # Puis tout dist/ ; ailleurs, sans --delete, rien n'est effacé sur le serveur,
           # et les données de la communauté (api/donnees/*.sqlite, *.json) ne sont jamais écrasées
           lftp -c "$ouvrir; mirror -R --verbose --parallel=4 -x '^api/donnees/.*\.(sqlite|sqlite-journal|json)$' dist/ $DOSSIER"
