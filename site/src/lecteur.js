@@ -146,6 +146,7 @@ export function vuePartagee(get) {
  */
 // calme : une vignette parmi d'autres (cartes de la bibliothèque, aperçus de l'accueil). Si le visiteur demande
 // moins d'animations (prefers-reduced-motion), elle reste sur une seule image, redessinée quand le rendu change.
+const VIGNETTE_FPS = 15;
 const reduit = globalThis.matchMedia?.("(prefers-reduced-motion: reduce)"); // absent dans le Worker du bac à sable
 export function boucle() {
   const vues = [];
@@ -179,6 +180,10 @@ export function boucle() {
       v.lecteur.avancer(dt, now);
       const r = v.rendu(), w = v.cv.clientWidth;
       if (v.image === v.lecteur.images && v.r === r && v.w === w) continue;
+      // une vignette se redessine au plus 15 fois par seconde (l'effet, lui, avance à son rythme) : avec une
+      // quinzaine de cartes à l'écran, c'est ce dessin qui coûte, surtout dans les rendus en caractères
+      if (v.calme && v.r === r && v.w === w && now - (v.quand ?? 0) < 1000 / VIGNETTE_FPS - 2) continue;
+      v.quand = now;
       // budget : au-delà de 8 ms dans cette image d'écran, les vignettes attendent la suivante, pour que le
       // défilement reste fluide sur une machine lente (elles ralentissent un peu au lieu de tout faire saccader)
       if (v.calme && performance.now() - debut > 8) continue;

@@ -29,8 +29,11 @@ const sourceTexte = {
   },
 };
 
-// « import { catalogue, charger, source } from "virtuel:catalogue" » : la liste des effets (numéro, nom, tags, durée…)
-// calculée ici, et pour chacun un import() séparé, donc le code d'un effet n'est téléchargé que s'il est affiché
+// « import { catalogue } from "virtuel:catalogue" » : la liste des effets (numéro, nom, tags, durée, descriptions…)
+// calculée ici. « import { charger, chemins } from "virtuel:charger" » : pour chacun un import() séparé, donc le
+// code d'un effet n'est téléchargé que s'il est affiché. Deux modules, pour que les pages qui n'ont besoin que de
+// charger un effet (la page d'un effet, l'accueil) ne téléchargent pas le catalogue entier (plus de 500 Ko).
+// « virtuel:source » : le texte de chaque effet, pour l'onglet « code source »
 const registre = JSON.parse(readFileSync("effets/registre.json", "utf8"));
 // noms et descriptions en français (effets/traductions-fr.json) ; un effet sans traduction garde son texte d'origine
 const TRAD_FR = existsSync("effets/traductions-fr.json") ? JSON.parse(readFileSync("effets/traductions-fr.json", "utf8")) : {};
@@ -45,13 +48,17 @@ for (const [n, id] of Object.entries(registre)) {
 const catalogueVirtuel = {
   name: "catalogue",
   setup(b) {
-    b.onResolve({ filter: /^virtuel:catalogue$/ }, () => ({ path: "catalogue", namespace: "virtuel" }));
-    b.onLoad({ filter: /.*/, namespace: "virtuel" }, () => {
+    b.onResolve({ filter: /^virtuel:(catalogue|charger|source)$/ }, (a) => ({ path: a.path.slice(8), namespace: "virtuel" }));
+    b.onLoad({ filter: /.*/, namespace: "virtuel" }, (a) => {
       const fichier = (id) => JSON.stringify(resolve("effets", id + ".js"));
       const lignes = (suffixe) => catalogue.map((e) => `  "${e.n}": () => import(${fichier(e.id).slice(0, -1)}${suffixe}"),`).join("\n");
       return {
         resolveDir: resolve("."),
-        contents: `export const catalogue = ${JSON.stringify(catalogue)};\nexport const charger = {\n${lignes("")}\n};\nexport const source = {\n${lignes("?source")}\n};\n`,
+        contents: {
+          charger: `export const charger = {\n${lignes("")}\n};\nexport const chemins = ${JSON.stringify(Object.fromEntries(catalogue.map((e) => [e.n, e.id])))};\n`,
+          source: `export const source = {\n${lignes("?source")}\n};\n`,
+          catalogue: `export const catalogue = ${JSON.stringify(catalogue)};\nexport { charger } from "virtuel:charger";\n`,
+        }[a.path],
       };
     });
   },

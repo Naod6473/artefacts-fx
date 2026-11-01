@@ -1,6 +1,6 @@
 // Page d'un effet (/fr/fx/42/) : l'image d'aperçu s'affiche tout de suite, puis l'effet tourne à sa place,
 // dans le rendu choisi (le même que dans la bibliothèque, retenu par le navigateur).
-import { charger } from "virtuel:catalogue";
+import { charger } from "virtuel:charger";
 import { Lecteur, boucle } from "./lecteur.js";
 import { rendus, parId, RENDU_PAR_DEFAUT } from "../../rendus/index.js";
 import { initCompte } from "./compte.js";
