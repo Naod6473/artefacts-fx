@@ -55,11 +55,11 @@ jobs:
           ssh-keyscan -p "$PORT" "$FTP_SERVER" >> ~/.ssh/known_hosts 2> /dev/null
           ssh-keygen -lf ~/.ssh/known_hosts
           ouvrir="set net:max-retries 2; set net:timeout 30; open -p $PORT -u $FTP_USERNAME --env-password sftp://$FTP_SERVER"
-          # Les pages des effets sont faites par api/fiche.php (règle dans .htaccess) : d'abord la règle et le script,
-          # puis on efface les anciennes pages /<langue>/fx/<n>/ (2 000 dossiers, trop pour l'hébergement de 100 Mo)
-          lftp -c "$ouvrir; mirror -R --parallel=4 dist/api/fiches ${DOSSIER}api/fiches; put -O ${DOSSIER}api dist/api/fiche.php; put -O $DOSSIER dist/.htaccess"
+          # Les pages des effets sont faites par api/fiche.php (règle dans .htaccess). On efface d'abord les anciennes
+          # pages /<langue>/fx/<n>/ (2 000 dossiers, trop pour l'hébergement de 100 Mo) : l'hébergement plein refuse
+          # tout envoi, même petit, tant qu'on n'a pas fait de place. Puis la règle et le script.
           for l in $(ls dist | grep -E '^[a-z]{2}$'); do
-            lftp -c "$ouvrir; rm -r ${DOSSIER}$l/fx" 2>&1 | tail -1 || true
+            echo "Effacement de ${DOSSIER}$l/fx : $(lftp -c "$ouvrir; rm -r ${DOSSIER}$l/fx" 2>&1 | tail -1 || true)"
           done
           # Les dossiers de morceaux de code (noms à empreinte, qui changent à chaque version) gardaient toutes les
           # anciennes versions : avec l'hébergement à 100 Mo, l'envoi finissait en « Failure » (quota plein).
@@ -68,6 +68,7 @@ jobs:
           for d in assets/fx assets/interfaces assets/loading; do
             lftp -c "$ouvrir; mirror -R --verbose --delete --delete-first --parallel=4 dist/$d ${DOSSIER}$d"
           done
+          lftp -c "$ouvrir; mirror -R --parallel=4 dist/api/fiches ${DOSSIER}api/fiches; put -O ${DOSSIER}api dist/api/fiche.php; put -O $DOSSIER dist/.htaccess"
           # Puis tout dist/ ; ailleurs, sans --delete, rien n'est effacé sur le serveur,
           # et les données de la communauté (api/donnees/*.sqlite, *.json) ne sont jamais écrasées
           lftp -c "$ouvrir; mirror -R --verbose --parallel=4 -x '^api/donnees/.*\.(sqlite|sqlite-journal|json)$' dist/ $DOSSIER"
