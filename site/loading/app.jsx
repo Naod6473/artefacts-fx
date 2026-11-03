@@ -9,6 +9,7 @@ import { Lecteur, boucle } from "../src/lecteur.js";
 import { rendus, parId, RENDU_PAR_DEFAUT } from "../../rendus/index.js";
 import { zip } from "../src/zip.js";
 import { T } from "./textes.js";
+import { UIVERSE, UV, estUv, lienUv, cssPortee, codeUv, echelle } from "./uiverse.js";
 
 const LANGUE = document.documentElement.lang === "en" ? "en" : "fr", t = T[LANGUE], BASE = document.body.dataset.base || "/";
 const NOMS = Object.keys(SPINNERS);
@@ -74,10 +75,12 @@ const TEXTE = [
 ];
 // un indicateur, quel qu'il soit : "arc" (loading-dev) ou "tx-braille" (texte)
 const TX = Object.fromEntries(TEXTE.map((x) => ["tx-" + x.id, x]));
-const INDICS = [...NOMS, ...Object.keys(TX)];
+// les indicateurs web (CSS) : loading-dev, puis ceux d'Uiverse
+const WEB = [...NOMS, ...UIVERSE.map((x) => x.id)];
+const INDICS = [...WEB, ...Object.keys(TX)];
 const estTexte = (id) => id.startsWith("tx-");
-const nomIndic = (id) => (estTexte(id) ? t["texte_" + TX[id].id] : pascal(id));
-const dureeIndic = (id, r) => (estTexte(id) ? Math.round(TX[id].ms / r.vitesse) : duree(id, r));
+const nomIndic = (id) => (estTexte(id) ? t["texte_" + TX[id].id] : estUv(id) ? UV[id].nom : pascal(id));
+const dureeIndic = (id, r) => (estTexte(id) ? Math.round(TX[id].ms / r.vitesse) : estUv(id) ? Math.round(UV[id].ms / r.vitesse) : duree(id, r));
 const ASCII = (x) => x.frames.every((f) => /^[\x20-\x7e]*$/.test(f)); // affichable avec la police par défaut de Godot
 
 function TexteAnime({ x, pause, taille = 32, ms = x.ms }) {
@@ -85,7 +88,29 @@ function TexteAnime({ x, pause, taille = 32, ms = x.ms }) {
   useEffect(() => { if (pause) return; const id = setInterval(() => setI((k) => (k + 1) % x.frames.length), ms); return () => clearInterval(id); }, [x, pause, ms]);
   return <span className="txt" style={{ fontSize: Math.round(taille * (x.frames[0].length > 4 ? 0.55 : 0.95)) }}>{x.frames[i]}</span>;
 }
+// un indicateur Uiverse : son HTML d'origine, son CSS enfermé dans .uv-<slug>, mis à la taille par zoom ;
+// vitesse et pause passent par les animations elles-mêmes (playbackRate), sans toucher au CSS
+function UvIndic({ x, r, taille }) {
+  const ref = useRef(null), z = echelle(x, taille);
+  useEffect(() => {
+    if (!document.querySelector(`style[data-href="uv-${x.slug}"]`)) {
+      const st = document.createElement("style");
+      st.dataset.href = "uv-" + x.slug;
+      st.textContent = cssPortee(x);
+      document.head.append(st);
+    }
+  }, [x]);
+  useEffect(() => {
+    for (const a of ref.current?.getAnimations?.({ subtree: true }) ?? []) { a.playbackRate = r.vitesse; if (r.pause) a.pause(); else a.play(); }
+  });
+  return (
+    <span className={"uv uv-" + x.slug} style={{ "--uv-c": r.couleur, display: "inline-block", overflow: "hidden", width: x.l * z, height: x.h * z }}>
+      <span ref={ref} style={{ display: "grid", placeItems: "center", width: x.l, height: x.h, zoom: z }} dangerouslySetInnerHTML={{ __html: x.html }} />
+    </span>
+  );
+}
 function Indic({ id, r, taille = r.taille }) {
+  if (estUv(id)) return <UvIndic x={UV[id]} r={r} taille={taille} />;
   if (estTexte(id)) return <span style={{ color: r.couleur }}><TexteAnime x={TX[id]} pause={r.pause} taille={taille} ms={dureeIndic(id, r)} /></span>;
   const S = SPINNERS[id];
   return <S size={taille} color={r.couleur} duration={duree(id, r)} playState={r.pause ? "paused" : "running"} />;
@@ -95,8 +120,9 @@ const codeTexteJs = (x, ms = x.ms) => `// ${x.id} · Artefacts (MIT)\nconst fram
 const codeTexteGd = (x, ms = x.ms) => `# ${x.id} · Artefacts (MIT) : à mettre sur un Label (Godot 4)${ASCII(x) ? "" : ", avec une police qui contient ces caractères"}\nextends Label\n\nconst FRAMES := ${JSON.stringify(x.frames)}\nconst PAS := ${(ms / 1000).toFixed(3)}\nvar _t := 0.0\nvar _i := 0\n\nfunc _process(delta: float) -> void:\n\t_t += delta\n\tif _t >= PAS:\n\t\t_t -= PAS\n\t\t_i = (_i + 1) % FRAMES.size()\n\t\ttext = FRAMES[_i]`;
 
 // les onglets de code d'un indicateur, comme « Utiliser / Source » dans la bibliothèque
-const ONGLETS = (id) => (estTexte(id) ? [["js", "JavaScript"], ["gd", "GDScript"]] : [["react", "React"], ["html", "HTML + CSS"]]);
+const ONGLETS = (id) => (estTexte(id) ? [["js", "JavaScript"], ["gd", "GDScript"]] : estUv(id) ? [["html", "HTML + CSS"]] : [["react", "React"], ["html", "HTML + CSS"]]);
 function codeIndic(id, onglet, r, el) {
+  if (estUv(id)) return codeUv(UV[id], r);
   if (estTexte(id)) return onglet === "gd" ? codeTexteGd(TX[id], dureeIndic(id, r)) : codeTexteJs(TX[id], dureeIndic(id, r));
   return onglet === "html" ? codeHtml(id, el) : codeReact(id, r);
 }
@@ -122,7 +148,7 @@ function Panneau({ id, r, copier, ouvert, fermer, zoomer }) {
     <aside className={`panneau${ouvert ? " ouvert" : ""}`} aria-label={nomIndic(id)}>
       <button type="button" className="fermer-panneau" onClick={fermer}>← {t.retour}</button>
       <div className="titre">
-        <div><span className="num">{estTexte(id) ? t.vue_texte : "loading-dev"}</span><h2>{nomIndic(id)}</h2></div>
+        <div><span className="num">{estTexte(id) ? t.vue_texte : estUv(id) ? <a href={lienUv(UV[id])} target="_blank" rel="noopener">Uiverse · {UV[id].auteur} (MIT)</a> : "loading-dev"}</span><h2>{nomIndic(id)}</h2></div>
         <div className="boutons">
           <button type="button" aria-label={t.copier_lien} title={t.copier_lien} onClick={() => copier(adresse(r, { s: id }), t.lien_copie)}>⧉</button>
           <button type="button" aria-label={t.agrandir} title={t.agrandir} onClick={zoomer}>⤢</button>
@@ -136,7 +162,7 @@ function Panneau({ id, r, copier, ouvert, fermer, zoomer }) {
       <pre className="code-panneau" tabIndex={0}>{code}</pre>
       <div className="actions"><button type="button" className="plein" onClick={() => copier(codeIndic(id, onglet, r, ref.current))}>{t.copier_code}</button></div>
       {/* hors écran : le rendu à la taille réglée, d'où l'on tire le HTML + CSS copié */}
-      {!estTexte(id) && <div className="hors-ecran" aria-hidden="true" ref={ref}><Indic id={id} r={r} /></div>}
+      {!estTexte(id) && !estUv(id) && <div className="hors-ecran" aria-hidden="true" ref={ref}><Indic id={id} r={r} /></div>}
     </aside>
   );
 }
@@ -169,7 +195,7 @@ function Zoom({ id, r, liste, choisir, fermer, details, copier }) {
         <pre className="zoom-code">{codeIndic(id, ONGLETS(id)[0][0], r, ref.current)}</pre>
       </div>
       <button type="button" className="zoom-fleche d" aria-label={t.suivant} onClick={() => pas(1)}>→</button>
-      {!estTexte(id) && <div className="hors-ecran" aria-hidden="true" ref={ref}><Indic id={id} r={r} /></div>}
+      {!estTexte(id) && !estUv(id) && <div className="hors-ecran" aria-hidden="true" ref={ref}><Indic id={id} r={r} /></div>}
     </div>
   );
 }
@@ -196,6 +222,7 @@ function ChoixIndic({ value, onChange, label }) {
     <label className="champ">{label}
       <select value={value} onChange={(e) => onChange(e.target.value)}>
         <optgroup label="loading-dev">{NOMS.map((n) => <option key={n} value={n}>{pascal(n)}</option>)}</optgroup>
+        {UIVERSE.length > 0 && <optgroup label="Uiverse">{UIVERSE.map((x) => <option key={x.id} value={x.id}>{x.nom}</option>)}</optgroup>}
         <optgroup label={t.vue_texte}>{Object.keys(TX).map((k) => <option key={k} value={k}>{nomIndic(k)}</option>)}</optgroup>
       </select>
     </label>
@@ -215,15 +242,15 @@ function EcranJeu({ r, setR, copier }) {
   useEffect(() => { const k = requestAnimationFrame(() => majCode((n) => n + 1)); return () => cancelAnimationFrame(k); }, [indic, r]);
   const blocs = (n) => "█".repeat(Math.round(n / 5)).padEnd(20, "░");
   const html = () => {
-    const tx = estTexte(indic), x = TX[indic];
-    const sp = tx ? `<span class="sp">${x.frames[0]}</span>` : (ref.current?.firstElementChild?.outerHTML ?? "");
-    const style = tx ? "" : (document.querySelector(`style[data-href="ld-${indic}"]`)?.textContent.trim() ?? "");
-    return `<!-- Écran de chargement · Artefacts (MIT)${tx ? "" : ` · indicateur ${pascal(indic)} de loading-dev (MIT, Jakub Krehel)`} -->\n<div class="chargement">\n  <div class="haut">${sp} <b>${titre}</b></div>\n  ${jauge === "blocs" ? `<div class="jauge-txt">${blocs(0)}</div>` : `<div class="jauge"><i></i></div>`}\n  <div class="bas"><span class="astuce"></span><span class="pc">0 %</span></div>\n</div>\n<style>\n.chargement { font-family: monospace; color: #d6e2f0; background: #0e1220; padding: 22px; max-width: 640px; }\n.chargement .haut { display: flex; gap: 12px; align-items: center; color: ${r.couleur}; letter-spacing: .1em; }\n.chargement .jauge { height: 10px; margin: 16px 0 8px; border: 1px solid #2a3446; }\n.chargement .jauge i { display: block; height: 100%; width: 0; background: ${r.couleur}; transition: width .2s; }\n.chargement .jauge-txt { margin: 12px 0 6px; color: ${r.couleur}; letter-spacing: 1px; }\n.chargement .bas { display: flex; justify-content: space-between; color: #8796ad; font-size: 12px; }\n${style}\n</style>\n<script>\nconst astuces = ${JSON.stringify(astuces)};\n${tx ? `const frames = ${JSON.stringify(x.frames)};\nlet f = 0;\nsetInterval(() => document.querySelector(".chargement .sp").textContent = frames[f++ % frames.length], ${dureeIndic(indic, r)});\n` : ""}let a = 0;\nconst astuce = () => document.querySelector(".chargement .astuce").textContent = astuces[a++ % astuces.length] ?? "";\nastuce(); setInterval(astuce, 3000);\n// appelez progres(0..100) depuis votre chargement\nfunction progres(n) {\n  ${jauge === "blocs" ? `document.querySelector(".chargement .jauge-txt").textContent = "█".repeat(Math.round(n / 5)).padEnd(20, "░");` : `document.querySelector(".chargement .jauge i").style.width = n + "%";`}\n  document.querySelector(".chargement .pc").textContent = Math.round(n) + " %";\n}\n</script>`;
+    const tx = estTexte(indic), x = TX[indic], uv = UV[indic];
+    const sp = tx ? `<span class="sp">${x.frames[0]}</span>` : uv ? `<span class="uv-${uv.slug}" style="display:inline-block;zoom:${+echelle(uv, 28).toFixed(3)}">${uv.html.trim()}</span>` : (ref.current?.firstElementChild?.outerHTML ?? "");
+    const style = tx ? "" : uv ? cssPortee(uv).replace(/var\(--uv-c,\s*[^)]+\)/g, r.couleur).trim() : (document.querySelector(`style[data-href="ld-${indic}"]`)?.textContent.trim() ?? "");
+    return `<!-- Écran de chargement · Artefacts (MIT)${tx ? "" : uv ? ` · indicateur ${uv.nom}, Uiverse.io par ${uv.auteur} (MIT)` : ` · indicateur ${pascal(indic)} de loading-dev (MIT, Jakub Krehel)`} -->\n<div class="chargement">\n  <div class="haut">${sp} <b>${titre}</b></div>\n  ${jauge === "blocs" ? `<div class="jauge-txt">${blocs(0)}</div>` : `<div class="jauge"><i></i></div>`}\n  <div class="bas"><span class="astuce"></span><span class="pc">0 %</span></div>\n</div>\n<style>\n.chargement { font-family: monospace; color: #d6e2f0; background: #0e1220; padding: 22px; max-width: 640px; }\n.chargement .haut { display: flex; gap: 12px; align-items: center; color: ${r.couleur}; letter-spacing: .1em; }\n.chargement .jauge { height: 10px; margin: 16px 0 8px; border: 1px solid #2a3446; }\n.chargement .jauge i { display: block; height: 100%; width: 0; background: ${r.couleur}; transition: width .2s; }\n.chargement .jauge-txt { margin: 12px 0 6px; color: ${r.couleur}; letter-spacing: 1px; }\n.chargement .bas { display: flex; justify-content: space-between; color: #8796ad; font-size: 12px; }\n${style}\n</style>\n<script>\nconst astuces = ${JSON.stringify(astuces)};\n${tx ? `const frames = ${JSON.stringify(x.frames)};\nlet f = 0;\nsetInterval(() => document.querySelector(".chargement .sp").textContent = frames[f++ % frames.length], ${dureeIndic(indic, r)});\n` : ""}let a = 0;\nconst astuce = () => document.querySelector(".chargement .astuce").textContent = astuces[a++ % astuces.length] ?? "";\nastuce(); setInterval(astuce, 3000);\n// appelez progres(0..100) depuis votre chargement\nfunction progres(n) {\n  ${jauge === "blocs" ? `document.querySelector(".chargement .jauge-txt").textContent = "█".repeat(Math.round(n / 5)).padEnd(20, "░");` : `document.querySelector(".chargement .jauge i").style.width = n + "%";`}\n  document.querySelector(".chargement .pc").textContent = Math.round(n) + " %";\n}\n</script>`;
   };
   const godot = async () => {
     const coul = r.couleur.slice(1).match(/../g).map((h) => (parseInt(h, 16) / 255).toFixed(3)).join(", ");
     const x = estTexte(indic) ? TX[indic] : TX["tx-terminal"];
-    const note = !estTexte(indic) ? t.jeu_note_ld.replace("{n}", pascal(indic)) : ASCII(x) ? "" : t.jeu_note_police;
+    const note = !estTexte(indic) ? t.jeu_note_ld.replace("{n}", nomIndic(indic)) : ASCII(x) ? "" : t.jeu_note_police;
     const gd = gdChargement(x.frames, dureeIndic(estTexte(indic) ? indic : "tx-terminal", r) / 1000, note).replace("%ASTUCES%", JSON.stringify(astuces));
     telecharger(await zip([
       { nom: "chargement/chargement.tscn", contenu: tscnChargement(coul, titre) },
@@ -251,7 +278,7 @@ function EcranJeu({ r, setR, copier }) {
         <label className="champ">{t.jauge} <select value={jauge} onChange={(e) => setJauge(e.target.value)}><option value="pleine">{t.jauge_pleine}</option><option value="blocs">{t.jauge_blocs}</option></select></label>
         <label className="champ colonne">{t.jeu_astuces} <textarea rows={4} value={astucesTexte} onChange={(e) => setAstuces(e.target.value)} /></label>
       </div>
-      {!estTexte(indic) && <div className="hors-ecran" aria-hidden="true" ref={ref}><Indic id={indic} r={r} taille={28} /></div>}
+      {!estTexte(indic) && !estUv(indic) && <div className="hors-ecran" aria-hidden="true" ref={ref}><Indic id={indic} r={r} taille={28} /></div>}
     </div>
   );
 }
@@ -280,8 +307,8 @@ function Place({ place, r, copier }) {
       <figcaption>{t["sit_" + place.id]}</figcaption>
       <ChoixIndic label={t.indicateur} value={indic} onChange={setIndic} />
       <div className="actions"><button type="button" className="plein" onClick={() => copier(codeIndic(indic, ONGLETS(indic)[0][0], rr, ref.current))}>{t.copier} {ONGLETS(indic)[0][1]}</button>
-        <button type="button" onClick={() => copier(codeIndic(indic, ONGLETS(indic)[1][0], rr, ref.current))}>{ONGLETS(indic)[1][1]}</button></div>
-      {!estTexte(indic) && <div className="hors-ecran" aria-hidden="true" ref={ref}><Indic id={indic} r={rr} /></div>}
+        {ONGLETS(indic)[1] && <button type="button" onClick={() => copier(codeIndic(indic, ONGLETS(indic)[1][0], rr, ref.current))}>{ONGLETS(indic)[1][1]}</button>}</div>
+      {!estTexte(indic) && !estUv(indic) && <div className="hors-ecran" aria-hidden="true" ref={ref}><Indic id={indic} r={rr} /></div>}
     </figure>
   );
 }
@@ -320,12 +347,15 @@ function App() {
   // l'adresse suit les réglages, pour qu'un lien copié dans la barre redonne la même page
   useEffect(() => { history.replaceState(null, "", adresse(r, r.choisi ? { s: r.choisi } : {})); }, [r]);
   const copier = (texte, ok = t.code_copie) => navigator.clipboard?.writeText(texte).then(() => setMsg(ok), () => setMsg(t.copie_ko));
-  const liste = useMemo(() => NOMS.filter((n) => n.includes(q.trim().toLowerCase().replace(/\s+/g, "-"))), [q]);
+  const liste = useMemo(() => {
+    const m = q.trim().toLowerCase().replace(/\s+/g, "-");
+    return WEB.filter((n) => n.includes(m) || (estUv(n) && (UV[n].nom.toLowerCase().replace(/\s+/g, "-").includes(m) || "uiverse".includes(m) || UV[n].auteur.toLowerCase().includes(m))));
+  }, [q]);
   const listeTexte = useMemo(() => Object.keys(TX), []);
   return (
     <>
       <div className="vues" role="tablist">
-        {VUES.map((v) => <button key={v} type="button" role="tab" aria-selected={r.vue === v} aria-pressed={r.vue === v} onClick={() => set("vue")(v)}>{t["vue_" + v].replace("{n}", NOMS.length)}</button>)}
+        {VUES.map((v) => <button key={v} type="button" role="tab" aria-selected={r.vue === v} aria-pressed={r.vue === v} onClick={() => set("vue")(v)}>{t["vue_" + v].replace("{n}", WEB.length)}</button>)}
       </div>
 
       <div className="outils">
