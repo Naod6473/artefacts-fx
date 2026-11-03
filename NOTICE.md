@@ -32,3 +32,8 @@ La page Interfaces reprend la documentation et les composants d'Inkra (https://g
 ## Loading (loading-dev)
 
 La page Loading utilise le paquet npm loading-dev (https://github.com/jakubkrehel/loading), licence MIT, Copyright (c) 2026 Jakub Krehel.
+
+## Loading (Uiverse)
+
+La page Loading reprend aussi des éléments d'Uiverse (https://uiverse.io), licence MIT, chacun crédité à son auteur dans site/loading/uiverse.js :
+- « AI Matrix Loader » (https://uiverse.io/PriyanshuGupta28/bright-bobcat-12), par PriyanshuGupta28.
