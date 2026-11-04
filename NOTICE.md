@@ -22,6 +22,14 @@ garde la pièce d'origine et le dit en tête ; `effets/_ascii/fx.js` et `effets/
 branchent sur le moteur. Trois scènes du dépôt d'origine faites à partir de photos (ocean-sunset, starry-ridge :
 Unsplash License ; temple-sunset : photo d'origine non indiquée) ne sont pas sous MIT et ne sont pas reprises.
 
+**PVFX Foundry.** Les 47 effets de la catégorie foundry (#0998–#1044) sont tirés des planches de sprites « lit » de
+PVFX Foundry 1.0 par Pixel VFX Studio (https://github.com/arcanite24/pixel-vfx-studio, commit 57e8eff), dédiées au
+domaine public sous CC0 1.0 Universal ; texte complet dans `effets/foundry/LICENSE.txt`. Crédit suggéré par l'auteur :
+« VFX from PVFX Foundry by Pixel VFX Studio ». La CC0 ne couvre ni le logiciel Pixel VFX Studio, ni le code de ses
+effets, ni ses noms et marques : rien de cela n'est repris. `tools/pvfx-foundry.mjs` importe les images et
+`effets/foundry/_lib.js` (code d'Artefacts) les repeint dans le tampon. Les effets du pack dont le nom existait déjà
+dans la bibliothèque (54 sur 101) et les 44 effets de l'ancienne version 0.10 ne sont pas repris.
+
 **Police Patch Pixel.** La police du dossier `gallery/fonts` de pixelfx appartient à Patch et n'est pas sous licence
 MIT. Elle n'est pas incluse dans ce dépôt et ne doit pas y être ajoutée.
 

@@ -997,6 +997,53 @@ import * as india_tabla_hands_rhythm from "./india/tabla-hands-rhythm.js";
 import * as india_temple_gopuram_madurai from "./india/temple-gopuram-madurai.js";
 import * as india_varanasi_morning_boats from "./india/varanasi-morning-boats.js";
 import * as india_white_salt_desert_moon from "./india/white-salt-desert-moon.js";
+import * as foundry_acid_spit from "./foundry/acid-spit.js";
+import * as foundry_angel_feathers from "./foundry/angel-feathers.js";
+import * as foundry_arcane_burst from "./foundry/arcane-burst.js";
+import * as foundry_arcane_orb_projectile from "./foundry/arcane-orb-projectile.js";
+import * as foundry_axe_smear from "./foundry/axe-smear.js";
+import * as foundry_barrier_block from "./foundry/barrier-block.js";
+import * as foundry_blink_dash from "./foundry/blink-dash.js";
+import * as foundry_blood_splat from "./foundry/blood-splat.js";
+import * as foundry_bubble_burst from "./foundry/bubble-burst.js";
+import * as foundry_charm_hearts from "./foundry/charm-hearts.js";
+import * as foundry_dash_dust from "./foundry/dash-dust.js";
+import * as foundry_divine_beam from "./foundry/divine-beam.js";
+import * as foundry_dust_puff from "./foundry/dust-puff.js";
+import * as foundry_fire_nova from "./foundry/fire-nova.js";
+import * as foundry_fissure from "./foundry/fissure.js";
+import * as foundry_ground_flames from "./foundry/ground-flames.js";
+import * as foundry_ice_shard from "./foundry/ice-shard.js";
+import * as foundry_ice_wall from "./foundry/ice-wall.js";
+import * as foundry_lava_burst from "./foundry/lava-burst.js";
+import * as foundry_poison_dart from "./foundry/poison-dart.js";
+import * as foundry_portal_summon from "./foundry/portal-summon.js";
+import * as foundry_power_up_aura from "./foundry/power-up-aura.js";
+import * as foundry_punch_hit from "./foundry/punch-hit.js";
+import * as foundry_regen_aura from "./foundry/regen-aura.js";
+import * as foundry_resurrect from "./foundry/resurrect.js";
+import * as foundry_rock_shatter from "./foundry/rock-shatter.js";
+import * as foundry_rune_trap from "./foundry/rune-trap.js";
+import * as foundry_shadow_bolt from "./foundry/shadow-bolt.js";
+import * as foundry_shadow_claw from "./foundry/shadow-claw.js";
+import * as foundry_shield_bubble from "./foundry/shield-bubble.js";
+import * as foundry_shield_shatter from "./foundry/shield-shatter.js";
+import * as foundry_shockwave_ring from "./foundry/shockwave-ring.js";
+import * as foundry_snowball_impact from "./foundry/snowball-impact.js";
+import * as foundry_spear_thrust from "./foundry/spear-thrust.js";
+import * as foundry_star_burst_pickup from "./foundry/star-burst-pickup.js";
+import * as foundry_static_burst from "./foundry/static-burst.js";
+import * as foundry_steam_vent from "./foundry/steam-vent.js";
+import * as foundry_stun_stars from "./foundry/stun-stars.js";
+import * as foundry_teleport_in from "./foundry/teleport-in.js";
+import * as foundry_thunder_cloud from "./foundry/thunder-cloud.js";
+import * as foundry_tidal_wave from "./foundry/tidal-wave.js";
+import * as foundry_treasure_glint from "./foundry/treasure-glint.js";
+import * as foundry_vine_snare from "./foundry/vine-snare.js";
+import * as foundry_void_implosion from "./foundry/void-implosion.js";
+import * as foundry_whirlwind from "./foundry/whirlwind.js";
+import * as foundry_wind_blade from "./foundry/wind-blade.js";
+import * as foundry_wind_gust from "./foundry/wind-gust.js";
 
 export { categories } from "./categories.js";
 
@@ -1998,4 +2045,51 @@ export const effects = {
   "india/temple-gopuram-madurai": india_temple_gopuram_madurai,
   "india/varanasi-morning-boats": india_varanasi_morning_boats,
   "india/white-salt-desert-moon": india_white_salt_desert_moon,
+  "foundry/acid-spit": foundry_acid_spit,
+  "foundry/angel-feathers": foundry_angel_feathers,
+  "foundry/arcane-burst": foundry_arcane_burst,
+  "foundry/arcane-orb-projectile": foundry_arcane_orb_projectile,
+  "foundry/axe-smear": foundry_axe_smear,
+  "foundry/barrier-block": foundry_barrier_block,
+  "foundry/blink-dash": foundry_blink_dash,
+  "foundry/blood-splat": foundry_blood_splat,
+  "foundry/bubble-burst": foundry_bubble_burst,
+  "foundry/charm-hearts": foundry_charm_hearts,
+  "foundry/dash-dust": foundry_dash_dust,
+  "foundry/divine-beam": foundry_divine_beam,
+  "foundry/dust-puff": foundry_dust_puff,
+  "foundry/fire-nova": foundry_fire_nova,
+  "foundry/fissure": foundry_fissure,
+  "foundry/ground-flames": foundry_ground_flames,
+  "foundry/ice-shard": foundry_ice_shard,
+  "foundry/ice-wall": foundry_ice_wall,
+  "foundry/lava-burst": foundry_lava_burst,
+  "foundry/poison-dart": foundry_poison_dart,
+  "foundry/portal-summon": foundry_portal_summon,
+  "foundry/power-up-aura": foundry_power_up_aura,
+  "foundry/punch-hit": foundry_punch_hit,
+  "foundry/regen-aura": foundry_regen_aura,
+  "foundry/resurrect": foundry_resurrect,
+  "foundry/rock-shatter": foundry_rock_shatter,
+  "foundry/rune-trap": foundry_rune_trap,
+  "foundry/shadow-bolt": foundry_shadow_bolt,
+  "foundry/shadow-claw": foundry_shadow_claw,
+  "foundry/shield-bubble": foundry_shield_bubble,
+  "foundry/shield-shatter": foundry_shield_shatter,
+  "foundry/shockwave-ring": foundry_shockwave_ring,
+  "foundry/snowball-impact": foundry_snowball_impact,
+  "foundry/spear-thrust": foundry_spear_thrust,
+  "foundry/star-burst-pickup": foundry_star_burst_pickup,
+  "foundry/static-burst": foundry_static_burst,
+  "foundry/steam-vent": foundry_steam_vent,
+  "foundry/stun-stars": foundry_stun_stars,
+  "foundry/teleport-in": foundry_teleport_in,
+  "foundry/thunder-cloud": foundry_thunder_cloud,
+  "foundry/tidal-wave": foundry_tidal_wave,
+  "foundry/treasure-glint": foundry_treasure_glint,
+  "foundry/vine-snare": foundry_vine_snare,
+  "foundry/void-implosion": foundry_void_implosion,
+  "foundry/whirlwind": foundry_whirlwind,
+  "foundry/wind-blade": foundry_wind_blade,
+  "foundry/wind-gust": foundry_wind_gust,
 };

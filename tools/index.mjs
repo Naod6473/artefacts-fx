@@ -30,7 +30,9 @@ try { registre = JSON.parse(readFileSync(REGISTRE, "utf8")); } catch {}
 const connus = new Set(Object.values(registre));
 let dernier = Math.max(0, ...Object.keys(registre).map(Number));
 for (const id of ids) if (!connus.has(id)) registre[String(++dernier).padStart(4, "0")] = id;
-writeFileSync(REGISTRE, JSON.stringify(registre, null, 2) + "\n");
+// écrit à la main, dans l'ordre des numéros : JSON.stringify mettrait « 1000 » et suivants (clés entières) en tête
+const lignesRegistre = Object.keys(registre).sort((a, b) => Number(a) - Number(b)).map((n) => `  ${JSON.stringify(n)}: ${JSON.stringify(registre[n])}`);
+writeFileSync(REGISTRE, "{\n" + lignesRegistre.join(",\n") + "\n}\n");
 
 const ident = (id) => id.replace(/[^a-z0-9]+/gi, "_");
 const lines = [

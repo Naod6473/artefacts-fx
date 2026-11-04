@@ -48,5 +48,7 @@ export const categories = [
   { id: "music", name: "music & sound", blurb: "equalisers, turntables, sequencers and waveforms", source: "ascii-magic-art" },
   { id: "food", name: "food & drink", blurb: "steam, sizzle and pour: food that moves", source: "ascii-magic-art" },
   { id: "india", name: "india", blurb: "festivals, streets, monsoons and moments from across India", source: "ascii-magic-art" },
+  // PVFX Foundry 1.0 (Pixel VFX Studio, CC0 1.0) : des planches de sprites, pas du code, repeintes par effets/foundry/_lib.js
+  { id: "foundry", name: "pvfx foundry", blurb: "hand-animated pixel-art sprite sheets by Pixel VFX Studio, public domain (CC0)", source: "pvfx-foundry" },
   { id: "communaute", name: "community", blurb: "effects sent in by members of naod.fr" },
 ];
