@@ -9,13 +9,17 @@ import * as fire_fire_tornado from "./fire/fire-tornado.js";
 import * as fire_fireball from "./fire/fireball.js";
 import * as fire_flame_pillar from "./fire/flame-pillar.js";
 import * as fire_flamethrower from "./fire/flamethrower.js";
+import * as fire_ground_flames from "./fire/ground-flames.js";
+import * as fire_lava_burst from "./fire/lava-burst.js";
 import * as fire_meteor from "./fire/meteor.js";
 import * as fire_spirit_flame from "./fire/spirit-flame.js";
 import * as fire_torch from "./fire/torch.js";
+import * as explosions_arcane_burst from "./explosions/arcane-burst.js";
 import * as explosions_barrel_explosion from "./explosions/barrel-explosion.js";
 import * as explosions_big_explosion from "./explosions/big-explosion.js";
 import * as explosions_cartoon_pow from "./explosions/cartoon-pow.js";
 import * as explosions_dirt_explosion from "./explosions/dirt-explosion.js";
+import * as explosions_fire_nova from "./explosions/fire-nova.js";
 import * as explosions_firework_burst from "./explosions/firework-burst.js";
 import * as explosions_firework_rocket from "./explosions/firework-rocket.js";
 import * as explosions_grenade from "./explosions/grenade.js";
@@ -24,6 +28,7 @@ import * as explosions_nuke from "./explosions/nuke.js";
 import * as explosions_plasma_explosion from "./explosions/plasma-explosion.js";
 import * as explosions_small_explosion from "./explosions/small-explosion.js";
 import * as explosions_smoke_bomb from "./explosions/smoke-bomb.js";
+import * as water_bubble_burst from "./water/bubble-burst.js";
 import * as water_bubbles from "./water/bubbles.js";
 import * as water_drip from "./water/drip.js";
 import * as water_fountain from "./water/fountain.js";
@@ -31,6 +36,8 @@ import * as water_geyser from "./water/geyser.js";
 import * as water_rain_splash from "./water/rain-splash.js";
 import * as water_ripples from "./water/ripples.js";
 import * as water_splash from "./water/splash.js";
+import * as water_steam_vent from "./water/steam-vent.js";
+import * as water_tidal_wave from "./water/tidal-wave.js";
 import * as water_water_jet from "./water/water-jet.js";
 import * as water_water_orb from "./water/water-orb.js";
 import * as water_waterfall from "./water/waterfall.js";
@@ -44,7 +51,9 @@ import * as ice_ice_crystal from "./ice/ice-crystal.js";
 import * as ice_ice_lance from "./ice/ice-lance.js";
 import * as ice_ice_shatter from "./ice/ice-shatter.js";
 import * as ice_ice_spikes from "./ice/ice-spikes.js";
+import * as ice_ice_wall from "./ice/ice-wall.js";
 import * as ice_icicle_fall from "./ice/icicle-fall.js";
+import * as ice_snowball_impact from "./ice/snowball-impact.js";
 import * as ice_snowflake_burst from "./ice/snowflake-burst.js";
 import * as lightning_ball_lightning from "./lightning/ball-lightning.js";
 import * as lightning_chain_lightning from "./lightning/chain-lightning.js";
@@ -53,8 +62,10 @@ import * as lightning_electrified from "./lightning/electrified.js";
 import * as lightning_lightning_strike from "./lightning/lightning-strike.js";
 import * as lightning_plasma_ball from "./lightning/plasma-ball.js";
 import * as lightning_spark_arc from "./lightning/spark-arc.js";
+import * as lightning_static_burst from "./lightning/static-burst.js";
 import * as lightning_storm_cloud from "./lightning/storm-cloud.js";
 import * as lightning_tesla_coil from "./lightning/tesla-coil.js";
+import * as lightning_thunder_cloud from "./lightning/thunder-cloud.js";
 import * as lightning_thunderclap from "./lightning/thunderclap.js";
 import * as lightning_zap_hit from "./lightning/zap-hit.js";
 import * as scifi_emp_blast from "./scifi/emp-blast.js";
@@ -69,42 +80,54 @@ import * as scifi_teleporter_pad from "./scifi/teleporter-pad.js";
 import * as scifi_tractor_beam from "./scifi/tractor-beam.js";
 import * as scifi_warp_in from "./scifi/warp-in.js";
 import * as scifi_warp_out from "./scifi/warp-out.js";
+import * as melee_axe_smear from "./melee/axe-smear.js";
 import * as melee_claw_swipe from "./melee/claw-swipe.js";
 import * as melee_dagger_flurry from "./melee/dagger-flurry.js";
 import * as melee_double_slash from "./melee/double-slash.js";
 import * as melee_hammer_smash from "./melee/hammer-smash.js";
 import * as melee_heavy_cleave from "./melee/heavy-cleave.js";
 import * as melee_scythe_reap from "./melee/scythe-reap.js";
+import * as melee_shadow_claw from "./melee/shadow-claw.js";
 import * as melee_spear_sweep from "./melee/spear-sweep.js";
+import * as melee_spear_thrust from "./melee/spear-thrust.js";
 import * as melee_spin_slash from "./melee/spin-slash.js";
 import * as melee_sword_slash from "./melee/sword-slash.js";
 import * as melee_thrust from "./melee/thrust.js";
 import * as melee_uppercut from "./melee/uppercut.js";
 import * as melee_whip_crack from "./melee/whip-crack.js";
+import * as impacts_blood_splat from "./impacts/blood-splat.js";
 import * as impacts_blunt_hit from "./impacts/blunt-hit.js";
 import * as impacts_bullet_impact from "./impacts/bullet-impact.js";
 import * as impacts_crit_hit from "./impacts/crit-hit.js";
+import * as impacts_dash_dust from "./impacts/dash-dust.js";
+import * as impacts_dust_puff from "./impacts/dust-puff.js";
 import * as impacts_ground_slam from "./impacts/ground-slam.js";
 import * as impacts_heavy_landing from "./impacts/heavy-landing.js";
 import * as impacts_hit_flash from "./impacts/hit-flash.js";
 import * as impacts_hit_spark from "./impacts/hit-spark.js";
 import * as impacts_impact_frame from "./impacts/impact-frame.js";
 import * as impacts_parry from "./impacts/parry.js";
+import * as impacts_punch_hit from "./impacts/punch-hit.js";
 import * as impacts_ricochet from "./impacts/ricochet.js";
+import * as impacts_rock_shatter from "./impacts/rock-shatter.js";
 import * as impacts_shield_block from "./impacts/shield-block.js";
+import * as impacts_shockwave_ring from "./impacts/shockwave-ring.js";
 import * as projectiles_arrow from "./projectiles/arrow.js";
 import * as projectiles_bullet_tracer from "./projectiles/bullet-tracer.js";
 import * as projectiles_cannonball from "./projectiles/cannonball.js";
 import * as projectiles_energy_disc from "./projectiles/energy-disc.js";
 import * as projectiles_flare from "./projectiles/flare.js";
 import * as projectiles_homing_missile from "./projectiles/homing-missile.js";
+import * as projectiles_ice_shard from "./projectiles/ice-shard.js";
 import * as projectiles_laser_bolt from "./projectiles/laser-bolt.js";
 import * as projectiles_magic_missile from "./projectiles/magic-missile.js";
 import * as projectiles_muzzle_pistol from "./projectiles/muzzle-pistol.js";
 import * as projectiles_muzzle_shotgun from "./projectiles/muzzle-shotgun.js";
 import * as projectiles_muzzle_smg from "./projectiles/muzzle-smg.js";
 import * as projectiles_plasma_shot from "./projectiles/plasma-shot.js";
+import * as projectiles_poison_dart from "./projectiles/poison-dart.js";
 import * as projectiles_rocket from "./projectiles/rocket.js";
+import * as projectiles_wind_blade from "./projectiles/wind-blade.js";
 import * as spawn_coin_drop from "./spawn/coin-drop.js";
 import * as spawn_disintegrate from "./spawn/disintegrate.js";
 import * as spawn_dissolve_burn from "./spawn/dissolve-burn.js";
@@ -118,23 +141,35 @@ import * as spawn_summon_rise from "./spawn/summon-rise.js";
 import * as arcane_arcane_beam from "./arcane/arcane-beam.js";
 import * as arcane_arcane_missiles from "./arcane/arcane-missiles.js";
 import * as arcane_arcane_orb from "./arcane/arcane-orb.js";
+import * as arcane_arcane_orb_projectile from "./arcane/arcane-orb-projectile.js";
+import * as arcane_blink_dash from "./arcane/blink-dash.js";
 import * as arcane_blink_in from "./arcane/blink-in.js";
 import * as arcane_blink_out from "./arcane/blink-out.js";
 import * as arcane_magic_circle_cast from "./arcane/magic-circle-cast.js";
 import * as arcane_mana_burst from "./arcane/mana-burst.js";
 import * as arcane_portal from "./arcane/portal.js";
+import * as arcane_portal_summon from "./arcane/portal-summon.js";
 import * as arcane_rune_circle from "./arcane/rune-circle.js";
+import * as arcane_rune_trap from "./arcane/rune-trap.js";
+import * as arcane_shield_shatter from "./arcane/shield-shatter.js";
 import * as arcane_spell_charge from "./arcane/spell-charge.js";
 import * as arcane_star_fall from "./arcane/star-fall.js";
+import * as arcane_teleport_in from "./arcane/teleport-in.js";
 import * as arcane_time_stop from "./arcane/time-stop.js";
+import * as holy_angel_feathers from "./holy/angel-feathers.js";
+import * as holy_barrier_block from "./holy/barrier-block.js";
 import * as holy_blessing from "./holy/blessing.js";
+import * as holy_divine_beam from "./holy/divine-beam.js";
 import * as holy_divine_shield from "./holy/divine-shield.js";
 import * as holy_feather_burst from "./holy/feather-burst.js";
 import * as holy_halo from "./holy/halo.js";
 import * as holy_heal from "./holy/heal.js";
 import * as holy_heal_aoe from "./holy/heal-aoe.js";
 import * as holy_holy_pillar from "./holy/holy-pillar.js";
+import * as holy_regen_aura from "./holy/regen-aura.js";
+import * as holy_resurrect from "./holy/resurrect.js";
 import * as holy_resurrection from "./holy/resurrection.js";
+import * as holy_shield_bubble from "./holy/shield-bubble.js";
 import * as holy_smite from "./holy/smite.js";
 import * as holy_sunburst from "./holy/sunburst.js";
 import * as shadow_black_hole from "./shadow/black-hole.js";
@@ -145,12 +180,15 @@ import * as shadow_grasping_hands from "./shadow/grasping-hands.js";
 import * as shadow_hex_sigil from "./shadow/hex-sigil.js";
 import * as shadow_life_steal from "./shadow/life-steal.js";
 import * as shadow_necro_skulls from "./shadow/necro-skulls.js";
+import * as shadow_shadow_bolt from "./shadow/shadow-bolt.js";
 import * as shadow_shadow_flames from "./shadow/shadow-flames.js";
 import * as shadow_shadow_tendrils from "./shadow/shadow-tendrils.js";
 import * as shadow_soul_drain from "./shadow/soul-drain.js";
+import * as shadow_void_implosion from "./shadow/void-implosion.js";
 import * as shadow_void_orb from "./shadow/void-orb.js";
 import * as status_bleeding from "./status/bleeding.js";
 import * as status_burning from "./status/burning.js";
+import * as status_charm_hearts from "./status/charm-hearts.js";
 import * as status_charmed from "./status/charmed.js";
 import * as status_confused from "./status/confused.js";
 import * as status_cursed from "./status/cursed.js";
@@ -158,13 +196,17 @@ import * as status_frozen from "./status/frozen.js";
 import * as status_haste from "./status/haste.js";
 import * as status_petrified from "./status/petrified.js";
 import * as status_poisoned from "./status/poisoned.js";
+import * as status_power_up_aura from "./status/power-up-aura.js";
 import * as status_rage from "./status/rage.js";
 import * as status_sleep from "./status/sleep.js";
 import * as status_slowed from "./status/slowed.js";
+import * as status_stun_stars from "./status/stun-stars.js";
 import * as status_stunned from "./status/stunned.js";
+import * as nature_acid_spit from "./nature/acid-spit.js";
 import * as nature_acid_splash from "./nature/acid-splash.js";
 import * as nature_boulder from "./nature/boulder.js";
 import * as nature_earth_spike from "./nature/earth-spike.js";
+import * as nature_fissure from "./nature/fissure.js";
 import * as nature_healing_bloom from "./nature/healing-bloom.js";
 import * as nature_leaf_storm from "./nature/leaf-storm.js";
 import * as nature_poison_cloud from "./nature/poison-cloud.js";
@@ -174,6 +216,7 @@ import * as nature_spore_burst from "./nature/spore-burst.js";
 import * as nature_thorns from "./nature/thorns.js";
 import * as nature_tornado from "./nature/tornado.js";
 import * as nature_toxic_puddle from "./nature/toxic-puddle.js";
+import * as nature_vine_snare from "./nature/vine-snare.js";
 import * as nature_vine_whip from "./nature/vine-whip.js";
 import * as weather_aurora from "./weather/aurora.js";
 import * as weather_blizzard from "./weather/blizzard.js";
@@ -187,6 +230,8 @@ import * as weather_rain from "./weather/rain.js";
 import * as weather_shooting_stars from "./weather/shooting-stars.js";
 import * as weather_snow from "./weather/snow.js";
 import * as weather_storm from "./weather/storm.js";
+import * as weather_whirlwind from "./weather/whirlwind.js";
+import * as weather_wind_gust from "./weather/wind-gust.js";
 import * as ui_achievement from "./ui/achievement.js";
 import * as ui_coin_collect from "./ui/coin-collect.js";
 import * as ui_combo_counter from "./ui/combo-counter.js";
@@ -199,6 +244,8 @@ import * as ui_health_bar_hit from "./ui/health-bar-hit.js";
 import * as ui_heart_lost from "./ui/heart-lost.js";
 import * as ui_level_up from "./ui/level-up.js";
 import * as ui_quest_complete from "./ui/quest-complete.js";
+import * as ui_star_burst_pickup from "./ui/star-burst-pickup.js";
+import * as ui_treasure_glint from "./ui/treasure-glint.js";
 import * as pickups_chest_open from "./pickups/chest-open.js";
 import * as pickups_coin_spin from "./pickups/coin-spin.js";
 import * as pickups_collect_burst from "./pickups/collect-burst.js";
@@ -997,53 +1044,6 @@ import * as india_tabla_hands_rhythm from "./india/tabla-hands-rhythm.js";
 import * as india_temple_gopuram_madurai from "./india/temple-gopuram-madurai.js";
 import * as india_varanasi_morning_boats from "./india/varanasi-morning-boats.js";
 import * as india_white_salt_desert_moon from "./india/white-salt-desert-moon.js";
-import * as foundry_acid_spit from "./foundry/acid-spit.js";
-import * as foundry_angel_feathers from "./foundry/angel-feathers.js";
-import * as foundry_arcane_burst from "./foundry/arcane-burst.js";
-import * as foundry_arcane_orb_projectile from "./foundry/arcane-orb-projectile.js";
-import * as foundry_axe_smear from "./foundry/axe-smear.js";
-import * as foundry_barrier_block from "./foundry/barrier-block.js";
-import * as foundry_blink_dash from "./foundry/blink-dash.js";
-import * as foundry_blood_splat from "./foundry/blood-splat.js";
-import * as foundry_bubble_burst from "./foundry/bubble-burst.js";
-import * as foundry_charm_hearts from "./foundry/charm-hearts.js";
-import * as foundry_dash_dust from "./foundry/dash-dust.js";
-import * as foundry_divine_beam from "./foundry/divine-beam.js";
-import * as foundry_dust_puff from "./foundry/dust-puff.js";
-import * as foundry_fire_nova from "./foundry/fire-nova.js";
-import * as foundry_fissure from "./foundry/fissure.js";
-import * as foundry_ground_flames from "./foundry/ground-flames.js";
-import * as foundry_ice_shard from "./foundry/ice-shard.js";
-import * as foundry_ice_wall from "./foundry/ice-wall.js";
-import * as foundry_lava_burst from "./foundry/lava-burst.js";
-import * as foundry_poison_dart from "./foundry/poison-dart.js";
-import * as foundry_portal_summon from "./foundry/portal-summon.js";
-import * as foundry_power_up_aura from "./foundry/power-up-aura.js";
-import * as foundry_punch_hit from "./foundry/punch-hit.js";
-import * as foundry_regen_aura from "./foundry/regen-aura.js";
-import * as foundry_resurrect from "./foundry/resurrect.js";
-import * as foundry_rock_shatter from "./foundry/rock-shatter.js";
-import * as foundry_rune_trap from "./foundry/rune-trap.js";
-import * as foundry_shadow_bolt from "./foundry/shadow-bolt.js";
-import * as foundry_shadow_claw from "./foundry/shadow-claw.js";
-import * as foundry_shield_bubble from "./foundry/shield-bubble.js";
-import * as foundry_shield_shatter from "./foundry/shield-shatter.js";
-import * as foundry_shockwave_ring from "./foundry/shockwave-ring.js";
-import * as foundry_snowball_impact from "./foundry/snowball-impact.js";
-import * as foundry_spear_thrust from "./foundry/spear-thrust.js";
-import * as foundry_star_burst_pickup from "./foundry/star-burst-pickup.js";
-import * as foundry_static_burst from "./foundry/static-burst.js";
-import * as foundry_steam_vent from "./foundry/steam-vent.js";
-import * as foundry_stun_stars from "./foundry/stun-stars.js";
-import * as foundry_teleport_in from "./foundry/teleport-in.js";
-import * as foundry_thunder_cloud from "./foundry/thunder-cloud.js";
-import * as foundry_tidal_wave from "./foundry/tidal-wave.js";
-import * as foundry_treasure_glint from "./foundry/treasure-glint.js";
-import * as foundry_vine_snare from "./foundry/vine-snare.js";
-import * as foundry_void_implosion from "./foundry/void-implosion.js";
-import * as foundry_whirlwind from "./foundry/whirlwind.js";
-import * as foundry_wind_blade from "./foundry/wind-blade.js";
-import * as foundry_wind_gust from "./foundry/wind-gust.js";
 
 export { categories } from "./categories.js";
 
@@ -1057,13 +1057,17 @@ export const effects = {
   "fire/fireball": fire_fireball,
   "fire/flame-pillar": fire_flame_pillar,
   "fire/flamethrower": fire_flamethrower,
+  "fire/ground-flames": fire_ground_flames,
+  "fire/lava-burst": fire_lava_burst,
   "fire/meteor": fire_meteor,
   "fire/spirit-flame": fire_spirit_flame,
   "fire/torch": fire_torch,
+  "explosions/arcane-burst": explosions_arcane_burst,
   "explosions/barrel-explosion": explosions_barrel_explosion,
   "explosions/big-explosion": explosions_big_explosion,
   "explosions/cartoon-pow": explosions_cartoon_pow,
   "explosions/dirt-explosion": explosions_dirt_explosion,
+  "explosions/fire-nova": explosions_fire_nova,
   "explosions/firework-burst": explosions_firework_burst,
   "explosions/firework-rocket": explosions_firework_rocket,
   "explosions/grenade": explosions_grenade,
@@ -1072,6 +1076,7 @@ export const effects = {
   "explosions/plasma-explosion": explosions_plasma_explosion,
   "explosions/small-explosion": explosions_small_explosion,
   "explosions/smoke-bomb": explosions_smoke_bomb,
+  "water/bubble-burst": water_bubble_burst,
   "water/bubbles": water_bubbles,
   "water/drip": water_drip,
   "water/fountain": water_fountain,
@@ -1079,6 +1084,8 @@ export const effects = {
   "water/rain-splash": water_rain_splash,
   "water/ripples": water_ripples,
   "water/splash": water_splash,
+  "water/steam-vent": water_steam_vent,
+  "water/tidal-wave": water_tidal_wave,
   "water/water-jet": water_water_jet,
   "water/water-orb": water_water_orb,
   "water/waterfall": water_waterfall,
@@ -1092,7 +1099,9 @@ export const effects = {
   "ice/ice-lance": ice_ice_lance,
   "ice/ice-shatter": ice_ice_shatter,
   "ice/ice-spikes": ice_ice_spikes,
+  "ice/ice-wall": ice_ice_wall,
   "ice/icicle-fall": ice_icicle_fall,
+  "ice/snowball-impact": ice_snowball_impact,
   "ice/snowflake-burst": ice_snowflake_burst,
   "lightning/ball-lightning": lightning_ball_lightning,
   "lightning/chain-lightning": lightning_chain_lightning,
@@ -1101,8 +1110,10 @@ export const effects = {
   "lightning/lightning-strike": lightning_lightning_strike,
   "lightning/plasma-ball": lightning_plasma_ball,
   "lightning/spark-arc": lightning_spark_arc,
+  "lightning/static-burst": lightning_static_burst,
   "lightning/storm-cloud": lightning_storm_cloud,
   "lightning/tesla-coil": lightning_tesla_coil,
+  "lightning/thunder-cloud": lightning_thunder_cloud,
   "lightning/thunderclap": lightning_thunderclap,
   "lightning/zap-hit": lightning_zap_hit,
   "scifi/emp-blast": scifi_emp_blast,
@@ -1117,42 +1128,54 @@ export const effects = {
   "scifi/tractor-beam": scifi_tractor_beam,
   "scifi/warp-in": scifi_warp_in,
   "scifi/warp-out": scifi_warp_out,
+  "melee/axe-smear": melee_axe_smear,
   "melee/claw-swipe": melee_claw_swipe,
   "melee/dagger-flurry": melee_dagger_flurry,
   "melee/double-slash": melee_double_slash,
   "melee/hammer-smash": melee_hammer_smash,
   "melee/heavy-cleave": melee_heavy_cleave,
   "melee/scythe-reap": melee_scythe_reap,
+  "melee/shadow-claw": melee_shadow_claw,
   "melee/spear-sweep": melee_spear_sweep,
+  "melee/spear-thrust": melee_spear_thrust,
   "melee/spin-slash": melee_spin_slash,
   "melee/sword-slash": melee_sword_slash,
   "melee/thrust": melee_thrust,
   "melee/uppercut": melee_uppercut,
   "melee/whip-crack": melee_whip_crack,
+  "impacts/blood-splat": impacts_blood_splat,
   "impacts/blunt-hit": impacts_blunt_hit,
   "impacts/bullet-impact": impacts_bullet_impact,
   "impacts/crit-hit": impacts_crit_hit,
+  "impacts/dash-dust": impacts_dash_dust,
+  "impacts/dust-puff": impacts_dust_puff,
   "impacts/ground-slam": impacts_ground_slam,
   "impacts/heavy-landing": impacts_heavy_landing,
   "impacts/hit-flash": impacts_hit_flash,
   "impacts/hit-spark": impacts_hit_spark,
   "impacts/impact-frame": impacts_impact_frame,
   "impacts/parry": impacts_parry,
+  "impacts/punch-hit": impacts_punch_hit,
   "impacts/ricochet": impacts_ricochet,
+  "impacts/rock-shatter": impacts_rock_shatter,
   "impacts/shield-block": impacts_shield_block,
+  "impacts/shockwave-ring": impacts_shockwave_ring,
   "projectiles/arrow": projectiles_arrow,
   "projectiles/bullet-tracer": projectiles_bullet_tracer,
   "projectiles/cannonball": projectiles_cannonball,
   "projectiles/energy-disc": projectiles_energy_disc,
   "projectiles/flare": projectiles_flare,
   "projectiles/homing-missile": projectiles_homing_missile,
+  "projectiles/ice-shard": projectiles_ice_shard,
   "projectiles/laser-bolt": projectiles_laser_bolt,
   "projectiles/magic-missile": projectiles_magic_missile,
   "projectiles/muzzle-pistol": projectiles_muzzle_pistol,
   "projectiles/muzzle-shotgun": projectiles_muzzle_shotgun,
   "projectiles/muzzle-smg": projectiles_muzzle_smg,
   "projectiles/plasma-shot": projectiles_plasma_shot,
+  "projectiles/poison-dart": projectiles_poison_dart,
   "projectiles/rocket": projectiles_rocket,
+  "projectiles/wind-blade": projectiles_wind_blade,
   "spawn/coin-drop": spawn_coin_drop,
   "spawn/disintegrate": spawn_disintegrate,
   "spawn/dissolve-burn": spawn_dissolve_burn,
@@ -1166,23 +1189,35 @@ export const effects = {
   "arcane/arcane-beam": arcane_arcane_beam,
   "arcane/arcane-missiles": arcane_arcane_missiles,
   "arcane/arcane-orb": arcane_arcane_orb,
+  "arcane/arcane-orb-projectile": arcane_arcane_orb_projectile,
+  "arcane/blink-dash": arcane_blink_dash,
   "arcane/blink-in": arcane_blink_in,
   "arcane/blink-out": arcane_blink_out,
   "arcane/magic-circle-cast": arcane_magic_circle_cast,
   "arcane/mana-burst": arcane_mana_burst,
   "arcane/portal": arcane_portal,
+  "arcane/portal-summon": arcane_portal_summon,
   "arcane/rune-circle": arcane_rune_circle,
+  "arcane/rune-trap": arcane_rune_trap,
+  "arcane/shield-shatter": arcane_shield_shatter,
   "arcane/spell-charge": arcane_spell_charge,
   "arcane/star-fall": arcane_star_fall,
+  "arcane/teleport-in": arcane_teleport_in,
   "arcane/time-stop": arcane_time_stop,
+  "holy/angel-feathers": holy_angel_feathers,
+  "holy/barrier-block": holy_barrier_block,
   "holy/blessing": holy_blessing,
+  "holy/divine-beam": holy_divine_beam,
   "holy/divine-shield": holy_divine_shield,
   "holy/feather-burst": holy_feather_burst,
   "holy/halo": holy_halo,
   "holy/heal": holy_heal,
   "holy/heal-aoe": holy_heal_aoe,
   "holy/holy-pillar": holy_holy_pillar,
+  "holy/regen-aura": holy_regen_aura,
+  "holy/resurrect": holy_resurrect,
   "holy/resurrection": holy_resurrection,
+  "holy/shield-bubble": holy_shield_bubble,
   "holy/smite": holy_smite,
   "holy/sunburst": holy_sunburst,
   "shadow/black-hole": shadow_black_hole,
@@ -1193,12 +1228,15 @@ export const effects = {
   "shadow/hex-sigil": shadow_hex_sigil,
   "shadow/life-steal": shadow_life_steal,
   "shadow/necro-skulls": shadow_necro_skulls,
+  "shadow/shadow-bolt": shadow_shadow_bolt,
   "shadow/shadow-flames": shadow_shadow_flames,
   "shadow/shadow-tendrils": shadow_shadow_tendrils,
   "shadow/soul-drain": shadow_soul_drain,
+  "shadow/void-implosion": shadow_void_implosion,
   "shadow/void-orb": shadow_void_orb,
   "status/bleeding": status_bleeding,
   "status/burning": status_burning,
+  "status/charm-hearts": status_charm_hearts,
   "status/charmed": status_charmed,
   "status/confused": status_confused,
   "status/cursed": status_cursed,
@@ -1206,13 +1244,17 @@ export const effects = {
   "status/haste": status_haste,
   "status/petrified": status_petrified,
   "status/poisoned": status_poisoned,
+  "status/power-up-aura": status_power_up_aura,
   "status/rage": status_rage,
   "status/sleep": status_sleep,
   "status/slowed": status_slowed,
+  "status/stun-stars": status_stun_stars,
   "status/stunned": status_stunned,
+  "nature/acid-spit": nature_acid_spit,
   "nature/acid-splash": nature_acid_splash,
   "nature/boulder": nature_boulder,
   "nature/earth-spike": nature_earth_spike,
+  "nature/fissure": nature_fissure,
   "nature/healing-bloom": nature_healing_bloom,
   "nature/leaf-storm": nature_leaf_storm,
   "nature/poison-cloud": nature_poison_cloud,
@@ -1222,6 +1264,7 @@ export const effects = {
   "nature/thorns": nature_thorns,
   "nature/tornado": nature_tornado,
   "nature/toxic-puddle": nature_toxic_puddle,
+  "nature/vine-snare": nature_vine_snare,
   "nature/vine-whip": nature_vine_whip,
   "weather/aurora": weather_aurora,
   "weather/blizzard": weather_blizzard,
@@ -1235,6 +1278,8 @@ export const effects = {
   "weather/shooting-stars": weather_shooting_stars,
   "weather/snow": weather_snow,
   "weather/storm": weather_storm,
+  "weather/whirlwind": weather_whirlwind,
+  "weather/wind-gust": weather_wind_gust,
   "ui/achievement": ui_achievement,
   "ui/coin-collect": ui_coin_collect,
   "ui/combo-counter": ui_combo_counter,
@@ -1247,6 +1292,8 @@ export const effects = {
   "ui/heart-lost": ui_heart_lost,
   "ui/level-up": ui_level_up,
   "ui/quest-complete": ui_quest_complete,
+  "ui/star-burst-pickup": ui_star_burst_pickup,
+  "ui/treasure-glint": ui_treasure_glint,
   "pickups/chest-open": pickups_chest_open,
   "pickups/coin-spin": pickups_coin_spin,
   "pickups/collect-burst": pickups_collect_burst,
@@ -2045,51 +2092,4 @@ export const effects = {
   "india/temple-gopuram-madurai": india_temple_gopuram_madurai,
   "india/varanasi-morning-boats": india_varanasi_morning_boats,
   "india/white-salt-desert-moon": india_white_salt_desert_moon,
-  "foundry/acid-spit": foundry_acid_spit,
-  "foundry/angel-feathers": foundry_angel_feathers,
-  "foundry/arcane-burst": foundry_arcane_burst,
-  "foundry/arcane-orb-projectile": foundry_arcane_orb_projectile,
-  "foundry/axe-smear": foundry_axe_smear,
-  "foundry/barrier-block": foundry_barrier_block,
-  "foundry/blink-dash": foundry_blink_dash,
-  "foundry/blood-splat": foundry_blood_splat,
-  "foundry/bubble-burst": foundry_bubble_burst,
-  "foundry/charm-hearts": foundry_charm_hearts,
-  "foundry/dash-dust": foundry_dash_dust,
-  "foundry/divine-beam": foundry_divine_beam,
-  "foundry/dust-puff": foundry_dust_puff,
-  "foundry/fire-nova": foundry_fire_nova,
-  "foundry/fissure": foundry_fissure,
-  "foundry/ground-flames": foundry_ground_flames,
-  "foundry/ice-shard": foundry_ice_shard,
-  "foundry/ice-wall": foundry_ice_wall,
-  "foundry/lava-burst": foundry_lava_burst,
-  "foundry/poison-dart": foundry_poison_dart,
-  "foundry/portal-summon": foundry_portal_summon,
-  "foundry/power-up-aura": foundry_power_up_aura,
-  "foundry/punch-hit": foundry_punch_hit,
-  "foundry/regen-aura": foundry_regen_aura,
-  "foundry/resurrect": foundry_resurrect,
-  "foundry/rock-shatter": foundry_rock_shatter,
-  "foundry/rune-trap": foundry_rune_trap,
-  "foundry/shadow-bolt": foundry_shadow_bolt,
-  "foundry/shadow-claw": foundry_shadow_claw,
-  "foundry/shield-bubble": foundry_shield_bubble,
-  "foundry/shield-shatter": foundry_shield_shatter,
-  "foundry/shockwave-ring": foundry_shockwave_ring,
-  "foundry/snowball-impact": foundry_snowball_impact,
-  "foundry/spear-thrust": foundry_spear_thrust,
-  "foundry/star-burst-pickup": foundry_star_burst_pickup,
-  "foundry/static-burst": foundry_static_burst,
-  "foundry/steam-vent": foundry_steam_vent,
-  "foundry/stun-stars": foundry_stun_stars,
-  "foundry/teleport-in": foundry_teleport_in,
-  "foundry/thunder-cloud": foundry_thunder_cloud,
-  "foundry/tidal-wave": foundry_tidal_wave,
-  "foundry/treasure-glint": foundry_treasure_glint,
-  "foundry/vine-snare": foundry_vine_snare,
-  "foundry/void-implosion": foundry_void_implosion,
-  "foundry/whirlwind": foundry_whirlwind,
-  "foundry/wind-blade": foundry_wind_blade,
-  "foundry/wind-gust": foundry_wind_gust,
 };

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Importe (ou réimporte) des effets de PVFX Foundry 1.0 (Pixel VFX Studio, planches dédiées au domaine public,
-// CC0 1.0) dans effets/foundry/<nom>.js. Chaque fichier garde le nom, la description, les tags, la taille, le pivot
+// CC0 1.0) dans la bibliothèque principale, effets/<catégorie>/<nom>.js (la famille du pack, ou la plus proche :
+// voir CATEGORIE). Chaque fichier garde le nom, la description, les tags, la taille, le pivot
 // et les durées d'images du pack, et ses images : la planche « lit » (grille), ramenée à 255 couleurs au plus si
-// besoin, compressée et lue par effets/foundry/_lib.js.
+// besoin, compressée et lue par effets/_pvfx/planche.js.
 //
 //   node tools/pvfx-foundry.mjs <dossier du pack décompressé> && node tools/index.mjs
 //
@@ -90,10 +91,12 @@ function quantize(hist, max = 255) {
   });
 }
 
+// leurs familles « smoke » et « wind » n'existent pas ici : chaque effet va dans la catégorie la plus proche
+export const CATEGORIE = { "smoke/dash-dust": "impacts", "smoke/dust-puff": "impacts", "smoke/steam-vent": "water", "wind/whirlwind": "weather", "wind/wind-gust": "weather", "wind/wind-blade": "projectiles" };
+
 const pack = JSON.parse(readFileSync(join(src, "pack.json"), "utf8"));
 const parId = new Map(pack.effects.map((e) => [e.id, e]));
-const DIR = join(ROOT, "effets", "foundry");
-mkdirSync(DIR, { recursive: true });
+mkdirSync(join(ROOT, "effets", "_pvfx"), { recursive: true });
 const hexa = (c) => c.map((v) => v.toString(16).padStart(2, "0")).join("");
 let poids = 0;
 
@@ -153,8 +156,8 @@ for (const id of GARDER) {
   };
   const def = { w: W, h: H, ox: man.pivot[0], oy: man.pivot[1], ...(egal ? { count: N, ms: ms[0] } : { ms }), pal: pal.map(hexa).join(""), data };
   const code = `// ${e.name} : PVFX Foundry 1.0 par Pixel VFX Studio (${id}), planche « lit » dédiée au domaine public (CC0 1.0).
-// Importé par tools/pvfx-foundry.mjs : ${N} images de ${W}×${H}, ${pal.length} couleurs. Le dessin est dans effets/foundry/_lib.js.
-import { planche } from "./_lib.js";
+// Importé par tools/pvfx-foundry.mjs : ${N} images de ${W}×${H}, ${pal.length} couleurs. Le dessin est dans effets/_pvfx/planche.js.
+import { planche } from "../_pvfx/planche.js";
 
 export const meta = ${JSON.stringify(meta, null, 2).replace(/"(\w+)":/g, "$1:").replace(/\[\n\s+([^\[\]{}]*?)\n\s+\]/g, (m, x) => "[" + x.replace(/\n\s+/g, " ") + "]")};
 
@@ -164,8 +167,10 @@ export function draw(p, t, o) {
   P.draw(p, t, o);
 }
 `;
-  writeFileSync(join(DIR, nom + ".js"), code);
+  const cat = CATEGORIE[id] ?? famille;
+  if (!existsSync(join(ROOT, "effets", cat))) throw new Error(`${id} : la catégorie ${cat} n'existe pas`);
+  writeFileSync(join(ROOT, "effets", cat, nom + ".js"), code);
   poids += code.length;
 }
-writeFileSync(join(DIR, "LICENSE.txt"), readFileSync(join(src, "LICENSE.txt")));
-console.log(`${GARDER.length} effets -> effets/foundry/ (${Math.round(poids / 1024)} Ko)`);
+writeFileSync(join(ROOT, "effets", "_pvfx", "LICENSE.txt"), readFileSync(join(src, "LICENSE.txt")));
+console.log(`${GARDER.length} effets -> effets/<catégorie>/ (${Math.round(poids / 1024)} Ko)`);

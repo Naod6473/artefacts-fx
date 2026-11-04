@@ -3987,191 +3987,191 @@
     "name": "Désert de sel blanc sous la lune",
     "desc": "L'immense désert de sel blanc brille sous la pleine lune, sa croûte craquelée en hexagones, une charrette à chameau passe à l'horizon et des musiciens jouent près d'un feu."
   },
-  "foundry/acid-spit": {
+  "nature/acid-spit": {
     "name": "Crachat d'acide",
     "desc": "Une boule d'acide luisante crachée en cloche, qui goutte, s'écrase sur un mur, projette des langues épaisses et laisse une flaque qui grésille puis disparaît."
   },
-  "foundry/angel-feathers": {
+  "holy/angel-feathers": {
     "name": "Plumes d'ange",
     "desc": "Un halo doré s'embrase au-dessus de la tête, flashe blanc et libère des plumes qui tournoient puis redescendent en se balançant, entre des points de lumière dorés."
   },
-  "foundry/arcane-burst": {
+  "explosions/arcane-burst": {
     "name": "Éclat arcanique",
     "desc": "Une charge violette aspire cinq traits, éclate en une fleur-étoile magenta avec un cercle de runes brisé et des éclats en spirale, puis s'éteint vers le prune."
   },
-  "foundry/arcane-orb-projectile": {
+  "arcane/arcane-orb-projectile": {
     "name": "Orbe arcanique",
     "desc": "Un petit orbe magenta se charge, file avec des satellites et une traîne qui refroidit du rose au violet, éclate en un flash blanc puis en anneau pointillé."
   },
-  "foundry/axe-smear": {
+  "melee/axe-smear": {
     "name": "Coup de hache",
     "desc": "Un lourd coup de hache vertical : un épais croissant d'acier à bord blanc s'abat sur trois images et se brise en éclats et étincelles à l'impact."
   },
-  "foundry/barrier-block": {
+  "holy/barrier-block": {
     "name": "Barrière bloquante",
     "desc": "Une vitre de lumière hexagonale apparaît, encaisse un coup venu de droite, ondule, se fissure et se défait cellule par cellule en poussière dorée."
   },
-  "foundry/blink-dash": {
+  "arcane/blink-dash": {
     "name": "Ruée éclair",
     "desc": "Une fente avale la silhouette, une traînée d'images rémanentes traverse, un flash blanc à l'arrivée et des points de lumière restent aux deux bouts."
   },
-  "foundry/blood-splat": {
+  "impacts/blood-splat": {
     "name": "Giclée de sang",
     "desc": "Une gerbe de sang cramoisi à bord clair et jets effilés, qui se creuse en croissant et se brise, pendant que de grosses gouttes retombent en flaques."
   },
-  "foundry/bubble-burst": {
+  "water/bubble-burst": {
     "name": "Bulles qui éclatent",
     "desc": "Quatre bulles d'eau gonflent en tremblant ; la plus grosse éclate en un flash blanc, les autres suivent, gouttelettes et anneau d'écume qui se brise."
   },
-  "foundry/charm-hearts": {
+  "status/charm-hearts": {
     "name": "Cœurs de charme",
     "desc": "État charmé en boucle : quatre cœurs dodus tournent en orbite au-dessus de la tête, avec une traîne scintillante et un battement qui lâche des petits cœurs."
   },
-  "foundry/dash-dust": {
+  "impacts/dash-dust": {
     "name": "Poussière de ruée",
     "desc": "Poussière de dérapage : des volutes partent en arrière, une traînée basse et des lignes de vitesse au sol, une petite gerbe à la fin, du gravier qui retombe."
   },
-  "foundry/divine-beam": {
+  "holy/divine-beam": {
     "name": "Rayon divin",
     "desc": "Un halo se dessine au sol puis une lourde colonne de lumière s'abat avec un flash blanc, tient avec des anneaux qui descendent et finit en éclats qui montent."
   },
-  "foundry/dust-puff": {
+  "impacts/dust-puff": {
     "name": "Nuage de poussière",
     "desc": "Poussière d'atterrissage : des volutes douces roulent au sol, montent, s'amincissent en croissants ; du gravier gicle au ras du sol."
   },
-  "foundry/fire-nova": {
+  "explosions/fire-nova": {
     "name": "Nova de feu",
     "desc": "Des braises aspirées vers le lanceur, un flash blanc, puis un mur de flammes qui court en ellipse au sol, se déchire, refroidit en braises, cendres et fumée."
   },
-  "foundry/fissure": {
+  "nature/fissure": {
     "name": "Fissure",
     "desc": "Une crevasse ramifiée court au sol et s'ouvre sur une lueur pendant que des dalles se soulèvent ; un éclat orange au bout, puis la poussière retombe et tout se referme."
   },
-  "foundry/ground-flames": {
+  "fire/ground-flames": {
     "name": "Sol en flammes",
     "desc": "Danger en boucle : des touffes de flammes sur un sol brûlé, proches et hautes devant, petites derrière, braises et escarbilles ; une fois par boucle, une flamme jaillit."
   },
-  "foundry/ice-shard": {
+  "projectiles/ice-shard": {
     "name": "Éclat de glace",
     "desc": "Un cristal de glace part d'une bouffée de givre, file sur une traînée froide, percute la cible avec un flash blanc et vole en éclats dans une brume glacée."
   },
-  "foundry/ice-wall": {
+  "ice/ice-wall": {
     "name": "Mur de glace",
     "desc": "Le givre rampe au sol, une rangée de dalles de glace jaillit en mur, scintille, tient dans la brume puis se brise de haut en bas en éclats."
   },
-  "foundry/lava-burst": {
+  "fire/lava-burst": {
     "name": "Éruption de lave",
     "desc": "Le sol gonfle et ses fissures rougeoient, une fontaine de lave jaillit et projette de grosses gouttes qui forment des flaques, croûtent puis s'éteignent."
   },
-  "foundry/poison-dart": {
+  "projectiles/poison-dart": {
     "name": "Fléchette empoisonnée",
     "desc": "Une fléchette barbelée file avec des gouttes toxiques, éclate en étoile vert pâle, éclabousse et laisse une flaque toxique qui bouillonne et s'efface."
   },
-  "foundry/portal-summon": {
+  "arcane/portal-summon": {
     "name": "Portail d'invocation",
     "desc": "Un cercle de runes se trace au sol, le sol se déchire, une colonne d'énergie jaillit, se tord puis retombe ; le trou se referme et les runes s'éparpillent."
   },
-  "foundry/power-up-aura": {
+  "status/power-up-aura": {
     "name": "Aura de puissance",
     "desc": "État renforcé en boucle : des flammes d'énergie dorée montent d'une ellipse au sol, des volutes et un anneau qui pulse ; une fois par boucle, un anneau de lumière balaie le corps."
   },
-  "foundry/punch-hit": {
+  "impacts/punch-hit": {
     "name": "Coup de poing",
     "desc": "Un pincement, une étoile blanche façon bande dessinée, un anneau de pointes, des éclats projetés à droite et des copeaux de poussière qui tombent."
   },
-  "foundry/regen-aura": {
+  "holy/regen-aura": {
     "name": "Aura de régénération",
     "desc": "Soin continu en boucle : une ellipse verte aux pieds, trois volutes qui montent avec des croix et des feuilles ; une fois par boucle, une grande croix pulse."
   },
-  "foundry/resurrect": {
+  "holy/resurrect": {
     "name": "Résurrection",
     "desc": "Un sceau doré se dessine au sol, un rayon descend dessus, flash blanc, puis le rayon se creuse pendant que plumes et étincelles montent."
   },
-  "foundry/rock-shatter": {
+  "impacts/rock-shatter": {
     "name": "Rocher brisé",
     "desc": "Un rocher frappé se fissure, ses fissures s'illuminent un instant, puis il éclate en huit blocs qui rebondissent et rapetissent dans un nuage de poussière."
   },
-  "foundry/rune-trap": {
+  "arcane/rune-trap": {
     "name": "Piège runique",
     "desc": "Un sceau sarcelle au sol allume ses runes une à une, tire un pic de lumière qui projette des éclats de runes, puis se fissure et s'efface."
   },
-  "foundry/shadow-bolt": {
+  "shadow/shadow-bolt": {
     "name": "Trait d'ombre",
     "desc": "Un trait de fumée violet-noir à cœur magenta file avec des tentacules ; à l'impact, flash magenta et gerbe de fumée sombre qui se dissout."
   },
-  "foundry/shadow-claw": {
+  "melee/shadow-claw": {
     "name": "Griffe d'ombre",
     "desc": "Trois griffes d'ombre lacèrent vers le bas : trois croissants violets à une image d'écart, un flash, puis ils se défont en tirets et volutes sombres."
   },
-  "foundry/shield-bubble": {
+  "holy/shield-bubble": {
     "name": "Bulle de bouclier",
     "desc": "Bouclier sacré en boucle : une sphère au bord doré, des facettes hexagonales qui miroitent, des points en orbite et un impact qui fait onduler la coque."
   },
-  "foundry/shield-shatter": {
+  "arcane/shield-shatter": {
     "name": "Bouclier brisé",
     "desc": "Un dôme violet à facettes est frappé, se fissure, flashe blanc puis éclate en éclats de verre qui tournoient et retombent."
   },
-  "foundry/shockwave-ring": {
+  "impacts/shockwave-ring": {
     "name": "Anneau de choc",
     "desc": "Onde de choc en perspective pour atterrissages et gros coups : flash blanc, anneau épais qui s'amincit et se brise, poussière et fissures qui s'effacent."
   },
-  "foundry/snowball-impact": {
+  "ice/snowball-impact": {
     "name": "Boule de neige",
     "desc": "Une boule de neige arrive en cloche, s'écrase sur la cible avec un flash blanc, éclate en morceaux qui fondent dans un nuage de poudreuse."
   },
-  "foundry/spear-thrust": {
+  "melee/spear-thrust": {
     "name": "Coup de lance",
     "desc": "Une estocade droite : une traînée d'acier effilée à pointe blanche, des lignes de vitesse, une étoile au bout, puis la traînée se défait par l'arrière."
   },
-  "foundry/star-burst-pickup": {
+  "ui/star-burst-pickup": {
     "name": "Étoile à ramasser",
     "desc": "Une étoile dorée s'écrase, s'étire et tourne, flashe blanc, puis lâche des petites étoiles qui retombent et un anneau doré pointillé."
   },
-  "foundry/static-burst": {
+  "lightning/static-burst": {
     "name": "Décharge statique",
     "desc": "Des éclairs anguleux convergent puis une masse électrique blanche tire cinq zigzags épais qui se brisent en étincelles, du blanc au cyan puis à l'indigo."
   },
-  "foundry/steam-vent": {
+  "water/steam-vent": {
     "name": "Jet de vapeur",
     "desc": "Vapeur en boucle : des bouffées sortent d'une fissure lumineuse, gonflent et se défont ; une fois par boucle, un jet siffle et projette des gouttes."
   },
-  "foundry/stun-stars": {
+  "status/stun-stars": {
     "name": "Étoiles d'étourdissement",
     "desc": "État sonné en boucle : quatre étoiles tournent en orbite serrée au-dessus de la tête, grosses devant, petites derrière, avec des traînes violettes."
   },
-  "foundry/teleport-in": {
+  "arcane/teleport-in": {
     "name": "Téléportation (arrivée)",
     "desc": "Des points convergent sur un glyphe au sol, une fente de lumière s'ouvre, flashe blanc, devient une colonne qui se défait en bandes vers le haut."
   },
-  "foundry/thunder-cloud": {
+  "lightning/thunder-cloud": {
     "name": "Nuage d'orage",
     "desc": "Danger en boucle : un nuage sombre qui bouillonne sur une pluie oblique ; une fois par boucle, il s'illumine et un éclair fourchu frappe le sol."
   },
-  "foundry/tidal-wave": {
+  "water/tidal-wave": {
     "name": "Raz-de-marée",
     "desc": "Une houle monte, s'enroule en vague à crête d'écume, roule vers la droite et s'écrase, puis laisse des embruns et une flaque qui s'écoule."
   },
-  "foundry/treasure-glint": {
+  "ui/treasure-glint": {
     "name": "Éclat de trésor",
     "desc": "Scintillement en boucle : une grosse étoile à quatre branches qui grandit jusqu'au blanc puis s'évide, et de petites étoiles en décalé."
   },
-  "foundry/vine-snare": {
+  "nature/vine-snare": {
     "name": "Lianes piégeuses",
     "desc": "Le sol se fend, quatre lianes jaillissent et s'enroulent autour de la cible, serrent, puis brunissent, se brisent et s'enfoncent."
   },
-  "foundry/void-implosion": {
+  "shadow/void-implosion": {
     "name": "Implosion du néant",
     "desc": "Des bras violets et des débris spiralent vers un cœur noir, qui tient, éclate en un flash blanc et laisse dériver volutes et particules maudites."
   },
-  "foundry/whirlwind": {
+  "weather/whirlwind": {
     "name": "Tourbillon",
     "desc": "Tourbillon en boucle : un entonnoir de bandes gris-vert qui ondule, des feuilles et cailloux en orbite, une jupe de poussière ; une feuille éjectée par boucle."
   },
-  "foundry/wind-blade": {
+  "projectiles/wind-blade": {
     "name": "Lame de vent",
     "desc": "Un croissant d'air comprimé lancé avec deux échos et des feuilles aspirées ; un flash et une ligne de coupe, puis la lame se scinde et se dissipe."
   },
-  "foundry/wind-gust": {
+  "weather/wind-gust": {
     "name": "Rafale",
     "desc": "Une rafale horizontale : des rubans de vent blanc-sarcelle qui s'enroulent et des feuilles arrachées qui virevoltent."
   }
