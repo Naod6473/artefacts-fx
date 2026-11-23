@@ -40,6 +40,7 @@
   "comment_3": "Proposez vos propres effets : éditeur avec aperçu en direct, tests automatiques et relecture avant publication.",
   "pied_licence": "Code et effets sous licence MIT.",
   "pied_credits": "Les 232 premiers effets et les 12 attaques jouées par un personnage viennent de <a href=\"https://github.com/patch-gg/pixelfx\">pixelfx</a> (Patch) et des effets open source de <a href=\"https://www.spritefusion.com/pixel-art-vfx\">Sprite Fusion</a> (Hugo Duprez). Les 731 scènes animées en caractères (paysages, interfaces, cosmos, demoscene…) viennent de <a href=\"https://github.com/kailashsr38/ascii-magic-art\">ascii-magic-art</a> (ASCII Magic).",
+  "pied_vicsi": "Site réalisé par <a href=\"https://vicsi.fr\">VICSI, création de sites web</a>.",
   "langue_autre": "English",
   "langue_autre_code": "en",
   "bib_titre": "Bibliothèque · Artefacts",
