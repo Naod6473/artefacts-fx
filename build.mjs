@@ -219,7 +219,7 @@ function remplir(modele, t, page) {
   return html.replace(/(assets\/[\w\/.-]+\.(?:js|css))"/g, `$1?v=${VERSION}"`);
 }
 const VERSION = Date.now().toString(36);
-const HTML_PERMIS = new Set(["pied_credits", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps", "ap_corps", "if_credit", "if_kits", "ld_credit"]);
+const HTML_PERMIS = new Set(["pied_credits", "pied_vicsi", "cpt_erreurs_json", "prop_statuts_json", "prop_verifs_json", "ml_corps", "ap_corps", "if_credit", "if_kits", "ld_credit"]);
 for (const langue of LANGUES) {
   const t = { ...JSON.parse(readFileSync(`site/i18n/${langue}.json`, "utf8")), langue, base: BASE };
   // les cartes de la page Interfaces, une par kit (site/interfaces/kits.json) : la page reste légère, le kit se charge au clic

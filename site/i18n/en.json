@@ -40,6 +40,7 @@
   "comment_3": "Submit your own effects: an editor with live preview, automatic checks and a review before publishing.",
   "pied_licence": "Code and effects under the MIT license.",
   "pied_credits": "The first 232 effects and the 12 attacks performed by a character come from <a href=\"https://github.com/patch-gg/pixelfx\">pixelfx</a> (Patch) and the open-source effects of <a href=\"https://www.spritefusion.com/pixel-art-vfx\">Sprite Fusion</a> (Hugo Duprez). The 731 animated character scenes (landscapes, interfaces, cosmos, demoscene…) come from <a href=\"https://github.com/kailashsr38/ascii-magic-art\">ascii-magic-art</a> (ASCII Magic).",
+  "pied_vicsi": "Built by <a href=\"https://vicsi.fr\">VICSI, web design and development</a>.",
   "langue_autre": "Français",
   "langue_autre_code": "fr",
   "bib_titre": "Library · Artefacts",
